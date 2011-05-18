@@ -10,9 +10,19 @@ Author URI: http://pronamic.eu/
 License: GPL
 */
 
+require_once 'twinfield/library/bootstrap.php';
+
 class Twinfield {
-	public static function bootstrap() {
-		// add_action('init', array(__CLASS__, 'initialize'));
+	const TEXT_DOMAIN = 'twinfield';
+
+	const SALT = 'Leap_of_faith';
+
+	public static $file;
+
+	public static function bootstrap($file) {
+		self::$file = $file;
+
+		add_action('init', array(__CLASS__, 'initialize'));
 
 		add_action('admin_init', array(__CLASS__, 'adminInitialize'));
 
@@ -25,6 +35,35 @@ class Twinfield {
 		add_filter('query_vars', array(__CLASS__, 'queryVars'));
 
 		add_filter('wp_loaded',array(__CLASS__, 'flushRules'));
+	}
+
+	private static function encrypt($text) {
+		$ivSize = mcrypt_get_iv_size(MCRYPT_RIJNDAEL_256, MCRYPT_MODE_ECB);
+		$iv = mcrypt_create_iv($ivSize, MCRYPT_RAND);
+
+		$text = mcrypt_encrypt(MCRYPT_RIJNDAEL_256, self::SALT, $text, MCRYPT_MODE_ECB, $iv);
+		$text = base64_encode($text);
+		$text = trim($text);
+
+		return trim($text); 
+	}
+
+	private static function decrypt($text) {
+		$ivSize = mcrypt_get_iv_size(MCRYPT_RIJNDAEL_256, MCRYPT_MODE_ECB);
+		$iv = mcrypt_create_iv($ivSize, MCRYPT_RAND);
+
+		$text = base64_decode($text);
+		$text = mcrypt_decrypt(MCRYPT_RIJNDAEL_256, self::SALT, $text, MCRYPT_MODE_ECB, $iv);
+		$text = trim($text);
+
+        return $text;
+	}
+
+	public static function initialize() {
+		// Load plugin text domain
+		$relPath = dirname(plugin_basename(self::$file)) . '/languages/';
+
+		load_plugin_textdomain(self::TEXT_DOMAIN, false, $relPath);
 	}
 
 	public static function flushRules() {
@@ -51,15 +90,31 @@ class Twinfield {
 		$id = get_query_var('twinfield_id');
 
 		if(!empty($id)) {
+			global $twinfieldSalesInvoice;
+			
+			$username = self::decrypt(get_option('twinfield-username'));
+			$password = self::decrypt(get_option('twinfield-password'));
+			$organisation = self::decrypt(get_option('twinfield-organisation'));
+
+			$twinfieldClient = new Pronamic\Twinfield\TwinfieldClient();
+			$result = $twinfieldClient->logon($username, $password, $organisation);
+
+			$offices = $twinfieldClient->getOffices();
+			foreach($offices as $office) {
+				
+			}
+
+			$twinfieldSalesInvoice = $twinfieldClient->readSalesInvoice($office->getCode(), 'FACTUUR', $id);
+
 			// Determine template
 			$templates = array();
-			$templates[] = 'twinfield-' . $id . '.php';
-			$templates[] = 'twinfield.php';
+			$templates[] = 'twinfield-sales-invoice-' . $id . '.php';
+			$templates[] = 'twinfield-sales-invoice.php';
 
 			$template = locate_template($templates);
 
 			if(!$template) {
-				$template = __DIR__ . '/templates/test.php';
+				$template = __DIR__ . '/templates/sales-invoice.php';
 			}
 
 			if(is_file($template)) {
@@ -70,11 +125,15 @@ class Twinfield {
 		}
 	}
 
+	public static function sanitizeEncrypted($value) {
+		return self::encrypt($value);
+	}
+
 	public static function adminInitialize() {
 		// Settings
-		register_setting('twinfield', 'twinfield-username');
-		register_setting('twinfield', 'twinfield-password');
-		register_setting('twinfield', 'twinfield-wsdl');
+		register_setting('twinfield', 'twinfield-username', array(__CLASS__, 'sanitizeEncrypted'));
+		register_setting('twinfield', 'twinfield-password', array(__CLASS__, 'sanitizeEncrypted'));
+		register_setting('twinfield', 'twinfield-organisation', array(__CLASS__, 'sanitizeEncrypted'));
 
 		// Styles
 		wp_enqueue_style(
@@ -114,4 +173,4 @@ class Twinfield {
 	}
 }
 
-Twinfield::bootstrap();
+Twinfield::bootstrap(__FILE__);
