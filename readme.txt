@@ -23,6 +23,10 @@ WordPress installation and then activate the Plugin from Plugins page.
 1.	Twinfield
 
 
+== ToDo ==
+
+*	Encrypting en decrypting options if they are not set yet
+
 == Changelog ==
 
 = 0.1 =
