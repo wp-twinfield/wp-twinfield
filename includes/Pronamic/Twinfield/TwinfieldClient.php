@@ -263,10 +263,11 @@ echo '</pre>';
 		$addresses = XML\AddressesParser::parse($xml->addresses);
 		$debtor->setAddresses($addresses);
 		
-		
+		/*
 		echo '<pre>';
 		echo htmlentities($xml->asXML());
 		echo '</pre>';
+		*/
 
 		return $debtor;
 	}

@@ -68,19 +68,21 @@ class Twinfield {
 	public static function generateRewriteRules($wpRewrite) {
 		$rules = array();
 
-		$rules['factuur/([^/]+)$'] = 'index.php?twinfield_id=' . $wpRewrite->preg_index(1);
+		$rules['facturen/([^/]+)$'] = 'index.php?twinfield_sales_invoice_id=' . $wpRewrite->preg_index(1);
+		$rules['debiteuren/([^/]+)$'] = 'index.php?twinfield_debtor_id=' . $wpRewrite->preg_index(1);
 
 		$wpRewrite->rules = $rules + $wpRewrite->rules;
 	}
 
 	public static function queryVars($queryVars) {
-		$queryVars[] = 'twinfield_id';
+		$queryVars[] = 'twinfield_sales_invoice_id';
+		$queryVars[] = 'twinfield_debtor_id';
 
 		return $queryVars;
 	}
 
 	public static function templateRedirect() {
-		$id = get_query_var('twinfield_id');
+		$id = get_query_var('twinfield_sales_invoice_id');
 
 		if(!empty($id)) {
 			global $twinfieldSalesInvoice;
@@ -108,6 +110,38 @@ class Twinfield {
 
 			if(!$template) {
 				$template = __DIR__ . '/templates/sales-invoice.php';
+			}
+
+			if(is_file($template)) {
+				include $template;
+
+    			exit;
+			}
+		}
+
+		$id = get_query_var('twinfield_debtor_id');
+
+		if(!empty($id)) {
+			global $twinfield_debtor;
+			
+			$username = get_option( 'twinfield_username' );
+			$password = get_option( 'twinfield_password' );
+			$organisation = get_option( 'twinfield_organisation' );
+
+			$twinfield_client = new Pronamic\Twinfield\TwinfieldClient();
+			$result = $twinfield_client->logon($username, $password, $organisation);
+
+			$twinfield_debtor = $twinfield_client->readDimension( 'dimensions', '11024', 'DEB', $id );
+
+			// Determine template
+			$templates = array();
+			$templates[] = 'twinfield-debtor-' . $id . '.php';
+			$templates[] = 'twinfield-debtor.php';
+
+			$template = locate_template($templates);
+
+			if(!$template) {
+				$template = __DIR__ . '/templates/debtor.php';
 			}
 
 			if(is_file($template)) {
