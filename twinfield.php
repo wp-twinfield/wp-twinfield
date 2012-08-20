@@ -3,10 +3,16 @@
 Plugin Name: Twinfield
 Plugin URI: http://pronamic.eu/wordpress/twinfield/
 Description: This plugin makes a connection with the Twinfield adminsitration software.
+
 Version: 0.1
 Requires at least: 3.0
+
 Author: Pronamic
 Author URI: http://pronamic.eu/
+
+Text Domain: twinfield
+Domain Path: /languages/
+
 License: GPL
 */
 
@@ -165,11 +171,11 @@ class Twinfield {
 	}
 
 	public static function page() {
-		include 'page-twinfield.php';
+		include 'admin/twinfield.php';
 	}
 
 	public static function pageSettings() {
-		include 'page-settings.php';
+		include 'admin/settings.php';
 	}
 }
 
