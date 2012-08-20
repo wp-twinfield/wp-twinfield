@@ -19,8 +19,6 @@ License: GPL
 require_once 'twinfield/library/bootstrap.php';
 
 class Twinfield {
-	const TEXT_DOMAIN = 'twinfield';
-
 	const SALT = 'Leap_of_faith';
 
 	public static $file;
@@ -69,7 +67,7 @@ class Twinfield {
 		// Load plugin text domain
 		$relPath = dirname(plugin_basename(self::$file)) . '/languages/';
 
-		load_plugin_textdomain(self::TEXT_DOMAIN, false, $relPath);
+		load_plugin_textdomain( 'twinfield', false, $relPath);
 	}
 
 	public static function flushRules() {
