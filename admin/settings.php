@@ -35,6 +35,14 @@
 					<input id="organisation-field" name="twinfield_organisation" value="<?php form_option( 'twinfield_organisation' ); ?>" type="text" class="regular-text" />
 				</td>
 			</tr>
+			<tr valign="top">
+				<th scope="row">
+					<label for="office-field"><?php _e('Office Code', 'twinfield' ); ?></label>
+				</th>
+				<td>
+					<input id="office-field" name="twinfield_office_code" value="<?php form_option( 'twinfield_office_code' ); ?>" type="text" class="regular-text" />
+				</td>
+			</tr>
 		</table>
 
 		<?php submit_button(); ?>

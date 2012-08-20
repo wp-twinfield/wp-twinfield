@@ -123,6 +123,7 @@ class Twinfield {
 		register_setting( 'twinfield', 'twinfield_username' );
 		register_setting( 'twinfield', 'twinfield_password' );
 		register_setting( 'twinfield', 'twinfield_organisation' );
+		register_setting( 'twinfield', 'twinfield_office_code' );
 
 		// Styles
 		wp_enqueue_style(
