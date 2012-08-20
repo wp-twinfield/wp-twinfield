@@ -149,6 +149,15 @@ class Twinfield {
 			'twinfield-settings' , // $menu_slug 
 			array( __CLASS__, 'page_settings' ) // $function
 		);
+
+		add_submenu_page(
+			'twinfield' , // $parent_slug
+			__( 'Offices', 'twinfield' ) , // $page_title 
+			__( 'Offices', 'twinfield' ) , // $menu_title
+			'manage_options' , // $capability 
+			'twinfield-offices' , // $menu_slug 
+			array( __CLASS__, 'page_offices' ) // $function
+		);
 	}
 
 	public static function page() {
@@ -157,6 +166,10 @@ class Twinfield {
 
 	public static function page_settings() {
 		include 'admin/settings.php';
+	}
+
+	public static function page_offices() {
+		include 'admin/offices.php';
 	}
 }
 
