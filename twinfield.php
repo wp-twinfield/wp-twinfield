@@ -16,17 +16,28 @@ Domain Path: /languages/
 License: GPL
 */
 
-require_once 'twinfield/library/bootstrap.php';
+if( function_exists( 'spl_autoload_register' ) ) {
+	function twinfield_autoload( $name ) {
+		$name = str_replace( '\\', DIRECTORY_SEPARATOR, $name );
+
+		$file = dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . $name . '.php';
+
+		if ( is_file( $file ) ) {
+			require_once $file;
+		}
+	}
+	
+	spl_autoload_register( 'twinfield_autoload' );
+}
+
 
 class Twinfield {
-	const SALT = 'Leap_of_faith';
-
 	public static $file;
 
-	public static function bootstrap($file) {
+	public static function bootstrap( $file ) {
 		self::$file = $file;
 
-		add_action('init', array(__CLASS__, 'initialize'));
+		add_action( 'init', array( __CLASS__, 'init' ) );
 
 		add_action('admin_init', array(__CLASS__, 'adminInitialize'));
 
@@ -41,33 +52,11 @@ class Twinfield {
 		add_filter('wp_loaded',array(__CLASS__, 'flushRules'));
 	}
 
-	private static function encrypt($text) {
-		$ivSize = mcrypt_get_iv_size(MCRYPT_RIJNDAEL_256, MCRYPT_MODE_ECB);
-		$iv = mcrypt_create_iv($ivSize, MCRYPT_RAND);
+	public static function init() {
+		// Text domain
+		$rel_path = dirname( plugin_basename( self::$file ) ) . '/languages/';
 
-		$text = mcrypt_encrypt(MCRYPT_RIJNDAEL_256, self::SALT, $text, MCRYPT_MODE_ECB, $iv);
-		$text = base64_encode($text);
-		$text = trim($text);
-
-		return trim($text); 
-	}
-
-	private static function decrypt($text) {
-		$ivSize = mcrypt_get_iv_size(MCRYPT_RIJNDAEL_256, MCRYPT_MODE_ECB);
-		$iv = mcrypt_create_iv($ivSize, MCRYPT_RAND);
-
-		$text = base64_decode($text);
-		$text = mcrypt_decrypt(MCRYPT_RIJNDAEL_256, self::SALT, $text, MCRYPT_MODE_ECB, $iv);
-		$text = trim($text);
-
-        return $text;
-	}
-
-	public static function initialize() {
-		// Load plugin text domain
-		$relPath = dirname(plugin_basename(self::$file)) . '/languages/';
-
-		load_plugin_textdomain( 'twinfield', false, $relPath);
+		load_plugin_textdomain( 'twinfield', false, $rel_path );
 	}
 
 	public static function flushRules() {
@@ -96,9 +85,9 @@ class Twinfield {
 		if(!empty($id)) {
 			global $twinfieldSalesInvoice;
 			
-			$username = self::decrypt(get_option('twinfield-username'));
-			$password = self::decrypt(get_option('twinfield-password'));
-			$organisation = self::decrypt(get_option('twinfield-organisation'));
+			$username = get_option( 'twinfield_username' );
+			$password = get_option( 'twinfield_password' );
+			$organisation = get_option( 'twinfield_organisation' );
 
 			$twinfieldClient = new Pronamic\Twinfield\TwinfieldClient();
 			$result = $twinfieldClient->logon($username, $password, $organisation);
@@ -129,15 +118,11 @@ class Twinfield {
 		}
 	}
 
-	public static function sanitizeEncrypted($value) {
-		return self::encrypt($value);
-	}
-
 	public static function adminInitialize() {
 		// Settings
-		register_setting('twinfield', 'twinfield-username', array(__CLASS__, 'sanitizeEncrypted'));
-		register_setting('twinfield', 'twinfield-password', array(__CLASS__, 'sanitizeEncrypted'));
-		register_setting('twinfield', 'twinfield-organisation', array(__CLASS__, 'sanitizeEncrypted'));
+		register_setting( 'twinfield', 'twinfield_username' );
+		register_setting( 'twinfield', 'twinfield_password' );
+		register_setting( 'twinfield', 'twinfield_organisation' );
 
 		// Styles
 		wp_enqueue_style(
@@ -148,23 +133,21 @@ class Twinfield {
 
 	public static function adminMenu() {
 		add_menu_page(
-			$pageTitle = 'Twinfield' , 
-			$menuTitle = 'Twinfield' , 
-			$capability = 'manage_options' , 
-			$menuSlug = __FILE__ , 
-			$function = array(__CLASS__, 'page') , 
-			$iconUrl = plugins_url('images/icon-16x16.png', __FILE__)
+			__( 'Twinfield', 'twinfield' ) , // $page_title
+			__( 'Twinfield', 'twinfield' ) , // $menu_title
+			'manage_options' , // $capability 
+			'twinfield' , // $menu_slug
+			array( __CLASS__, 'page' ) , // $function 
+			plugins_url( 'images/icon-16x16.png', __FILE__ ) // $icon_url
 		);
 
-		// @see _add_post_type_submenus()
-		// @see wp-admin/menu.php
 		add_submenu_page(
-			$parentSlug = __FILE__ , 
-			$pageTitle = 'Settings' , 
-			$menuTitle = 'Settings' , 
-			$capability = 'manage_options' , 
-			$menuSlug = 'twinfield-settings' , 
-			$function = array(__CLASS__, 'pageSettings')
+			'twinfield' , // $parent_slug
+			__( 'Settings', 'twinfield' ) , // $page_title 
+			__( 'Settings', 'twinfield' ) , // $menu_title
+			'manage_options' , // $capability 
+			'twinfield-settings' , // $menu_slug 
+			array( __CLASS__, 'page_settings' ) // $function
 		);
 	}
 
@@ -172,9 +155,9 @@ class Twinfield {
 		include 'admin/twinfield.php';
 	}
 
-	public static function pageSettings() {
+	public static function page_settings() {
 		include 'admin/settings.php';
 	}
 }
 
-Twinfield::bootstrap(__FILE__);
+Twinfield::bootstrap( __FILE__ );

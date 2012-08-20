@@ -16,7 +16,7 @@
 					<label for="username-field"><?php _e( 'Username', 'twinfield' ); ?></label>
 				</th>
 				<td>
-					<input id="username-field" name="twinfield-username" value="<?php echo self::decrypt(get_option('twinfield-username')); ?>" type="text" class="regular-text" />
+					<input id="username-field" name="twinfield_username" value="<?php form_option( 'twinfield_username' ); ?>" type="text" class="regular-text" />
 				</td>
 			</tr>
 			<tr valign="top">
@@ -24,7 +24,7 @@
 					<label for="password-field"><?php _e( 'Password', 'twinfield' ); ?></label>
 				</th>
 				<td>
-					<input id="password-field" name="twinfield-password" value="<?php echo self::decrypt(get_option('twinfield-password')); ?>" type="password" class="regular-text" />
+					<input id="password-field" name="twinfield_password" value="<?php form_option( 'twinfield_password' ); ?>" type="password" class="regular-text" />
 				</td>
 			</tr>
 			<tr valign="top">
@@ -32,7 +32,7 @@
 					<label for="organisation-field"><?php _e('Organisation', 'twinfield' ); ?></label>
 				</th>
 				<td>
-					<input id="organisation-field" name="twinfield-organisation" value="<?php echo self::decrypt(get_option('twinfield-organisation')); ?>" type="text" class="regular-text" />
+					<input id="organisation-field" name="twinfield_organisation" value="<?php form_option( 'twinfield_organisation' ); ?>" type="text" class="regular-text" />
 				</td>
 			</tr>
 		</table>
