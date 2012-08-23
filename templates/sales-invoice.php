@@ -16,14 +16,32 @@
 				<?php $header = $salesInvoice->getHeader(); ?>
 		
 				<dl>
-					<dt>Invoice Number</dt>
+					<dt><?php _e( 'Invoice Number', 'twinfield' ); ?></dt>
 					<dd><?php echo $header->getInvoiceNumber(); ?></dd>
 		
-					<dt>Office</dt>
+					<?php if ( $invoice_date = $header->getInvoiceDate() ): ?>
+
+						<dt><?php _e( 'Invoice Date', 'twinfield' ); ?></dt>
+						<dd><?php echo $invoice_date->format( 'd-m-Y' ); ?></dd>
+
+					<?php endif; ?>
+		
+					<?php if ( $due_date = $header->getDueDate() ): ?>
+
+						<dt><?php _e( 'Due Date', 'twinfield' ); ?></dt>
+						<dd><?php echo $due_date->format( 'd-m-Y' ); ?></dd>
+
+					<?php endif; ?>
+					
+
+					<dt><?php _e( 'Office', 'twinfield' ); ?></dt>
 					<dd><?php echo $header->getOffice(); ?></dd>
 		
-					<dt>Type</dt>
+					<dt><?php _e( 'Type', 'twinfield' ); ?></dt>
 					<dd><?php echo $header->getType(); ?></dd>
+		
+					<dt><?php _e( 'Status', 'twinfield' ); ?></dt>
+					<dd><?php echo $header->get_status(); ?></dd>
 				</dl>
 			</dd>
 		
@@ -31,7 +49,7 @@
 			<dd>
 				<?php $lines = $salesInvoice->getLines(); ?>
 				
-				<table>
+				<table class="table table-striped table-bordered table-condensed">
 					<thead>
 						<tr>
 							<th scope="col">Id</th>

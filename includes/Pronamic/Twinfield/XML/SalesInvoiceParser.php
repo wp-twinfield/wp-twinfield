@@ -15,7 +15,7 @@ use Pronamic\Twinfield\SalesInvoice;
 class SalesInvoiceParser {
 	public static function parse(\SimpleXMLElement $xml) {
 		$salesInvoice = new SalesInvoice();
-		
+
 		$salesInvoice->setHeader(SalesInvoiceHeaderParser::parse($xml->header));
 
 		foreach($xml->lines->line as $xml) {

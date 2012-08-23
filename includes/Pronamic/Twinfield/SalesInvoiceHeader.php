@@ -121,4 +121,63 @@ class SalesInvoiceHeader {
 	public function setInvoiceNumber($number) {
 		$this->number = $number;
 	}
+
+	///////////////////////////////////////////////////////////////////////////	
+
+	/**
+	 * Get the invoice date
+	 * 
+	 * @return DateTime
+	 */
+	public function getInvoiceDate() {
+		return $this->invoiceDate;
+	}
+
+	/**
+	 * Set the invoice date
+	 * 
+	 * @param DateTime $date
+	 */
+	public function setInvoiceDate( \DateTime $date ) {
+		$this->invoiceDate = $date;
+	}
+
+	///////////////////////////////////////////////////////////////////////////	
+
+	/**
+	 * Get the due date
+	 * 
+	 * @return DateTime
+	 */
+	public function getDueDate() {
+		return $this->dueDate;
+	}
+
+	/**
+	 * Set the invoice date
+	 * 
+	 * @param DateTime $date
+	 */
+	public function setDueDate( \DateTime $date ) {
+		$this->dueDate = $date;
+	}
+	///////////////////////////////////////////////////////////////////////////	
+
+	/**
+	 * Get the status
+	 * 
+	 * @return string
+	 */
+	public function get_status() {
+		return $this->status;
+	}
+
+	/**
+	 * Set the status
+	 * 
+	 * @param string $status
+	 */
+	public function set_status( $status ) {
+		$this->status = $status;
+	}
 }

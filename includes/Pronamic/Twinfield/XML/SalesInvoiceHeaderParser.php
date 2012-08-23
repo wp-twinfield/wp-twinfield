@@ -20,6 +20,18 @@ class SalesInvoiceHeaderParser {
 		$header->setType(filter_var($xml->invoicetype, FILTER_SANITIZE_STRING));
 		$header->setInvoiceNumber(filter_var($xml->invoicenumber, FILTER_SANITIZE_STRING));
 
+		$invoice_date = filter_var( $xml->invoicedate, FILTER_SANITIZE_STRING );
+		$invoice_date = strtotime( $invoice_date );
+
+		$header->setInvoiceDate( new \DateTime( '@' . $invoice_date ) );
+
+		$due_date = filter_var( $xml->duedate, FILTER_SANITIZE_STRING );
+		$due_date = strtotime( $due_date );
+
+		$header->setDueDate( new \DateTime( '@' . $due_date ) );
+
+		$header->set_status( filter_var( $xml->status, FILTER_SANITIZE_STRING ) );
+
 		return $header;
 	}
 }
