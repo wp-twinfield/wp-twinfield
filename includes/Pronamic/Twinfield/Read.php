@@ -76,5 +76,10 @@ class Read {
 
 	///////////////////////////////////////////////////////////////////////////	
 
-	
+	/**
+	 * Dimension type debtor
+	 * 
+	 * @var string
+	 */
+	const DIMENSION_TYPE_DEBTOR = 'DEB';
 }

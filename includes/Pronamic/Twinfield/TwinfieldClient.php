@@ -170,6 +170,20 @@ echo '</pre>';
 
 		return $return;
 	}
+	
+	
+	///////////////////////////////////////////////////////////////////////////
+
+	/**
+	 * Process XML string
+	 * 
+	 * @param string $xml
+	 */
+	public function processXmlString($xml) {
+		$result = $this->soapCall('ProcessXmlString', array(array('xmlRequest' => $xml)));
+		
+		return $result;
+	}
 
 	///////////////////////////////////////////////////////////////////////////	
 
@@ -241,34 +255,40 @@ echo '</pre>';
 
 	///////////////////////////////////////////////////////////////////////////	
 
-	public function readDimension($type, $office, $dimensionType, $code) {
+	public function readDimension($office, $dimensionType, $code) {
 		$xml = new \SimpleXMLElement('<read />');
-		$xml->addChild('type', $type);
+		$xml->addChild('type', Read::TYPE_DIMENSIONS);
 		$xml->addChild('office', $office);
 		$xml->addChild('dimtype', $dimensionType);
 		$xml->addChild('code', $code);
 
 		$result = $this->soapCall('ProcessXmlString', array(array('xmlRequest' => $xml->asXML())));
 		
+		return $result;
+	}
+
+	public function read_debtor( $office, $code ) {
+		$result = self::readDimension($office, Read::DIMENSION_TYPE_DEBTOR, $code);
+
 		$xml = simplexml_load_string($result->ProcessXmlStringResult);
-
+		echo '<pre>', htmlentities( $xml->asXML() ), '</pre>';
 		$debtor = new Debtor();
-
+		
 		$office = XML\OfficeParser::parse($xml->office);
 		$debtor->setOffice($office);
-
+		
 		$debtor->setName((string) $xml->name);
 		$debtor->setWebsite((string) $xml->website);
-
+		
 		$addresses = XML\AddressesParser::parse($xml->addresses);
 		$debtor->setAddresses($addresses);
 		
 		/*
-		echo '<pre>';
+		 echo '<pre>';
 		echo htmlentities($xml->asXML());
 		echo '</pre>';
 		*/
-
+		
 		return $debtor;
 	}
 
