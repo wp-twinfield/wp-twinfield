@@ -16,7 +16,7 @@ Domain Path: /languages/
 License: GPL
 */
 
-if( function_exists( 'spl_autoload_register' ) ) {
+if ( function_exists( 'spl_autoload_register' ) ) {
 	function twinfield_autoload( $name ) {
 		$name = str_replace( '\\', DIRECTORY_SEPARATOR, $name );
 
@@ -90,16 +90,12 @@ class Twinfield {
 			$username = get_option( 'twinfield_username' );
 			$password = get_option( 'twinfield_password' );
 			$organisation = get_option( 'twinfield_organisation' );
+			$office_code = get_option( 'twinfield_office_code' );
 
 			$twinfieldClient = new Pronamic\Twinfield\TwinfieldClient();
 			$result = $twinfieldClient->logon($username, $password, $organisation);
 
-			$offices = $twinfieldClient->getOffices();
-			foreach($offices as $office) {
-				
-			}
-
-			$twinfieldSalesInvoice = $twinfieldClient->readSalesInvoice($office->getCode(), 'FACTUUR', $id);
+			$twinfieldSalesInvoice = $twinfieldClient->readSalesInvoice( $office_code, 'FACTUUR', $id );
 
 			// Determine template
 			$templates = array();
