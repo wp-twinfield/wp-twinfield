@@ -15,8 +15,37 @@
 
 	$result = $twinfield_client->logon( $username, $password, $organisation );
 
-	$dimension = $twinfield_client->readDimension( 'dimensions', '11024', 'DEB', '1000' );
+	$debtor = $twinfield_client->read_debtor( '11024', '1000' );
 	
 	?>
-	<pre><?php var_dump( $dimension ); ?></pre>
+	
+	<pre><?php var_dump( $debtor ); ?></pre>
+
+	<?php /*
+	
+	$xml = '<salesinvoices>
+	<salesinvoice>
+		<header>
+			<invoicetype>FACTUUR</invoicetype>
+			<customer>1000</customer>
+		</header>
+		<lines>
+			<line>
+				<quantity>1</quantity>
+				<article>4</article>
+				<subarticle>118</subarticle>
+			</line>
+		</lines>
+	</salesinvoice>
+</salesinvoices>
+	';
+
+	$result = $twinfield_client->processXmlString( $xml );
+	
+	$result_xml = $result->ProcessXmlStringResult;
+	*/
+	
+	$result_xml = '';
+	?>
+	<pre><?php echo htmlentities( $result_xml ); ?></pre>
 </div>
