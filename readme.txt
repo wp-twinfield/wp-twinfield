@@ -1,4 +1,4 @@
-r=== Twinfield ===
+=== Twinfield ===
 Contributors: pronamic, remcotolsma 
 Tags: twinfield, administration
 Requires at least: 3.0
