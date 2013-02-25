@@ -6,6 +6,24 @@
 	<?php 
 	
 	$sections = array(
+		'general' => array(
+			'name'      => 'General',
+			'resources' => array(
+				array(
+					'url'     => '',
+					'name'    => ''
+				)
+			)
+		),
+		'webservices' => array(
+			'name'      => 'Webservices',
+			'resources' => array(
+				array(
+					'url'     => '',
+					'name'    => ''
+				)
+			)
+		),
 		'templates-nl' => array(
 			'name'      => 'Templates (Dutch)',
 			'url'       => 'http://twinfield.nl/', 
@@ -92,6 +110,15 @@
 					'date'    => new DateTime( '30-06-2011 16:39' )
 				)
 			)
+		),
+		'libraries' => array(
+			'name'      => 'Libraries',
+			'resources' => array(
+				array(
+					'url'     => 'https://bitbucket.org/vanschelven/twinfield',
+					'name'    => 'Twinfield API  written in Python'
+				)
+			)
 		)
 	);
 
@@ -99,7 +126,12 @@
 	
 		<h3>
 			<?php echo $section['name']; ?>
-			<small><a href="<?php echo $section['url']; ?>"><?php echo $section['url']; ?></a></small>
+			
+			<?php if ( isset( $section['url'] ) ) : ?>
+			
+				<small><a href="<?php echo $section['url']; ?>"><?php echo $section['url']; ?></a></small>
+				
+			<?php endif; ?>
 		</h3>
 	
 		<ul>
