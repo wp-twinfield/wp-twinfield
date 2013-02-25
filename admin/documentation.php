@@ -7,25 +7,86 @@
 	
 	$sections = array(
 		'general' => array(
-			'name'      => 'General',
+			'name'      => __( 'General', 'twinfield' ),
 			'resources' => array(
 				array(
-					'url'     => '',
-					'name'    => ''
+					'url'     => 'http://remcotolsma.nl/wp-content/uploads/Handleiding_Twinfield_V1_HR_SVDWA.pdf',
+					'name'    => 'Starten met Twinfield',
+					'version' => '6.0'
 				)
 			)
 		),
 		'webservices' => array(
-			'name'      => 'Webservices',
+			'name'      => __( 'Webservices','twinfield' ),
 			'resources' => array(
 				array(
-					'url'     => '',
-					'name'    => ''
+					'url'     => 'http://en.twinfield.com/webservices/training/',
+					'name'    => 'Twinfield Webservices Demo Platform'
+				),
+				array(
+					'url'     => 'http://remcotolsma.nl/wp-content/uploads/Twinfield-Webservices-Manual.pdf',
+					'name'    => 'Twinfield Web services manual',
+					'version' => '5.4',
+					'date'    => new DateTime( '01-09-2010' )
+				),
+				array(
+					'url'     => 'http://remcotolsma.nl/wp-content/uploads/Webservices-Manual-Browse.pdf',
+					'name'    => 'Webservices – Browse data Xml',
+					'version' => '5.4',
+					'date'    => new DateTime( '01-09-2010' )
+				),
+				array(
+					'url'     => 'http://remcotolsma.nl/wp-content/uploads/Webservices-Manual-Dimensions.pdf',
+					'name'    => 'Webservices – Dimensions',
+					'version' => '5.4',
+					'date'    => new DateTime( '01-09-2010' )
+				),
+				array(
+					'url'     => 'http://remcotolsma.nl/wp-content/uploads/Webservices-Manual-Financial-Transactions.pdf',
+					'name'    => 'Webservices – Financial Transactions',
+					'version' => '5.1E',
+					'date'    => new DateTime( '01-01-2009' )
+				),
+				array(
+					'url'     => 'http://remcotolsma.nl/wp-content/uploads/Webservices-Manual-Matching.pdf',
+					'name'    => 'Webservices – Matching Xml',
+					'version' => '5.4',
+					'date'    => new DateTime( '01-01-2010' )
+				),
+				array(
+					'url'     => 'http://remcotolsma.nl/wp-content/uploads/Webservices-Manual-Pay_Collect.pdf',
+					'name'    => 'Twinfield web services – Pay and collect',
+					'version' => '5.4',
+					'date'    => new DateTime( '01-10-2010' )
+				),
+				array(
+					'url'     => 'http://remcotolsma.nl/wp-content/uploads/Webservices-Manual-Sales-Invoices.pdf',
+					'name'    => 'Twinfield Web services Sales invoices',
+					'version' => '5.4',
+					'date'    => new DateTime( '01-04-2010' )
+				),
+				array(
+					'url'     => 'http://remcotolsma.nl/wp-content/uploads/Webservices-Manual-Single-Sign-On.pdf',
+					'name'    => 'Twinfield – Single Sign On',
+					'version' => '5.4',
+					'date'    => new DateTime( '01-04-2009' )
+				),
+				array(
+					'url'     => 'http://remcotolsma.nl/wp-content/uploads/Webservices-Manual-Users.pdf',
+					'name'    => 'Twinfield web services – User Xml',
+					'version' => '5.4',
+					'date'    => new DateTime( '01-01-2010' )
+				),
+				array(
+					'url'     => 'http://remcotolsma.nl/wp-content/uploads/Webservices-Manual-Validations.pdf',
+					'name'    => 'Webservices Validations',
+					'version' => '5.3',
+					'date'    => new DateTime( '01-04-2007' )
 				)
 			)
 		),
 		'templates-nl' => array(
-			'name'      => 'Templates (Dutch)',
+			'name'      => __( 'Templates (Dutch)', 'twinfield' ),
 			'url'       => 'http://twinfield.nl/', 
 			'resources' => array(
 				array(
@@ -66,7 +127,7 @@
 			)
 		),
 		'templates-en' => array(
-			'name'      => 'Templates (English)',
+			'name'      => __( 'Templates (English)', 'twinfield' ),
 			'url'       => 'http://twinfield.nl/', 
 			'resources' => array(
 				array(
@@ -116,7 +177,15 @@
 			'resources' => array(
 				array(
 					'url'     => 'https://bitbucket.org/vanschelven/twinfield',
-					'name'    => 'Twinfield API  written in Python'
+					'name'    => 'Twinfield API written in Python'
+				),
+				array(
+					'url'     => 'http://code.google.com/p/twinfield/',
+					'name'    => 'Twinfield API written in PHP'
+				),
+				array(
+					'url'     => 'https://github.com/macernst/twinfield',
+					'name'    => 'Twinfield API written in Ruby'
 				)
 			)
 		)
@@ -152,7 +221,7 @@
 					}
 					
 					?>
-					<a href="<?php echo $href; ?>">
+					<a href="<?php echo $href; ?>" target="_blank">
 						<?php echo $resource['name']; ?>
 		
 						<?php if ( isset( $resource['version'] ) ): ?>
