@@ -174,7 +174,7 @@ class Twinfield {
 
 		add_submenu_page(
 			'twinfield' , // $parent_slug
-			__( 'Settings', 'twinfield' ) , // $page_title 
+			__( 'Twinfield Settings', 'twinfield' ) , // $page_title 
 			__( 'Settings', 'twinfield' ) , // $menu_title
 			'manage_options' , // $capability 
 			'twinfield-settings' , // $menu_slug 
@@ -183,11 +183,20 @@ class Twinfield {
 
 		add_submenu_page(
 			'twinfield' , // $parent_slug
-			__( 'Offices', 'twinfield' ) , // $page_title 
+			__( 'Twinfield Offices', 'twinfield' ) , // $page_title 
 			__( 'Offices', 'twinfield' ) , // $menu_title
 			'manage_options' , // $capability 
 			'twinfield-offices' , // $menu_slug 
 			array( __CLASS__, 'page_offices' ) // $function
+		);
+
+		add_submenu_page(
+			'twinfield' , // $parent_slug
+			__( 'Twinfield Documentation', 'twinfield' ) , // $page_title 
+			__( 'Documentation', 'twinfield' ) , // $menu_title
+			'manage_options' , // $capability 
+			'twinfield-documentation' , // $menu_slug 
+			array( __CLASS__, 'page_documentation' ) // $function
 		);
 	}
 
@@ -201,6 +210,10 @@ class Twinfield {
 
 	public static function page_offices() {
 		include 'admin/offices.php';
+	}
+
+	public static function page_documentation() {
+		include 'admin/documentation.php';
 	}
 }
 
