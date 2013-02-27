@@ -1,0 +1,33 @@
+<salesinvoices>
+	<salesinvoice>
+		<header>
+			<invoicetype>FACTUUR</invoicetype>
+			<customer>1000</customer>
+		</header>
+		<lines>
+			<line>
+				<quantity>1</quantity>
+				<article>abonnement</article>
+				<subarticle>telegraaf</subarticle>
+				<freetext1>P0001</freetext1>
+				<freetext2>001</freetext2>
+			</line>
+			<line>
+				<quantity>1</quantity>
+				<article>0</article>
+				<description>uitzonderlijk speciale bezorgservice</description>
+				<unitspriceexcl>20</unitspriceexcl>
+				<units>1</units>
+				<vatcode>VL</vatcode>
+				<freetext1>P0002</freetext1>
+				<freetext2>000</freetext2>
+			</line>
+			<line>
+				<quantity>1</quantity>
+				<article>korting10</article>
+				<freetext1>P0002</freetext1>
+				<freetext2>000</freetext2>
+			</line>
+		</lines>
+	</salesinvoice>
+</salesinvoices>
