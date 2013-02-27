@@ -12,6 +12,24 @@ namespace Pronamic\Twinfield;
  */
 class SalesInvoice {
 	/**
+	 * Invoice code for an 'factuur' invoice
+	 *
+	 * @see https://github.com/remcotolsma/wp-twinfield/blob/master/documentation/inv-invoice.xml#L4
+	 * @var string
+	 */
+	const TYPE_FACTUUR = 'factuur';
+	
+	/**
+	 * Invoice code for an 'uren' invoice
+	 *
+	 * @see https://github.com/remcotolsma/wp-twinfield/blob/master/documentation/inv-invoice.xml#L4
+	 * @var string
+	 */
+	const TYPE_UREN = 'uren';
+
+	///////////////////////////////////////////////////////////////////////////	
+
+	/**
 	 * The header of this sales invoice
 	 * 
 	 * @var string
