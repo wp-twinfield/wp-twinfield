@@ -16,12 +16,12 @@ class Invoice {
 	 * 
 	 * @var string
 	 */
-	const CODE_FACTUUR = 'factuur';
+	const TYPE_FACTUUR = 'factuur';
 
 	/**
 	 * Invoice code for an 'uren' invoice
 	 * 
 	 * @var string
 	 */
-	const CODE_UREN = 'uren';
+	const TYPE_UREN = 'uren';
 }
