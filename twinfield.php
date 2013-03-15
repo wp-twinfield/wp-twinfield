@@ -26,7 +26,7 @@ if ( function_exists( 'spl_autoload_register' ) ) {
 			require_once $file;
 		}
 	}
-	
+
 	spl_autoload_register( 'twinfield_autoload' );
 }
 
@@ -61,7 +61,7 @@ class Twinfield {
 
 	public static function flushRules() {
 		global $wp_rewrite;
-	
+
 		$wp_rewrite->flush_rules();
 	}
 
@@ -86,7 +86,7 @@ class Twinfield {
 
 		if(!empty($id)) {
 			global $twinfieldSalesInvoice;
-			
+
 			$username = get_option( 'twinfield_username' );
 			$password = get_option( 'twinfield_password' );
 			$organisation = get_option( 'twinfield_organisation' );
@@ -119,7 +119,7 @@ class Twinfield {
 
 		if(!empty($id)) {
 			global $twinfield_debtor;
-			
+
 			$username = get_option( 'twinfield_username' );
 			$password = get_option( 'twinfield_password' );
 			$organisation = get_option( 'twinfield_organisation' );
@@ -157,7 +157,7 @@ class Twinfield {
 
 		// Styles
 		wp_enqueue_style(
-			'twinfield-admin' , 
+			'twinfield-admin' ,
 			plugins_url('css/admin.css', __FILE__)
 		);
 	}
@@ -166,38 +166,49 @@ class Twinfield {
 		add_menu_page(
 			__( 'Twinfield', 'twinfield' ) , // $page_title
 			__( 'Twinfield', 'twinfield' ) , // $menu_title
-			'manage_options' , // $capability 
+			'manage_options' , // $capability
 			'twinfield' , // $menu_slug
-			array( __CLASS__, 'page' ) , // $function 
+			array( __CLASS__, 'page' ) , // $function
 			plugins_url( 'images/icon-16x16.png', __FILE__ ) // $icon_url
 		);
 
 		add_submenu_page(
 			'twinfield' , // $parent_slug
-			__( 'Twinfield Settings', 'twinfield' ) , // $page_title 
+			__( 'Twinfield Settings', 'twinfield' ) , // $page_title
 			__( 'Settings', 'twinfield' ) , // $menu_title
-			'manage_options' , // $capability 
-			'twinfield-settings' , // $menu_slug 
+			'manage_options' , // $capability
+			'twinfield-settings' , // $menu_slug
 			array( __CLASS__, 'page_settings' ) // $function
 		);
 
 		add_submenu_page(
 			'twinfield' , // $parent_slug
-			__( 'Twinfield Offices', 'twinfield' ) , // $page_title 
+			__( 'Twinfield Offices', 'twinfield' ) , // $page_title
 			__( 'Offices', 'twinfield' ) , // $menu_title
-			'manage_options' , // $capability 
-			'twinfield-offices' , // $menu_slug 
+			'manage_options' , // $capability
+			'twinfield-offices' , // $menu_slug
 			array( __CLASS__, 'page_offices' ) // $function
 		);
 
 		add_submenu_page(
 			'twinfield' , // $parent_slug
-			__( 'Twinfield Documentation', 'twinfield' ) , // $page_title 
+			__( 'Twinfield Form Builder', 'twinfield' ) , // $page_title
+			__( 'Form Builder', 'twinfield' ) , // $menu_title
+			'manage_options' , // $capability
+			'twinfield_form_builder' , // $menu_slug
+			array( __CLASS__, 'form_builder' ) // $function
+		);
+
+		add_submenu_page(
+			'twinfield' , // $parent_slug
+			__( 'Twinfield Documentation', 'twinfield' ) , // $page_title
 			__( 'Documentation', 'twinfield' ) , // $menu_title
-			'manage_options' , // $capability 
-			'twinfield-documentation' , // $menu_slug 
+			'manage_options' , // $capability
+			'twinfield-documentation' , // $menu_slug
 			array( __CLASS__, 'page_documentation' ) // $function
 		);
+
+
 	}
 
 	public static function page() {
@@ -214,6 +225,10 @@ class Twinfield {
 
 	public static function page_documentation() {
 		include 'admin/documentation.php';
+	}
+
+	public static function form_builder() {
+		include 'admin/form_builder.php';
 	}
 }
 
