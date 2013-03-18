@@ -20,6 +20,7 @@ namespace Pronamic\Twinfield\Invoice;
  * @version 0.0.1
  */
 class Invoice {
+	
 	/**
 	 * A customer for this invoice
 	 *
