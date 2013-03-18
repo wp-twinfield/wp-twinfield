@@ -23,11 +23,15 @@ class Invoice {
 		}
 	}
 
+	public function getOrders() {
+		return $this->orders;
+	}
+
 	public function getCustomer() {
 		return $this->customer;
 	}
 
-	public function setCustomer( $customer ) {
+	public function setCustomer( \Pronamic\Twinfield\Customer\Customer $customer ) {
 		$this->customer = $customer;
 		return $this;
 	}

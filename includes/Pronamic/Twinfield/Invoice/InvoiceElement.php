@@ -7,9 +7,11 @@ class InvoiceElement extends InvoicesDocument {
 	public function __construct( Invoice $invoice ) {
 		parent::__construct();
 
+		$invoiceElement = $this->getNewInvoice();
+
 		// Makes header element
 		$headerElement = $this->createElement( 'header' );
-		$this->appendChild( $headerElement );
+		$invoiceElement->appendChild( $headerElement );
 
 		// Set customer element
 		$customer = $invoice->getCustomer();
@@ -17,12 +19,12 @@ class InvoiceElement extends InvoicesDocument {
 		$headerElement->appendChild( $customerElement );
 
 		// Set invoicetype element
-		$invoiceTypeElement = $this->createElement( 'invoicetype', $invoice->getType() );
+		$invoiceTypeElement = $this->createElement( 'invoicetype', $invoice->getInvoiceType() );
 		$headerElement->appendChild( $invoiceTypeElement );
 
 		// Add orders
 		$linesElement = $this->createElement( 'lines' );
-		$this->appendChild( $linesElement );
+		$invoiceElement->appendChild( $linesElement );
 
 		// Loop through all orders, and add those elements
 		foreach ( $invoice->getOrders() as $order ) {

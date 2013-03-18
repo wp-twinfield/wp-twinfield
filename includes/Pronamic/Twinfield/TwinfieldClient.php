@@ -6,7 +6,7 @@ use Pronamic\Twinfield\XML\OfficeParser;
 
 /**
  * Title: Twinfield client
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -15,48 +15,48 @@ use Pronamic\Twinfield\XML\OfficeParser;
 class TwinfieldClient {
 	/**
 	 * The Twinfield SOAP WSDL URI
-	 * 
+	 *
 	 * @var string
 	 */
 	const SOAP_WSDL_LOGIN_URI = 'https://login.twinfield.com/webservices/session.asmx?wsdl';
 
 	/**
 	 * The Twinfield cluster SOAP WSDL URI
-	 * 
+	 *
 	 * @var string
 	 */
 	const SOAP_WSDL_CLUSTER_URI = '%s/webservices/processxml.asmx?wsdl';
 
-	///////////////////////////////////////////////////////////////////////////	
+	///////////////////////////////////////////////////////////////////////////
 
 	/**
 	 * SOAP XML namespace
-	 * 
+	 *
 	 * @var string
 	 */
 	const XML_NAMESPACE_SOAP_ENVELOPE = 'http://schemas.xmlsoap.org/soap/envelope/';
 
-	///////////////////////////////////////////////////////////////////////////	
-  
+	///////////////////////////////////////////////////////////////////////////
+
 	/**
 	 * The SOAP client
-	 * 
+	 *
 	 * @var \SoapClient
 	 */
 	private $soapLoginClient;
 
 	/**
 	 * The cluster SOAP client
-	 * 
+	 *
 	 * @var \SoapClient
 	 */
 	private $soapClusterClient;
 
-	///////////////////////////////////////////////////////////////////////////	
+	///////////////////////////////////////////////////////////////////////////
 
 	/**
 	 * The cluster
-	 * 
+	 *
 	 * @var string
 	 */
 	private $cluster;
@@ -68,7 +68,7 @@ class TwinfieldClient {
 	 */
 	private $sessionId;
 
-	///////////////////////////////////////////////////////////////////////////	
+	///////////////////////////////////////////////////////////////////////////
 
 	/**
 	 * Constructs and initializes an Twinfield client
@@ -84,11 +84,11 @@ class TwinfieldClient {
 		$this->error = new \stdClass();
 	}
 
-	///////////////////////////////////////////////////////////////////////////	
+	///////////////////////////////////////////////////////////////////////////
 
 	/**
 	 * SOAP call
-	 * 
+	 *
 	 * @param string $functionName
 	 * @param mixed $arguments
 	 */
@@ -113,11 +113,11 @@ class TwinfieldClient {
 		return $result;
 	}
 
-	///////////////////////////////////////////////////////////////////////////	
+	///////////////////////////////////////////////////////////////////////////
 
 	/**
 	 * Login
-	 * 
+	 *
 	 * @param string $username
 	 * @param string $password
 	 * @param string $organisation
@@ -128,8 +128,8 @@ class TwinfieldClient {
 		$return = false;
 
 		$parameters = array(
-			'user' => $username , 
-			'password' => $password , 
+			'user' => $username ,
+			'password' => $password ,
 			'organisation' =>  $organisation
 		);
 
@@ -170,26 +170,26 @@ echo '</pre>';
 
 		return $return;
 	}
-	
-	
+
+
 	///////////////////////////////////////////////////////////////////////////
 
 	/**
 	 * Process XML string
-	 * 
+	 *
 	 * @param string $xml
 	 */
 	public function processXmlString($xml) {
 		$result = $this->soapCall('ProcessXmlString', array(array('xmlRequest' => $xml)));
-		
+
 		return $result;
 	}
 
-	///////////////////////////////////////////////////////////////////////////	
+	///////////////////////////////////////////////////////////////////////////
 
 	/**
 	 * Get the offices
-	 * 
+	 *
 	 * @return array
 	 */
 	public function getOffices() {
@@ -209,7 +209,7 @@ echo '</pre>';
 		return $offices;
 	}
 
-	///////////////////////////////////////////////////////////////////////////	
+	///////////////////////////////////////////////////////////////////////////
 
 	public function readSalesInvoice($office, $type, $code) {
 		$xml = new \SimpleXMLElement('<read />');
@@ -231,7 +231,7 @@ echo '</pre>';
 		}
 	}
 
-	///////////////////////////////////////////////////////////////////////////	
+	///////////////////////////////////////////////////////////////////////////
 
 	public function readTransaction($office, $code, $number) {
 		$xml = new \SimpleXMLElement('<read />');
@@ -241,7 +241,7 @@ echo '</pre>';
 		$xml->addChild('number', $number);
 
 		$result = $this->soapCall('ProcessXmlString', array(array('xmlRequest' => $xml->asXML())));
-		
+
 		$xml = simplexml_load_string($result->ProcessXmlStringResult);
 
 		if($result) {
@@ -253,7 +253,7 @@ echo '</pre>';
 		return $result;
 	}
 
-	///////////////////////////////////////////////////////////////////////////	
+	///////////////////////////////////////////////////////////////////////////
 
 	public function readDimension($office, $dimensionType, $code) {
 		$xml = new \SimpleXMLElement('<read />');
@@ -263,7 +263,7 @@ echo '</pre>';
 		$xml->addChild('code', $code);
 
 		$result = $this->soapCall('ProcessXmlString', array(array('xmlRequest' => $xml->asXML())));
-		
+
 		return $result;
 	}
 
@@ -273,30 +273,30 @@ echo '</pre>';
 		$xml = simplexml_load_string($result->ProcessXmlStringResult);
 		echo '<pre>', htmlentities( $xml->asXML() ), '</pre>';
 		$debtor = new Debtor();
-		
+
 		$office = XML\OfficeParser::parse($xml->office);
 		$debtor->setOffice($office);
-		
+
 		$debtor->setName((string) $xml->name);
 		$debtor->setWebsite((string) $xml->website);
-		
+
 		$addresses = XML\AddressesParser::parse($xml->addresses);
 		$debtor->setAddresses($addresses);
-		
+
 		/*
 		 echo '<pre>';
 		echo htmlentities($xml->asXML());
 		echo '</pre>';
 		*/
-		
+
 		return $debtor;
 	}
 
-	///////////////////////////////////////////////////////////////////////////	
+	///////////////////////////////////////////////////////////////////////////
 
 	/**
 	 * Get finder
-	 * 
+	 *
 	 * @return Finder
 	 */
 	public function getFinder() {

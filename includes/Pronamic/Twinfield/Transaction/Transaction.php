@@ -84,11 +84,4 @@ class Transaction extends ParentDOMLoader {
 	public function getDueDate() {
 		return DateTime::createFromFormat('YMD', $this->dueDate);
 	}
-
-	public function addOrder() {
-
-		$element = $this->XML->createElement( 'lines' );
-
-	}
-
 }

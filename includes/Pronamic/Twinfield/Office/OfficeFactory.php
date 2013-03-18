@@ -2,6 +2,9 @@
 
 namespace Pronamic\Twinfield\Office;
 
+/**
+ * Factory class for interacting
+ */
 class OfficeFactory extends \Pronamic\Twinfield\Secure\Login {
 
 	public function getAll() {

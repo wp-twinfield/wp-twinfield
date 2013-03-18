@@ -38,6 +38,7 @@ class Twinfield {
 		self::$file = $file;
 
 		add_action( 'init', array( __CLASS__, 'init' ) );
+		add_action( 'init', array( __CLASS__, 'listenForFormBuilder' ) );
 
 		add_action('admin_init', array(__CLASS__, 'adminInitialize'));
 
@@ -57,12 +58,57 @@ class Twinfield {
 		$rel_path = dirname( plugin_basename( self::$file ) ) . '/languages/';
 
 		load_plugin_textdomain( 'twinfield', false, $rel_path );
+
+		// Set the config class
+		Pronamic\Twinfield\Secure\Config::setCredentials(
+			get_option( 'twinfield_username' ),
+			get_option( 'twinfield_password' ),
+			get_option( 'twinfield_organisation' )
+		);
+
+		$login = new \Pronamic\Twinfield\Secure\Login();
+		$login->process();
 	}
 
 	public static function flushRules() {
 		global $wp_rewrite;
 
 		$wp_rewrite->flush_rules();
+	}
+
+	public static function listenForFormBuilder() {
+		if ( ! isset( $_POST['twinfield_form'] ) )
+			return;
+
+		$customer = new \Pronamic\Twinfield\Customer\Customer();
+		$customer->setID( filter_input( INPUT_POST, 'customerID', FILTER_VALIDATE_INT ) );
+
+		//
+		$order = new \Pronamic\Twinfield\Invoice\Order();
+		$order
+			->setQuantity( filter_input( INPUT_POST, 'quantity', FILTER_VALIDATE_INT ) )
+			->setArticle( filter_input( INPUT_POST, 'article', FILTER_VALIDATE_INT ) );
+
+		// Invoice
+		$invoice = new \Pronamic\Twinfield\Invoice\Invoice();
+		$invoice
+			->setInvoiceType( filter_input( INPUT_POST, 'invoiceType', FILTER_SANITIZE_STRING ) )
+			->addOrder( $order )
+			->setCustomer($customer);
+
+
+
+		// Factory
+		$invoiceFactory = new \Pronamic\Twinfield\Invoice\InvoiceFactory();
+
+		// DOM DOcument/ELements
+		$invoiceElement = new \Pronamic\Twinfield\Invoice\InvoiceElement( $invoice );
+
+		// Send request
+		$invoiceFactory->sendInvoice($invoiceElement);
+
+
+
 	}
 
 	public static function generateRewriteRules($wpRewrite) {

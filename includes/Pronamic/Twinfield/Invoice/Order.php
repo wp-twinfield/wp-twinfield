@@ -16,7 +16,7 @@ class Order {
 	private $freeText1;
 	private $freeText2;
 
-	public function __construct( $quantity, $article, $freeText1, $freeText2 ) {
+	public function __construct( $quantity = null, $article = null, $freeText1 = null, $freeText2 = null ) {
 		$this->id = uniqid();
 
 		$this->quantity = $quantity;
