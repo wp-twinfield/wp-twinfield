@@ -1,0 +1,115 @@
+<?php
+
+namespace Pronamic\Twinfield\Invoice;
+
+class Order {
+
+	private $ID;
+
+	private $quantity;
+	private $article;
+	private $subArticle;
+	private $description;
+	private $unitsPriceExcl;
+	private $units;
+	private $vatCode;
+	private $freeText1;
+	private $freeText2;
+
+	public function __construct( $quantity, $article, $freeText1, $freeText2 ) {
+		$this->id = uniqid();
+
+		$this->quantity = $quantity;
+		$this->article = $article;
+		$this->freeText1 = $freeText1;
+		$this->freeText2 = $freeText2;
+	}
+
+	public function getID() {
+		return $this->ID;
+	}
+
+	public function getQuantity() {
+		return $this->quantity;
+	}
+
+	public function setQuantity( $quantity ) {
+		$this->quantity = $quantity;
+		return $this;
+	}
+
+	public function getArticle() {
+		return $this->article;
+	}
+
+	public function setArticle( $article ) {
+		$this->article = $article;
+		return $this;
+	}
+
+	public function getSubArticle() {
+		return $this->subArticle;
+	}
+
+	public function setSubArticle( $subArticle ) {
+		$this->subArticle = $subArticle;
+		return $this;
+	}
+
+	public function getDescription() {
+		return $this->description;
+	}
+
+	public function setDescription( $description ) {
+		$this->description = $description;
+		return $this;
+	}
+
+	public function getUnitsPriceExcl() {
+		return $this->unitsPriceExcl;
+	}
+
+	public function setUnitsPriceExcl( $unitsPriceExcl ) {
+		$this->unitsPriceExcl = $unitsPriceExcl;
+		return $this;
+	}
+
+	public function getUnits() {
+		return $this->units;
+	}
+
+	public function setUnits( $units ) {
+		$this->units = $units;
+		return $this;
+	}
+
+	public function getVatCode() {
+		return $this->vatCode;
+	}
+
+	public function setVatCode( $vatCode ) {
+		$this->vatCode = $vatCode;
+		return $this;
+	}
+
+	public function getFreeText1() {
+		return $this->freeText1;
+	}
+
+	public function setFreeText1( $freeText1 ) {
+		$this->freeText1 = $freeText1;
+		return $this;
+	}
+
+	public function getFreeText2() {
+		return $this->freeText2;
+	}
+
+	public function setFreeText2( $freeText2 ) {
+		$this->freeText2 = $freeText2;
+		return $this;
+	}
+
+
+
+}
