@@ -92,7 +92,7 @@ class Twinfield {
 		// Invoice
 		$invoice = new \Pronamic\Twinfield\Invoice\Invoice();
 		$invoice
-			->setInvoiceType( filter_input( INPUT_POST, 'invoiceType', FILTER_SANITIZE_STRING ) )
+			->setType( filter_input( INPUT_POST, 'invoiceType', FILTER_SANITIZE_STRING ) )
 			->addOrder( $order )
 			->setCustomer($customer);
 
@@ -103,10 +103,14 @@ class Twinfield {
 		$invoiceElement = new \Pronamic\Twinfield\Invoice\InvoiceElement( $invoice );
 
 		// Send request
-		$invoiceService->sendInvoice($invoiceElement);
+		$invoiceService->send($invoiceElement);
+		
 
-
-
+		if ( $invoiceService->passed() ) {
+			echo 'pass!';
+		} else {
+			echo 'failed';
+		}
 	}
 
 	public static function generateRewriteRules($wpRewrite) {
