@@ -44,7 +44,7 @@ class Login {
 	 * @access private
 	 * @var string
 	 */
-	private $response;
+	private $loginResponse;
 
 	/**
 	 * The sessionID for the successful login
@@ -107,11 +107,11 @@ class Login {
 			// Check response is successful
 			if ( 'Ok' == $response->LogonResult ) {
 				// Response from the logon request
-				$this->response = $this->soapLoginClient->__getLastResponse();
+				$this->loginResponse = $this->soapLoginClient->__getLastResponse();
 
 				// Make a new DOM and load the response XML
 				$envelope = new \DOMDocument();
-				$envelope->loadXML( $this->response );
+				$envelope->loadXML( $this->loginResponse );
 
 				// Gets SessionID
 				$sessionID = $envelope->getElementsByTagName( 'SessionID' );

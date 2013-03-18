@@ -2,7 +2,9 @@
 
 namespace Pronamic\Twinfield\Invoice;
 
-class Service extends \Pronamic\Twinfield\Secure\Login {
+use Pronamic\Twinfield\Secure\Sevice as SecureService;
+
+class Service extends SecureService {
 
 	public function sendInvoice( InvoicesDocument $invoicesDocument ) {
 		// Submit an InvoicesDocument
