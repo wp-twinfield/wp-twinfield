@@ -27,22 +27,22 @@ class InvoiceElement extends InvoicesDocument {
 		$invoiceElement->appendChild( $linesElement );
 
 		// Loop through all orders, and add those elements
-		foreach ( $invoice->getOrders() as $order ) {
+		foreach ( $invoice->getLines() as $line ) {
 
 			// Make a new line element, and add to <lines>
 			$lineElement = $this->createElement( 'line' );
 			$linesElement->appendChild( $lineElement );
 
 			// Set attributes
-			$quantityElement		 = $this->createElement( 'quantity', $order->getQuantity() );
-			$articleElement			 = $this->createElement( 'article', $order->getArticle() );
-			$subarticleElement		 = $this->createElement( 'subarticle', $order->getSubArticle() );
-			$descriptionElement		 = $this->createElement( 'description', $order->getDescription() );
-			$unitsPriceExclElement	 = $this->createElement( 'unitspriceexcl', $order->getUnitsPriceExcl() );
-			$unitsElement			 = $this->createElement( 'units', $order->getUnits() );
-			$vatCodeElement			 = $this->createElement( 'vatcode', $order->getVatCode() );
-			$freeText1Element		 = $this->createElement( 'freetext1', $order->getFreeText1() );
-			$freeText2Element		 = $this->createElement( 'freetext2', $order->getFreeText2() );
+			$quantityElement		 = $this->createElement( 'quantity', $line->getQuantity() );
+			$articleElement			 = $this->createElement( 'article', $line->getArticle() );
+			$subarticleElement		 = $this->createElement( 'subarticle', $line->getSubArticle() );
+			$descriptionElement		 = $this->createElement( 'description', $line->getDescription() );
+			$unitsPriceExclElement	 = $this->createElement( 'unitspriceexcl', $line->getUnitsPriceExcl() );
+			$unitsElement			 = $this->createElement( 'units', $line->getUnits() );
+			$vatCodeElement			 = $this->createElement( 'vatcode', $line->getVatCode() );
+			$freeText1Element		 = $this->createElement( 'freetext1', $line->getFreeText1() );
+			$freeText2Element		 = $this->createElement( 'freetext2', $line->getFreeText2() );
 
 			// Add those attributes to the line
 			$lineElement->appendChild( $quantityElement );

@@ -38,7 +38,6 @@ class Twinfield {
 		self::$file = $file;
 
 		add_action( 'init', array( __CLASS__, 'init' ) );
-		add_action( 'init', array( __CLASS__, 'listenForFormBuilder' ) );
 
 		add_action('admin_init', array(__CLASS__, 'adminInitialize'));
 
@@ -68,49 +67,15 @@ class Twinfield {
 
 		$login = new \Pronamic\Twinfield\Secure\Login();
 		$login->process();
+
+		// Modules
+		new \Pronamic\WP\FormBuilder\FormBuilder();
 	}
 
 	public static function flushRules() {
 		global $wp_rewrite;
 
 		$wp_rewrite->flush_rules();
-	}
-
-	public static function listenForFormBuilder() {
-		if ( ! isset( $_POST['twinfield_form'] ) )
-			return;
-
-		$customer = new \Pronamic\Twinfield\Customer\Customer();
-		$customer->setID( filter_input( INPUT_POST, 'customerID', FILTER_VALIDATE_INT ) );
-
-		//
-		$order = new \Pronamic\Twinfield\Invoice\InvoiceLine();
-		$order
-			->setQuantity( filter_input( INPUT_POST, 'quantity', FILTER_VALIDATE_INT ) )
-			->setArticle( filter_input( INPUT_POST, 'article', FILTER_VALIDATE_INT ) );
-
-		// Invoice
-		$invoice = new \Pronamic\Twinfield\Invoice\Invoice();
-		$invoice
-			->setType( filter_input( INPUT_POST, 'invoiceType', FILTER_SANITIZE_STRING ) )
-			->addOrder( $order )
-			->setCustomer($customer);
-
-		// Factory
-		$invoiceService = new \Pronamic\Twinfield\Invoice\Service();
-
-		// DOM DOcument/ELements
-		$invoiceElement = new \Pronamic\Twinfield\Invoice\InvoiceElement( $invoice );
-
-		// Send request
-		$invoiceService->send($invoiceElement);
-		
-
-		if ( $invoiceService->passed() ) {
-			echo 'pass!';
-		} else {
-			echo 'failed';
-		}
 	}
 
 	public static function generateRewriteRules($wpRewrite) {
