@@ -9,7 +9,7 @@ class Invoice {
 
 	private $orders;
 
-	public function addOrder(Order $order) {
+	public function addOrder(InvoiceLine $order) {
 		$this->orders[$order->getID()] = $order;
 		return $this;
 	}

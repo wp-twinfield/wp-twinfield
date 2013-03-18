@@ -2,7 +2,7 @@
 
 namespace Pronamic\Twinfield\Invoice;
 
-class Order {
+class InvoiceLine {
 
 	private $ID;
 
