@@ -2,34 +2,34 @@
 
 namespace Pronamic\Twinfield\Invoice;
 
-use Pronamic\Twinfield\Secure\Sevice as SecureService;
+/**
+ * Invoice Service
+ *
+ * Is the InvoiceDocument service handler for submitting
+ * to the SOAP Service.
+ *
+ * @since 0.0.1
+ *
+ * @package Pronamic\Twinfield
+ * @subpackage Invoice
+ * @author Leon Rowland <leon@rowland.nl>
+ * @copyright (c) 2013, Leon Rowland
+ * @version 0.0.1
+ */
+
+use Pronamic\Twinfield\Secure\Service as SecureService;
 
 class Service extends SecureService {
 
-	public function sendInvoice( InvoicesDocument $invoicesDocument ) {
-		// Submit an InvoicesDocument
-		$result = $this->getClient()->ProcessXmlString( array(
-			'xmlRequest' => $invoicesDocument->saveXML()
+	/**
+	 * Constructor passes in the name of the elements
+	 * to check for success messages.
+	 */
+	public function __construct() {
+		parent::__construct();
+
+		$this->setElementsToCheck( array(
+			'salesinvoices' => 'result'
 		) );
-
-		$response = new \DOMDocument();
-		$response->loadXML( $result->ProcessXmlStringResult );
-
-		$responseInvoices = $response->getElementsByTagName( 'salesinvoices' );
-		$totalResponse = $responseInvoices[0]->getAttribute( 'result' );
-
-		if ( 1 == $totalResponse ) {
-			// success for all!
-		}
-
-		// Get all saleinvoice singular elements
-		$responseInvoice = $response->getElementsByTagName( 'salesinvoice' );
-
-		foreach( $responseInvoice as $invoice ) {
-			// failed invoice
-			if ( 1 != $invoice->getAttribute( 'result' ) ) {
-				// something failed
-			}
-		}
 	}
 }
