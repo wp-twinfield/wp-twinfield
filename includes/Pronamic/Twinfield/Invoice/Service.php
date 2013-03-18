@@ -2,7 +2,7 @@
 
 namespace Pronamic\Twinfield\Invoice;
 
-class InvoiceFactory extends \Pronamic\Twinfield\Secure\Login {
+class Service extends \Pronamic\Twinfield\Secure\Login {
 
 	public function sendInvoice( InvoicesDocument $invoicesDocument ) {
 		// Submit an InvoicesDocument
@@ -29,7 +29,5 @@ class InvoiceFactory extends \Pronamic\Twinfield\Secure\Login {
 				// something failed
 			}
 		}
-
-
 	}
 }
