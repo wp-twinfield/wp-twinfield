@@ -84,7 +84,7 @@ class Twinfield {
 		$customer->setID( filter_input( INPUT_POST, 'customerID', FILTER_VALIDATE_INT ) );
 
 		//
-		$order = new \Pronamic\Twinfield\Invoice\Order();
+		$order = new \Pronamic\Twinfield\Invoice\InvoiceLine();
 		$order
 			->setQuantity( filter_input( INPUT_POST, 'quantity', FILTER_VALIDATE_INT ) )
 			->setArticle( filter_input( INPUT_POST, 'article', FILTER_VALIDATE_INT ) );
@@ -96,16 +96,14 @@ class Twinfield {
 			->addOrder( $order )
 			->setCustomer($customer);
 
-
-
 		// Factory
-		$invoiceFactory = new \Pronamic\Twinfield\Invoice\InvoiceFactory();
+		$invoiceService = new \Pronamic\Twinfield\Invoice\Service();
 
 		// DOM DOcument/ELements
 		$invoiceElement = new \Pronamic\Twinfield\Invoice\InvoiceElement( $invoice );
 
 		// Send request
-		$invoiceFactory->sendInvoice($invoiceElement);
+		$invoiceService->sendInvoice($invoiceElement);
 
 
 

@@ -3,7 +3,7 @@
 $customer = new Pronamic\Twinfield\Customer\Customer();
 $customer->setID(1002);
 
-$order = new Pronamic\Twinfield\Invoice\Order();
+$order = new Pronamic\Twinfield\Invoice\InvoiceLine();
 $order
 	->setQuantity(5)
 	->setArticle(15);
