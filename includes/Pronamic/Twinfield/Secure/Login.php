@@ -22,6 +22,7 @@ namespace Pronamic\Twinfield\Secure;
  * @subpackage Secure
  * @author Leon Rowland <leon@rowland.nl>
  * @copyright (c) 2013, Leon Rowland
+ * @version 0.0.1
  */
 class Login {
 
