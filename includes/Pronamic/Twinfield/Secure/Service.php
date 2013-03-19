@@ -19,7 +19,18 @@ namespace Pronamic\Twinfield\Secure;
  * @copyright (c) 2013, Leon Rowland
  * @version 0.0.1
  */
-abstract class Service extends Login {
+use Document as SecureDocument;
+
+class Service extends Login {
+
+	/**
+	 * The result from the ProcessXMLString
+	 * called to the Twinfield SOAP Service
+	 *
+	 * @access private
+	 * @var XML
+	 */
+	private $result;
 
 	/**
 	 * Holds the response from the a request
@@ -28,8 +39,6 @@ abstract class Service extends Login {
 	 * @var DOMDocument
 	 */
 	private $response;
-
-	private $checkElements = array();
 
 	/**
 	 * Sends a request with the secured client, and loads
@@ -40,20 +49,56 @@ abstract class Service extends Login {
 	 * @since 0.0.1
 	 *
 	 * @access public
-	 * @param \DOMDocument $document A Requests Document
+	 * @param Document $document A class that extended Secure\Document
 	 * @return \DOMDocument The response from the request
 	 */
-	public function send( \DOMDocument $document ) {
+	public function send( SecureDocument $document ) {
+
 		// Get the secureclient and send this documents xml
-		$result = $this->getClient()->ProcessXmlString( array(
+		$this->result = $this->getClient()->ProcessXmlString( array(
 			'xmlRequest' => $document->saveXML()
 		) );
 
 		// Make a new DOMDocument, and load the response into it
 		$this->response = new \DOMDocument();
-		$this->response->loadXML( $result->ProcessXmlStringResult );
+		$this->response->loadXML( $this->result->ProcessXmlStringResult );
 
-		return $this->response;
+		$elementsToCheck = $document->getElementsToCheck();
+
+		// @todo require an exception
+		if ( empty( $elementsToCheck ) )
+			throw new Exception\MissingElementsToCheck();
+
+		// @todo require an exception
+		if ( ! $this->response )
+			throw new Exception\NoResponseFromCluster();
+
+		// Loop through each set checkElement
+		foreach ( $elementsToCheck as $element => $attributeName ) {
+			// Make a temp DOM element
+			$tempElement = $this->response->getElementsByTagName( $element );
+
+			// Multiple elements found
+			if ( is_array( $tempElement ) && 1 > count( $tempElement ) ) {
+				// Check each element
+				foreach ( $tempElement as $tElement ) {
+					if ( 1 != $tElement->getAttribute( $attributeName ) )
+						throw new Exception\ElementNotPassed( $tElement );
+				}
+
+				return true;
+
+			} else {
+				// Singular
+				$responseValue = $tempElement->item(0)->getAttribute( $attributeName );
+
+				if ( 1 == $responseValue ) {
+					return true;
+				} else {
+					throw new Exception\ElementNotPassed( $tempElement->item(0) );
+				}
+			}
+		}
 	}
 
 	/**
@@ -67,81 +112,5 @@ abstract class Service extends Login {
 	 */
 	public function getResponse() {
 		return $this->response;
-	}
-
-	/**
-	 * Sets the elements to look for a passed
-	 * check status on.
-	 *
-	 * Based off the order you put them in the array determines
-	 * on the order it checks.
-	 *
-	 * It is thus recommended to put elements as they
-	 * appear in the response xml.
-	 *
-	 * You could in effect, just put the highest element to check then.
-	 *
-	 * Expects an array with the key as the tag element to check
-	 * and the value the name of the attribute on that element.
-	 *
-	 * @since 0.0.1
-	 *
-	 * @access public
-	 * @param array $elements Associative array of element=>attribute
-	 */
-	public function setElementsToCheck( $elements ) {
-		$this->checkElements = $elements;
-	}
-
-	/**
-	 * Will attempt to check the response for a success attribute.
-	 *
-	 * Will handle the elements set from setElementsToCheck() in
-	 * order they are supplied.
-	 *
-	 * It is recommended to always have this method in your code.
-	 *
-	 * @todo Implement custom exceptions
-	 *
-	 * @since 0.0.1
-	 *
-	 * @access public
-	 * @return boolean If a success was found or not
-	 */
-	public function passed() {
-		// @todo require an exception
-		if ( empty( $this->checkElements ) )
-			return false;
-
-		// @todo require an exception
-		if ( ! $this->response )
-			return false;
-
-		// Loop through each set checkElement
-		foreach ( $this->checkElements as $element => $attributeName ) {
-			// Make a temp DOM element
-			$tempElement = $this->response->getElementsByTagName( $element );
-
-			// Multiple elements found
-			if ( is_array( $tempElement ) && 1 > count( $tempElement ) ) {
-				// Check each element
-				foreach ( $tempElement as $tElement ) {
-					if ( 1 != $tElement->getAttribute( $attributeName ) )
-						return false;
-				}
-
-				return true;
-
-			} else {
-				// Singular
-				$responseValue = $tempElement->item(0)->getAttribute( $attributeName );
-
-				if ( 1 == $responseValue ) {
-					return true;
-				} else {
-					return false;
-				}
-			}
-		}
 	}
 }

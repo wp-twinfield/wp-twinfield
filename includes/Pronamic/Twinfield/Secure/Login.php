@@ -122,9 +122,7 @@ class Login {
 				$cluster = $envelope->getElementsByTagName( 'cluster' );
 				$this->cluster = $cluster->item( 0 )->textContent;
 
-				// Sets cookies to prevent too many requests
-				setcookie( 'twinfield_session_id', $this->sessionID, time() + (86400 * 7), '/' );
-				setcookie( 'twinfield_cluster', $this->cluster, time() + (86400 * 7), '/' );
+				$this->setCookies();
 
 				// This login object is processed!
 				$this->processed = true;
@@ -134,6 +132,23 @@ class Login {
 
 			return false;
 		}
+	}
+
+	public function setCookies( $sessionID = null, $cluster = null ) {
+		if ( ! $sessionID )
+			$sessionID = $this->sessionID;
+
+		if ( ! $cluster )
+			$cluster = $this->cluster;
+
+		// Sets cookies to time + 1 hour ( 3600 seconds )
+		setcookie( 'twinfield_session_id', $sessionID, time() + 3600, '/' );
+		setcookie( 'twinfield_cluster', $cluster, time() + 3600, '/' );
+	}
+
+	public function removeCookies() {
+		setcookie( 'twinfield_session_id', '', 1);
+		setcookie( 'twinfield_cluster', '', 1);
 	}
 
 	/**

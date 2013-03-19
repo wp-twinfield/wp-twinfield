@@ -43,8 +43,8 @@ class FormBuilder {
 		$customer->setID( filter_input( INPUT_POST, 'customerID', FILTER_VALIDATE_INT ) );
 
 		//
-		$order = new \Pronamic\Twinfield\Invoice\InvoiceLine();
-		$order
+		$line = new \Pronamic\Twinfield\Invoice\InvoiceLine();
+		$line
 			->setQuantity( filter_input( INPUT_POST, 'quantity', FILTER_VALIDATE_INT ) )
 			->setArticle( filter_input( INPUT_POST, 'article', FILTER_VALIDATE_INT ) );
 
@@ -52,24 +52,20 @@ class FormBuilder {
 		$invoice = new \Pronamic\Twinfield\Invoice\Invoice();
 		$invoice
 			->setType( filter_input( INPUT_POST, 'invoiceType', FILTER_SANITIZE_STRING ) )
-			->addLine( $order )
+			->addLine( $line )
 			->setCustomer($customer);
 
 		// Factory
-		$invoiceService = new \Pronamic\Twinfield\Invoice\Service();
+		$service = new \Pronamic\Twinfield\Secure\Service();
 
 		// DOM DOcument/ELements
 		$invoiceElement = new \Pronamic\Twinfield\Invoice\InvoiceElement( $invoice );
 
 		// Send request
-		$invoiceService->send($invoiceElement);
+		$service->send($invoiceElement);
 
 
-		if ( $invoiceService->passed() ) {
-			echo 'pass!';
-		} else {
-			echo 'failed';
-		}
+
 	}
 
 }
