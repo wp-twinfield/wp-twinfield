@@ -134,6 +134,19 @@ class Login {
 		}
 	}
 
+	/**
+	 * Sets the cookie for the twinfield api.
+	 *
+	 * If no parameters are passed will use the values from the class
+	 * properties.
+	 *
+	 * @since 0.0.1
+	 *
+	 * @access public
+	 * @param string $sessionID OPTIONAL The Session Information
+	 * @param string $cluster OPTIONAL The Cluster URL
+	 * @return void
+	 */
 	public function setCookies( $sessionID = null, $cluster = null ) {
 		if ( ! $sessionID )
 			$sessionID = $this->sessionID;
@@ -146,6 +159,14 @@ class Login {
 		setcookie( 'twinfield_cluster', $cluster, time() + 3600, '/' );
 	}
 
+	/**
+	 * Removes the existing cookies.
+	 *
+	 * @since 0.0.1
+	 *
+	 * @access public
+	 * @return void
+	 */
 	public function removeCookies() {
 		setcookie( 'twinfield_session_id', '', 1);
 		setcookie( 'twinfield_cluster', '', 1);
