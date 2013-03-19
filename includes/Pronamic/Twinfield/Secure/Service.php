@@ -19,7 +19,7 @@ namespace Pronamic\Twinfield\Secure;
  * @copyright (c) 2013, Leon Rowland
  * @version 0.0.1
  */
-use Document as SecureDocument;
+use \Pronamic\Twinfield\Secure\Document as SecureDocument;
 
 class Service extends Login {
 
@@ -63,42 +63,7 @@ class Service extends Login {
 		$this->response = new \DOMDocument();
 		$this->response->loadXML( $this->result->ProcessXmlStringResult );
 
-		$elementsToCheck = $document->getElementsToCheck();
-
-		// @todo require an exception
-		if ( empty( $elementsToCheck ) )
-			throw new Exception\MissingElementsToCheck();
-
-		// @todo require an exception
-		if ( ! $this->response )
-			throw new Exception\NoResponseFromCluster();
-
-		// Loop through each set checkElement
-		foreach ( $elementsToCheck as $element => $attributeName ) {
-			// Make a temp DOM element
-			$tempElement = $this->response->getElementsByTagName( $element );
-
-			// Multiple elements found
-			if ( is_array( $tempElement ) && 1 > count( $tempElement ) ) {
-				// Check each element
-				foreach ( $tempElement as $tElement ) {
-					if ( 1 != $tElement->getAttribute( $attributeName ) )
-						throw new Exception\ElementNotPassed( $tElement );
-				}
-
-				return true;
-
-			} else {
-				// Singular
-				$responseValue = $tempElement->item(0)->getAttribute( $attributeName );
-
-				if ( 1 == $responseValue ) {
-					return true;
-				} else {
-					throw new Exception\ElementNotPassed( $tempElement->item(0) );
-				}
-			}
-		}
+		return new \Pronamic\Twinfield\Response\Response( $this->response, $document );
 	}
 
 	/**

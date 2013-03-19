@@ -5,13 +5,16 @@ namespace Pronamic\WP\FormBuilder;
 class FormBuilder {
 
 	private $valid_forms = array(
-		'invoice' => 'Pronamic\Twinfield\Invoice\Invoice'
+		'invoice' => 'create_form_invoice',
+
 	);
 
-
 	public function __construct() {
-		add_action( 'admin_init', array( $this, 'create_form' ) );
 		add_action( 'admin_init', array( $this, 'listen' ) );
+	}
+
+	public function get_valid_form_types() {
+		return $this->valid_forms;
 	}
 
 	public function create_form() {
@@ -27,45 +30,50 @@ class FormBuilder {
 		if ( ! array_key_exists( $_GET['form'], $this->valid_forms ) )
 			return;
 
-		try {
+		$formClass = new \ReflectionClass( __NAMESPACE__ . "\\Form\\" . ucfirst( $_GET['form'] ) );
+		$form = $formClass->newInstance();
 
-			$reflection = new \ReflectionClass( $this->valid_forms[$_GET['form']] );
-			var_dump($reflection->getProperties());
-
-		} catch( Exception $e ) {
-			var_dump($e);
-		}
-
+		$view = new \ZFramework\Base\View( dirname( \Twinfield::$file ) . '/views/Pronamic/WP/FormBuilder' );
+		$view
+			->setVariable( 'nonce', wp_nonce_field( 'twinfield_form_builder', 'twinfield_form_nonce' ) )
+			->setVariable( $_GET['form'], $form->fillClass( $_POST['twinfield_form_fill'] ) )
+			->setView( $this->valid_forms[$_GET['form']] )
+			->render();
 	}
 
 	public function listen() {
-		$customer = new \Pronamic\Twinfield\Customer\Customer();
-		$customer->setID( filter_input( INPUT_POST, 'customerID', FILTER_VALIDATE_INT ) );
+		if ( ! isset( $_GET['page'] ) )
+			return;
 
-		//
-		$line = new \Pronamic\Twinfield\Invoice\InvoiceLine();
-		$line
-			->setQuantity( filter_input( INPUT_POST, 'quantity', FILTER_VALIDATE_INT ) )
-			->setArticle( filter_input( INPUT_POST, 'article', FILTER_VALIDATE_INT ) );
+		if ( $_GET['page'] != 'twinfield_form_builder' )
+			return;
 
-		// Invoice
-		$invoice = new \Pronamic\Twinfield\Invoice\Invoice();
-		$invoice
-			->setType( filter_input( INPUT_POST, 'invoiceType', FILTER_SANITIZE_STRING ) )
-			->addLine( $line )
-			->setCustomer($customer);
+		if ( ! isset( $_GET['form'] ) )
+			return;
 
-		// Factory
-		$service = new \Pronamic\Twinfield\Secure\Service();
+		if ( ! array_key_exists( $_GET['form'], $this->valid_forms ) )
+			return;
 
-		// DOM DOcument/ELements
-		$invoiceElement = new \Pronamic\Twinfield\Invoice\InvoiceElement( $invoice );
+		if ( empty( $_POST ) && ! isset( $_POST['twinfield_form_nonce' ] ) )
+			return;
 
-		// Send request
-		$service->send($invoiceElement);
+		if ( ! wp_verify_nonce( $_POST['twinfield_form_nonce'], 'twinfield_form_builder' ) )
+			return;
 
+		try {
 
+			$formClass = new \ReflectionClass( __NAMESPACE__ . '\\Form\\' . ucfirst( $_GET['form'] ) );
+			$form = $formClass->newInstance();
 
+			if ( $form->submitted() ) {
+				echo $form->getSuccessMessage();
+			} else {
+				echo $form->getFailedMessage();
+			}
+
+		} catch( \Exception $e ) {
+			var_dump($e);
+		}
 	}
 
 }

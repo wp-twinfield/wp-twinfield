@@ -29,7 +29,7 @@ abstract class InvoicesDocument extends SecureDocument {
 		parent::__construct();
 
 		// Set elements to check in the securedocument
-		$this->setElementsToCheck( 'salesinvoices' );
+		$this->setElementsToCheck( array( 'salesinvoices' => 'result' ) );
 
 		// Make the main wrap element
 		$this->salesInvoicesElement = $this->createElement( 'salesinvoices' );

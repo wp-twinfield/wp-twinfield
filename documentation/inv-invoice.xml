@@ -1,8 +1,23 @@
 <salesinvoices>
 	<salesinvoice>
 		<header>
-			<invoicetype>FACTUUR</invoicetype>
-			<customer>1000</customer>
+			<office></office><!--Office code [OPTIONAL] [CODE]-->
+			<invoicetype></invoicetype><!-- [REQUIRED] [CODE] -->
+			<customer></customer> <!-- [REQUIRED] [CODE]-->
+			<invoicenumber></invoicenumber> <!--Invoice number, if empty Twinfield will generate an invoice number when filled [INTEGER]-->
+			<status></status>
+			<currency></currency>
+			<period></period>
+			<invoicedate></invoicedate>
+			<duedate></duedate>
+			<performancedate></performancedate>
+			<paymentmethod></paymentmethod>
+			<bank></bank>
+			<invoiceaddressnumber></invoiceaddressnumber>
+			<delivereraddressnumber></delivereraddressnumber>
+			<headertext></headertext>
+			<footertext></footertext>
+			<userdefinedtag></userdefinedtag>
 		</header>
 		<lines>
 			<line>

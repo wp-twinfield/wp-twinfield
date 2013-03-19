@@ -20,7 +20,7 @@ namespace Pronamic\Twinfield\Invoice;
  * @version 0.0.1
  */
 class Invoice {
-	
+
 	/**
 	 * A customer for this invoice
 	 *
@@ -38,6 +38,22 @@ class Invoice {
 	 */
 	private $type;
 
+	private $office;
+
+	private $invoiceNumber;
+	private $status;
+	private $currency;
+	private $period;
+	private $invoiceDate;
+	private $dueDate;
+	private $performanceDate;
+	private $paymentMethod;
+	private $bank;
+	private $invoiceAddressNumber;
+	private $delivererAddressNumber;
+	private $headerText;
+	private $footerText;
+
 	/**
 	 * Holds the invoice lines for this
 	 * invoice.
@@ -47,7 +63,7 @@ class Invoice {
 	 * @access private
 	 * @var array of InvoiceLine
 	 */
-	private $lines;
+	private $lines = array();
 
 	/**
 	 * Adds a line to this invoice.
@@ -58,8 +74,8 @@ class Invoice {
 	 * @param \Pronamic\Twinfield\Invoice\InvoiceLine $order
 	 * @return \Pronamic\Twinfield\Invoice\Invoice
 	 */
-	public function addLine(InvoiceLine $order) {
-		$this->lines[$order->getID()] = $order;
+	public function addLine(InvoiceLine $line) {
+		$this->lines[$line->getID()] = $line;
 		return $this;
 	}
 
@@ -145,5 +161,117 @@ class Invoice {
 	public function setType( $invoiceType ) {
 		$this->type = $invoiceType;
 		return $this;
+	}
+
+	public function getOffice() {
+		return $this->office;
+	}
+
+	public function setOffice( $office ) {
+		$this->office = $office;
+	}
+
+	public function getInvoiceNumber() {
+		return $this->invoiceNumber;
+	}
+
+	public function setInvoiceNumber( $invoiceNumber ) {
+		$this->invoiceNumber = $invoiceNumber;
+	}
+
+	public function getStatus() {
+		return $this->status;
+	}
+
+	public function setStatus( $status ) {
+		$this->status = $status;
+	}
+
+	public function getCurrency() {
+		return $this->currency;
+	}
+
+	public function setCurrency( $currency ) {
+		$this->currency = $currency;
+	}
+
+	public function getPeriod() {
+		return $this->period;
+	}
+
+	public function setPeriod( $period ) {
+		$this->period = $period;
+	}
+
+	public function getInvoiceDate() {
+		return $this->invoiceDate;
+	}
+
+	public function setInvoiceDate( $invoiceDate ) {
+		$this->invoiceDate = $invoiceDate;
+	}
+
+	public function getDueDate() {
+		return $this->dueDate;
+	}
+
+	public function setDueDate( $dueDate ) {
+		$this->dueDate = $dueDate;
+	}
+
+	public function getPerformanceDate() {
+		return $this->performanceDate;
+	}
+
+	public function setPerformanceDate( $performanceDate ) {
+		$this->performanceDate = $performanceDate;
+	}
+
+	public function getPaymentMethod() {
+		return $this->paymentMethod;
+	}
+
+	public function setPaymentMethod( $paymentMethod ) {
+		$this->paymentMethod = $paymentMethod;
+	}
+
+	public function getBank() {
+		return $this->bank;
+	}
+
+	public function setBank( $bank ) {
+		$this->bank = $bank;
+	}
+
+	public function getInvoiceAddressNumber() {
+		return $this->invoiceAddressNumber;
+	}
+
+	public function setInvoiceAddressNumber( $invoiceAddressNumber ) {
+		$this->invoiceAddressNumber = $invoiceAddressNumber;
+	}
+
+	public function getDelivererAddressNumber() {
+		return $this->delivererAddressNumber;
+	}
+
+	public function setDelivererAddressNumber( $delivererAddressNumber ) {
+		$this->delivererAddressNumber = $delivererAddressNumber;
+	}
+
+	public function getHeaderText() {
+		return $this->headerText;
+	}
+
+	public function setHeaderText( $headerText ) {
+		$this->headerText = $headerText;
+	}
+
+	public function getFooterText() {
+		return $this->footerText;
+	}
+
+	public function setFooterText( $footerText ) {
+		$this->footerText = $footerText;
 	}
 }

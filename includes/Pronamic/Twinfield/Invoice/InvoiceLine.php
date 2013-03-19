@@ -17,7 +17,7 @@ class InvoiceLine {
 	private $freeText2;
 
 	public function __construct( $quantity = null, $article = null, $freeText1 = null, $freeText2 = null ) {
-		$this->id = uniqid();
+		$this->ID = uniqid();
 
 		$this->quantity = $quantity;
 		$this->article = $article;

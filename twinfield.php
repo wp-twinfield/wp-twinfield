@@ -50,6 +50,8 @@ class Twinfield {
 		add_filter('query_vars', array(__CLASS__, 'queryVars'));
 
 		add_filter('wp_loaded',array(__CLASS__, 'flushRules'));
+
+
 	}
 
 	public static function init() {
@@ -70,6 +72,7 @@ class Twinfield {
 
 		// Modules
 		new \Pronamic\WP\FormBuilder\FormBuilder();
+
 	}
 
 	public static function flushRules() {

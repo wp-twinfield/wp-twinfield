@@ -5,7 +5,22 @@ namespace Pronamic\Twinfield\Office;
 /**
  * Factory class for interacting
  */
-class OfficeFactory extends \Pronamic\Twinfield\Secure\Login {
+use Pronamic\Twinfield\Secure\Document as SecureDocument;
+
+abstract class OfficesDocument extends SecureDocument {
+
+	private $listElement;
+
+	public function __construct() {
+		parent::__construct();
+
+		$this->listElement = $this->createElement( 'list' );
+		$this->appendChild( $this->listElement );
+	}
+
+	public function getListElement() {
+		return $this->listElement;
+	}
 
 	public function getAll() {
 		// Make the document

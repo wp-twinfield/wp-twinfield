@@ -1,21 +1,11 @@
-
-<form method="POST" class="input-form">
-	<input type="hidden" name="twinfield_form" value="true" />
-	<p>
-		<label>Invoice Type</label>
-		<input type="text" name="invoiceType" value=""/>
-	</p>
-	<p>
-		<label>Customer</label>
-		<input type="text" name="customerID" value="" />
-	</p>
-	<p>
-		<label>Quantity</label>
-		<input type="text" name="quantity" value=""/>
-	</p>
-	<p>
-		<label>Article</label>
-		<input type="text" name="article" value=""/>
-	</p>
-	<input type="submit" value="Send"/>
-</form>
+<?php $form_builder = new \Pronamic\WP\FormBuilder\FormBuilder(); ?>
+<div class="wrap">
+	<ul class="twinfield_form_types_list">
+		<?php foreach ( $form_builder->get_valid_form_types() as $type => $view ) : ?>
+		<li>
+			<a href="<?php echo admin_url( 'admin.php?page=twinfield_form_builder&form=' . $type ); ?>"><?php echo ucfirst( $type ); ?></a>
+		</li>
+		<?php endforeach; ?>
+	</ul>
+	<?php $form_builder->create_form(); ?>
+</div>
