@@ -1,79 +1,156 @@
 <?php
 
 namespace Pronamic\WP\FormBuilder;
+/**
+ * FormBuilder Class
+ *
+ * Used to create forms, and listen for inputs.  Will
+ * load the right classes depending on chosen form
+ *
+ * @since 0.0.1
+ *
+ * @package Pronamic\WP
+ * @subpackage FormBuilder
+ * @author Leon Rowland <leon@rowland.nl>
+ * @copyright (c) 2013, Leon Rowland
+ * @version 0.0.1
+ */
+use \ZFramework\Base\View;
 
 class FormBuilder {
 
+	/**
+	 * Holds the valid forms, and their
+	 * associated Form Class
+	 *
+	 * @access private
+	 * @var array
+	 */
 	private $valid_forms = array(
-		'invoice' => 'create_form_invoice',
-
+		'invoice' => "Pronamic\WP\FormBuilder\Form\Invoice"
 	);
 
+	/**
+	 * Holds the valid forms, form view file
+	 *
+	 * @access private
+	 * @var array
+	 */
+	private $valid_forms_views = array(
+		'invoice' => 'create_form_invoice'
+	);
+
+	/**
+	 * Adds a hook for the admin_init to listen for form submissions
+	 */
 	public function __construct() {
 		add_action( 'admin_init', array( $this, 'listen' ) );
 	}
 
-	public function get_valid_form_types() {
-		return $this->valid_forms;
+	/**
+	 * Returns all valid forms that have been made and
+	 * verified to work.
+	 *
+	 * @since 0.0.1
+	 *
+	 * @access public
+	 * @return array All valid forms
+	 */
+	public function getValidForms() {
+		return array_keys( $this->valid_forms );
 	}
 
-	public function create_form() {
-		if ( ! isset( $_GET['page'] ) )
+	/**
+	 * Returns the view file name for this form type
+	 *
+	 * @since 0.0.1
+	 *
+	 * @access public
+	 * @param string $type The key name for the form
+	 * @return boolean
+	 */
+	public function getFormViewFileName( $type ) {
+		if ( array_key_exists( $type, $this->valid_forms_views ) )
+			return $this->valid_forms_views[$type];
+		else
+			return false;
+	}
+
+	/**
+	 * Will create a form based off the passed type
+	 *
+	 * @since 0.0.1
+	 *
+	 * @access public
+	 * @param string $type The name of the form to create
+	 * @param boolean $return Whether to return the view or send straight to browser
+	 * @return string The View of the chosen form
+	 */
+	public function create_form( $type = null, $return = false ) {
+		// Check type has been supplied or return
+		if ( ! $type && ! isset( $_GET['twinfield_form'] ) )
 			return;
 
-		if ( $_GET['page'] != 'twinfield_form_builder' )
+		if ( ! $type )
+			$type = $_GET['twinfield_form'];
+
+		// Check the type is a valid form or return
+		if ( ! array_key_exists( $type, $this->valid_forms ) )
 			return;
 
-		if ( ! isset( $_GET['form'] ) )
-			return;
+		// Get the class of the chosen type
+		$form = $this->getClassFromType( $type );
 
-		if ( ! array_key_exists( $_GET['form'], $this->valid_forms ) )
-			return;
+		// Generate a nonce
+		$nonce = wp_nonce_field( 'twinfield_form_builder', 'twinfield_form_nonce', true, false );
 
-		$formClass = new \ReflectionClass( __NAMESPACE__ . "\\Form\\" . ucfirst( $_GET['form'] ) );
-		$form = $formClass->newInstance();
+		// Get the view file name
+		$viewFile = $this->getFormViewFileName( $type );
 
-		$view = new \ZFramework\Base\View( dirname( \Twinfield::$file ) . '/views/Pronamic/WP/FormBuilder' );
+		// Prepare the view
+		$view = new View( dirname( \Twinfield::$file ) . '/views/Pronamic/WP/FormBuilder' );
 		$view
-			->setVariable( 'nonce', wp_nonce_field( 'twinfield_form_builder', 'twinfield_form_nonce' ) )
-			->setVariable( $_GET['form'], $form->fillClass( $_POST['twinfield_form_fill'] ) )
-			->setView( $this->valid_forms[$_GET['form']] )
-			->render();
+			->setVariable( 'nonce', $nonce )
+			->setVariable( $type, $form->fillClass( $_POST ) )
+			->setView( $viewFile );
+
+		// Determine if it should return or show the view
+		if ( $return ) {
+			return $view->retrieve();
+		} else {
+			$view->render();
+		}
 	}
 
 	public function listen() {
-		if ( ! isset( $_GET['page'] ) )
+		if ( ! isset( $_GET['twinfield_form'] ) )
 			return;
 
-		if ( $_GET['page'] != 'twinfield_form_builder' )
+		$type = $_GET['twinfield_form'];
+
+		if ( ! array_key_exists( $type, $this->valid_forms ) )
 			return;
 
-		if ( ! isset( $_GET['form'] ) )
-			return;
-
-		if ( ! array_key_exists( $_GET['form'], $this->valid_forms ) )
-			return;
-
-		if ( empty( $_POST ) && ! isset( $_POST['twinfield_form_nonce' ] ) )
+		if ( empty( $_POST ) || ! isset( $_POST['twinfield_form_nonce' ] ) )
 			return;
 
 		if ( ! wp_verify_nonce( $_POST['twinfield_form_nonce'], 'twinfield_form_builder' ) )
 			return;
 
+		$this->getClassFromType( $type )->submit();
+	}
+
+	private function getClassFromType( $type ) {
 		try {
 
-			$formClass = new \ReflectionClass( __NAMESPACE__ . '\\Form\\' . ucfirst( $_GET['form'] ) );
-			$form = $formClass->newInstance();
-
-			if ( $form->submitted() ) {
-				echo $form->getSuccessMessage();
-			} else {
-				echo $form->getFailedMessage();
-			}
+			$reflectionClass = new \ReflectionClass( $this->valid_forms[$type] );
+			return $reflectionClass->newInstance();
 
 		} catch( \Exception $e ) {
-			var_dump($e);
+			return false;
 		}
 	}
+
+
 
 }

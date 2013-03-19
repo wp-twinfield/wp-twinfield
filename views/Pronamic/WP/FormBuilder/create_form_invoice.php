@@ -17,12 +17,14 @@
 					var currentName = self.attr('name');
 					var newName = currentName.replace(number, nextNumber, "gi");
 					self.attr('name', newName);
+					self.attr('value', '');
 				});
 			});
 		});
 
 	})(jQuery);
 </script>
+<h2><?php _e( 'Invoice Form', 'twinfield' ); ?></h2>
 <form method="POST" class="input-form">
 	<?php echo $nonce; ?>
 	<table class="form-table">
@@ -39,7 +41,7 @@
 			</td>
 		</tr>
 	</table>
-	<hr/>
+	<br/>
 	<table class="widefat">
 		<thead>
 			<th><?php _e( 'Article', 'twinfield' ); ?></th>
@@ -74,7 +76,7 @@
 			<?php endif; ?>
 		</tbody>
 	</table>
-	<hr/>
+	<br/>
 	<a href="#" class="jAddLine">Add Line</a>
 	<input type="submit" value="Send" class="button button-primary" style="float:right;"/>
 </form>

@@ -4,48 +4,32 @@ namespace Pronamic\WP\FormBuilder\Form;
 
 use Pronamic\Twinfield\Customer\Customer;
 use Pronamic\Twinfield\Invoice as I;
-use Pronamic\Twinfield\Secure\Service;
 
-class Invoice {
+class Invoice extends ParentForm {
 
-	public function submitted() {
+	public function submit() {
 
 		$invoice = $this->fillClass();
-
-		// Secure Service Interaction
-		$service = new Service();
-
-		// New DOMDocument/Element
 		$invoiceElement = new I\InvoiceElement( $invoice );
 
-		// Send request
-		$response = $service->send($invoiceElement);
+		parent::submit($invoiceElement);
 
-		// Check the response was a successful one
-		if ( ! $response->isSuccessful() ) {
-			$errors = $response->getErrors();
-
-			foreach ( $errors as $error ) {
-				echo $error;
-			}
-
-			return false;
-		} else {
-			return true;
-		}
 	}
 
 	public function getSuccessMessage() {
-		return 'Successful posted Invoice';
-	}
-
-	public function getFailedMessage() {
-		return 'Failed to post invoice';
+		return 'Form was successful';
 	}
 
 	public function fillClass( $data = null ) {
 		if ( ! $data )
 			$data = $_POST;
+
+		$defaultData = array(
+			'customerID' => '',
+			'invoiceType' => ''
+		);
+
+		$data = array_merge( $defaultData, $data );
 
 		$customer = new Customer();
 		$invoice = new I\Invoice();
@@ -61,18 +45,33 @@ class Invoice {
 			->setType( filter_var( $data['invoiceType'], FILTER_SANITIZE_STRING ) )
 			->setCustomer($customer);
 
-		foreach ( $data['lines'] as $line ) {
-			$temp_line = new I\InvoiceLine();
-			$temp_line
-					->setArticle( $line['article'] )
-					->setQuantity( $line['quantity'] )
-					->setSubArticle( $line['subarticle'] )
-					->setUnits( $line['units'] )
-					->setUnitsPriceExcl( $line['unitspriceexcl'] )
-					->setVatCode( $line['vatcode'] );
+		if ( ! empty( $data['lines'] ) ) {
 
-			$invoice->addLine( $temp_line );
+			$defaultLineData = array(
+				'article' => '',
+				'quantity' => '',
+				'subarticle' => '',
+				'units' => '',
+				'unitspriceexcl' => '',
+				'vatcode' => ''
+			);
+
+			foreach ( $data['lines'] as $line ) {
+				$line = array_merge( $defaultLineData, $line );
+
+				$temp_line = new I\InvoiceLine();
+				$temp_line
+						->setArticle( $line['article'] )
+						->setQuantity( $line['quantity'] )
+						->setSubArticle( $line['subarticle'] )
+						->setUnits( $line['units'] )
+						->setUnitsPriceExcl( $line['unitspriceexcl'] )
+						->setVatCode( $line['vatcode'] );
+
+				$invoice->addLine( $temp_line );
+			}
 		}
+
 
 		return $invoice;
 

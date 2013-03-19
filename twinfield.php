@@ -51,6 +51,14 @@ class Twinfield {
 
 		add_filter('wp_loaded',array(__CLASS__, 'flushRules'));
 
+		add_action( 'admin_enqueue_scripts', array( __CLASS__, 'scripts' ) );
+
+
+	}
+
+	public static function scripts() {
+		wp_register_style( 'pronamic_twinfield', dirname( __FILE__ ) . '/css/admin.css' );
+		wp_enqueue_style( 'pronamic_twinfield' );
 
 	}
 
@@ -249,3 +257,4 @@ class Twinfield {
 }
 
 Twinfield::bootstrap( __FILE__ );
+include 'twinfield-functions.php';

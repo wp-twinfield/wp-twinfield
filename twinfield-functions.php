@@ -28,13 +28,7 @@ function twinfield_get_debtor( $id ) {
 
 }
 
-function twinfield_admin_notice( $message ) {
-	add_action( 'admin_notices', function() {
-		?>
-		<div class="error">
-			<p><?php echo $message; ?></p>
-		</div>
-		<?php
 
-	});
+function twinfield_get_form_action( $type ) {
+	return admin_url( 'admin.php?page=twinfield_form_builder&twinfield_form=' . $type );
 }
