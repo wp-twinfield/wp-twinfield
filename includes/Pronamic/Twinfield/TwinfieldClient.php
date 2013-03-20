@@ -268,20 +268,20 @@ echo '</pre>';
 	}
 
 	public function read_debtor( $office, $code ) {
-		$result = self::readDimension($office, Read::DIMENSION_TYPE_DEBTOR, $code);
+		$result = self::readDimension( $office, Read::DIMENSION_TYPE_DEBTOR, $code );
 
-		$xml = simplexml_load_string($result->ProcessXmlStringResult);
-		echo '<pre>', htmlentities( $xml->asXML() ), '</pre>';
+		$xml = simplexml_load_string( $result->ProcessXmlStringResult );
+
 		$debtor = new Debtor();
 		
-		$office = XML\OfficeParser::parse($xml->office);
-		$debtor->setOffice($office);
+		$office = XML\OfficeParser::parse( $xml->office );
+		$debtor->setOffice( $office );
 		
-		$debtor->setName((string) $xml->name);
-		$debtor->setWebsite((string) $xml->website);
+		$debtor->setName( (string) $xml->name );
+		$debtor->setWebsite( (string) $xml->website );
 		
-		$addresses = XML\AddressesParser::parse($xml->addresses);
-		$debtor->setAddresses($addresses);
+		$addresses = XML\AddressesParser::parse( $xml->addresses );
+		$debtor->setAddresses( $addresses );
 		
 		/*
 		 echo '<pre>';
