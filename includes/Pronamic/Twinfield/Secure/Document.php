@@ -29,6 +29,8 @@ abstract class Document extends \DOMDocument {
 	 * Sets elements for the childs DOCUMENT implementation
 	 * to check for the result attribute.
 	 *
+	 * Used in Pronamic\Twinfield\Response
+	 *
 	 * @since 0.0.1
 	 *
 	 * @access public
@@ -47,6 +49,8 @@ abstract class Document extends \DOMDocument {
 	 *
 	 * This method is used by the Secure\Service class
 	 * when a Document is requested to be sent.
+	 *
+	 * Used in Pronamic\Twinfield\Response
 	 *
 	 * @since 0.0.1
 	 *
