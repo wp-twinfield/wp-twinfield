@@ -2,33 +2,100 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Twinfield\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-23 13:15+0100\n"
-"PO-Revision-Date: 2012-08-23 13:16+0100\n"
-"Last-Translator: Remco Tolsma <remco@pronamic.nl>\n"
+"POT-Creation-Date: 2013-03-20 16:33+0100\n"
+"PO-Revision-Date: 2013-03-20 16:33+0100\n"
+"Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
+"Language: nl_NL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: ../\n"
-"X-Poedit-Language: Dutch\n"
-"X-Poedit-Country: NETHERLANDS\n"
+"X-Generator: Poedit 1.5.5\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: twinfield.php:171
-#: twinfield.php:172
+#: twinfield.php:167 twinfield.php:168
 msgid "Twinfield"
 msgstr "Twinfield"
 
-#: twinfield.php:181
-#: twinfield.php:182
+#: twinfield.php:177
+msgid "Twinfield Settings"
+msgstr "Twinfield instellingen"
+
+#: twinfield.php:178
 msgid "Settings"
 msgstr "Instellingen"
 
-#: twinfield.php:190
-#: twinfield.php:191
+#: twinfield.php:186
+msgid "Twinfield Offices"
+msgstr "Twinfield kantoren"
+
+#: twinfield.php:187
 msgid "Offices"
 msgstr "Kantoren"
+
+#: twinfield.php:195
+msgid "Twinfield Documentation"
+msgstr "Twinfield documentatie"
+
+#: twinfield.php:196
+msgid "Documentation"
+msgstr "Documentatie"
+
+#: admin/documentation.php:10
+msgid "General"
+msgstr "Algemeen"
+
+#: admin/documentation.php:20
+msgid "Webservices"
+msgstr "Webservices"
+
+#: admin/documentation.php:89
+msgid "Templates (Dutch)"
+msgstr "Sjablonen (Nederlands)"
+
+#: admin/documentation.php:130
+msgid "Templates (English)"
+msgstr "Sjablonen (Engels)"
+
+#: admin/documentation.php:228
+#, php-format
+msgid "version %s"
+msgstr "versie %s"
+
+#: admin/documentation.php:232
+#, php-format
+msgid "%s"
+msgstr "%s"
+
+#: admin/offices.php:25
+msgid "Code"
+msgstr "Code"
+
+#: admin/offices.php:26
+msgid "Shortname"
+msgstr "Korte naam"
+
+#: admin/offices.php:27
+msgid "Name"
+msgstr "Naam"
+
+#: admin/settings.php:16
+msgid "Username"
+msgstr "Gebruikersnaam"
+
+#: admin/settings.php:24
+msgid "Password"
+msgstr "Wachtwoord"
+
+#: admin/settings.php:32
+msgid "Organisation"
+msgstr "Organisatie"
+
+#: admin/settings.php:40
+msgid "Office Code"
+msgstr "Kantoorcode"
 
 #: templates/sales-invoice.php:19
 msgid "Invoice Number"
@@ -50,33 +117,9 @@ msgstr "Kantoor"
 msgid "Type"
 msgstr "Type"
 
-#: admin/settings.php:16
-msgid "Username"
-msgstr "Gebruikersnaam"
-
-#: admin/settings.php:24
-msgid "Password"
-msgstr "Wachtwoord"
-
-#: admin/settings.php:32
-msgid "Organisation"
-msgstr "Organisatie"
-
-#: admin/settings.php:40
-msgid "Office Code"
-msgstr "Kantoorcode"
-
-#: admin/offices.php:25
-msgid "Code"
-msgstr "Code"
-
-#: admin/offices.php:26
-msgid "Shortname"
-msgstr "Korte naam"
-
-#: admin/offices.php:27
-msgid "Name"
-msgstr "Naam"
+#: templates/sales-invoice.php:43
+msgid "Status"
+msgstr "Status"
 
 #~ msgid "Title"
 #~ msgstr "Titel"
@@ -98,9 +141,6 @@ msgstr "Naam"
 
 #~ msgid "Dynamic"
 #~ msgstr "Dynamisch"
-
-#~ msgid "Static"
-#~ msgstr "Statisch"
 
 #~ msgid "Active"
 #~ msgstr "Actief"
