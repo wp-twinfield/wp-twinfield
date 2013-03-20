@@ -2,14 +2,20 @@
 
 namespace Pronamic\Twinfield\Response;
 
+use \Pronamic\Twinfield\Secure\Document as SecureDocument;
+
 class Response {
 
 	private $responseDocument;
 	private $sentDocument;
 
-	public function __construct( \DOMDocument $responseDocument, \Pronamic\Twinfield\Secure\Document $sentDocument ) {
+	public function __construct( \DOMDocument $responseDocument, SecureDocument $sentDocument ) {
 		$this->responseDocument = $responseDocument;
 		$this->sentDocument = $sentDocument;
+	}
+
+	public function getResponseDocument() {
+		return $this->responseDocument;
 	}
 
 	public function isSuccessful() {
@@ -48,7 +54,7 @@ class Response {
 		}
 	}
 
-	public function getErrors() {
+	public function getErrorMessages() {
 		$xpath = new \DOMXPath( $this->responseDocument );
 
 		$errors = array();

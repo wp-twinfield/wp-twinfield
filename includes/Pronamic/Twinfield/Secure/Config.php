@@ -6,10 +6,11 @@ class Config {
 
 	private static $credentials = array();
 
-	public static function setCredentials( $username, $password, $organisation ) {
+	public static function setCredentials( $username, $password, $organisation, $office ) {
 		self::$credentials['user'] = $username;
 		self::$credentials['password'] = $password;
 		self::$credentials['organisation'] = $organisation;
+		self::$credentials['office'] = $office;
 	}
 
 	public static function getCredentials() {
@@ -26,5 +27,9 @@ class Config {
 
 	public static function getOrganisation() {
 		return self::$credentials['organisation'];
+	}
+
+	public static function getOffice() {
+		return self::$credentials['office'];
 	}
 }

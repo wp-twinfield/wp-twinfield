@@ -43,11 +43,11 @@ class Twinfield {
 
 		add_action('admin_menu', array(__CLASS__, 'adminMenu'));
 
-		add_action('template_redirect', array(__CLASS__, 'templateRedirect'));
+		//add_action('template_redirect', array(__CLASS__, 'templateRedirect'));
 
-		add_filter('generate_rewrite_rules', array(__CLASS__, 'generateRewriteRules'));
+		//add_filter('generate_rewrite_rules', array(__CLASS__, 'generateRewriteRules'));
 
-		add_filter('query_vars', array(__CLASS__, 'queryVars'));
+		//add_filter('query_vars', array(__CLASS__, 'queryVars'));
 
 		add_filter('wp_loaded',array(__CLASS__, 'flushRules'));
 
@@ -72,7 +72,8 @@ class Twinfield {
 		Pronamic\Twinfield\Secure\Config::setCredentials(
 			get_option( 'twinfield_username' ),
 			get_option( 'twinfield_password' ),
-			get_option( 'twinfield_organisation' )
+			get_option( 'twinfield_organisation' ),
+			get_option( 'twinfield_office_code' )
 		);
 
 		$login = new \Pronamic\Twinfield\Secure\Login();
@@ -80,6 +81,7 @@ class Twinfield {
 
 		// Modules
 		new \Pronamic\WP\FormBuilder\FormBuilder();
+		new \Pronamic\WP\Invoice\Invoice();
 
 	}
 
