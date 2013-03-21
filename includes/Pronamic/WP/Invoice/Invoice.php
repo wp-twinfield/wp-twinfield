@@ -52,8 +52,6 @@ class Invoice {
 		// Make the request
 		$response = $twinfield_service->send( $request_invoice );
 
-		var_dump($response->getResponseDocument()->saveXML());
-
 		if ( $response->isSuccessful() ) {
 			$invoice = TwinfieldInvoice\InvoiceMapper::map( $response );
 
@@ -66,6 +64,8 @@ class Invoice {
 					->setView( 'render_invoice' )
 					->setVariable( 'invoice', $invoice )
 					->render();
+
+			exit;
 		}
 
 

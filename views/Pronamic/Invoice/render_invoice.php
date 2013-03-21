@@ -15,14 +15,14 @@
 					<?php if ( $invoice_date = $invoice->getInvoiceDate() ): ?>
 
 						<dt><?php _e( 'Invoice Date', 'twinfield' ); ?></dt>
-						<dd><?php echo $invoice_date->format( 'd-m-Y' ); ?></dd>
+						<dd><?php echo $invoice_date; ?></dd>
 
 					<?php endif; ?>
 
 					<?php if ( $due_date = $invoice->getDueDate() ): ?>
 
 						<dt><?php _e( 'Due Date', 'twinfield' ); ?></dt>
-						<dd><?php echo $due_date->format( 'd-m-Y' ); ?></dd>
+						<dd><?php echo $due_date; ?></dd>
 
 					<?php endif; ?>
 
@@ -82,16 +82,16 @@
 						<tr>
 							<td><?php echo $line->getID(); ?></td>
 							<td><?php echo $line->getArticle(); ?></td>
-							<td><?php echo $line->subArticle; ?></td>
-							<td><?php echo $line->quantity; ?></td>
-							<td><?php echo $line->units; ?></td>
-							<td><?php echo $line->allowDiscountOrPremium ? 'yes' : 'no'; ?></td>
-							<td><?php echo $line->description; ?></td>
-							<td><?php echo $line->valueExcl; ?></td>
-							<td><?php echo $line->vatValue; ?></td>
-							<td><?php echo $line->valueInc; ?></td>
-							<td><?php echo $line->unitsPriceExcl; ?></td>
-							<td><?php echo $line->freeText1; ?></td>
+							<td><?php echo $line->getSubArticle(); ?></td>
+							<td><?php echo $line->getQuantity(); ?></td>
+							<td><?php echo $line->getUnits(); ?></td>
+							<td><?php echo $line->getAllowDiscountOrPremium() ?></td>
+							<td><?php echo $line->getDescription(); ?></td>
+							<td><?php echo $line->getValueExcl(); ?></td>
+							<td><?php echo $line->getVatValue(); ?></td>
+							<td><?php echo $line->getValueInc(); ?></td>
+							<td><?php echo $line->getUnitsPriceExcl(); ?></td>
+							<td><?php echo $line->getFreeText1(); ?></td>
 						</tr>
 
 						<?php endforeach; ?>
