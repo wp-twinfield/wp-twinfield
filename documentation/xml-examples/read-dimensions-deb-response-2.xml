@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<dimension status="active" result="1">
+	<office name="Pronamic"
+		shortname="Pronamic">12345</office>
+	<type name="Debiteuren" shortname="Debiteuren">DEB</type>
+	<code>12345</code>
+	<uid></uid>
+	<name>Pronamic</name>
+	<shortname />
+	<inuse>true</inuse>
+	<behaviour>normal</behaviour>
+	<touched>7</touched>
+	<beginperiod>0</beginperiod>
+	<beginyear>0</beginyear>
+	<endperiod>0</endperiod>
+	<endyear>0</endyear>
+	<website>www.pronamic.nl</website>
+	<cocnumber />
+	<vatnumber />
+	<editdimensionname>true</editdimensionname>
+	<financials>
+		<matchtype>customersupplier</matchtype>
+		<accounttype>inherit</accounttype>
+		<subanalyse>false</subanalyse>
+		<duedays>30</duedays>
+		<level>2</level>
+		<payavailable>false</payavailable>
+		<meansofpayment>none</meansofpayment>
+		<paycode name="" shortname="" />
+		<ebilling>true</ebilling>
+		<ebillmail>info@pronamic.nl</ebillmail>
+		<substitutionlevel>1</substitutionlevel>
+		<substitutewith name="Debiteuren (subadmin.)"
+			shortname="" dimensiontype="BAS">12345</substitutewith>
+		<relationsreference />
+		<vattype name="" shortname="" />
+		<vatcode />
+		<vatobligatory>false</vatobligatory>
+		<performancetype />
+		<childvalidations>
+			<childvalidation type="code" level="1">12345
+			</childvalidation>
+		</childvalidations>
+	</financials>
+	<creditmanagement>
+		<responsibleuser name="Remco Tolsma"
+			shortname="Remco">12345</responsibleuser>
+		<basecreditlimit>0.00</basecreditlimit>
+		<sendreminder>email</sendreminder>
+		<reminderemail>info@pronamic.nl</reminderemail>
+		<blocked locked="true" modified="">false</blocked>
+		<freetext1>true</freetext1>
+		<freetext2 />
+		<freetext3 />
+		<comment />
+	</creditmanagement>
+	<addresses>
+		<address id="1" type="invoice" default="true">
+			<name>Pronamic</name>
+			<country name="Nederland" shortname="">NL</country>
+			<city>Drachten</city>
+			<postcode>9203 KA</postcode>
+			<telephone />
+			<telefax />
+			<email>info@pronamic.nl</email>
+			<contact />
+			<field1>Remco Tolsma</field1>
+			<field2>Postbus 12345</field2>
+			<field3 />
+			<field4 />
+			<field5 />
+			<field6 />
+		</address>
+	</addresses>
+	<banks />
+	<postingrules>
+		<postingrule id="1" status="active">
+			<currency name="Euro" shortname="Euro">EUR</currency>
+			<amount>4092.33</amount>
+			<description>Website</description>
+			<lines>
+				<line>
+					<office name="" shortname="" />
+					<dimension1 name="" shortname="" dimensiontype="">12345
+					</dimension1>
+					<ratio>3000</ratio>
+					<vatcode name="BTW 21%" shortname="V 21%" type="sales">VH</vatcode>
+					<description>Ontwikkelen website pronamic.nl</description>
+				</line>
+				<line>
+					<office name="" shortname="" />
+					<dimension1 name="" shortname="" dimensiontype="">12345
+					</dimension1>
+					<ratio>1500</ratio>
+					<vatcode name="BTW 21%" shortname="V 21%" type="sales">VH</vatcode>
+					<description>Optie abonnees</description>
+				</line>
+				<line>
+					<office name="" shortname="" />
+					<dimension1 name="" shortname="" dimensiontype="">12345
+					</dimension1>
+					<ratio>250</ratio>
+					<vatcode name="BTW 21%" shortname="V 21%" type="sales">VH</vatcode>
+					<description>Optie vacatures</description>
+				</line>
+			</lines>
+		</postingrule>
+	</postingrules>
+</dimension>

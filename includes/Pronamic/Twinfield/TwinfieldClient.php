@@ -170,8 +170,8 @@ echo '</pre>';
 
 		return $return;
 	}
-
-
+	
+	
 	///////////////////////////////////////////////////////////////////////////
 
 	/**
@@ -288,7 +288,7 @@ echo '</pre>';
 		echo htmlentities($xml->asXML());
 		echo '</pre>';
 		*/
-
+		
 		return $debtor;
 	}
 

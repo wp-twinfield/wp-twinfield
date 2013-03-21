@@ -14,7 +14,7 @@
 			<dt>Header</dt>
 			<dd>
 				<?php $header = $salesInvoice->getHeader(); ?>
-		
+
 				<dl>
 					<dt><?php _e( 'Invoice Number', 'twinfield' ); ?></dt>
 					<dd><?php echo $header->getInvoiceNumber(); ?></dd>
@@ -40,8 +40,23 @@
 					<dt><?php _e( 'Type', 'twinfield' ); ?></dt>
 					<dd><?php echo $header->getType(); ?></dd>
 		
+					<dt><?php _e( 'Customer', 'twinfield' ); ?></dt>
+					<dd>
+						<?php 
+
+						$customer = $header->getCustomer();
+
+						printf(
+							'<a href="%s" target="_blank">%s</a>',
+							site_url( '/debiteuren/' . $customer . '/' ),
+							$customer
+						);
+
+						?>
+					</dd>
+		
 					<dt><?php _e( 'Status', 'twinfield' ); ?></dt>
-					<dd><?php echo $header->get_status(); ?></dd>
+					<dd><?php echo $header->getStatus(); ?></dd>
 				</dl>
 			</dd>
 		

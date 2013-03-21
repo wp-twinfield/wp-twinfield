@@ -149,11 +149,12 @@ class Twinfield {
 			$username = get_option( 'twinfield_username' );
 			$password = get_option( 'twinfield_password' );
 			$organisation = get_option( 'twinfield_organisation' );
+			$office_code = get_option( 'twinfield_office_code' );
 
 			$twinfield_client = new Pronamic\Twinfield\TwinfieldClient();
 			$result = $twinfield_client->logon($username, $password, $organisation);
 
-			$twinfield_debtor = $twinfield_client->readDimension( 'dimensions', '11024', 'DEB', $id );
+			$twinfield_debtor = $twinfield_client->read_debtor( $office_code, $id );
 
 			// Determine template
 			$templates = array();

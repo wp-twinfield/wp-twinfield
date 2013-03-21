@@ -47,6 +47,13 @@ class SalesInvoiceHeader {
 	private $dueDate;
 
 	/**
+	 * The customer
+	 * 
+	 * @var string
+	 */
+	private $customer;
+
+	/**
 	 * The bank
 	 * 
 	 * @var string
@@ -161,6 +168,7 @@ class SalesInvoiceHeader {
 	public function setDueDate( \DateTime $date ) {
 		$this->dueDate = $date;
 	}
+
 	///////////////////////////////////////////////////////////////////////////	
 
 	/**
@@ -168,7 +176,7 @@ class SalesInvoiceHeader {
 	 * 
 	 * @return string
 	 */
-	public function get_status() {
+	public function getStatus() {
 		return $this->status;
 	}
 
@@ -177,7 +185,27 @@ class SalesInvoiceHeader {
 	 * 
 	 * @param string $status
 	 */
-	public function set_status( $status ) {
+	public function setStatus( $status ) {
 		$this->status = $status;
+	}
+
+	///////////////////////////////////////////////////////////////////////////	
+
+	/**
+	 * Get the customer
+	 * 
+	 * @return string
+	 */
+	public function getCustomer() {
+		return $this->customer;
+	}
+
+	/**
+	 * Set the customer
+	 * 
+	 * @param string $status
+	 */
+	public function setCustomer( $customer ) {
+		$this->customer = $customer;
 	}
 }

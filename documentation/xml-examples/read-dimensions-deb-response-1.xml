@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<dimension status="active" result="1">
+	<office name="Pronamic" shortname="Pronamic">123456</office>
+	<type name="Customers" shortname="Debiteuren">DEB</type>
+	<code>1002</code>
+	<uid>f1629fa9-7398-42b7-8b19-829ce43b073d</uid>
+	<name>Remco Tolsma</name>
+	<shortname />
+	<inuse>true</inuse>
+	<behaviour>normal</behaviour>
+	<touched>4</touched>
+	<beginperiod>0</beginperiod>
+	<beginyear>0</beginyear>
+	<endperiod>0</endperiod>
+	<endyear>0</endyear>
+	<website />
+	<cocnumber />
+	<vatnumber />
+	<editdimensionname>false</editdimensionname>
+	<financials>
+		<matchtype>customersupplier</matchtype>
+		<accounttype>inherit</accounttype>
+		<subanalyse>false</subanalyse>
+		<duedays>30</duedays>
+		<level>2</level>
+		<payavailable>false</payavailable>
+		<meansofpayment>none</meansofpayment>
+		<paycode name="" shortname="" />
+		<ebilling>false</ebilling>
+		<ebillmail />
+		<substitutionlevel>1</substitutionlevel>
+		<substitutewith name="Debiteuren" shortname="Debiteuren"
+			dimensiontype="BAS">1300</substitutewith>
+		<relationsreference />
+		<vattype name="" shortname="" />
+		<vatcode name="BTW 0%" shortname="V 0%" type="sales">VN</vatcode>
+		<vatobligatory>false</vatobligatory>
+		<performancetype />
+		<childvalidations>
+			<childvalidation type="code" level="1">1300
+			</childvalidation>
+		</childvalidations>
+	</financials>
+	<addresses>
+		<address id="1" type="invoice" default="true">
+			<name>Remco Tolsma</name>
+			<country name="Nederland" shortname="">NL</country>
+			<city>Drachten</city>
+			<postcode>9203 KA</postcode>
+			<telephone>+31 (0)516 481 200</telephone>
+			<telefax>+31 (0)516 481 999</telefax>
+			<email>remco@pronamic.nl</email>
+			<contact />
+			<field1>Remco Tolsma</field1>
+			<field2>Merkebuorren39a</field2>
+			<field3 />
+			<field4 />
+			<field5 />
+			<field6 />
+		</address>
+		<address id="2" type="postal" default="false">
+			<name>Remco Tolsma</name>
+			<country name="Nederland" shortname="">NL</country>
+			<city>Drachten</city>
+			<postcode>9203 KA</postcode>
+			<telephone>+31 (0)516 481 200</telephone>
+			<telefax>+31 (0)516 481 999</telefax>
+			<email>remco@pronamic.nl</email>
+			<contact />
+			<field1 />
+			<field2>Merkebuorren39a</field2>
+			<field3 />
+			<field4 />
+			<field5 />
+			<field6 />
+		</address>
+	</addresses>
+	<banks />
+	<groups>
+		<group shortname="Relaties" name="Relaties">2REL</group>
+	</groups>
+</dimension>

@@ -30,7 +30,9 @@ class SalesInvoiceHeaderParser {
 
 		$header->setDueDate( new \DateTime( '@' . $due_date ) );
 
-		$header->set_status( filter_var( $xml->status, FILTER_SANITIZE_STRING ) );
+		$header->setStatus( filter_var( $xml->status, FILTER_SANITIZE_STRING ) );
+
+		$header->setCustomer( filter_var( $xml->customer, FILTER_SANITIZE_STRING ) );
 
 		return $header;
 	}
