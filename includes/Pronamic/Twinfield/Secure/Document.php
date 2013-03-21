@@ -36,7 +36,7 @@ abstract class Document extends \DOMDocument {
 	 * @access public
 	 * @param string OR array $elements_array Element tags to check for result
 	 */
-	public function setElementsToCheck( $elements_array ) {
+	protected function setElementsToCheck( $elements_array ) {
 		if ( ! is_array( $elements_array ) ) {
 			$this->elementsToCheck[] = $elements_array;
 		} else {
@@ -57,7 +57,7 @@ abstract class Document extends \DOMDocument {
 	 * @access public
 	 * @return array
 	 */
-	public function getElementsToCheck() {
+	protected function getElementsToCheck() {
 		return $this->elementsToCheck;
 	}
 
