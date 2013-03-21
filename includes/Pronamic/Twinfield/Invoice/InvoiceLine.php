@@ -12,6 +12,10 @@ class InvoiceLine {
 	private $description;
 	private $unitsPriceExcl;
 	private $units;
+	private $allowDiscountOrPremium;
+	private $valueExcl;
+	private $vatValue;
+	private $valueInc;
 	private $vatCode;
 	private $freeText1;
 	private $freeText2;
@@ -80,6 +84,42 @@ class InvoiceLine {
 
 	public function setUnits( $units ) {
 		$this->units = $units;
+		return $this;
+	}
+
+	public function getAllowDiscountOrPremium() {
+		return $this->allowDiscountOrPremium;
+	}
+
+	public function setAllowDiscountOrPremium( $allowDiscountOrPremium ) {
+		$this->allowDiscountOrPremium = $allowDiscountOrPremium;
+		return $this;
+	}
+
+	public function getValueExcl() {
+		return $this->valueExcl;
+	}
+
+	public function setValueExcl( $valueExcl ) {
+		$this->valueExcl = $valueExcl;
+		return $this;
+	}
+
+	public function getVatValue() {
+		return $this->vatValue;
+	}
+
+	public function setVatValue( $vatValue ) {
+		$this->vatValue = $vatValue;
+		return $this;
+	}
+
+	public function getValueInc() {
+		return $this->valueInc;
+	}
+
+	public function setValueInc( $valueInc ) {
+		$this->valueInc = $valueInc;
 		return $this;
 	}
 

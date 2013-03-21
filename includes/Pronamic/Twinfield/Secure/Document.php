@@ -57,7 +57,7 @@ abstract class Document extends \DOMDocument {
 	 * @access public
 	 * @return array
 	 */
-	protected function getElementsToCheck() {
+	public function getElementsToCheck() {
 		return $this->elementsToCheck;
 	}
 

@@ -31,7 +31,7 @@
 		<tr>
 			<th><?php _e( 'Invoice Type', 'twinfield' ); ?></th>
 			<td>
-				<input type="text" name="invoiceType" value="<?php echo $invoice->getType(); ?>"/>
+				<input type="text" name="invoiceType" value="<?php echo $invoice->getInvoiceType(); ?>"/>
 			</td>
 		</tr>
 		<tr>

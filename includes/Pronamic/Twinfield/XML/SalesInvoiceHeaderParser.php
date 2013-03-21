@@ -17,7 +17,7 @@ class SalesInvoiceHeaderParser {
 		$header = new SalesInvoiceHeader();
 
 		$header->setOffice(filter_var($xml->office, FILTER_SANITIZE_STRING));
-		$header->setType(filter_var($xml->invoicetype, FILTER_SANITIZE_STRING));
+		$header->setInvoiceType(filter_var($xml->invoicetype, FILTER_SANITIZE_STRING));
 		$header->setInvoiceNumber(filter_var($xml->invoicenumber, FILTER_SANITIZE_STRING));
 
 		$invoice_date = filter_var( $xml->invoicedate, FILTER_SANITIZE_STRING );

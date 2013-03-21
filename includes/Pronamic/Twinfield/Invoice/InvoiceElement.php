@@ -19,7 +19,7 @@ class InvoiceElement extends InvoicesDocument {
 		$headerElement->appendChild( $customerElement );
 
 		// Set invoicetype element
-		$invoiceTypeElement = $this->createElement( 'invoicetype', $invoice->getType() );
+		$invoiceTypeElement = $this->createElement( 'invoicetype', $invoice->getInvoiceType() );
 		$headerElement->appendChild( $invoiceTypeElement );
 
 		// Add orders

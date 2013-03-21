@@ -42,7 +42,7 @@ class Invoice extends ParentForm {
 		$customer->setID( filter_var( $data['customerID'], FILTER_VALIDATE_INT ) );
 
 		$invoice
-			->setType( filter_var( $data['invoiceType'], FILTER_SANITIZE_STRING ) )
+			->setInvoiceType( filter_var( $data['invoiceType'], FILTER_SANITIZE_STRING ) )
 			->setCustomer($customer);
 
 		if ( ! empty( $data['lines'] ) ) {

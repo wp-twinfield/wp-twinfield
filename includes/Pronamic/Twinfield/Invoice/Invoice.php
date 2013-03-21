@@ -36,7 +36,7 @@ class Invoice {
 	 * @access private
 	 * @var string
 	 */
-	private $type;
+	private $invoiceType;
 
 	private $office;
 
@@ -50,7 +50,7 @@ class Invoice {
 	private $paymentMethod;
 	private $bank;
 	private $invoiceAddressNumber;
-	private $delivererAddressNumber;
+	private $deliverAddressNumber;
 	private $headerText;
 	private $footerText;
 
@@ -145,8 +145,8 @@ class Invoice {
 	 * @access public
 	 * @return string
 	 */
-	public function getType() {
-		return $this->type;
+	public function getInvoiceType() {
+		return $this->invoiceType;
 	}
 
 	/**
@@ -158,8 +158,8 @@ class Invoice {
 	 * @param string $invoiceType
 	 * @return \Pronamic\Twinfield\Invoice\Invoice
 	 */
-	public function setType( $invoiceType ) {
-		$this->type = $invoiceType;
+	public function setInvoiceType( $invoiceType ) {
+		$this->invoiceType = $invoiceType;
 		return $this;
 	}
 
@@ -169,6 +169,7 @@ class Invoice {
 
 	public function setOffice( $office ) {
 		$this->office = $office;
+		return $this;
 	}
 
 	public function getInvoiceNumber() {
@@ -177,6 +178,7 @@ class Invoice {
 
 	public function setInvoiceNumber( $invoiceNumber ) {
 		$this->invoiceNumber = $invoiceNumber;
+		return $this;
 	}
 
 	public function getStatus() {
@@ -185,6 +187,7 @@ class Invoice {
 
 	public function setStatus( $status ) {
 		$this->status = $status;
+		return $this;
 	}
 
 	public function getCurrency() {
@@ -193,6 +196,7 @@ class Invoice {
 
 	public function setCurrency( $currency ) {
 		$this->currency = $currency;
+		return $this;
 	}
 
 	public function getPeriod() {
@@ -201,6 +205,7 @@ class Invoice {
 
 	public function setPeriod( $period ) {
 		$this->period = $period;
+		return $this;
 	}
 
 	public function getInvoiceDate() {
@@ -209,6 +214,7 @@ class Invoice {
 
 	public function setInvoiceDate( $invoiceDate ) {
 		$this->invoiceDate = $invoiceDate;
+		return $this;
 	}
 
 	public function getDueDate() {
@@ -217,6 +223,7 @@ class Invoice {
 
 	public function setDueDate( $dueDate ) {
 		$this->dueDate = $dueDate;
+		return $this;
 	}
 
 	public function getPerformanceDate() {
@@ -225,6 +232,7 @@ class Invoice {
 
 	public function setPerformanceDate( $performanceDate ) {
 		$this->performanceDate = $performanceDate;
+		return $this;
 	}
 
 	public function getPaymentMethod() {
@@ -233,6 +241,7 @@ class Invoice {
 
 	public function setPaymentMethod( $paymentMethod ) {
 		$this->paymentMethod = $paymentMethod;
+		return $this;
 	}
 
 	public function getBank() {
@@ -241,6 +250,7 @@ class Invoice {
 
 	public function setBank( $bank ) {
 		$this->bank = $bank;
+		return $this;
 	}
 
 	public function getInvoiceAddressNumber() {
@@ -249,14 +259,16 @@ class Invoice {
 
 	public function setInvoiceAddressNumber( $invoiceAddressNumber ) {
 		$this->invoiceAddressNumber = $invoiceAddressNumber;
+		return $this;
 	}
 
-	public function getDelivererAddressNumber() {
-		return $this->delivererAddressNumber;
+	public function getDeliverAddressNumber() {
+		return $this->deliverAddressNumber;
 	}
 
-	public function setDelivererAddressNumber( $delivererAddressNumber ) {
-		$this->delivererAddressNumber = $delivererAddressNumber;
+	public function setDeliverAddressNumber( $delivererAddressNumber ) {
+		$this->deliverAddressNumber = $delivererAddressNumber;
+		return $this;
 	}
 
 	public function getHeaderText() {
@@ -265,6 +277,7 @@ class Invoice {
 
 	public function setHeaderText( $headerText ) {
 		$this->headerText = $headerText;
+		return $this;
 	}
 
 	public function getFooterText() {
@@ -273,5 +286,6 @@ class Invoice {
 
 	public function setFooterText( $footerText ) {
 		$this->footerText = $footerText;
+		return $this;
 	}
 }

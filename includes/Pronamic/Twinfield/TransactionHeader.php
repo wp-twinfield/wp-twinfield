@@ -89,7 +89,7 @@ class TransactionHeader {
 	 * 
 	 * @return string
 	 */
-	public function getType() {
+	public function getInvoiceType() {
 		return $this->type;
 	}
 
@@ -98,7 +98,7 @@ class TransactionHeader {
 	 * 
 	 * @return string
 	 */
-	public function setType($type) {
+	public function setInvoiceType($type) {
 		$this->type = $type;
 	}
 

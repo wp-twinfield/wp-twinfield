@@ -5,6 +5,7 @@ namespace Pronamic\WP\Invoice;
 use \Pronamic\Twinfield\Invoice as TwinfieldInvoice;
 use \Pronamic\Twinfield\Request as TwinfieldRequest;
 use \Pronamic\Twinfield\Secure\Service as TwinfieldService;
+use \ZFramework\Base\View;
 
 class Invoice {
 
@@ -12,7 +13,7 @@ class Invoice {
 		add_action( 'generate_rewrite_rules', array( $this, 'generate_rewrite_rules' ) );
 		add_action( 'query_vars', array( $this, 'query_vars' ) );
 
-		add_action( 'template_redirect', array( $this, 'template_redirect' ) );
+		add_action( 'template_redirect', array( $this, 'render_invoice' ) );
 	}
 
 	public function generate_rewrite_rules( $wp_rewrite ) {
@@ -31,14 +32,12 @@ class Invoice {
 		return $query_vars;
 	}
 
-	public function template_redirect() {
+	public function render_invoice() {
 
 		$invoice_id = get_query_var( 'twinfield_sales_invoice_id' );
 
 		if ( empty( $invoice_id ) )
 			return;
-
-		global $twinfield_invoice;
 
 		// Get the service
 		$twinfield_service = new TwinfieldService();
@@ -53,7 +52,26 @@ class Invoice {
 		// Make the request
 		$response = $twinfield_service->send( $request_invoice );
 
-		echo $response->getResponseDocument()->saveXML();
+		var_dump($response->getResponseDocument()->saveXML());
+
+		if ( $response->isSuccessful() ) {
+			$invoice = TwinfieldInvoice\InvoiceMapper::map( $response );
+
+			global $twinfield_invoice;
+			$twinfield_invoice = $invoice;
+
+			// Generate view from invoice
+			$view = new View( dirname( \Twinfield::$file ) . '/views/Pronamic/Invoice' );
+			$view
+					->setView( 'render_invoice' )
+					->setVariable( 'invoice', $invoice )
+					->render();
+		}
+
+
+
+
+
 
 	}
 }
