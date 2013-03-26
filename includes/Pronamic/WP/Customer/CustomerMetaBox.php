@@ -21,10 +21,7 @@ namespace Pronamic\WP\Customer;
  *
  * @since 0.0.1
  *
- * @uses get_post_types()
- * @uses post_type_supports()
- * @uses add_meta_box()
- * @uses wp_nonce_field()
+ * @uses \ZFrameowkr\Base\View()
  *
  * @package Pronamic\WP
  * @subpackage Customer
@@ -77,6 +74,7 @@ class CustomerMetaBox {
 	 *
 	 * @access public
 	 * @param WP_Post $post
+	 * @return void
 	 */
 	public function view( $post ) {
 		// Get existing saved customer id
