@@ -50,6 +50,9 @@
 			<th><?php _e( 'Units', 'twinfield' ); ?></th>
 			<th><?php _e( 'Units Excl', 'twinfield' ); ?></th>
 			<th><?php _e( 'Vatcode', 'twinfield' ); ?></th>
+			<th><?php _e( 'Free Text 1', 'twinfield' ); ?></th>
+			<th><?php _e( 'Free Text 2', 'twinfield' ); ?></th>
+			<th><?php _e( 'Free Text 3', 'twinfield' ); ?></th>
 		</thead>
 		<tbody class="jLinesRow">
 			<?php $lines = $invoice->getLines(); ?>
@@ -62,6 +65,9 @@
 						<td><input type="text" name="lines[1][units]" value="<?php echo $line->getUnits(); ?>"/></td>
 						<td><input type="text" name="lines[1][unitspriceexcl]" value="<?php echo $line->getUnitsPriceExcl(); ?>"/></td>
 						<td><input type="text" name="lines[1][vatcode]" value="<?php echo $line->getVatCode(); ?>"/></td>
+						<td><textarea name="lines[1][freetext1]"><?php echo $line->getFreeText1(); ?></textarea></td>
+						<td><textarea name="lines[1][freetext2]"><?php echo $line->getFreeText2(); ?></textarea></td>
+						<td><textarea name="lines[1][freetext3]"><?php echo $line->getFreeText3(); ?></textarea></td>
 					</tr>
 				<?php endforeach; ?>
 			<?php else: ?>
@@ -72,6 +78,9 @@
 					<td><input type="text" name="lines[1][units]" value=""/></td>
 					<td><input type="text" name="lines[1][unitspriceexcl]" value=""/></td>
 					<td><input type="text" name="lines[1][vatcode]" value=""/></td>
+					<td><textarea name="lines[1][freetext1]"></textarea></td>
+					<td><textarea name="lines[1][freetext2]"></textarea></td>
+					<td><textarea name="lines[1][freetext3]"></textarea></td>
 				</tr>
 			<?php endif; ?>
 		</tbody>

@@ -58,7 +58,10 @@ class Invoice extends ParentForm {
 				'subarticle' => '',
 				'units' => '',
 				'unitspriceexcl' => '',
-				'vatcode' => ''
+				'vatcode' => '',
+				'freetext1' => '',
+				'freetext2' => '',
+				'freetext3' => ''
 			);
 
 			foreach ( $data['lines'] as $line ) {
@@ -71,6 +74,9 @@ class Invoice extends ParentForm {
 						->setSubArticle( $line['subarticle'] )
 						->setUnits( $line['units'] )
 						->setUnitsPriceExcl( $line['unitspriceexcl'] )
+						->setFreeText1( $line['freetext1'] )
+						->setFreeText2( $line['freetext2'] )
+						->setFreeText3( $line['freetext3'] )
 						->setVatCode( $line['vatcode'] );
 
 				$invoice->addLine( $temp_line );
