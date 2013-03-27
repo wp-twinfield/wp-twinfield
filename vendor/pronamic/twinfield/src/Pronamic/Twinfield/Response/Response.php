@@ -2,14 +2,14 @@
 
 namespace Pronamic\Twinfield\Response;
 
-use \Pronamic\Twinfield\Secure\Document as SecureDocument;
+use \Pronamic\Twinfield\DOM\Document;
 
 class Response {
 
 	private $responseDocument;
 	private $sentDocument;
 
-	public function __construct( \DOMDocument $responseDocument, SecureDocument $sentDocument ) {
+	public function __construct( \DOMDocument $responseDocument, Document $sentDocument ) {
 		$this->responseDocument = $responseDocument;
 		$this->sentDocument = $sentDocument;
 	}

@@ -30,6 +30,8 @@ class Login {
 	protected $clusterWSDL = '%s/webservices/processxml.asmx?wsdl';
 	protected $xmlNamespace = 'http://schemas.xmlsoap.org/soap/envelope/';
 
+	private $config;
+
 	/**
 	 * The SoapClient used to login to Twinfield
 	 *
@@ -73,7 +75,9 @@ class Login {
 	 */
 	private $processed = false;
 
-	public function __construct() {
+	public function __construct( Config $config ) {
+		$this->config = $config;
+
 		$this->soapLoginClient = new \SoapClient( $this->loginWSDL, array(
 			'trace' => 1
 				) );
@@ -103,7 +107,7 @@ class Login {
 			return true;
 		} else {
 			// Process logon
-			$response = $this->soapLoginClient->Logon( Config::getCredentials() );
+			$response = $this->soapLoginClient->Logon( $this->config->getCredentials() );
 
 			// Check response is successful
 			if ( 'Ok' == $response->LogonResult ) {

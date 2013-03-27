@@ -56,7 +56,7 @@ class FormBuilder {
 	 * @access public
 	 * @return array All valid forms
 	 */
-	public function getValidForms() {
+	public function get_valid_forms() {
 		return array_keys( $this->valid_forms );
 	}
 
@@ -69,7 +69,7 @@ class FormBuilder {
 	 * @param string $type The key name for the form
 	 * @return boolean
 	 */
-	public function getFormViewFileName( $type ) {
+	public function get_form_view_file_name( $type ) {
 		if ( array_key_exists( $type, $this->valid_forms_views ) )
 			return $this->valid_forms_views[$type];
 		else
@@ -99,19 +99,19 @@ class FormBuilder {
 			return;
 
 		// Get the class of the chosen type
-		$form = $this->getClassFromType( $type );
+		$form = $this->get_class_from_type( $type );
 
 		// Generate a nonce
 		$nonce = wp_nonce_field( 'twinfield_form_builder', 'twinfield_form_nonce', true, false );
 
 		// Get the view file name
-		$viewFile = $this->getFormViewFileName( $type );
+		$viewFile = $this->get_form_view_file_name( $type );
 
 		// Prepare the view
 		$view = new View( dirname( \Twinfield::$file ) . '/views/Pronamic/WP/FormBuilder' );
 		$view
 			->setVariable( 'nonce', $nonce )
-			->setVariable( $type, $form->fillClass( $_POST ) )
+			->setVariable( $type, $form->fill_class( $_POST ) )
 			->setView( $viewFile );
 
 		// Determine if it should return or show the view
@@ -137,10 +137,12 @@ class FormBuilder {
 		if ( ! wp_verify_nonce( $_POST['twinfield_form_nonce'], 'twinfield_form_builder' ) )
 			return;
 
-		$this->getClassFromType( $type )->submit();
+		if ( $response = $this->get_class_from_type( $type )->submit() ) {
+			echo $response;
+		}
 	}
 
-	private function getClassFromType( $type ) {
+	private function get_class_from_type( $type ) {
 		try {
 
 			$reflectionClass = new \ReflectionClass( $this->valid_forms[$type] );

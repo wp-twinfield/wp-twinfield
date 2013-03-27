@@ -2,13 +2,10 @@
 
 namespace Pronamic\WP\FormBuilder\Form;
 
-use Pronamic\Twinfield\Secure\Service;
-use Pronamic\Twinfield\Secure\Document as SecureDocument;
 
 abstract class ParentForm {
-	private $service;
 
-	abstract public function fillClass();
+	abstract public function fill_class();
 	abstract public function getSuccessMessage();
 
 	public function submit( SecureDocument $document ) {

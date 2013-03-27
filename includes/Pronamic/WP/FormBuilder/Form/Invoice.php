@@ -9,10 +9,15 @@ class Invoice extends ParentForm {
 
 	public function submit() {
 
-		$invoice = $this->fillClass();
-		$invoiceElement = new I\InvoiceElement( $invoice );
+		global $twinfield_config;
 
-		parent::submit($invoiceElement);
+		$invoice_factory = new \Pronamic\Twinfield\Invoice\InvoiceFactory( $twinfield_config );
+
+		if ( $invoice_factory->send( $this->fill_class() ) ) {
+			return __( 'Successful!', 'twinfield' );
+		} else {
+			return $invoice_factory->getResponse()->getResponseDocument()->saveXML();
+		}
 
 	}
 
@@ -20,7 +25,7 @@ class Invoice extends ParentForm {
 		return 'Form was successful';
 	}
 
-	public function fillClass( $data = null ) {
+	public function fill_class( $data = null ) {
 		if ( ! $data )
 			$data = $_POST;
 

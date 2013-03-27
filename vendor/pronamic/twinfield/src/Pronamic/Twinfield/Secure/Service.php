@@ -3,13 +3,15 @@
 namespace Pronamic\Twinfield\Secure;
 
 /**
- * Abstract Service Class
+ * Service Class
  *
  * This is the main class each components Service class extends.
  * It handles the request and response.
  *
  * @uses \DOMDocument
  * @uses \SoapClient
+ * @uses \Pronamic\Twinfield\DOM\Document
+ * @uses \Pronamic\Twinfield\Response\Response
  *
  * @since 0.0.1
  *
@@ -19,9 +21,16 @@ namespace Pronamic\Twinfield\Secure;
  * @copyright (c) 2013, Leon Rowland
  * @version 0.0.1
  */
-use \Pronamic\Twinfield\Secure\Document as SecureDocument;
+use \Pronamic\Twinfield\DOM\Document as SecureDocument;
+use \Pronamic\Twinfield\Response\Response;
 
-class Service extends Login {
+class Service {
+
+	/**
+	 * Holds the login class for this service
+	 * @var \Pronamic\Twinfield\Secure\Login $login
+	 */
+	private $login;
 
 	/**
 	 * The result from the ProcessXMLString
@@ -40,6 +49,23 @@ class Service extends Login {
 	 */
 	private $response;
 
+	public function __construct(Login $login) {
+		$this->login = $login;
+	}
+
+	/**
+	 * Sets the login class for this secure service
+	 *
+	 * @since 0.0.1
+	 *
+	 * @access public
+	 * @param \Pronamic\Twinfield\Secure\Login $login
+	 * @return void
+	 */
+	public function setLogin( Login $login ) {
+		$this->login = $login;
+	}
+
 	/**
 	 * Sends a request with the secured client, and loads
 	 * the result response into Service->response
@@ -55,7 +81,7 @@ class Service extends Login {
 	public function send( SecureDocument $document ) {
 
 		// Get the secureclient and send this documents xml
-		$this->result = $this->getClient()->ProcessXmlString( array(
+		$this->result = $this->login->getClient()->ProcessXmlString( array(
 			'xmlRequest' => $document->saveXML()
 		) );
 
@@ -63,7 +89,7 @@ class Service extends Login {
 		$this->response = new \DOMDocument();
 		$this->response->loadXML( $this->result->ProcessXmlStringResult );
 
-		return new \Pronamic\Twinfield\Response\Response( $this->response, $document );
+		return new Response( $this->response, $document );
 	}
 
 	/**

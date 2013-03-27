@@ -1,0 +1,65 @@
+{
+    "hash": "80bb699cad2f294b9d3567431c1cb88e",
+    "packages": [
+        {
+            "name": "pronamic/twinfield",
+            "version": "0.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pronamic/twinfield.git",
+                "reference": "0.0.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pronamic/twinfield/zipball/0.0.1",
+                "reference": "0.0.1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Pronamic": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL"
+            ],
+            "authors": [
+                {
+                    "name": "Remco Tolsma",
+                    "email": "emcotolsma@pronamic.nl"
+                },
+                {
+                    "name": "Leon Rowland",
+                    "email": "leon@pronamic.nl"
+                }
+            ],
+            "description": "Library for using the Twinfield Soap Service",
+            "homepage": "http://pronamic.nl",
+            "keywords": [
+                "twinfield"
+            ],
+            "time": "2013-03-27 07:25:21"
+        }
+    ],
+    "packages-dev": [
+
+    ],
+    "aliases": [
+
+    ],
+    "minimum-stability": "stable",
+    "stability-flags": [
+
+    ],
+    "platform": [
+
+    ],
+    "platform-dev": [
+
+    ]
+}

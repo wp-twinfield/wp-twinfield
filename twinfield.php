@@ -16,6 +16,8 @@ Domain Path: /languages/
 License: GPL
 */
 
+include 'vendor/autoload.php';
+
 if ( function_exists( 'spl_autoload_register' ) ) {
 	function twinfield_autoload( $name ) {
 		$name = str_replace( '\\', DIRECTORY_SEPARATOR, $name );
@@ -68,20 +70,26 @@ class Twinfield {
 
 		load_plugin_textdomain( 'twinfield', false, $rel_path );
 
+		global $twinfield_config;
+
+		$twinfield_config = new Pronamic\Twinfield\Secure\Config();
+
 		// Set the config class
-		Pronamic\Twinfield\Secure\Config::setCredentials(
+		$twinfield_config->setCredentials(
 			get_option( 'twinfield_username' ),
 			get_option( 'twinfield_password' ),
 			get_option( 'twinfield_organisation' ),
 			get_option( 'twinfield_office_code' )
 		);
 
-		$login = new \Pronamic\Twinfield\Secure\Login();
+		$login = new \Pronamic\Twinfield\Secure\Login( $twinfield_config );
 		$login->process();
 
 		// Modules
 		new \Pronamic\WP\FormBuilder\FormBuilder();
 		new \Pronamic\WP\Invoice\Invoice();
+		new \Pronamic\WP\Customer\Customer();
+		new \Pronamic\WP\Article\Article();
 
 	}
 
