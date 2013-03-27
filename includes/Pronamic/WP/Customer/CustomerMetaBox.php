@@ -78,7 +78,7 @@ class CustomerMetaBox {
 	 */
 	public function view( $post ) {
 		// Get existing saved customer id
-		$twinfield_customer_id = get_post_meta( $post->ID, 'twinfield_customer_id', true );
+		$twinfield_customer_id = get_post_meta( $post->ID, '_twinfield_customer_id', true );
 
 		// Generate the nonce
 		$nonce = wp_nonce_field( 'twinfield_customer', 'twinfield_customer_nonce', true, false );
@@ -123,9 +123,9 @@ class CustomerMetaBox {
 
 		// Check its a valid int, update it or remove it conditionally
 		if ( $customer_id ) {
-			update_post_meta( $post_id, 'twinfield_customer_id', $customer_id );
+			update_post_meta( $post_id, '_twinfield_customer_id', $customer_id );
 		} else {
-			delete_post_meta( $post_id, 'twinfield_customer_id' );
+			delete_post_meta( $post_id, '_twinfield_customer_id' );
 		}
 
 	}
