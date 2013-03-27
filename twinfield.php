@@ -45,11 +45,11 @@ class Twinfield {
 
 		add_action('admin_menu', array(__CLASS__, 'adminMenu'));
 
-		//add_action('template_redirect', array(__CLASS__, 'templateRedirect'));
+		add_action('template_redirect', array(__CLASS__, 'templateRedirect'));
 
-		//add_filter('generate_rewrite_rules', array(__CLASS__, 'generateRewriteRules'));
+		add_filter('generate_rewrite_rules', array(__CLASS__, 'generateRewriteRules'));
 
-		//add_filter('query_vars', array(__CLASS__, 'queryVars'));
+		add_filter('query_vars', array(__CLASS__, 'queryVars'));
 
 		add_filter('wp_loaded',array(__CLASS__, 'flushRules'));
 
@@ -102,52 +102,21 @@ class Twinfield {
 	public static function generateRewriteRules($wpRewrite) {
 		$rules = array();
 
-		$rules['facturen/([^/]+)$'] = 'index.php?twinfield_sales_invoice_id=' . $wpRewrite->preg_index(1);
+
 		$rules['debiteuren/([^/]+)$'] = 'index.php?twinfield_debtor_id=' . $wpRewrite->preg_index(1);
 
 		$wpRewrite->rules = $rules + $wpRewrite->rules;
 	}
 
 	public static function queryVars($queryVars) {
-		$queryVars[] = 'twinfield_sales_invoice_id';
+
 		$queryVars[] = 'twinfield_debtor_id';
 
 		return $queryVars;
 	}
 
 	public static function templateRedirect() {
-		$id = get_query_var('twinfield_sales_invoice_id');
 
-		if(!empty($id)) {
-			global $twinfieldSalesInvoice;
-
-			$username = get_option( 'twinfield_username' );
-			$password = get_option( 'twinfield_password' );
-			$organisation = get_option( 'twinfield_organisation' );
-			$office_code = get_option( 'twinfield_office_code' );
-
-			$twinfieldClient = new Pronamic\Twinfield\TwinfieldClient();
-			$result = $twinfieldClient->logon($username, $password, $organisation);
-
-			$twinfieldSalesInvoice = $twinfieldClient->readSalesInvoice( $office_code, 'FACTUUR', $id );
-
-			// Determine template
-			$templates = array();
-			$templates[] = 'twinfield-sales-invoice-' . $id . '.php';
-			$templates[] = 'twinfield-sales-invoice.php';
-
-			$template = locate_template($templates);
-
-			if(!$template) {
-				$template = __DIR__ . '/templates/sales-invoice.php';
-			}
-
-			if(is_file($template)) {
-				include $template;
-
-    			exit;
-			}
-		}
 
 		$id = get_query_var('twinfield_debtor_id');
 

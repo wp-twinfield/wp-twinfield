@@ -56,13 +56,8 @@ class Invoice {
 
 			exit;
 		} else {
-			get_404_template();
+			include( get_404_template() );
+			exit;
 		}
-
-
-
-
-
-
 	}
 }
