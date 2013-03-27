@@ -2,9 +2,6 @@
 
 namespace Pronamic\WP\Invoice;
 
-use \Pronamic\Twinfield\Invoice as TwinfieldInvoice;
-use \Pronamic\Twinfield\Request as TwinfieldRequest;
-use \Pronamic\Twinfield\Secure\Service as TwinfieldService;
 use \ZFramework\Base\View;
 
 class Invoice {
@@ -39,27 +36,19 @@ class Invoice {
 		if ( empty( $invoice_id ) )
 			return;
 
-		// Get the service
-		$twinfield_service = new TwinfieldService();
-
-		// New Twinfield Document
-		$request_invoice = new TwinfieldRequest\Read\Invoice();
-		$request_invoice
-				->setCode( 'FACTUUR' )
-				->setOffice( \Pronamic\Twinfield\Secure\Config::getOffice() )
-				->setNumber( $invoice_id );
+		global $twinfield_config;
+		$invoiceFactory = new \Pronamic\Twinfield\Invoice\InvoiceFactory( $twinfield_config );
 
 		// Make the request
-		$response = $twinfield_service->send( $request_invoice );
+		$invoice = $invoiceFactory->get( 'FACTUUR', $invoice_id,  $twinfield_config->getOffice() );
 
-		if ( $response->isSuccessful() ) {
-			$invoice = TwinfieldInvoice\InvoiceMapper::map( $response );
+		if ( $invoiceFactory->getResponse()->isSuccessful() ) {
 
 			global $twinfield_invoice;
 			$twinfield_invoice = $invoice;
 
 			// Generate view from invoice
-			$view = new View( dirname( \Twinfield::$file ) . '/views/Pronamic/Invoice' );
+			$view = new View( dirname( \Twinfield::$file ) . '/views/Pronamic/WP/Invoice' );
 			$view
 					->setView( 'render_invoice' )
 					->setVariable( 'invoice', $invoice )

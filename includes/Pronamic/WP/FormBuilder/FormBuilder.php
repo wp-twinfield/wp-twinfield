@@ -138,7 +138,8 @@ class FormBuilder {
 			return;
 
 		if ( $response = $this->get_class_from_type( $type )->submit() ) {
-			echo $response;
+			$notice = new \ZFramework\Util\Notice();
+			$notice->updated('Successful');
 		}
 	}
 
