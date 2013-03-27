@@ -114,7 +114,7 @@ class ArticleMetaBox {
 		if ( ! isset( $_POST['twinfield_article_nonce'] ) )
 			return;
 
-		if ( ! current_user_can( 'edit_post' ) )
+		if ( ! current_user_can( 'edit_post', $post_id ) )
 			return;
 
 		if ( ! wp_verify_nonce( filter_input( INPUT_POST, 'twinfield_article_nonce'), 'twinfield_article' ) )
