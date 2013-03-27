@@ -65,6 +65,10 @@ class Invoice extends ParentForm {
 			);
 
 			foreach ( $data['lines'] as $line ) {
+
+				if ( ! isset( $line['active'] ) || $line['active'] != 1 )
+					continue;
+
 				$line = array_merge( $defaultLineData, $line );
 
 				$temp_line = new I\InvoiceLine();
