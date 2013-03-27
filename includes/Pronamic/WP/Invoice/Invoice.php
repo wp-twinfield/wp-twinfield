@@ -55,6 +55,8 @@ class Invoice {
 					->render();
 
 			exit;
+		} else {
+			get_404_template();
 		}
 
 
