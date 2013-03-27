@@ -1,18 +1,18 @@
 {
-    "hash": "80bb699cad2f294b9d3567431c1cb88e",
+    "hash": "125f5025d316a55c392e3e0c8d42eb73",
     "packages": [
         {
             "name": "pronamic/twinfield",
-            "version": "0.0.1",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/twinfield.git",
-                "reference": "0.0.1"
+                "reference": "415093fb7b26ce2408957383746e144ed6c4e54d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/twinfield/zipball/0.0.1",
-                "reference": "0.0.1",
+                "url": "https://api.github.com/repos/pronamic/twinfield/zipball/415093fb7b26ce2408957383746e144ed6c4e54d",
+                "reference": "415093fb7b26ce2408957383746e144ed6c4e54d",
                 "shasum": ""
             },
             "require": {
@@ -43,7 +43,7 @@
             "keywords": [
                 "twinfield"
             ],
-            "time": "2013-03-27 07:25:21"
+            "time": "2013-03-27 10:02:49"
         }
     ],
     "packages-dev": [
@@ -53,9 +53,9 @@
 
     ],
     "minimum-stability": "stable",
-    "stability-flags": [
-
-    ],
+    "stability-flags": {
+        "pronamic/twinfield": 20
+    },
     "platform": [
 
     ],
