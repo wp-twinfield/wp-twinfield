@@ -20,8 +20,10 @@ if ( isset( $_GET[ 'twinfield_form' ] ) ) {
 	<?php if ( empty( $page_form ) ) : ?>
 	<form action="<?php echo twinfield_get_form_action( 'invoice' ); ?>" method="post">
 		<input type="hidden" name="customerID" value="1002"/>
+		<input type="hidden" name="lines[1][active]" value="true"/>
 		<input type="hidden" name="lines[1][article]" value="123"/>
 		<input type="hidden" name="lines[2][article]" value="456" />
+		<input type="hidden" name="lines[2][active]" value="true"/>
 		<?php submit_button( 'test submit' ); ?>
 	</form>
 	<?php endif;?>

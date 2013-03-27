@@ -66,7 +66,7 @@ class Invoice extends ParentForm {
 
 			foreach ( $data['lines'] as $line ) {
 
-				if ( ! isset( $line['active'] ) || $line['active'] != 1 )
+				if ( ! isset( $line['active'] ) || ! filter_var( $line['active'], FILTER_VALIDATE_BOOLEAN ) )
 					continue;
 
 				$line = array_merge( $defaultLineData, $line );
