@@ -82,9 +82,6 @@ class Twinfield {
 			get_option( 'twinfield_office_code' )
 		);
 
-		$login = new \Pronamic\Twinfield\Secure\Login( $twinfield_config );
-		$login->process();
-
 		// Modules
 		new \Pronamic\WP\FormBuilder\FormBuilder();
 		new \Pronamic\WP\Invoice\Invoice();
