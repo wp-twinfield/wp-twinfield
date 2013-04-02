@@ -32,6 +32,8 @@ if ( function_exists( 'spl_autoload_register' ) ) {
 	spl_autoload_register( 'twinfield_autoload' );
 }
 
+define( 'PRONAMIC_TWINFIELD_FILE', __FILE__ );
+define( 'PRONAMIC_TWINFIELD_FOLDER', dirname( PRONAMIC_TWINFIELD_FILE ) );
 
 class Twinfield {
 	public static $file;

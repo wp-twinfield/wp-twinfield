@@ -17,15 +17,12 @@ class Invoice {
 		$rules = array();
 
 		$rules['facturen/([^/]+)$'] = 'index.php?twinfield_sales_invoice_id=' . $wp_rewrite->preg_index(1);
-		$rules['debiteuren/([^/]+)$'] = 'index.php?twinfield_debtor_id=' . $wp_rewrite->preg_index(1);
 
 		$wp_rewrite->rules = array_merge( $rules, $wp_rewrite->rules );
 	}
 
 	public function query_vars( $query_vars ) {
 		$query_vars[] = 'twinfield_sales_invoice_id';
-		$query_vars[] = 'twinfield_debtor_id';
-
 		return $query_vars;
 	}
 
