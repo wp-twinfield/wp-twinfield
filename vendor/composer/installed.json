@@ -6,18 +6,18 @@
         "source": {
             "type": "git",
             "url": "https://github.com/pronamic/twinfield.git",
-            "reference": "fd1878b5ee7f20bd6d0894f1ed49accbb9883b8a"
+            "reference": "e9d4d052a4546c66109ad31e9e9aa4bd1fb5ce90"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/pronamic/twinfield/zipball/fd1878b5ee7f20bd6d0894f1ed49accbb9883b8a",
-            "reference": "fd1878b5ee7f20bd6d0894f1ed49accbb9883b8a",
+            "url": "https://api.github.com/repos/pronamic/twinfield/zipball/e9d4d052a4546c66109ad31e9e9aa4bd1fb5ce90",
+            "reference": "e9d4d052a4546c66109ad31e9e9aa4bd1fb5ce90",
             "shasum": ""
         },
         "require": {
             "php": ">=5.4"
         },
-        "time": "2013-03-27 14:13:29",
+        "time": "2013-04-02 10:03:47",
         "type": "library",
         "installation-source": "source",
         "autoload": {
