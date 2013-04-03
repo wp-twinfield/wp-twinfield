@@ -193,7 +193,7 @@ class Twinfield {
 			array( __CLASS__, 'page_offices' ) // $function
 		);
 
-		add_submenu_page(
+		$val = add_submenu_page(
 			'twinfield' , // $parent_slug
 			__( 'Twinfield Form Builder', 'twinfield' ) , // $page_title
 			__( 'Form Builder', 'twinfield' ) , // $menu_title

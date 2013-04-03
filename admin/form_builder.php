@@ -18,13 +18,23 @@ if ( isset( $_GET[ 'twinfield_form' ] ) ) {
 
 	<?php $form_builder->create_form(); ?>
 	<?php if ( empty( $page_form ) ) : ?>
-	<form action="<?php echo twinfield_get_form_action( 'invoice' ); ?>" method="post">
-		<input type="hidden" name="customerID" value="1002"/>
-		<input type="hidden" name="lines[1][active]" value="true"/>
-		<input type="hidden" name="lines[1][article]" value="123"/>
-		<input type="hidden" name="lines[2][article]" value="456" />
-		<input type="hidden" name="lines[2][active]" value="true"/>
-		<?php submit_button( 'test submit' ); ?>
-	</form>
+		<div>
+			<form action="<?php echo twinfield_get_form_action( 'invoice' ); ?>" method="post">
+				<input type="hidden" name="customerID" value="1002"/>
+				<input type="hidden" name="lines[1][active]" value="true"/>
+				<input type="hidden" name="lines[1][article]" value="123"/>
+				<input type="hidden" name="lines[2][article]" value="456" />
+				<input type="hidden" name="lines[2][active]" value="true"/>
+				<?php submit_button( 'Test Invoice Submit' ); ?>
+			</form>
+		</div>
+		<div>
+			<form action="<?php echo twinfield_get_form_action( 'customer' ); ?>" method="post">
+				<input type="hidden" name="id" value="11223"/>
+				<input type="hidden" name="addresses[1][field1]" value="Field1"/>
+				<input type="hidden" name="addresses[1][postcode]" value="1122AA"/>
+				<?php submit_button( 'Test Customer Submit' ); ?>
+			</form>
+		</div>
 	<?php endif;?>
 </div>

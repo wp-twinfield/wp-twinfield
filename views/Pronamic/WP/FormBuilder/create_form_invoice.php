@@ -59,7 +59,7 @@
 			<?php if ( ! empty( $lines ) ) : ?>
 				<?php $line_number = 1; ?>
 				<?php foreach ( $invoice->getLines() as $line ) : ?>
-					<tr>
+					<tr data-number="<?php echo $line_number; ?>">
 						<input type="hidden" name="lines[<?php echo $line_number; ?>][active]" value="true" />
 						<td><input type="text" name="lines[<?php echo $line_number; ?>][article]" value="<?php echo $line->getArticle(); ?>"/></td>
 						<td><input type="text" name="lines[<?php echo $line_number; ?>][subarticle]" value="<?php echo $line->getSubArticle(); ?>"/></td>

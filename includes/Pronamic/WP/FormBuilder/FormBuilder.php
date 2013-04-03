@@ -27,7 +27,8 @@ class FormBuilder {
 	 * @var array
 	 */
 	private $valid_forms = array(
-		'invoice' => "Pronamic\WP\FormBuilder\Form\Invoice"
+		'invoice' => "Pronamic\WP\FormBuilder\Form\Invoice",
+		'customer' => "Pronamic\WP\FormBuilder\Form\Customer"
 	);
 
 	/**
@@ -37,7 +38,8 @@ class FormBuilder {
 	 * @var array
 	 */
 	private $valid_forms_views = array(
-		'invoice' => 'create_form_invoice'
+		'invoice' => 'create_form_invoice',
+		'customer' => 'create_form_customer'
 	);
 
 	/**
@@ -112,6 +114,7 @@ class FormBuilder {
 		$view
 			->setVariable( 'nonce', $nonce )
 			->setVariable( $type, $form->fill_class( $_POST ) )
+			->setVariable( 'form_extra', $form->extra_variables() )
 			->setView( $viewFile );
 
 		// Determine if it should return or show the view
@@ -137,9 +140,15 @@ class FormBuilder {
 		if ( ! wp_verify_nonce( $_POST['twinfield_form_nonce'], 'twinfield_form_builder' ) )
 			return;
 
-		if ( $response = $this->get_class_from_type( $type )->submit() ) {
-			$notice = new \ZFramework\Util\Notice();
+		$class = $this->get_class_from_type( $type );
+
+		$notice = new \ZFramework\Util\Notice();
+		if ( true === $class->submit() ) {
 			$notice->updated('Successful');
+		} else {
+			foreach ( $class->get_response()->getErrorMessages() as $error ) {
+				$notice->error($error);
+			}
 		}
 	}
 

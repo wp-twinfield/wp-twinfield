@@ -21,8 +21,8 @@ class Invoice extends ParentForm {
 
 	}
 
-	public function getSuccessMessage() {
-		return 'Form was successful';
+	public function extra_variables() {
+		
 	}
 
 	public function fill_class( $data = null ) {
