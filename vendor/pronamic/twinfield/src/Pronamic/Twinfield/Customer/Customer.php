@@ -19,7 +19,12 @@ class Customer {
 	private $cocNumber;
 	private $vatNumber;
 	private $editDimensionName;
-	private $financials = array();
+	private $dueDays = 0;
+	private $payAvailable = 'false';
+	private $payCode;
+	private $vatCode;
+	private $eBilling = 'false';
+	private $eBillMail;
 	private $addresses = array();
 	private $groups;
 
@@ -158,14 +163,60 @@ class Customer {
 		return $this;
 	}
 
-	public function getFinancials() {
-		return $this->financials;
+	public function getDueDays() {
+		return $this->dueDays;
 	}
 
-	public function setFinancials( $financials ) {
-		$this->financials = $financials;
+	public function setDueDays( $dueDays ) {
+		$this->dueDays = $dueDays;
 		return $this;
 	}
+
+	public function getPayAvailable() {
+		return $this->payAvailable;
+	}
+
+	public function setPayAvailable( $payAvailable ) {
+		$this->payAvailable = var_export($payAvailable, true);
+		return $this;
+	}
+
+	public function getPayCode() {
+		return $this->payCode;
+	}
+
+	public function setPayCode( $payCode ) {
+		$this->payCode = $payCode;
+		return $this;
+	}
+
+	public function getVatCode() {
+		return $this->vatCode;
+	}
+
+	public function setVatCode( $vatCode ) {
+		$this->vatCode = $vatCode;
+		return $this;
+	}
+
+	public function getEBilling() {
+		return $this->eBilling;
+	}
+
+	public function setEBilling( $eBilling ) {
+		$this->eBilling = var_export($eBilling, true);
+		return $this;
+	}
+
+	public function getEBillMail() {
+		return $this->eBillMail;
+	}
+
+	public function setEBillMail( $eBillMail ) {
+		$this->eBillMail = $eBillMail;
+		return $this;
+	}
+
 
 	public function getAddresses() {
 		return $this->addresses;
