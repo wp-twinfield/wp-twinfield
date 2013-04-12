@@ -7,12 +7,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/twinfield.git",
-                "reference": "e6651a2b7b7a07778aaab839ec7dc9137b6cd7d8"
+                "reference": "81c73bbef7ef13706af7e7f7a4ec4b4d8d7c4cdd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/twinfield/zipball/e6651a2b7b7a07778aaab839ec7dc9137b6cd7d8",
-                "reference": "e6651a2b7b7a07778aaab839ec7dc9137b6cd7d8",
+                "url": "https://api.github.com/repos/pronamic/twinfield/zipball/81c73bbef7ef13706af7e7f7a4ec4b4d8d7c4cdd",
+                "reference": "81c73bbef7ef13706af7e7f7a4ec4b4d8d7c4cdd",
                 "shasum": ""
             },
             "require": {
@@ -43,7 +43,7 @@
             "keywords": [
                 "twinfield"
             ],
-            "time": "2013-04-03 12:31:38"
+            "time": "2013-04-11 12:00:10"
         }
     ],
     "packages-dev": [

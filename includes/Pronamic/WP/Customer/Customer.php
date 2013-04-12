@@ -7,27 +7,11 @@ use \ZFramework\Base\View;
 class Customer {
 
 	public function __construct() {
-		add_action( 'generate_rewrite_rules', array( $this, 'generate_rewrite_rules' ) );
-		add_action( 'query_vars', array( $this, 'query_vars' ) );
-		
-		add_action( 'template_redirect', array( $this, 'render_customer' ) );
 		
 		// Start the Metabox
 		$metabox = new CustomerMetaBox();
+		$shortcode = new Shortcode\CustomerShortcode;
 
-	}
-	
-	public function generate_rewrite_rules( $wp_rewrite ) {
-		$rules = array();
-		
-		$rules['debiteuren/([^/]+)$'] = 'index.php?twinfield_debtor_id=' . $wp_rewrite->preg_index(1);
-		
-		$wp_rewrite->rules = array_merge( $rules, $wp_rewrite->rules );
-	}
-	
-	public function query_vars( $query_vars ) {
-		$query_vars[] = 'twinfield_debtor_id';
-		return $query_vars;
 	}
 	
 	public function render_customer() {

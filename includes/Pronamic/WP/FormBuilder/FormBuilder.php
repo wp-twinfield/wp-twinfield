@@ -90,11 +90,11 @@ class FormBuilder {
 	 */
 	public function create_form( $type = null, $return = false ) {
 		// Check type has been supplied or return
-		if ( ! $type && ! isset( $_GET['twinfield_form'] ) )
+		if ( ! $type && ! isset( $_GET['twinfield-form'] ) )
 			return;
 
 		if ( ! $type )
-			$type = $_GET['twinfield_form'];
+			$type = $_GET['twinfield-form'];
 
 		// Check the type is a valid form or return
 		if ( ! array_key_exists( $type, $this->valid_forms ) )
@@ -110,7 +110,7 @@ class FormBuilder {
 		$viewFile = $this->get_form_view_file_name( $type );
 
 		// Prepare the view
-		$view = new View( dirname( \Twinfield::$file ) . '/views/Pronamic/WP/FormBuilder' );
+		$view = new View( PRONAMIC_TWINFIELD_FOLDER . '/views/Pronamic/WP/FormBuilder' );
 		$view
 			->setVariable( 'nonce', $nonce )
 			->setVariable( $type, $form->fill_class( $_POST ) )
@@ -126,10 +126,10 @@ class FormBuilder {
 	}
 
 	public function listen() {
-		if ( ! isset( $_GET['twinfield_form'] ) )
+		if ( ! isset( $_GET['twinfield-form'] ) )
 			return;
 
-		$type = $_GET['twinfield_form'];
+		$type = $_GET['twinfield-form'];
 
 		if ( ! array_key_exists( $type, $this->valid_forms ) )
 			return;

@@ -30,5 +30,9 @@ function twinfield_get_debtor( $id ) {
 
 
 function twinfield_get_form_action( $type ) {
-	return admin_url( 'admin.php?page=twinfield_form_builder&twinfield_form=' . $type );
+	return admin_url( 'admin.php?page=twinfield-form-builder&twinfield-form=' . $type );
+}
+
+function twinfield_get_merger_table_action( $support ) {
+	return admin_url( 'admin.php?page=twinfield-merger&twinfield-table=' . $support );
 }

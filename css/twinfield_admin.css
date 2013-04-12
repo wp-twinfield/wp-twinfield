@@ -1,0 +1,13 @@
+#icon-twinfield {
+	background: url("../images/icon-32x32.png") no-repeat;	
+}
+
+.pronamic_twinfield_merger_response {
+	float:left;
+	width:20%;
+}
+
+.pronamic_twinfield_merger_table {
+	float:left;
+	width:80%;
+}

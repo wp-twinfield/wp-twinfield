@@ -41,6 +41,8 @@ class Notice {
 		$this->insert_into( 'updated', $priority, array(
 			'message' => $message
 		) );
+		
+		return $this;
 	}
 
 	/**
@@ -57,6 +59,8 @@ class Notice {
 		$this->insert_into( 'error', $priority, array(
 			'message' => $message
 		) );
+		
+		return $this;
 	}
 
 	/**
