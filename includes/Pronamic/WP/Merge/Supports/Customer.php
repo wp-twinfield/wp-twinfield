@@ -22,7 +22,7 @@ use \ZFramework\Util\Notice;
 use \Pronamic\Twinfield\Customer\CustomerFactory;
 
 class Customer extends BaseSupport {
-	
+
 	public $customers = array( );
 
 	/**
@@ -39,8 +39,8 @@ class Customer extends BaseSupport {
 	public function create_response() {
 		// New alert
 		$notice = new Notice();
-		$notice->error( __( 'Customer requires CoC Number as Custom Meta Field') )->get();
-		
+		$notice->error( __( 'Customer requires CoC Number as Custom Meta Field' ) )->get();
+
 		// Get all customers for the response
 		$customers = $this->get_customers( $this->getLimit(), $this->getOffset() );
 
@@ -77,27 +77,46 @@ class Customer extends BaseSupport {
 	 * Automatically updates all found matches with the linked new_field
 	 */
 	public function automate() {
-		set_time_limit(0);
-		
+		set_time_limit( 0 );
+
+		$customer_factory = new CustomerFactory( $this->getConfig() );
+
 		$customers = $this->get_customers_list();
-		$matches	 = $this->get_matches( $customers );
+
+		$query = new \WP_Query( array(
+			'post_type'	 => 'any',
+			'meta_query' => array(
+				array(
+					'key'		 => $this->getCurrentField(),
+					'compare'	 => 'EXISTS'
+				)
+			)
+		) );
 		
+		$matches = array();
+		foreach ( $query->posts as $post ) {
+			$matches[get_post_meta( $post->ID, $this->getCurrentField(), true )] = array(
+				'post' => $post,
+				'customer' => false
+			);
+		}
+
 		
-		$total = count( $customers );
-		
-		for ( $i = 0; $i <= $total; $i++ ) {
+		foreach ( $customers as $code => $info ) {
+			$customer = $customer_factory->get( $code, $this->getConfig()->getOffice() );
 			
+			if ( array_key_exists( $customer->getCocNumber(), $matches ) ) {
+				$matches[$customer->getCocNumber()]['customer'] = $customer;
+			}
 		}
 		
-		
-		
-		foreach ( $matches as $post_id => $customer ) {
-			$this->update( $post_id, null, $customer->getCocNumber() );
+		foreach ( $matches as $coc_number => $match ) {
+			if ( false !== $match['customer'] ) {
+				update_post_meta( $match['post']->ID, $this->getNewField(), $match['customer']->getID() );
+			}
 		}
-		
-		
 	}
-	
+
 	private function get_customers_list() {
 		// Get all customers with the limit
 		$customer_factory = new CustomerFactory( $this->getConfig() );
@@ -107,6 +126,9 @@ class Customer extends BaseSupport {
 	}
 
 	private function get_customers( $limit, $offset ) {
+		// Get all customers with the limit
+		$customer_factory = new CustomerFactory( $this->getConfig() );
+
 		$customers = $this->get_customers_list();
 
 		// Get the chunk of customers to go through

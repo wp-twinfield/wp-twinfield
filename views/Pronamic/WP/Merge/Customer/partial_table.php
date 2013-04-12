@@ -17,8 +17,8 @@
 					<form method="POST">
 						<input type="hidden" name="action" value="merger_tool" />
 						<input type="hidden" name="post_id" value="<?php echo get_the_ID(); ?>"/>
-						<input type="hidden" name="nfield" value="<?php echo $new_meta_key; ?>"/>
-						<input type="hidden" name="nfield_value" value="<?php echo $matches[get_the_ID()]->getCocNumber(); ?>"/>
+						<input type="hidden" name="new_field" value="<?php echo $new_meta_key; ?>"/>
+						<input type="hidden" name="new_field_value" value="<?php echo $matches[get_the_ID()]->getID(); ?>"/>
 						<?php submit_button(__( 'Sync', 'twinfield' ), 'primary', null, false ); ?>
 					</form>
 					<?php endif;?>
