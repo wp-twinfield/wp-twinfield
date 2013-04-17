@@ -1,5 +1,5 @@
 <?php
-$form_builder = new \Pronamic\WP\FormBuilder\FormBuilder();
+$form_builder = new \Pronamic\WP\Twinfield\FormBuilder\FormBuilder();
 
 if ( isset( $_GET[ 'twinfield-form' ] ) ) {
 	$page_form = $_GET[ 'twinfield-form' ];
