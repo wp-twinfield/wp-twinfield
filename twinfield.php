@@ -71,10 +71,10 @@ if ( ! class_exists( 'Twinfield' ) ) :
 			);
 
 			// Load the modules
-			$this->merge		 = new \Pronamic\WP\Merge\Merge();
-			$this->invoice		 = new \Pronamic\WP\Invoice\Invoice();
-			$this->customer		 = new \Pronamic\WP\Customer\Customer();
-			$this->article		 = new \Pronamic\WP\Article\Article();
+			$this->merge		 = new \Pronamic\WP\Twinfield\Merge\Merge();
+			$this->invoice		 = new \Pronamic\WP\Twinfield\Invoice\Invoice();
+			$this->customer		 = new \Pronamic\WP\Twinfield\Customer\Customer();
+			$this->article		 = new \Pronamic\WP\Twinfield\Article\Article();
 		}
 
 		public function admin_init() {
