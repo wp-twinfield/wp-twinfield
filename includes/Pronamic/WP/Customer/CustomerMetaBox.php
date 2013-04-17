@@ -84,7 +84,7 @@ class CustomerMetaBox {
 		$nonce = wp_nonce_field( 'twinfield_customer', 'twinfield_customer_nonce', true, false );
 
 		// Make the view
-		$view = new View( dirname( \Twinfield::$file ) . '/views/Pronamic/WP/Customer' );
+		$view = new View( PRONAMIC_TWINFIELD_FOLDER . '/views/Pronamic/WP/Customer' );
 		$view
 			->setVariable( 'nonce', $nonce )
 			->setVariable( 'twinfield_customer_id', $twinfield_customer_id )
