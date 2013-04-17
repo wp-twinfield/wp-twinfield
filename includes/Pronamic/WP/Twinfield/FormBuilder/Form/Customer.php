@@ -1,6 +1,6 @@
 <?php
 
-namespace Pronamic\WP\FormBuilder\Form;
+namespace Pronamic\WP\Twinfield\FormBuilder\Form;
 
 use \Pronamic\Twinfield\Customer\Customer as TwinfieldCustomer;
 use \Pronamic\Twinfield\Customer\CustomerAddress as TwinfieldCustomerAddress;

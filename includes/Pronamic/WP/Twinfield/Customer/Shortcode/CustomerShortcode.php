@@ -1,6 +1,6 @@
 <?php
 
-namespace Pronamic\WP\Customer\Shortcode;
+namespace Pronamic\WP\Twinfield\Customer\Shortcode;
 
 use \ZFramework\Base\View;
 

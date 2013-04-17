@@ -1,6 +1,6 @@
 <?php
 
-namespace Pronamic\WP\FormBuilder;
+namespace Pronamic\WP\Twinfield\FormBuilder;
 /**
  * FormBuilder Class
  *
@@ -27,8 +27,8 @@ class FormBuilder {
 	 * @var array
 	 */
 	private $valid_forms = array(
-		'invoice' => "Pronamic\WP\FormBuilder\Form\Invoice",
-		'customer' => "Pronamic\WP\FormBuilder\Form\Customer"
+		'invoice' => "Pronamic\WP\Twinfield\FormBuilder\Form\Invoice",
+		'customer' => "Pronamic\WP\Twinfield\FormBuilder\Form\Customer"
 	);
 
 	/**

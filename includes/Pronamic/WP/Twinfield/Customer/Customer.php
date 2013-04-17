@@ -1,6 +1,6 @@
 <?php
 
-namespace Pronamic\WP\Customer;
+namespace Pronamic\WP\Twinfield\Customer;
 
 use \ZFramework\Base\View;
 

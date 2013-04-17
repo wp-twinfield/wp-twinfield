@@ -1,6 +1,6 @@
 <?php
 
-namespace Pronamic\WP\Invoice;
+namespace Pronamic\WP\Twinfield\Invoice;
 
 use \ZFramework\Base\View;
 

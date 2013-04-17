@@ -1,6 +1,6 @@
 <?php
 
-namespace Pronamic\WP\Article;
+namespace Pronamic\WP\Twinfield\Article;
 
 /**
  * ArticleMetaBox
@@ -23,7 +23,7 @@ namespace Pronamic\WP\Article;
  *
  * @uses \ZFramework\Base\View()
  *
- * @package Pronamic\WP
+ * @package Pronamic\WP\Twinfield
  * @subpackage Article
  * @author Leon Rowland <leon@rowland.nl>
  * @copyright (c) 2013, Leon Rowland

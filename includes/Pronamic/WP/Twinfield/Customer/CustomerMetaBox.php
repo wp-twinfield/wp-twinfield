@@ -1,6 +1,6 @@
 <?php
 
-namespace Pronamic\WP\Customer;
+namespace Pronamic\WP\Twinfield\Customer;
 
 /**
  * CustomerMetaBox Class
@@ -23,7 +23,7 @@ namespace Pronamic\WP\Customer;
  *
  * @uses \ZFrameowkr\Base\View()
  *
- * @package Pronamic\WP
+ * @package Pronamic\WP\Twinfield
  * @subpackage Customer
  * @author Leon Rowland <leon@rowland.nl>
  * @copyright (c) 2013, Leon Rowland

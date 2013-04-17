@@ -1,6 +1,6 @@
 <?php
 
-namespace Pronamic\WP\FormBuilder\Form;
+namespace Pronamic\WP\Twinfield\FormBuilder\Form;
 
 use Pronamic\Twinfield\Customer\Customer;
 use Pronamic\Twinfield\Invoice as I;

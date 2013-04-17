@@ -1,6 +1,6 @@
 <?php
 
-namespace Pronamic\WP\Merge;
+namespace Pronamic\WP\Twinfield\Merge;
 
 /**
  * Merge Class
