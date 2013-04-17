@@ -9,7 +9,7 @@ namespace Pronamic\WP\Twinfield\FormBuilder;
  *
  * @since 0.0.1
  *
- * @package Pronamic\WP
+ * @package Pronamic\WP\Twinfield
  * @subpackage FormBuilder
  * @author Leon Rowland <leon@rowland.nl>
  * @copyright (c) 2013, Leon Rowland

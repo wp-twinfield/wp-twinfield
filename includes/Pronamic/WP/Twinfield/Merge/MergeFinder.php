@@ -11,7 +11,7 @@ namespace Pronamic\WP\Twinfield\Merge;
  * 
  * @since 0.0.1
  * 
- * @package Pronamic\WP
+ * @package Pronamic\WP\Twinfield
  * @subpackage Merge
  * @author Leon Rowland <leon@rowland.nl>
  * @copyright (c) 2013, Leon Rowland
@@ -28,7 +28,7 @@ class MergeFinder {
 	 * @var array
 	 */
 	private $valid_supports = array(
-		'customer' => "Pronamic\WP\Merge\Supports\Customer"
+		'customer' => "Pronamic\WP\Twinfield\Merge\Supports\Customer"
 	);
 
 	/**
