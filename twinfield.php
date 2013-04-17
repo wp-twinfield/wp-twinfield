@@ -62,7 +62,7 @@ if ( ! class_exists( 'Twinfield' ) ) :
 		public function init() {
 			global $twinfield_config;
 
-			load_plugin_textdomain( 'twinfield', false, PRONAMIC_TWINFIELD_FOLDER . '/languages/' );
+			load_plugin_textdomain( 'twinfield', false, dirname( plugin_basename( PRONAMIC_TWINFIELD_FILE ) ) . '/languages/' );
 
 			$twinfield_config = new Pronamic\Twinfield\Secure\Config();
 
