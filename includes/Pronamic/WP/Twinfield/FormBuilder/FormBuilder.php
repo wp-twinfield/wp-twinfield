@@ -92,7 +92,7 @@ class FormBuilder {
 		// Check type has been supplied or return
 		if ( ! $type && ! isset( $_GET['twinfield-form'] ) )
 			return;
-
+		
 		if ( ! $type )
 			$type = $_GET['twinfield-form'];
 
@@ -146,6 +146,7 @@ class FormBuilder {
 		if ( true === $class->submit() ) {
 			$notice->updated('Successful');
 		} else {
+			
 			foreach ( $class->get_response()->getErrorMessages() as $error ) {
 				$notice->error($error);
 			}

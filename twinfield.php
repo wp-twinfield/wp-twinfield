@@ -75,6 +75,7 @@ if ( ! class_exists( 'Twinfield' ) ) :
 			$this->invoice		 = new \Pronamic\WP\Twinfield\Invoice\Invoice();
 			$this->customer		 = new \Pronamic\WP\Twinfield\Customer\Customer();
 			$this->article		 = new \Pronamic\WP\Twinfield\Article\Article();
+			$this->form_builder  = new \Pronamic\WP\Twinfield\FormBuilder\FormBuilder();
 		}
 
 		public function admin_init() {
