@@ -90,14 +90,21 @@ class Notice {
 	 * @return void
 	 */
 	public function get() {
+		echo $this->retrieve();
+	}
+	
+	public function retrieve() {
+		$errors = '';
 		foreach ( $this->notices as $type => $priorities ) {
 			foreach ( $priorities as $notices ) {
 				foreach ( $notices as $notice ) {
-					echo '<div class="' . $type . '">';
-					echo '<p>' . $notice['message'] . '</p>';
-					echo '</div>';
+					$errors .= '<div class="' . $type . '">';
+					$errors .= '<p>' . $notice['message'] . '</p>';
+					$errors .= '</div>';
 				}
 			}
 		}
+		
+		return $errors;
 	}
 }
