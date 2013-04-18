@@ -1,5 +1,5 @@
 <?php
-$merger = new \Pronamic\WP\Merge\MergeFinder();
+$merger = new \Pronamic\WP\Twinfield\Merge\MergeFinder();
 
 $table = '';
 if ( isset( $_GET[ 'twinfield-table' ] ) ) {

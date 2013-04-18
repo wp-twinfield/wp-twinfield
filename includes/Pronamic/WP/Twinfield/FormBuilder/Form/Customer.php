@@ -1,18 +1,18 @@
 <?php
 
-namespace Pronamic\WP\FormBuilder\Form;
+namespace Pronamic\WP\Twinfield\FormBuilder\Form;
 
 use \Pronamic\Twinfield\Customer\Customer as TwinfieldCustomer;
 use \Pronamic\Twinfield\Customer\CustomerAddress as TwinfieldCustomerAddress;
 use \Pronamic\Twinfield\Customer\CustomerFactory as TwinfieldCustomerFactory;
 
 class Customer extends ParentForm {
-	public function submit() {
+	public function submit( $data = null ) {
 		global $twinfield_config;
 
 		$customer_factory = new TwinfieldCustomerFactory( $twinfield_config );
 
-		if ( $customer_factory->send( $this->fill_class() ) ) {
+		if ( $customer_factory->send( $this->fill_class( $data ) ) ) {
 			$this->set_response($customer_factory->getResponse());
 			return true;
 		} else {

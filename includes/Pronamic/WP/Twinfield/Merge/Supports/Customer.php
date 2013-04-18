@@ -1,6 +1,6 @@
 <?php
 
-namespace Pronamic\WP\Merge\Supports;
+namespace Pronamic\WP\Merge\Twinfield\Supports;
 
 /**
  * Merge Supports: Customer class
@@ -11,7 +11,7 @@ namespace Pronamic\WP\Merge\Supports;
  * 
  * @since 0.0.1
  * 
- * @package Pronamic\WP\Merge
+ * @package Pronamic\WP\Twinfield\Merge
  * @subpackage Supports
  * @author Leon Rowland <leon@rowland.nl>
  * @copyright (c) 2013, Leon Rowland

@@ -1,6 +1,6 @@
 <?php
 
-namespace Pronamic\WP\FormBuilder\Form;
+namespace Pronamic\WP\Twinfield\FormBuilder\Form;
 
 use \Pronamic\Twinfield\Response\Response;
 

@@ -62,7 +62,7 @@ if ( ! class_exists( 'Twinfield' ) ) :
 		public function init() {
 			global $twinfield_config;
 
-			load_plugin_textdomain( 'twinfield', false, PRONAMIC_TWINFIELD_FOLDER . '/languages/' );
+			load_plugin_textdomain( 'twinfield', false, dirname( plugin_basename( PRONAMIC_TWINFIELD_FILE ) ) . '/languages/' );
 
 			$twinfield_config = new Pronamic\Twinfield\Secure\Config();
 
@@ -71,10 +71,11 @@ if ( ! class_exists( 'Twinfield' ) ) :
 			);
 
 			// Load the modules
-			$this->merge		 = new \Pronamic\WP\Merge\Merge();
-			$this->invoice		 = new \Pronamic\WP\Invoice\Invoice();
-			$this->customer		 = new \Pronamic\WP\Customer\Customer();
-			$this->article		 = new \Pronamic\WP\Article\Article();
+			$this->merge		 = new \Pronamic\WP\Twinfield\Merge\Merge();
+			$this->invoice		 = new \Pronamic\WP\Twinfield\Invoice\Invoice();
+			$this->customer		 = new \Pronamic\WP\Twinfield\Customer\Customer();
+			$this->article		 = new \Pronamic\WP\Twinfield\Article\Article();
+			$this->form_builder  = new \Pronamic\WP\Twinfield\FormBuilder\FormBuilder();
 		}
 
 		public function admin_init() {

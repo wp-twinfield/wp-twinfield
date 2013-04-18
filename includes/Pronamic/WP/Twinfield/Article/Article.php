@@ -1,6 +1,6 @@
 <?php
 
-namespace Pronamic\WP\Article;
+namespace Pronamic\WP\Twinfield\Article;
 
 class Article {
 	public function __construct() {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Pronamic\WP\Merge\Supports;
+namespace Pronamic\WP\Twinfield\Merge\Supports;
 
 abstract class BaseSupport {
 	abstract public function create_response();

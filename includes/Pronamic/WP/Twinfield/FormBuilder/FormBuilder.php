@@ -1,6 +1,6 @@
 <?php
 
-namespace Pronamic\WP\FormBuilder;
+namespace Pronamic\WP\Twinfield\FormBuilder;
 /**
  * FormBuilder Class
  *
@@ -9,7 +9,7 @@ namespace Pronamic\WP\FormBuilder;
  *
  * @since 0.0.1
  *
- * @package Pronamic\WP
+ * @package Pronamic\WP\Twinfield
  * @subpackage FormBuilder
  * @author Leon Rowland <leon@rowland.nl>
  * @copyright (c) 2013, Leon Rowland
@@ -27,8 +27,8 @@ class FormBuilder {
 	 * @var array
 	 */
 	private $valid_forms = array(
-		'invoice' => "Pronamic\WP\FormBuilder\Form\Invoice",
-		'customer' => "Pronamic\WP\FormBuilder\Form\Customer"
+		'invoice' => "Pronamic\WP\Twinfield\FormBuilder\Form\Invoice",
+		'customer' => "Pronamic\WP\Twinfield\FormBuilder\Form\Customer"
 	);
 
 	/**
@@ -92,7 +92,7 @@ class FormBuilder {
 		// Check type has been supplied or return
 		if ( ! $type && ! isset( $_GET['twinfield-form'] ) )
 			return;
-
+		
 		if ( ! $type )
 			$type = $_GET['twinfield-form'];
 
@@ -146,6 +146,7 @@ class FormBuilder {
 		if ( true === $class->submit() ) {
 			$notice->updated('Successful');
 		} else {
+			
 			foreach ( $class->get_response()->getErrorMessages() as $error ) {
 				$notice->error($error);
 			}
