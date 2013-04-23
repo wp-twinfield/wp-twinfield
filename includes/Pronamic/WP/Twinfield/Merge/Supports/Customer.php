@@ -132,6 +132,9 @@ class Customer extends BaseSupport {
 	}
 
 	private function get_customers( $limit, $offset ) {
+		// Removes time limit. This could take a while!
+		set_time_limit(0);
+		
 		// Gets the list of all the customers
 		$customer_factory = new CustomerFactory( $this->getConfig() );
 		$customers = $this->get_customers_list();
@@ -146,9 +149,10 @@ class Customer extends BaseSupport {
 				
 				// Gets a customer
 				$customer = $customer_factory->get( $code, $this->getConfig()->getOffice() );
-
+				$customer_coc_number = $customer->getCocNumber();
+			
 				// Sees if the customer has an outdated usage of <cocnumber>
-				if ( ! empty( $customer->getCocNumber() ) ) {
+				if ( ! empty( $customer_coc_number ) ) {
 					
 					// Set that customer to the list
 					$this->customers[ $customer->getCocNumber() ] = $customer;
