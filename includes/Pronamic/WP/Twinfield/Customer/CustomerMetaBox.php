@@ -82,6 +82,13 @@ class CustomerMetaBox {
 
 		// Generate the nonce
 		$nonce = wp_nonce_field( 'twinfield_customer', 'twinfield_customer_nonce', true, false );
+		
+		// Gets the customer from the API if an ID is filled
+		if ( ! empty( $twinfield_customer_id ) ) {
+			global $twinfield_config, $twinfield_customer;
+			$customer_factory = new \Pronamic\Twinfield\Customer\CustomerFactory( $twinfield_config );
+			$twinfield_customer = $customer_factory->get( $twinfield_customer_id );
+		}
 
 		// Make the view
 		$view = new View( PRONAMIC_TWINFIELD_FOLDER . '/views/Pronamic/WP/Customer' );
