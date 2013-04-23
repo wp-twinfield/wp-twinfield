@@ -183,6 +183,10 @@ class Customer extends BaseSupport {
 				array(
 					'key'		 => $this->getCurrentField(),
 					'compare'	 => 'EXISTS'
+				),
+				array(
+					'key'		 => $this->getNewField(),
+					'compare'	 => 'NOT EXISTS'
 				)
 			)
 		) );
