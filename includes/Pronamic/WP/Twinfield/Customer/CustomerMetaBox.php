@@ -54,12 +54,12 @@ class CustomerMetaBox {
 		foreach ( $post_types as $post_type ) {
 			if ( post_type_supports( $post_type, 'twinfield_customer' ) ) {
 				add_meta_box(
-						'pronamic_twinfield_customer',
-						__( 'Twinfield Customer', 'twinfield' ),
-						array( $this, 'view' ),
-						$post_type,
-						'normal',
-						'high'
+					'pronamic_twinfield_customer',
+					__( 'Twinfield Customer', 'twinfield' ),
+					array( $this, 'view' ),
+					$post_type,
+					'normal',
+					'high'
 				);
 			}
 		}
