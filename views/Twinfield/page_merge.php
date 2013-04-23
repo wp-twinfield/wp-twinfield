@@ -60,7 +60,7 @@ if ( isset( $_GET[ 'twinfield-table' ] ) ) {
 					</td>
 				</tr>
 			</table>
-			<?php submit_button( __( 'Show', 'twinfield' ), 'primary', false ); ?>
+			<?php submit_button( __( 'Show', 'twinfield' ), 'primary', 'show_matches' ); ?>
 		</form>
 		<form method="POST">
 			<input type="hidden" name="action" value="merger_automate" />

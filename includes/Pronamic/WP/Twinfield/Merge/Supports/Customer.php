@@ -37,6 +37,9 @@ class Customer extends BaseSupport {
 	 * @return void
 	 */
 	public function create_response() {
+		if ( ! isset( $_GET['show_matches' ] ) ) 
+			return;
+
 		// New alert
 		$notice = new Notice();
 		$notice->error( __( 'Customer requires CoC Number as Custom Meta Field' ) )->get();
@@ -178,8 +181,9 @@ class Customer extends BaseSupport {
 	private function get_matches( $customers ) {
 		// Get all posts with that metafield
 		$this->posts_query = new \WP_Query( array(
-			'post_type'	 => 'any',
-			'meta_query' => array(
+			'post_type'	     => 'any',
+			'posts_per_page' => -1,
+			'meta_query'     => array(
 				array(
 					'key'		 => $this->getCurrentField(),
 					'compare'	 => 'EXISTS'
