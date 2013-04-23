@@ -1,6 +1,6 @@
 <?php
 
-namespace Pronamic\WP\Merge\Twinfield\Supports;
+namespace Pronamic\WP\Twinfield\Merge\Supports;
 
 /**
  * Merge Supports: Customer class
@@ -138,6 +138,7 @@ class Customer extends BaseSupport {
 		if ( ! empty( $do_customers ) ) {
 			foreach ( $do_customers as $code => $info ) {
 				$customer										 = $customer_factory->get( $code, $this->getConfig()->getOffice() );
+
 				$this->customers[ $customer->getCocNumber() ]	 = $customer;
 			}
 		}
@@ -155,7 +156,7 @@ class Customer extends BaseSupport {
 					'compare'	 => 'EXISTS'
 				)
 			)
-				) );
+		) );
 
 		$matches = array( );
 		if ( $this->posts_query->have_posts() ) {
