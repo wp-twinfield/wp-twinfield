@@ -7,11 +7,39 @@ use \ZFramework\Base\View;
 class Customer {
 
 	public function __construct() {
+		add_action( 'generate_rewrite_rules', array( $this, 'generate_rewrite_rules' ) );
+		add_action( 'query_vars', array( $this, 'query_vars' ) );
+
+		add_action( 'template_redirect', array( $this, 'render_customer' ) );
 		
+		add_filter( 'wp_title', array( $this, 'wp_title' ) );
 		// Start the Metabox
 		$metabox = new CustomerMetaBox();
 		$shortcode = new Shortcode\CustomerShortcode;
 
+	}
+	
+	function wp_title( $title ) {
+		global $twinfield_customer;
+		
+		if ( isset( $twinfield_customer ) ) {
+			$title = $twinfield_customer->getName() . ' - ';
+		}
+		
+		return $title;
+	}
+	
+	public function generate_rewrite_rules( $wp_rewrite ) {
+		$rules = array();
+		
+		$rules['debiteuren/([^/]+)$'] = 'index.php?pid=11&twinfield_debtor_id=' . $wp_rewrite->preg_index(1);
+		
+		$wp_rewrite->rules = array_merge( $rules, $wp_rewrite->rules );
+	}
+	
+	public function query_vars( $query_vars ) {
+		$query_vars[] = 'twinfield_debtor_id';
+		return $query_vars;
 	}
 	
 	public function render_customer() {
@@ -22,9 +50,9 @@ class Customer {
 			
 		global $twinfield_config;
 		$customerFactory = new \Pronamic\Twinfield\Customer\CustomerFactory( $twinfield_config );
-		
+
 		$customer = $customerFactory->get( $customer_id );
-		
+
 		if ( $customerFactory->getResponse()->isSuccessful() ) {
 			
 			global $twinfield_customer;
