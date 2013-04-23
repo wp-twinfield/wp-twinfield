@@ -21,19 +21,43 @@ if ( isset( $_GET[ 'twinfield-table' ] ) ) {
 			<table class="form-table">
 				<tr>
 					<th><?php _e( 'Response Limit', 'twinfield' ); ?></th>
-					<td><input type="text" name="limit" value="<?php echo isset( $_GET[ 'limit' ] ) ? $_GET[ 'limit' ] : ''; ?>"/></td>
+					<td>
+						<input type="text" name="limit" value="<?php echo isset( $_GET[ 'limit' ] ) ? $_GET[ 'limit' ] : ''; ?>"/>
+						<span class="description">
+							<br />
+							<?php _e( 'The number of customers to retrieve from Twinfield.', 'twinfield' ); ?>
+						</span>
+					</td>
 				</tr>
 				<tr>
 					<th><?php _e( 'Response Offset', 'twinfield' ); ?></th>
-					<td><input type="text" name="offset" value="<?php echo isset( $_GET[ 'offset' ] ) ? $_GET[ 'offset' ] : ''; ?>"/></td>
+					<td>
+						<input type="text" name="offset" value="<?php echo isset( $_GET[ 'offset' ] ) ? $_GET[ 'offset' ] : ''; ?>"/>
+						<span class="description">
+							<br />
+							<?php _e( 'The offset of customers to retrieve from Twinfield.', 'twinfield' ); ?>
+						</span>
+					</td>
 				</tr>
 				<tr>
 					<th><?php _e( 'Custom Meta Field', 'twinfield' ); ?></th>
-					<td><input type="text" name="current_field" value="<?php echo isset( $_GET[ 'current_field' ] ) ? $_GET[ 'current_field' ] : ''; ?>"/></td>
+					<td>
+						<input type="text" name="current_field" value="<?php echo isset( $_GET[ 'current_field' ] ) ? $_GET[ 'current_field' ] : ''; ?>"/>
+						<span class="description">
+							<br />
+							<?php printf( __( 'The meta field key to retrieve the KvK number from (for example: <code>%s</code>).', 'twinfield' ), '_orbis_company_kvk_number' ); ?>
+						</span>
+					</td>
 				</tr>
 				<tr>
 					<th><?php _e( 'New Custom Field', 'twinfield' ); ?></th>
-					<td><input type="text" name="new_field" value="<?php echo isset( $_GET[ 'new_field' ] ) ? $_GET[ 'new_field' ] : ''; ?>"/></td>
+					<td>
+						<input type="text" name="new_field" value="<?php echo isset( $_GET[ 'new_field' ] ) ? $_GET[ 'new_field' ] : ''; ?>"/>
+						<span class="description">
+							<br />
+							<?php printf( __( 'The meta field key to store the Twinfield ID in (for example: <code>%s</code>).', 'twinfield' ), '_twinfield_customer_id' ); ?>
+						</span>
+					</td>
 				</tr>
 			</table>
 			<?php submit_button( __( 'Show', 'twinfield' ), 'primary', false ); ?>
