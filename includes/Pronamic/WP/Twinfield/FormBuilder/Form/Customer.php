@@ -77,6 +77,7 @@ class Customer extends ParentForm {
 			$defaultAddressData = array(
 				'default'	 => true,
 				'type'		 => '',
+				'name'		 => '',
 				'field1'	 => '',
 				'field2'	 => '',
 				'field3'	 => '',
@@ -94,6 +95,7 @@ class Customer extends ParentForm {
 				$temp_address
 						->setDefault($address['default'])
 						->setType($address['type'])
+						->setName($address['name'])
 						->setField1($address['field1'])
 						->setField2($address['field2'])
 						->setField3($address['field3'])

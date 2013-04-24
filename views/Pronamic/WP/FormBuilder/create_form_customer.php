@@ -49,11 +49,11 @@
 		</tr>
 		<tr>
 			<th><?php _e( 'Due Days', 'twinfield' ); ?></th>
-			<td><input type="text" name="duedays" value="<?php echo $customer->getDueDays(); ?>"</td>
+			<td><input type="text" name="duedays" value="<?php echo $customer->getDueDays(); ?>" /></td>
 		</tr>
 		<tr>
 			<th><?php _e( 'Electronic Invoice', 'twinfield' ); ?></th>
-			<td><input type="checkbox" name="ebilling" value="true" <?php checked('true', $customer->getEBilling() ); ?></td>
+			<td><input type="checkbox" name="ebilling" value="true" <?php checked('true', $customer->getEBilling() ); ?> /></td>
 		</tr>
 		<tr>
 			<th><?php _e( 'Electronic Invoice Email', 'twinfield' ); ?></th>
@@ -75,6 +75,7 @@
 		<thead>
 			<th><?php _e( 'Default?', 'twinfield' ); ?></th>
 			<th><?php _e( 'Type', 'twinfield' ); ?></th>
+			<th><?php _e( 'Name', 'twinfield' ); ?></th>
 			<th><?php _e( 'Line 1', 'twinfield' ); ?></th>
 			<th><?php _e( 'Line 2', 'twinfield' ); ?></th>
 			<th><?php _e( 'Line 3', 'twinfield' ); ?></th>
@@ -98,14 +99,15 @@
 								<?php endforeach; ?>
 							</select>
 						</td>
-						<td><input type="text" name="addresses[<?php echo $line_number; ?>][field1]" value="<?php echo $address->getField1(); ?>"/></td>
-						<td><input type="text" name="addresses[<?php echo $line_number; ?>][field2]" value="<?php echo $address->getField2(); ?>"/></td>
-						<td><input type="text" name="addresses[<?php echo $line_number; ?>][field3]" value="<?php echo $address->getField3(); ?>"/></td>
-						<td><input type="text" name="addresses[<?php echo $line_number; ?>][field5]" value="<?php echo $address->getField5(); ?>"/></td>
-						<td><input type="text" name="addresses[<?php echo $line_number; ?>][postcode]" value="<?php echo $address->getPostcode(); ?>"/></td>
-						<td><input type="text" name="addresses[<?php echo $line_number; ?>][city]" value="<?php echo $address->getCity(); ?>"/></td>
-						<td><input type="text" name="addresses[<?php echo $line_number; ?>][country]" value="<?php echo $address->getCountry(); ?>"/></td>
-						<td><input type="text" name="addresses[<?php echo $line_number; ?>][email]" value="<?php echo $address->getEmail(); ?>"/></td>
+						<td><input type="text" name="addresses[<?php echo $line_number; ?>][name]" value="<?php echo $address->getName(); ?>" /></td>
+						<td><input type="text" name="addresses[<?php echo $line_number; ?>][field1]" value="<?php echo $address->getField1(); ?>" /></td>
+						<td><input type="text" name="addresses[<?php echo $line_number; ?>][field2]" value="<?php echo $address->getField2(); ?>" /></td>
+						<td><input type="text" name="addresses[<?php echo $line_number; ?>][field3]" value="<?php echo $address->getField3(); ?>" /></td>
+						<td><input type="text" name="addresses[<?php echo $line_number; ?>][field5]" value="<?php echo $address->getField5(); ?>" /></td>
+						<td><input type="text" name="addresses[<?php echo $line_number; ?>][postcode]" value="<?php echo $address->getPostcode(); ?>" /></td>
+						<td><input type="text" name="addresses[<?php echo $line_number; ?>][city]" value="<?php echo $address->getCity(); ?>" /></td>
+						<td><input type="text" name="addresses[<?php echo $line_number; ?>][country]" value="<?php echo $address->getCountry(); ?>" /></td>
+						<td><input type="text" name="addresses[<?php echo $line_number; ?>][email]" value="<?php echo $address->getEmail(); ?>" /></td>
 					</tr>
 					<?php $line_number++; ?>
 				<?php endforeach; ?>
@@ -119,14 +121,15 @@
 							<?php endforeach; ?>
 						</select>
 					</td>
-					<td><input type="text" name="addresses[1][field1]" value=""/></td>
-					<td><input type="text" name="addresses[1][field2]" value=""/></td>
-					<td><input type="text" name="addresses[1][field3]" value=""/></td>
-					<td><input type="text" name="addresses[1][field5]" value=""/></td>
-					<td><input type="text" name="addresses[1][postcode]" value=""/></td>
-					<td><input type="text" name="addresses[1][city]" value=""/></td>
-					<td><input type="text" name="addresses[1][country]" value=""</td>
-					<td><input type="text" name="addresses[1][email]" value=""/></td>
+					<td><input type="text" name="addresses[1][name]" value="" /></td>
+					<td><input type="text" name="addresses[1][field1]" value="" /></td>
+					<td><input type="text" name="addresses[1][field2]" value="" /></td>
+					<td><input type="text" name="addresses[1][field3]" value="" /></td>
+					<td><input type="text" name="addresses[1][field5]" value="" /></td>
+					<td><input type="text" name="addresses[1][postcode]" value="" /></td>
+					<td><input type="text" name="addresses[1][city]" value="" /></td>
+					<td><input type="text" name="addresses[1][country]" value="" /></td>
+					<td><input type="text" name="addresses[1][email]" value="" /></td>
 				</tr>
 			<?php endif; ?>
 		</tbody>
