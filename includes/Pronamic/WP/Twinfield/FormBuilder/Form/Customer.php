@@ -93,19 +93,19 @@ class Customer extends ParentForm {
 
 				$temp_address = new TwinfieldCustomerAddress();
 				$temp_address
-						->setDefault($address['default'])
-						->setType($address['type'])
-						->setName($address['name'])
-						->setField1($address['field1'])
-						->setField2($address['field2'])
-						->setField3($address['field3'])
-						->setField5($address['field5'])
-						->setPostcode($address['postcode'])
-						->setCity($address['city'])
-						->setCountry($address['country'])
-						->setEmail($address['email']);
+						->setDefault( filter_var( $address['default'], FILTER_VALIDATE_BOOLEAN ) )
+						->setType( filter_var( $address['type'], FILTER_SANITIZE_STRING ) )
+						->setName( filter_var( $address['name'], FILTER_SANITIZE_STRING ) )
+						->setField1( filter_var( $address['field1'], FILTER_SANITIZE_STRING ) )
+						->setField2( filter_var( $address['field2'], FILTER_SANITIZE_STRING ) )
+						->setField3( filter_var( $address['field3'], FILTER_SANITIZE_STRING ) )
+						->setField5( filter_var( $address['field5'], FILTER_SANITIZE_STRING ) )
+						->setPostcode( filter_var( $address['postcode'], FILTER_SANITIZE_STRING ) )
+						->setCity( filter_var( $address['city'], FILTER_SANITIZE_STRING ) )
+						->setCountry( filter_var( $address['country'], FILTER_SANITIZE_STRING ) )
+						->setEmail( filter_var( $address['email'], FILTER_SANITIZE_STRING ) );
 
-				$customer->addAddress($temp_address);
+				$customer->addAddress( $temp_address );
 
 			}
 		}
