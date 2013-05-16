@@ -8,7 +8,7 @@ abstract class ParentForm {
 	private $response;
 
 	abstract public function extra_variables();
-	abstract public function fill_class();
+	abstract public function fill_class( $data );
 
 	public function set_response( Response $response ) {
 		$this->response = $response;

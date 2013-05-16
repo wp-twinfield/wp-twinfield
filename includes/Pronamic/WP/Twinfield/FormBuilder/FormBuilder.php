@@ -109,11 +109,13 @@ class FormBuilder {
 		// Get the view file name
 		$viewFile = $this->get_form_view_file_name( $type );
 
+		$cleaned_data = $form->cleaned_data( INPUT_POST );
+		
 		// Prepare the view
 		$view = new View( PRONAMIC_TWINFIELD_FOLDER . '/views/Pronamic/WP/FormBuilder' );
 		$view
 			->setVariable( 'nonce', $nonce )
-			->setVariable( $type, $form->fill_class( $_POST ) )
+			->setVariable( $type, $form->fill_class( $cleaned_data ) )
 			->setVariable( 'form_extra', $form->extra_variables() )
 			->setView( $viewFile );
 
