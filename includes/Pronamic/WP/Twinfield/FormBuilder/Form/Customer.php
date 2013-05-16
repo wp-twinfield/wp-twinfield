@@ -72,6 +72,8 @@ class Customer extends ParentForm {
 	public function fill_class( $data = array() ) {
 		
 		$data = array_merge( $this->defaultCustomerData , $data );
+		
+		$data = stripslashes_deep( $data );
 
 		$customer = new TwinfieldCustomer();
 		$customer
@@ -110,94 +112,5 @@ class Customer extends ParentForm {
 
 		return $customer;
 
-	}
-	
-	public function cleaned_data( $input ) {
-		// Determine if a constant
-		if ( is_int( $input ) ) {
-			return $this->input_clean( $input );
-		} elseif( is_array( $input ) ) {
-			return $this->array_clean( $input );
-		}
-	}
-	
-	private function input_clean( $input_type ) {
-		$cleaned_data = array();
-		
-		$cleaned_data['id'] = filter_input( $input_type, 'id', FILTER_VALIDATE_INT );
-		$cleaned_data['name'] = filter_input( $input_type, 'name', FILTER_SANITIZE_STRING );
-		$cleaned_data['type'] = filter_input( $input_type, 'type', FILTER_SANITIZE_STRING );
-		$cleaned_data['website'] = filter_input( $input_type, 'website', FILTER_VALIDATE_URL );
-		$cleaned_data['duedays'] = filter_input( $input_type, 'duedays', FILTER_VALIDATE_INT );
-		$cleaned_data['ebilling'] = filter_input( $input_type, 'ebilling', FILTER_VALIDATE_BOOLEAN );
-		$cleaned_data['ebillmail'] = filter_input( $input_type, 'ebillmail', FILTER_VALIDATE_EMAIL );
-		$cleaned_data['vatcode'] = filter_input( $input_type, 'vatcode', FILTER_SANITIZE_STRING );
-		
-		if ( 0 === $input_type ) {
-			$addresses = $_POST['addresses'];
-		} else {
-			$addresses = $_GET['addresses'];
-		}
-		
-		$cleaned_data['addresses'] = array();
-		
-		foreach ( $addresses as $address ) {
-			$clean_address = array();
-			$clean_address['default'] = filter_var( $address['default'], FILTER_VALIDATE_BOOLEAN );
-			$clean_address['type'] = filter_var( $address['type'], FILTER_SANITIZE_STRING );
-			$clean_address['name'] = filter_var( $address['name'], FILTER_SANITIZE_STRING );
-			$clean_address['field1'] = filter_var( $address['field1'], FILTER_SANITIZE_STRING );
-			$clean_address['field2'] = filter_var( $address['field2'], FILTER_SANITIZE_STRING );
-			$clean_address['field3'] = filter_var( $address['field3'], FILTER_SANITIZE_STRING );
-			$clean_address['field5'] = filter_var( $address['field5'], FILTER_SANITIZE_STRING );
-			$clean_address['postcode'] = filter_var( $address['postcode'], FILTER_SANITIZE_STRING );
-			$clean_address['city'] = filter_var( $address['city'], FILTER_SANITIZE_STRING );
-			$clean_address['country'] = filter_var( $address['country'], FILTER_SANITIZE_STRING );
-			$clean_address['email'] = filter_var( $address['email'], FILTER_SANITIZE_EMAIL );
-			
-			$cleaned_data['addresses'][] = stripslashes_deep( $clean_address );
-		}
-		
-		return $cleaned_data;
-	}
-	
-	private function array_clean( $data = array() ) {
-		$cleaned_data = array();
-		
-		$cleaned_data['id'] = filter_input( $input_type, 'id', FILTER_VALIDATE_INT );
-		$cleaned_data['name'] = filter_input( $input_type, 'name', FILTER_SANITIZE_STRING );
-		$cleaned_data['type'] = filter_input( $input_type, 'type', FILTER_SANITIZE_STRING );
-		$cleaned_data['website'] = filter_input( $input_type, 'website', FILTER_VALIDATE_URL );
-		$cleaned_data['duedays'] = filter_input( $input_type, 'duedays', FILTER_VALIDATE_INT );
-		$cleaned_data['ebilling'] = filter_input( $input_type, 'ebilling', FILTER_VALIDATE_BOOLEAN );
-		$cleaned_data['ebillmail'] = filter_input( $input_type, 'ebillmail', FILTER_VALIDATE_EMAIL );
-		$cleaned_data['vatcode'] = filter_input( $input_type, 'vatcode', FILTER_SANITIZE_STRING );
-		
-		if ( 0 === $input_type ) {
-			$addresses = $_POST['addresses'];
-		} else {
-			$addresses = $_GET['addresses'];
-		}
-		
-		$cleaned_data['addresses'] = array();
-		
-		foreach ( $addresses as $address ) {
-			$clean_address = array();
-			$clean_address['default'] = filter_var( $address['default'], FILTER_VALIDATE_BOOLEAN );
-			$clean_address['type'] = filter_var( $address['type'], FILTER_SANITIZE_STRING );
-			$clean_address['name'] = filter_var( $address['name'], FILTER_SANITIZE_STRING );
-			$clean_address['field1'] = filter_var( $address['field1'], FILTER_SANITIZE_STRING );
-			$clean_address['field2'] = filter_var( $address['field2'], FILTER_SANITIZE_STRING );
-			$clean_address['field3'] = filter_var( $address['field3'], FILTER_SANITIZE_STRING );
-			$clean_address['field5'] = filter_var( $address['field5'], FILTER_SANITIZE_STRING );
-			$clean_address['postcode'] = filter_var( $address['postcode'], FILTER_SANITIZE_STRING );
-			$clean_address['city'] = filter_var( $address['city'], FILTER_SANITIZE_STRING );
-			$clean_address['country'] = filter_var( $address['country'], FILTER_SANITIZE_STRING );
-			$clean_address['email'] = filter_var( $address['email'], FILTER_SANITIZE_EMAIL );
-			
-			$cleaned_data['addresses'][] = stripslashes_deep( $clean_address );
-		}
-		
-		return $cleaned_data;
 	}
 }
