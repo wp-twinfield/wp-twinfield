@@ -27,7 +27,6 @@ class Invoice {
 	}
 
 	public function render_invoice() {
-
 		$invoice_id = get_query_var( 'twinfield_sales_invoice_id' );
 
 		if ( empty( $invoice_id ) )
@@ -45,7 +44,7 @@ class Invoice {
 			$twinfield_invoice = $invoice;
 
 			// Generate view from invoice
-			$view = new View( dirname( \Twinfield::$file ) . '/views/Pronamic/WP/Invoice' );
+			$view = new View( PRONAMIC_TWINFIELD_FOLDER . '/views/Pronamic/WP/Invoice' );
 			$view
 					->setView( 'render_invoice' )
 					->setVariable( 'invoice', $invoice )

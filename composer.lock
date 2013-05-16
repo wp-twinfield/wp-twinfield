@@ -31,7 +31,7 @@
             "authors": [
                 {
                     "name": "Remco Tolsma",
-                    "email": "emcotolsma@pronamic.nl"
+                    "email": "remco@pronamic.nl"
                 },
                 {
                     "name": "Leon Rowland",
@@ -39,7 +39,7 @@
                 }
             ],
             "description": "Library for using the Twinfield Soap Service",
-            "homepage": "http://pronamic.nl",
+            "homepage": "http://pronamic.nl/",
             "keywords": [
                 "twinfield"
             ],

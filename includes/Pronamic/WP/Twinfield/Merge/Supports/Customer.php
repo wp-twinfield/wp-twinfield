@@ -1,6 +1,6 @@
 <?php
 
-namespace Pronamic\WP\Merge\Twinfield\Supports;
+namespace Pronamic\WP\Twinfield\Merge\Supports;
 
 /**
  * Merge Supports: Customer class
@@ -37,6 +37,9 @@ class Customer extends BaseSupport {
 	 * @return void
 	 */
 	public function create_response() {
+		if ( ! isset( $_GET['show_matches' ] ) ) 
+			return;
+
 		// New alert
 		$notice = new Notice();
 		$notice->error( __( 'Customer requires CoC Number as Custom Meta Field' ) )->get();
@@ -92,27 +95,33 @@ class Customer extends BaseSupport {
 				)
 			)
 		) );
-		
-		$matches = array();
+
+		$matches = array( );
 		foreach ( $query->posts as $post ) {
-			$matches[get_post_meta( $post->ID, $this->getCurrentField(), true )] = array(
-				'post' => $post,
-				'customer' => false
+			$matches[ get_post_meta( $post->ID, $this->getCurrentField(), true ) ] = array(
+				'post'		 => $post,
+				'customer'	 => false
 			);
 		}
 
-		
+
 		foreach ( $customers as $code => $info ) {
 			$customer = $customer_factory->get( $code, $this->getConfig()->getOffice() );
-			
+
 			if ( array_key_exists( $customer->getCocNumber(), $matches ) ) {
-				$matches[$customer->getCocNumber()]['customer'] = $customer;
+				$matches[ $customer->getCocNumber() ][ 'customer' ] = $customer;
+			} else {
+				foreach ( $customer->getAddresses() as $address ) {
+					if ( array_key_exists( $address->getField5(), $matches ) ) {
+						$matches[ $address->getField5() ][ 'customer' ] = $customer;
+					}
+				}
 			}
 		}
-		
+
 		foreach ( $matches as $coc_number => $match ) {
-			if ( false !== $match['customer'] ) {
-				update_post_meta( $match['post']->ID, $this->getNewField(), $match['customer']->getID() );
+			if ( false !== $match[ 'customer' ] ) {
+				update_post_meta( $match[ 'post' ]->ID, $this->getNewField(), $match[ 'customer' ]->getID() );
 			}
 		}
 	}
@@ -126,19 +135,43 @@ class Customer extends BaseSupport {
 	}
 
 	private function get_customers( $limit, $offset ) {
-		// Get all customers with the limit
+		// Removes time limit. This could take a while!
+		set_time_limit(0);
+		
+		// Gets the list of all the customers
 		$customer_factory = new CustomerFactory( $this->getConfig() );
-
 		$customers = $this->get_customers_list();
 
-		// Get the chunk of customers to go through
+		// Split the customers into the limit/offset
 		$do_customers = array_slice( $customers, $offset, $limit, true );
 
 		// Make an individual request per customer ( there is no finder support )
 		if ( ! empty( $do_customers ) ) {
+			
 			foreach ( $do_customers as $code => $info ) {
-				$customer										 = $customer_factory->get( $code, $this->getConfig()->getOffice() );
-				$this->customers[ $customer->getCocNumber() ]	 = $customer;
+				
+				// Gets a customer
+				$customer = $customer_factory->get( $code, $this->getConfig()->getOffice() );
+				$customer_coc_number = $customer->getCocNumber();
+			
+				// Sees if the customer has an outdated usage of <cocnumber>
+				if ( ! empty( $customer_coc_number ) ) {
+					
+					// Set that customer to the list
+					$this->customers[ $customer->getCocNumber() ] = $customer;
+					
+				} else {
+					// Loop through all the address' the customer has.
+					foreach ( $customer->getAddresses() as $address ) {
+						
+						// Check it hasn't already been added
+						if ( ! array_key_exists( $address->getField5(), $this->customers ) ) {
+							
+							// Set the customer to the list
+							$this->customers[ $address->getField5() ] = $customer;
+						}
+					}
+				}
 			}
 		}
 
@@ -148,14 +181,19 @@ class Customer extends BaseSupport {
 	private function get_matches( $customers ) {
 		// Get all posts with that metafield
 		$this->posts_query = new \WP_Query( array(
-			'post_type'	 => 'any',
-			'meta_query' => array(
+			'post_type'	     => 'any',
+			'posts_per_page' => -1,
+			'meta_query'     => array(
 				array(
 					'key'		 => $this->getCurrentField(),
 					'compare'	 => 'EXISTS'
+				),
+				array(
+					'key'		 => $this->getNewField(),
+					'compare'	 => 'NOT EXISTS'
 				)
 			)
-				) );
+		) );
 
 		$matches = array( );
 		if ( $this->posts_query->have_posts() ) {

@@ -7,6 +7,31 @@ use \Pronamic\Twinfield\Customer\CustomerAddress as TwinfieldCustomerAddress;
 use \Pronamic\Twinfield\Customer\CustomerFactory as TwinfieldCustomerFactory;
 
 class Customer extends ParentForm {
+	public $defaultCustomerData = array(
+		'id'		 => '',
+		'name'		 => '',
+		'type'		 => 'DEB',
+		'website'	 => '',
+		'duedays'	 => '',
+		'ebilling'	 => '',
+		'ebillmail'	 => '',
+		'vatcode'	 => ''
+	);
+	
+	public $defaultCustomerAddressData = array(
+		'default'	 => true,
+		'type'		 => '',
+		'name'		 => '',
+		'field1'	 => '',
+		'field2'	 => '',
+		'field3'	 => '',
+		'field5'	 => '',
+		'postcode'	 => '',
+		'city'		 => '',
+		'country'	 => '',
+		'email'		 => ''
+	);
+	
 	public function submit( $data = null ) {
 		global $twinfield_config;
 
@@ -44,66 +69,43 @@ class Customer extends ParentForm {
 		);
 	}
 
-	public function fill_class( $data = null ) {
-		if ( ! $data )
-			$data = $_POST;
-
-		$defaultData = array(
-			'id'		 => '',
-			'name'		 => '',
-			'type'		 => 'DEB',
-			'website'	 => '',
-			'duedays'	 => '',
-			'ebilling'	 => '',
-			'ebillmail'	 => '',
-			'vatcode'	 => ''
-		);
-
-		$data = array_merge( $defaultData, $data );
+	public function fill_class( $data = array() ) {
+		
+		$data = array_merge( $this->defaultCustomerData , $data );
+		
+		$data = stripslashes_deep( $data );
 
 		$customer = new TwinfieldCustomer();
 		$customer
-				->setID( filter_var( $data['id'], FILTER_VALIDATE_INT ) )
-				->setName( filter_var( $data['name'], FILTER_SANITIZE_STRING ) )
-				->setType( filter_var( $data['type'], FILTER_SANITIZE_STRING ) )
-				->setWebsite( filter_var( $data['website'], FILTER_VALIDATE_URL ) )
-				->setDueDays( filter_var( $data['duedays'], FILTER_VALIDATE_INT ) )
-				->setEbilling( filter_var( $data['ebilling'], FILTER_VALIDATE_BOOLEAN ) )
-				->setEBillMail( filter_var( $data['ebillmail'], FILTER_VALIDATE_EMAIL ) )
-				->setVatCode( filter_var( $data['vatcode'], FILTER_SANITIZE_STRING ) );
+				->setID( $data['id'] )
+				->setName( $data['name'] )
+				->setType( $data['type'] )
+				->setWebsite( $data['website'] )
+				->setDueDays( $data['duedays'] )
+				->setEbilling( $data['ebilling'] )
+				->setEBillMail( $data['ebillmail'] )
+				->setVatCode( $data['vatcode'] );
 
 		if ( ! empty( $data['addresses'] ) ) {
 
-			$defaultAddressData = array(
-				'default'	 => true,
-				'type'		 => '',
-				'field1'	 => '',
-				'field2'	 => '',
-				'field3'	 => '',
-				'field5'	 => '',
-				'postcode'	 => '',
-				'city'		 => '',
-				'country'	 => '',
-				'email'		 => ''
-			);
-
 			foreach ( $data['addresses'] as $address ) {
-				$address = array_merge( $defaultAddressData, $address );
+				$address = array_merge( $this->defaultCustomerAddressData, $address );
 
 				$temp_address = new TwinfieldCustomerAddress();
 				$temp_address
-						->setDefault($address['default'])
-						->setType($address['type'])
-						->setField1($address['field1'])
-						->setField2($address['field2'])
-						->setField3($address['field3'])
-						->setField5($address['field5'])
-						->setPostcode($address['postcode'])
-						->setCity($address['city'])
-						->setCountry($address['country'])
-						->setEmail($address['email']);
-
-				$customer->addAddress($temp_address);
+						->setDefault( $address['default'] )
+						->setType( $address['type'] )
+						->setName( $address['name'] )
+						->setField1( $address['field1'] )
+						->setField2( $address['field2'] )
+						->setField3( $address['field3'] )
+						->setField5( $address['field5'] )
+						->setPostcode( $address['postcode'] )
+						->setCity( $address['city'] )
+						->setCountry( $address['country'] )
+						->setEmail( $address['email'] );
+				
+				$customer->addAddress( $temp_address );
 
 			}
 		}

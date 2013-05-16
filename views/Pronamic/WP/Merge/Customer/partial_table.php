@@ -10,11 +10,13 @@
 		<?php while ( $posts->have_posts() ) : ?>
 			<?php $posts->the_post(); ?>
 			<tr>
-				<td><?php the_title(); ?></td>
+				<td>
+					<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+				</td>
 				<td><?php echo get_post_meta( get_the_ID(), $meta_field, true ); ?></td>
 				<td>
 					<?php if ( array_key_exists( get_the_ID(), $matches ) ) : ?>
-					<form method="POST">
+					<form method="POST" action="<?php echo add_query_arg( 'show_matches', false ); ?>" target="_blank">
 						<input type="hidden" name="action" value="merger_tool" />
 						<input type="hidden" name="post_id" value="<?php echo get_the_ID(); ?>"/>
 						<input type="hidden" name="new_field" value="<?php echo $new_meta_key; ?>"/>

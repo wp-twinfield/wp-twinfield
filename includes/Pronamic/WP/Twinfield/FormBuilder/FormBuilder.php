@@ -108,7 +108,7 @@ class FormBuilder {
 
 		// Get the view file name
 		$viewFile = $this->get_form_view_file_name( $type );
-
+		
 		// Prepare the view
 		$view = new View( PRONAMIC_TWINFIELD_FOLDER . '/views/Pronamic/WP/FormBuilder' );
 		$view

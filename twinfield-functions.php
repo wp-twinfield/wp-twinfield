@@ -36,3 +36,14 @@ function twinfield_get_form_action( $type ) {
 function twinfield_get_merger_table_action( $support ) {
 	return admin_url( 'admin.php?page=twinfield-merger&twinfield-table=' . $support );
 }
+
+function twinfield_price( $price ) {
+	$return = '';
+
+	$return .= '&euro;';
+	$return .= '&nbsp;';
+
+	$return .= number_format( $price, 2, ',', '.' );
+
+	return $return;
+}

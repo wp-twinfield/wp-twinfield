@@ -1,3 +1,8 @@
+<?php get_header(); ?>
+
+<div id="container">
+	<div id="content" role="main">
+	
 <dl class="pronamic_twinfield_customer_single">
 	<!-- Customer Name Start -->
 	<dt><?php _e( 'Name', 'twinfield' ); ?></dt>
@@ -39,3 +44,8 @@
 	</dd>
 	<!-- Customer Addresses End -->
 </dl>
+
+	</div>
+</div>
+
+<?php get_footer(); ?>
