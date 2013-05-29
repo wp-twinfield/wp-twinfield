@@ -82,7 +82,7 @@ class Customer extends ParentForm {
 				->setType( $data['type'] )
 				->setWebsite( $data['website'] )
 				->setDueDays( $data['duedays'] )
-				->setEbilling( $data['ebilling'] )
+				->setEbilling( filter_var( $data['ebilling'], FILTER_VALIDATE_BOOLEAN ) )
 				->setEBillMail( $data['ebillmail'] )
 				->setVatCode( $data['vatcode'] );
 
@@ -99,6 +99,7 @@ class Customer extends ParentForm {
 						->setField1( $address['field1'] )
 						->setField2( $address['field2'] )
 						->setField3( $address['field3'] )
+						->setField4( $address['field4'] )
 						->setField5( $address['field5'] )
 						->setPostcode( $address['postcode'] )
 						->setCity( $address['city'] )
