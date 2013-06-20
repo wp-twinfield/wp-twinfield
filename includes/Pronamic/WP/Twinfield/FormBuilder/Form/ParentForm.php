@@ -143,6 +143,9 @@ abstract class ParentForm {
 	public function render( $data = array() ) {
 		if ( ! empty( $this->view_file ) && file_exists( $this->view_file ) ) {
 			
+			// Get those extra variables
+			$this->prepare_extra_variables();
+			
 			// Gets the variables required
 			$nonce		 = wp_nonce_field( 'twinfield_form_builder', 'twinfield_form_nonce', true, false );
 			$object		 = $this->fill_class( $data );
