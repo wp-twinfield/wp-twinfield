@@ -42,9 +42,26 @@ abstract class ParentForm {
 	 */
 	private $extra_variables = array();
 	
+	/**
+	 * Set the path to the view file for this Form
+	 * 
+	 * @access public
+	 * @param string $view_file
+	 */
 	public function set_view( $view_file ) {
 		$this->view_file = $view_file;
 	}
+	
+	/**
+	 * Is called prior to needing all the extra fields. This
+	 * prevents overhead with loading the extra variables on 
+	 * construct but still early enough to be there when 
+	 * needed
+	 * 
+	 * @access public
+	 * @return void
+	 */
+	abstract public function prepare_extra_variables();
 	
 	/**
 	 * Class to handle the submission of the form. From here
