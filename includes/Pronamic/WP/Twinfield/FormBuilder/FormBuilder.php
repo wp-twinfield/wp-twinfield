@@ -63,6 +63,8 @@ class FormBuilder {
 		if ( ! wp_verify_nonce( $_POST['twinfield_form_nonce'], 'twinfield_form_builder' ) )
 			return;
 		
+		do_action( 'wp_twinfield_formbuilder_load_forms' );
+		
 		// Get the form name from the INPUT_GET input
 		// @todo should be decoupled
 		$twinfield_form = filter_input( INPUT_GET, 'twinfield-form', FILTER_SANITIZE_STRING );
