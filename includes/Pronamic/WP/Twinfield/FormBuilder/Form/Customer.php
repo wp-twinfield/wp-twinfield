@@ -25,6 +25,7 @@ class Customer extends ParentForm {
 		'field1'	 => '',
 		'field2'	 => '',
 		'field3'	 => '',
+		'field4'     => '',
 		'field5'	 => '',
 		'postcode'	 => '',
 		'city'		 => '',
@@ -32,7 +33,12 @@ class Customer extends ParentForm {
 		'email'		 => ''
 	);
 	
-	public function submit( $data = null ) {
+	public function prepare_extra_variables() {
+		// Set the extra beneficial variables for this form.
+		$this->set_extra_variables( 'latest_customer_id', $this->_get_latest_key() );
+	}
+	
+	public function submit( $data = array() ) {
 		global $twinfield_config;
 
 		$customer_factory = new TwinfieldCustomerFactory( $twinfield_config );
@@ -46,33 +52,9 @@ class Customer extends ParentForm {
 		}
 	}
 
-	public function extra_variables() {
-		// Latest customer id
-		global $twinfield_config;
-
-		$customer_factory = new TwinfieldCustomerFactory( $twinfield_config );
-
-		$customers = $customer_factory->listAll();
-
-		if ( empty( $customers ) ) return array();
-
-		// Get array keys
-		$customer_keys = array_keys($customers);
-
-		asort($customer_keys);
-		$customer_keys = array_reverse($customer_keys);
-
-		$latest_customer_id = $customer_keys[0];
-
-		return array(
-			'latest_customer_id' => ++$latest_customer_id
-		);
-	}
-
-	public function fill_class( $data = array() ) {
+	public function fill_class( array $data ) {
 		
 		$data = array_merge( $this->defaultCustomerData , $data );
-		
 		$data = stripslashes_deep( $data );
 
 		$customer = new TwinfieldCustomer();
@@ -113,5 +95,26 @@ class Customer extends ParentForm {
 
 		return $customer;
 
+	}
+	
+	public function _get_latest_key() {
+		// Latest customer id
+		global $twinfield_config;
+
+		$customer_factory = new TwinfieldCustomerFactory( $twinfield_config );
+
+		$customers = $customer_factory->listAll();
+
+		if ( empty( $customers ) ) return array();
+
+		// Get array keys
+		$customer_keys = array_keys($customers);
+
+		asort($customer_keys);
+		$customer_keys = array_reverse($customer_keys);
+
+		$latest_customer_id = $customer_keys[0];
+
+		return ++$latest_customer_id;
 	}
 }
