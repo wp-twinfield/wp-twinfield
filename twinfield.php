@@ -22,6 +22,8 @@ define( 'PRONAMIC_TWINFIELD_FOLDER', dirname( PRONAMIC_TWINFIELD_FILE ) );
 
 use ZFramework\Base\View;
 
+use Pronamic\WP\Twinfield\FormBuilder as Form;
+
 if ( ! class_exists( 'Twinfield' ) ) :
 
 	class Twinfield {
@@ -38,6 +40,7 @@ if ( ! class_exists( 'Twinfield' ) ) :
 			add_action( 'admin_init', array( $this, 'admin_init' ) );
 			add_action( 'admin_menu', array( $this, 'admin_menu' ) );
 			add_action( 'admin_enqueue_scripts', array( $this, 'admin_scripts' ) );
+			add_action( 'wp_twinfield_formbuilder_load_forms', array( $this, 'load_forms' ) );
 
 			$this->includes();
 
@@ -75,7 +78,7 @@ if ( ! class_exists( 'Twinfield' ) ) :
 			$this->invoice		 = new \Pronamic\WP\Twinfield\Invoice\Invoice();
 			$this->customer		 = new \Pronamic\WP\Twinfield\Customer\Customer();
 			$this->article		 = new \Pronamic\WP\Twinfield\Article\Article();
-			$this->form_builder  = new \Pronamic\WP\Twinfield\FormBuilder\FormBuilder();
+			$this->form_builder  = new Form\FormBuilder();			
 		}
 
 		public function admin_init() {
@@ -112,6 +115,19 @@ if ( ! class_exists( 'Twinfield' ) ) :
 					'twinfield', __( 'Twinfield Documentation', 'twinfield' ), __( 'Documentation', 'twinfield' ), 'manage_options', 'twinfield-documentation', array( $this, 'page_documentation' )
 			);
 		}
+		
+		public function load_forms() {
+			// Get the default forms
+			$customer_form = new Form\Form\Customer();
+			$customer_form->set_view( PRONAMIC_TWINFIELD_FOLDER . '/views/Pronamic/WP/FormBuilder/create_form_customer.php' );
+			
+			$invoice_form = new Form\Form\Invoice();
+			$invoice_form->set_view( PRONAMIC_TWINFIELD_FOLDER . '/views/Pronamic/WP/FormBuilder/create_form_invoice.php' );
+			
+			// Register them
+			Form\FormBuilderFactory::register_form( 'customer', $customer_form );
+			Form\FormBuilderFactory::register_form( 'invoice', $invoice_form );
+		}
 
 		public function admin_scripts() {
 			wp_register_style( 'twinfield-admin', plugins_url( 'css/twinfield_admin.css', PRONAMIC_TWINFIELD_FILE ) );
@@ -134,6 +150,8 @@ if ( ! class_exists( 'Twinfield' ) ) :
 		}
 
 		public function page_form_builder() {
+			do_action( 'wp_twinfield_formbuilder_load_forms' );
+			
 			$view = new View( PRONAMIC_TWINFIELD_FOLDER . '/views/Twinfield' );
 			$view->setView( 'page_form_builder' )->render();
 		}
