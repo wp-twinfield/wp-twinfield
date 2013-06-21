@@ -37,34 +37,34 @@
 	<table class='form-table'>
 		<tr>
 			<th><?php _e( 'Customer ID', 'twinfield' ); ?></th>
-			<td><input type="text" name="id" value="<?php echo $customer->getID(); ?>" class="jCustomerID"/><a href="#" class="jFillLatestCustomerID"><?php _e( 'Newest Number', 'twinfield' ); ?></a><input type="hidden" class="jLatestCustomerID" value="<?php echo $form_extra['latest_customer_id']; ?>"/></td>
+			<td><input type="text" name="id" value="<?php echo $object->getID(); ?>" class="jCustomerID"/><a href="#" class="jFillLatestCustomerID"><?php _e( 'Newest Number', 'twinfield' ); ?></a><input type="hidden" class="jLatestCustomerID" value="<?php echo $form_extra['latest_customer_id']; ?>"/></td>
 		</tr>
 		<tr>
 			<th><?php _e( 'Name', 'twinfield' ); ?></th>
-			<td><input type="text" name="name" value="<?php echo $customer->getName(); ?>"/></td>
+			<td><input type="text" name="name" value="<?php echo $object->getName(); ?>"/></td>
 		</tr>
 		<tr>
 			<th><?php _e( 'Website', 'twinfield' ); ?></th>
-			<td><input type="text" name="website" value="<?php echo $customer->getWebsite(); ?>"/></td>
+			<td><input type="text" name="website" value="<?php echo $object->getWebsite(); ?>"/></td>
 		</tr>
 		<tr>
 			<th><?php _e( 'Due Days', 'twinfield' ); ?></th>
-			<td><input type="text" name="duedays" value="<?php echo $customer->getDueDays(); ?>" /></td>
+			<td><input type="text" name="duedays" value="<?php echo $object->getDueDays(); ?>" /></td>
 		</tr>
 		<tr>
 			<th><?php _e( 'Electronic Invoice', 'twinfield' ); ?></th>
-			<td><input type="checkbox" name="ebilling" value="true" <?php checked('true', $customer->getEBilling() ); ?> /></td>
+			<td><input type="checkbox" name="ebilling" value="true" <?php checked('true', $object->getEBilling() ); ?> /></td>
 		</tr>
 		<tr>
 			<th><?php _e( 'Electronic Invoice Email', 'twinfield' ); ?></th>
-			<td><input type="text" name="ebillmail" value="<?php echo $customer->getEBillMail(); ?>"/></td>
+			<td><input type="text" name="ebillmail" value="<?php echo $object->getEBillMail(); ?>"/></td>
 		</tr>
 		<tr>
 			<th><?php _e( 'Vat Code', 'twinfield' ); ?></th>
 			<td>
 				<select name="vatcode">
 					<?php foreach ( array( '#', 'VH', 'VL', 'VN' ) as $paycode ) : ?>
-					<option value="<?php echo $paycode; ?>" <?php selected( $paycode, $customer->getVatCode() ); ?>><?php echo $paycode; ?></option>
+					<option value="<?php echo $paycode; ?>" <?php selected( $paycode, $object->getVatCode() ); ?>><?php echo $paycode; ?></option>
 					<?php endforeach; ?>
 				</select>
 			</td>
@@ -86,7 +86,7 @@
 			<th><?php _e( 'Email', 'twinfield' ); ?></th>
 		</thead>
 		<tbody class="jLinesRow">
-			<?php $addresses = $customer->getAddresses(); ?>
+			<?php $addresses = $object->getAddresses(); ?>
 			<?php if ( ! empty( $addresses ) ) : ?>
 				<?php $line_number = 1; ?>
 				<?php foreach ( $addresses as $address ) : ?>

@@ -31,13 +31,13 @@
 		<tr>
 			<th><?php _e( 'Invoice Type', 'twinfield' ); ?></th>
 			<td>
-				<input type="text" name="invoiceType" value="<?php echo $invoice->getInvoiceType(); ?>"/>
+				<input type="text" name="invoiceType" value="<?php echo $object->getInvoiceType(); ?>"/>
 			</td>
 		</tr>
 		<tr>
 			<th><?php _e( 'Customer ID', 'twinfield' ); ?></th>
 			<td>
-				<input type="text" name="customerID" value="<?php echo $invoice->getCustomer()->getID(); ?>"/>
+				<input type="text" name="customerID" value="<?php echo $object->getCustomer()->getID(); ?>"/>
 			</td>
 		</tr>
 	</table>
@@ -55,10 +55,10 @@
 			<th><?php _e( 'Free Text 3', 'twinfield' ); ?></th>
 		</thead>
 		<tbody class="jLinesRow">
-			<?php $lines = $invoice->getLines(); ?>
+			<?php $lines = $object->getLines(); ?>
 			<?php if ( ! empty( $lines ) ) : ?>
 				<?php $line_number = 1; ?>
-				<?php foreach ( $invoice->getLines() as $line ) : ?>
+				<?php foreach ( $object->getLines() as $line ) : ?>
 					<tr data-number="<?php echo $line_number; ?>">
 						<input type="hidden" name="lines[<?php echo $line_number; ?>][active]" value="true" />
 						<td><input type="text" name="lines[<?php echo $line_number; ?>][article]" value="<?php echo $line->getArticle(); ?>"/></td>
