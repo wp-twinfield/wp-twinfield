@@ -2,32 +2,27 @@
 
 namespace Pronamic\WP\Twinfield\FormBuilder\Form;
 
-use Pronamic\Twinfield\Customer\Customer;
-use Pronamic\Twinfield\Invoice as I;
-
 class Invoice extends ParentForm {
 
-	public function submit() {
+	public function prepare_extra_variables() {}
+	
+	public function submit( $data = array() ) {
 
 		global $twinfield_config;
 
 		$invoice_factory = new \Pronamic\Twinfield\Invoice\InvoiceFactory( $twinfield_config );
 
-		if ( $invoice_factory->send( $this->fill_class() ) ) {
-			return __( 'Successful!', 'twinfield' );
+		if ( $invoice_factory->send( $this->fill_class( $data ) ) ) {
+			$this->set_response( $invoice_factory->getResponse() );
+			return true;
 		} else {
-			return $invoice_factory->getResponse()->getResponseDocument()->saveXML();
+			$this->set_response( $invoice_factory->getResponse() );
+			return false;
 		}
 
 	}
 
-	public function extra_variables() {
-		
-	}
-
-	public function fill_class( $data = null ) {
-		if ( ! $data )
-			$data = $_POST;
+	public function fill_class( array $data ) {
 
 		$defaultData = array(
 			'customerID' => '',
@@ -36,8 +31,8 @@ class Invoice extends ParentForm {
 
 		$data = array_merge( $defaultData, $data );
 
-		$customer = new Customer();
-		$invoice = new I\Invoice();
+		$customer = new \Pronamic\Twinfield\Customer\Customer();
+		$invoice = new \Pronamic\Twinfield\Invoice\Invoice();
 
 		if ( empty( $data ) ) {
 			$invoice->setCustomer($customer);
@@ -71,7 +66,7 @@ class Invoice extends ParentForm {
 
 				$line = array_merge( $defaultLineData, $line );
 
-				$temp_line = new I\InvoiceLine();
+				$temp_line = new \Pronamic\Twinfield\Invoice\InvoiceLine();
 				$temp_line
 						->setArticle( $line['article'] )
 						->setQuantity( $line['quantity'] )
