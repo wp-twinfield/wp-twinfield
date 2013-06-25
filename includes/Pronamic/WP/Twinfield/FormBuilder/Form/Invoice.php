@@ -26,7 +26,8 @@ class Invoice extends ParentForm {
 
 		$defaultData = array(
 			'customerID' => '',
-			'invoiceType' => ''
+			'invoiceType' => '',
+			'invoiceNumber' => ''
 		);
 
 		$data = array_merge( $defaultData, $data );
@@ -40,6 +41,9 @@ class Invoice extends ParentForm {
 		}
 
 		$customer->setID( filter_var( $data['customerID'], FILTER_VALIDATE_INT ) );
+		
+		if ( ! empty( $data['invoiceNumber'] ) )
+			$invoice->setInvoiceNumber( filter_var( $data['invoiceNumber'], FILTER_SANITIZE_NUMBER_INT ) );
 
 		$invoice
 			->setInvoiceType( filter_var( $data['invoiceType'], FILTER_SANITIZE_STRING ) )
