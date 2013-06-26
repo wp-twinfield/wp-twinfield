@@ -31,13 +31,14 @@ if ( ! class_exists( 'Twinfield' ) ) :
 	 * Base Plugin class that bootstraps the rest of the plugin. Loads modules, sets autoloader
 	 * loads the required files, registers forms, makes and handles menu items and their callbacks.
 	 * 
+	 * @todo move into own file
+	 * 
 	 * @package Twinfield
 	 * 
 	 * @author Leon Rowland <leon@rowland.nl>
 	 * @author Remco Tolsma <remcotolsma@pronamic.nl>
 	 * 
 	 * @version 1.0.0
-	 * 
 	 */
 	class Twinfield {
 
