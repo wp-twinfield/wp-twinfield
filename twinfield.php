@@ -21,7 +21,6 @@ define( 'PRONAMIC_TWINFIELD_FILE', __FILE__ );
 define( 'PRONAMIC_TWINFIELD_FOLDER', dirname( PRONAMIC_TWINFIELD_FILE ) );
 
 use ZFramework\Base\View;
-
 use Pronamic\WP\Twinfield\FormBuilder as Form;
 
 if ( ! class_exists( 'Twinfield' ) ) :
@@ -70,7 +69,10 @@ if ( ! class_exists( 'Twinfield' ) ) :
 			$twinfield_config = new Pronamic\Twinfield\Secure\Config();
 
 			$twinfield_config->setCredentials(
-					get_option( 'twinfield_username' ), get_option( 'twinfield_password' ), get_option( 'twinfield_organisation' ), get_option( 'twinfield_office_code' )
+				get_option( 'twinfield_username' ), 
+				get_option( 'twinfield_password' ), 
+				get_option( 'twinfield_organisation' ), 
+				get_option( 'twinfield_office_code' )
 			);
 
 			// Load the modules
@@ -78,6 +80,8 @@ if ( ! class_exists( 'Twinfield' ) ) :
 			$this->invoice		 = new \Pronamic\WP\Twinfield\Invoice\Invoice();
 			$this->customer		 = new \Pronamic\WP\Twinfield\Customer\Customer();
 			$this->article		 = new \Pronamic\WP\Twinfield\Article\Article();
+			
+			// Load the FormBuilder Component
 			$this->form_builder  = new Form\FormBuilder();			
 		}
 
@@ -91,28 +95,58 @@ if ( ! class_exists( 'Twinfield' ) ) :
 		public function admin_menu() {
 			// Top level menu item
 			add_menu_page(
-				__( 'Twinfield', 'twinfield' ), __( 'Twinfield', 'twinfield' ), 'manage_options', 'twinfield', array( $this, 'page_parent' ), plugins_url( 'images/icon-16x16.png', PRONAMIC_TWINFIELD_FILE )
+				__( 'Twinfield', 'twinfield' ), 
+				__( 'Twinfield', 'twinfield' ), 
+				'manage_options', 
+				'twinfield', 
+				array( $this, 'page_parent' ), 
+				plugins_url( 'images/icon-16x16.png', PRONAMIC_TWINFIELD_FILE )
 			);
 
 			// Sub pages
 			add_submenu_page(
-				'twinfield', __( 'Twinfield Settings', 'twinfield' ), __( 'Settings', 'twinfield' ), 'manage_options', 'twinfield-settings', array( $this, 'page_settings' )
+				'twinfield', 
+				__( 'Twinfield Settings', 'twinfield' ), 
+				__( 'Settings', 'twinfield' ), 
+				'manage_options', 
+				'twinfield-settings', 
+				array( $this, 'page_settings' )
 			);
 
 			add_submenu_page(
-				'twinfield', __( 'Twinfield Offices', 'twinfield' ), __( 'Offices', 'twinfield' ), 'manage_options', 'twinfield-offices', array( $this, 'page_offices' )
+				'twinfield', 
+				__( 'Twinfield Offices', 'twinfield' ), 
+				__( 'Offices', 'twinfield' ), 
+				'manage_options', 
+				'twinfield-offices', 
+				array( $this, 'page_offices' )
 			);
 
 			add_submenu_page(
-				'twinfield', __( 'Twinfield Form Builder', 'twinfield' ), __( 'Form Builder', 'twinfield' ), 'manage_options', 'twinfield-form-builder', array( $this, 'page_form_builder' )
+				'twinfield', 
+				__( 'Twinfield Form Builder', 'twinfield' ), 
+				__( 'Form Builder', 'twinfield' ), 
+				'manage_options', 
+				'twinfield-form-builder', 
+				array( $this, 'page_form_builder' )
 			);
 
 			add_submenu_page(
-				'twinfield', __( 'Merger Tool', 'twinfield' ), __( 'Merger Tool', 'twinfield' ), 'manage_options', 'twinfield-merger', array( $this, 'page_merge' )
+				'twinfield', 
+				__( 'Merger Tool', 'twinfield' ), 
+				__( 'Merger Tool', 'twinfield' ), 
+				'manage_options', 
+				'twinfield-merger', 
+				array( $this, 'page_merge' )
 			);
 
 			add_submenu_page(
-				'twinfield', __( 'Twinfield Documentation', 'twinfield' ), __( 'Documentation', 'twinfield' ), 'manage_options', 'twinfield-documentation', array( $this, 'page_documentation' )
+				'twinfield', 
+				__( 'Twinfield Documentation', 'twinfield' ), 
+				__( 'Documentation', 'twinfield' ), 
+				'manage_options', 
+				'twinfield-documentation', 
+				array( $this, 'page_documentation' )
 			);
 		}
 		
@@ -130,7 +164,20 @@ if ( ! class_exists( 'Twinfield' ) ) :
 		}
 
 		public function admin_scripts() {
-			wp_register_style( 'twinfield-admin', plugins_url( 'css/twinfield_admin.css', PRONAMIC_TWINFIELD_FILE ) );
+			// Styles for admin
+			wp_register_style( 
+				'twinfield-admin', 
+				plugins_url( 'assets/admin/css/twinfield_admin.css', PRONAMIC_TWINFIELD_FILE ) 
+			);
+			
+			// Javascripts for admin
+			wp_register_script( 
+				'FormBuilderUI', 
+				plugins_url( 'assets/admin/js/FormBuilderUI.js', PRONAMIC_TWINFIELD_FILE ), 
+				array( 'jquery') 
+			);
+			
+			// Auto enqueued assets
 			wp_enqueue_style( 'twinfield-admin' );
 		}
 
@@ -151,6 +198,9 @@ if ( ! class_exists( 'Twinfield' ) ) :
 
 		public function page_form_builder() {
 			do_action( 'wp_twinfield_formbuilder_load_forms' );
+			
+			// Load FormBuilderUI JS Script on this page
+			wp_enqueue_script( 'FormBuilderUI' );
 			
 			$view = new View( PRONAMIC_TWINFIELD_FOLDER . '/views/Twinfield' );
 			$view->setView( 'page_form_builder' )->render();
