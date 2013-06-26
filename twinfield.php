@@ -94,7 +94,7 @@ if ( ! class_exists( 'Twinfield' ) ) :
 		 * @return void
 		 */
 		public function includes() {
-			include 'vendor/autoload.php';
+			//include 'vendor/autoload.php';
 			include 'twinfield-functions.php';
 		}
 
@@ -107,14 +107,23 @@ if ( ! class_exists( 'Twinfield' ) ) :
 		 * @param string $name
 		 * @return void
 		 */
-		public function autoload( $name ) {
-			$name = str_replace( '\\', DIRECTORY_SEPARATOR, $name );
-
-			$file = dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . $name . '.php';
-
-			if ( is_file( $file ) ) {
-				require_once $file;
+		public function autoload( $className ) {
+			$className = ltrim($className, '\\');
+			$fileName  = '';
+			$namespace = '';
+			if ($lastNsPos = strrpos($className, '\\')) {
+				$namespace = substr($className, 0, $lastNsPos);
+				$className = substr($className, $lastNsPos + 1);
+				$fileName  = str_replace('\\', DIRECTORY_SEPARATOR, $namespace) . DIRECTORY_SEPARATOR;
 			}
+			$fileName .= str_replace('_', DIRECTORY_SEPARATOR, $className) . '.php';
+
+			if ( file_exists( dirname( __FILE__ ) . '/twinfield/src/' . $fileName ) ) {
+				require dirname( __FILE__ ) . '/twinfield/src/' . $fileName;
+			} elseif ( file_exists( dirname( __FILE__ ) . '/includes/' . $fileName ) ) {
+				require dirname( __FILE__ ) . '/includes/' . $fileName;
+			}
+			
 		}
 
 		/**
