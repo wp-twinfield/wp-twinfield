@@ -91,28 +91,28 @@ if ( ! class_exists( 'Twinfield' ) ) :
 		public function admin_menu() {
 			// Top level menu item
 			add_menu_page(
-					__( 'Twinfield', 'twinfield' ), __( 'Twinfield', 'twinfield' ), 'manage_options', 'twinfield', array( $this, 'page_parent' ), plugins_url( 'images/icon-16x16.png', PRONAMIC_TWINFIELD_FILE )
+				__( 'Twinfield', 'twinfield' ), __( 'Twinfield', 'twinfield' ), 'manage_options', 'twinfield', array( $this, 'page_parent' ), plugins_url( 'images/icon-16x16.png', PRONAMIC_TWINFIELD_FILE )
 			);
 
 			// Sub pages
 			add_submenu_page(
-					'twinfield', __( 'Twinfield Settings', 'twinfield' ), __( 'Settings', 'twinfield' ), 'manage_options', 'twinfield-settings', array( $this, 'page_settings' )
+				'twinfield', __( 'Twinfield Settings', 'twinfield' ), __( 'Settings', 'twinfield' ), 'manage_options', 'twinfield-settings', array( $this, 'page_settings' )
 			);
 
 			add_submenu_page(
-					'twinfield', __( 'Twinfield Offices', 'twinfield' ), __( 'Offices', 'twinfield' ), 'manage_options', 'twinfield-offices', array( $this, 'page_offices' )
+				'twinfield', __( 'Twinfield Offices', 'twinfield' ), __( 'Offices', 'twinfield' ), 'manage_options', 'twinfield-offices', array( $this, 'page_offices' )
 			);
 
 			add_submenu_page(
-					'twinfield', __( 'Twinfield Form Builder', 'twinfield' ), __( 'Form Builder', 'twinfield' ), 'manage_options', 'twinfield-form-builder', array( $this, 'page_form_builder' )
+				'twinfield', __( 'Twinfield Form Builder', 'twinfield' ), __( 'Form Builder', 'twinfield' ), 'manage_options', 'twinfield-form-builder', array( $this, 'page_form_builder' )
 			);
 
 			add_submenu_page(
-					'twinfield', __( 'Merger Tool', 'twinfield' ), __( 'Merger Tool', 'twinfield' ), 'manage_options', 'twinfield-merger', array( $this, 'page_merge' )
+				'twinfield', __( 'Merger Tool', 'twinfield' ), __( 'Merger Tool', 'twinfield' ), 'manage_options', 'twinfield-merger', array( $this, 'page_merge' )
 			);
 
 			add_submenu_page(
-					'twinfield', __( 'Twinfield Documentation', 'twinfield' ), __( 'Documentation', 'twinfield' ), 'manage_options', 'twinfield-documentation', array( $this, 'page_documentation' )
+				'twinfield', __( 'Twinfield Documentation', 'twinfield' ), __( 'Documentation', 'twinfield' ), 'manage_options', 'twinfield-documentation', array( $this, 'page_documentation' )
 			);
 		}
 		
