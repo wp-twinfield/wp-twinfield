@@ -58,8 +58,8 @@ var FormBuilderUI = {
 		var clone = FormBuilderUI.config.lastLine.element.clone();
 
 		clone.data('number', FormBuilderUI.nextNumber());
-
-		clone.appendTo('.jFormBuilderUI_TableBody').find('input, textarea').each(FormBuilderUI.incrementRowElements);
+		
+		clone.appendTo('.jFormBuilderUI_TableBody').find('input, textarea').each(FormBuilderUI.callbacks.incrementRowElements);
 
 	}
 
@@ -95,10 +95,10 @@ var FormBuilderUI = {
 		 * @returns void
 		 */
 		incrementRowElements: function(index) {
-			var self = $(this);
+			var self = jQuery(this);
 			var currentName = self.attr('name');
 			var newName = currentName.replace(FormBuilderUI.config.lastLine.number, FormBuilderUI.nextNumber());
-
+			
 			self.attr('name', newName);
 			self.attr('value', '');
 		}
