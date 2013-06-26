@@ -39,3 +39,7 @@ Thumbs.db
 /nbproject
 /.settings
 .project
+
+# Submodules #
+##############
+twinfield
