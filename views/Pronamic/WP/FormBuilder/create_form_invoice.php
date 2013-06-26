@@ -1,29 +1,3 @@
-<script type="text/javascript">
-	;(function($) {
-
-		$(function(){
-
-			$('.jAddLine').click(function(e) {
-				e.preventDefault();
-
-				linesRow = jQuery('.jLinesRow');
-
-				var lastLineEntry = linesRow.children('tr').last();
-				var number = lastLineEntry.data('number');
-				var nextNumber = number + 1;
-
-				lastLineEntry.clone().appendTo('.jLinesRow').data('number', nextNumber).find('input').each( function(index) {
-					var self = $(this);
-					var currentName = self.attr('name');
-					var newName = currentName.replace(number, nextNumber, "gi");
-					self.attr('name', newName);
-					self.attr('value', '');
-				});
-			});
-		});
-
-	})(jQuery);
-</script>
 <h2><?php _e( 'Invoice Form', 'twinfield' ); ?></h2>
 <form method="POST" class="input-form">
 	<?php echo $nonce; ?>
@@ -54,7 +28,7 @@
 			<th><?php _e( 'Free Text 2', 'twinfield' ); ?></th>
 			<th><?php _e( 'Free Text 3', 'twinfield' ); ?></th>
 		</thead>
-		<tbody class="jLinesRow">
+		<tbody class="jFormBuilderUI_TableBody">
 			<?php $lines = $object->getLines(); ?>
 			<?php if ( ! empty( $lines ) ) : ?>
 				<?php $line_number = 1; ?>

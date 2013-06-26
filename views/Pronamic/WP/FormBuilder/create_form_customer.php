@@ -1,33 +1,8 @@
 <script type="text/javascript">
 	;(function($) {
-
-		$(function(){
-
-			$('.jAddLine').click(function(e) {
-				e.preventDefault();
-
-				linesRow = jQuery('.jLinesRow');
-
-				var lastLineEntry = linesRow.children('tr').last();
-				var number = lastLineEntry.data('number');
-				var nextNumber = number + 1;
-
-				lastLineEntry.clone().appendTo('.jLinesRow').data('number', nextNumber).find('input').each( function(index) {
-					var self = $(this);
-					var currentName = self.attr('name');
-					var newName = currentName.replace(number, nextNumber, "gi");
-					self.attr('name', newName);
-					self.attr('value', '');
-				});
-			});
-		});
-
-
-		$(function() {
-			$('.jFillLatestCustomerID').click(function(e) {
-				e.preventDefault();
-				$('.jCustomerID').val($('.jLatestCustomerID').val());
-			});
+		$('.jFillLatestCustomerID').click(function(e) {
+			e.preventDefault();
+			$('.jCustomerID').val($('.jLatestCustomerID').val());
 		});
 	})(jQuery);
 </script>
@@ -85,7 +60,7 @@
 			<th><?php _e( 'Country', 'twinfield' ); ?></th>
 			<th><?php _e( 'Email', 'twinfield' ); ?></th>
 		</thead>
-		<tbody class="jLinesRow">
+		<tbody class="jFormBuilderUI_TableBody">
 			<?php $addresses = $object->getAddresses(); ?>
 			<?php if ( ! empty( $addresses ) ) : ?>
 				<?php $line_number = 1; ?>
