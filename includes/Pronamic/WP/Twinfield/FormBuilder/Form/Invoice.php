@@ -25,9 +25,21 @@ class Invoice extends ParentForm {
 	public function fill_class( array $data ) {
 
 		$defaultData = array(
-			'customerID' => '',
-			'invoiceType' => '',
-			'invoiceNumber' => ''
+			'customerID'			 => '',
+			'invoiceType'			 => '',
+			'invoiceNumber'			 => '',
+			'status'				 => '',
+			'currency'				 => '',
+			'period'				 => '',
+			'invoicedate'			 => '',
+			'duedate'				 => '',
+			'performancedate'		 => '',
+			'paymentmethod'			 => '',
+			'bank'					 => '',
+			'invoiceaddressnumber'	 => '',
+			'deliveraddressnumber'	 => '',
+			'headertext'			 => '',
+			'footertext'			 => ''
 		);
 
 		$data = array_merge( $defaultData, $data );
@@ -46,9 +58,23 @@ class Invoice extends ParentForm {
 			$invoice->setInvoiceNumber( filter_var( $data['invoiceNumber'], FILTER_SANITIZE_NUMBER_INT ) );
 
 		$invoice
+			->setCustomer($customer)
 			->setInvoiceType( filter_var( $data['invoiceType'], FILTER_SANITIZE_STRING ) )
-			->setCustomer($customer);
+			->setStatus( filter_var( $data['status'], FILTER_SANITIZE_STRING ) )
+			->setCurrency( filter_var( $data['currency'], FILTER_SANITIZE_STRING ) )
+			->setPeriod( filter_var( $data['period'], FILTER_SANITIZE_STRING ) )
+			->setInvoiceDate( filter_var( $data['invoicedate'], FILTER_SANITIZE_STRING ) )
+			->setDueDate( filter_var( $data['duedate'], FILTER_SANITIZE_STRING ) )
+			->setPerformanceDate( filter_var( $data['performancedate'], FILTER_SANITIZE_STRING ) )
+			->setPaymentMethod( filter_var( $data['paymentmethod'], FILTER_SANITIZE_STRING ) )
+			->setBank( filter_var( $data['bank'], FILTER_SANITIZE_STRING ) )
+			->setInvoiceAddressNumber( filter_var( $data['invoiceaddressnumber'], FILTER_SANITIZE_NUMBER_INT ) )
+			->setDeliverAddressNumber( filter_var( $data['deliveraddressnumber'], FILTER_SANITIZE_NUMBER_INT ) )
+			->setHeaderText( filter_var( $data['headertext'], FILTER_SANITIZE_STRING ) )
+			->setFooterText( filter_var( $data['footertext'], FILTER_SANITIZE_STRING ) );
+		
 
+		
 		if ( ! empty( $data['lines'] ) ) {
 
 			$defaultLineData = array(
