@@ -8,29 +8,29 @@ use \Pronamic\Twinfield\Customer\CustomerFactory as TwinfieldCustomerFactory;
 
 class Customer extends ParentForm {
 	public $defaultCustomerData = array(
-		'id'		 => '',
-		'name'		 => '',
-		'type'		 => 'DEB',
-		'website'	 => '',
-		'duedays'	 => '',
-		'ebilling'	 => '',
-		'ebillmail'	 => '',
-		'vatcode'	 => ''
+		'id'         => '',
+		'name'       => '',
+		'type'       => 'DEB',
+		'website'    => '',
+		'duedays'    => '',
+		'ebilling'   => '',
+		'ebillmail'  => '',
+		'vatcode'    => ''
 	);
 	
 	public $defaultCustomerAddressData = array(
-		'default'	 => true,
-		'type'		 => '',
-		'name'		 => '',
-		'field1'	 => '',
-		'field2'	 => '',
-		'field3'	 => '',
+		'default'    => true,
+		'type'       => '',
+		'name'       => '',
+		'field1'     => '',
+		'field2'     => '',
+		'field3'     => '',
 		'field4'     => '',
-		'field5'	 => '',
-		'postcode'	 => '',
-		'city'		 => '',
-		'country'	 => '',
-		'email'		 => ''
+		'field5'     => '',
+		'postcode'   => '',
+		'city'       => '',
+		'country'    => '',
+		'email'      => ''
 	);
 	
 	public function prepare_extra_variables() {
