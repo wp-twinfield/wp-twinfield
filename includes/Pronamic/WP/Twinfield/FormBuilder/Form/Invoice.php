@@ -25,21 +25,21 @@ class Invoice extends ParentForm {
 	public function fill_class( array $data ) {
 
 		$defaultData = array(
-			'customerID'			 => '',
-			'invoiceType'			 => '',
-			'invoiceNumber'			 => '',
-			'status'				 => '',
-			'currency'				 => '',
-			'period'				 => '',
-			'invoicedate'			 => '',
-			'duedate'				 => '',
-			'performancedate'		 => '',
-			'paymentmethod'			 => '',
-			'bank'					 => '',
-			'invoiceaddressnumber'	 => '',
-			'deliveraddressnumber'	 => '',
-			'headertext'			 => '',
-			'footertext'			 => ''
+			'customerID'             => '',
+			'invoiceType'            => '',
+			'invoiceNumber'          => '',
+			'status'                 => '',
+			'currency'               => '',
+			'period'                 => '',
+			'invoicedate'            => '',
+			'duedate'                => '',
+			'performancedate'        => '',
+			'paymentmethod'          => '',
+			'bank'                   => '',
+			'invoiceaddressnumber'   => '',
+			'deliveraddressnumber'   => '',
+			'headertext'             => '',
+			'footertext'             => ''
 		);
 
 		$data = array_merge( $defaultData, $data );
