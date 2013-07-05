@@ -78,15 +78,15 @@ class Invoice extends ParentForm {
 		if ( ! empty( $data['lines'] ) ) {
 
 			$defaultLineData = array(
-				'article' => '',
-				'quantity' => '',
-				'subarticle' => '',
-				'units' => '',
+				'article'        => '',
+				'quantity'       => '',
+				'subarticle'     => '',
+				'units'          => '',
 				'unitspriceexcl' => '',
-				'vatcode' => '',
-				'freetext1' => '',
-				'freetext2' => '',
-				'freetext3' => ''
+				'vatcode'        => '',
+				'freetext1'      => '',
+				'freetext2'      => '',
+				'freetext3'      => ''
 			);
 
 			foreach ( $data['lines'] as $line ) {
