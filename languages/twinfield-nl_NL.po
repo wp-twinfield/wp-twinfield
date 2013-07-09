@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Twinfield\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-23 11:46+0100\n"
-"PO-Revision-Date: 2013-04-23 11:46+0100\n"
+"POT-Creation-Date: 2013-07-05 13:27+0100\n"
+"PO-Revision-Date: 2013-07-05 13:27+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -15,43 +15,43 @@ msgstr ""
 "X-Generator: Poedit 1.5.5\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: twinfield.php:91
+#: twinfield.php:196 twinfield.php:197
 msgid "Twinfield"
 msgstr "Twinfield"
 
-#: twinfield.php:96
+#: twinfield.php:207
 msgid "Twinfield Settings"
 msgstr "Twinfield instellingen"
 
-#: twinfield.php:96
+#: twinfield.php:208
 msgid "Settings"
 msgstr "Instellingen"
 
-#: twinfield.php:100
+#: twinfield.php:216
 msgid "Twinfield Offices"
 msgstr "Twinfield kantoren"
 
-#: twinfield.php:100
+#: twinfield.php:217
 msgid "Offices"
 msgstr "Kantoren"
 
-#: twinfield.php:104
+#: twinfield.php:225
 msgid "Twinfield Form Builder"
 msgstr "Twinfield formulieren"
 
-#: twinfield.php:104
+#: twinfield.php:226
 msgid "Form Builder"
 msgstr "Formulieren"
 
-#: twinfield.php:108
+#: twinfield.php:234 twinfield.php:235
 msgid "Merger Tool"
 msgstr "Samenvoegen tool"
 
-#: twinfield.php:112
+#: twinfield.php:243
 msgid "Twinfield Documentation"
 msgstr "Twinfield documentatie"
 
-#: twinfield.php:112
+#: twinfield.php:244
 msgid "Documentation"
 msgstr "Documentatie"
 
@@ -63,11 +63,7 @@ msgstr "Twinfield artikel"
 msgid "Twinfield Customer"
 msgstr "Twinfield klant"
 
-#: includes/Pronamic/WP/Twinfield/FormBuilder/Form/Invoice.php:17
-msgid "Successful!"
-msgstr "Succesvol!"
-
-#: includes/Pronamic/WP/Twinfield/Merge/Supports/Customer.php:42
+#: includes/Pronamic/WP/Twinfield/Merge/Supports/Customer.php:45
 msgid "Customer requires CoC Number as Custom Meta Field"
 msgstr "Klant vereist KvK nummer als een maatwerk meta veld"
 
@@ -92,7 +88,7 @@ msgid "Office"
 msgstr "Kantoor"
 
 #: templates/sales-invoice.php:40
-#: views/Pronamic/WP/FormBuilder/create_form_customer.php:77
+#: views/Pronamic/WP/FormBuilder/create_form_customer.php:52
 #: views/Pronamic/WP/Invoice/render_invoice.php:38
 msgid "Type"
 msgstr "Type"
@@ -119,143 +115,144 @@ msgstr "Subartikel ID"
 msgid "Twinfield Customer ID"
 msgstr "Twinfield klant ID"
 
-#: views/Pronamic/WP/Customer/render_customer.php:3
-#: views/Pronamic/WP/Customer/render_customer.php:16
-#: views/Pronamic/WP/FormBuilder/create_form_customer.php:43
+#: views/Pronamic/WP/Customer/render_customer.php:8
+#: views/Pronamic/WP/Customer/render_customer.php:21
+#: views/Pronamic/WP/FormBuilder/create_form_customer.php:18
+#: views/Pronamic/WP/FormBuilder/create_form_customer.php:53
 #: views/Twinfield/page_offices.php:25
 msgid "Name"
 msgstr "Naam"
 
-#: views/Pronamic/WP/Customer/render_customer.php:8
+#: views/Pronamic/WP/Customer/render_customer.php:13
 msgid "Addresses"
 msgstr "Adressen"
 
-#: views/Pronamic/WP/Customer/render_customer.php:21
-#: views/Pronamic/WP/FormBuilder/create_form_customer.php:83
+#: views/Pronamic/WP/Customer/render_customer.php:26
+#: views/Pronamic/WP/FormBuilder/create_form_customer.php:59
 msgid "City"
 msgstr "Plaats"
 
-#: views/Pronamic/WP/Customer/render_customer.php:26
+#: views/Pronamic/WP/Customer/render_customer.php:31
 msgid "Postal Code"
 msgstr "Postcode"
 
-#: views/Pronamic/WP/Customer/render_customer.php:31
+#: views/Pronamic/WP/Customer/render_customer.php:36
 msgid "Telephone"
 msgstr "Telefoon"
 
-#: views/Pronamic/WP/FormBuilder/create_form_customer.php:34
+#: views/Pronamic/WP/FormBuilder/create_form_customer.php:9
 msgid "Customer Form"
 msgstr "Klant formulier"
 
-#: views/Pronamic/WP/FormBuilder/create_form_customer.php:39
-#: views/Pronamic/WP/FormBuilder/create_form_invoice.php:38
+#: views/Pronamic/WP/FormBuilder/create_form_customer.php:14
+#: views/Pronamic/WP/FormBuilder/create_form_invoice.php:12
 msgid "Customer ID"
 msgstr "Klant ID"
 
-#: views/Pronamic/WP/FormBuilder/create_form_customer.php:40
+#: views/Pronamic/WP/FormBuilder/create_form_customer.php:15
 msgid "Newest Number"
 msgstr "Nieuwste nummer"
 
-#: views/Pronamic/WP/FormBuilder/create_form_customer.php:47
+#: views/Pronamic/WP/FormBuilder/create_form_customer.php:22
 msgid "Website"
 msgstr "Website"
 
-#: views/Pronamic/WP/FormBuilder/create_form_customer.php:51
+#: views/Pronamic/WP/FormBuilder/create_form_customer.php:26
 msgid "Due Days"
 msgstr "Vervaldagen"
 
-#: views/Pronamic/WP/FormBuilder/create_form_customer.php:55
+#: views/Pronamic/WP/FormBuilder/create_form_customer.php:30
 msgid "Electronic Invoice"
 msgstr "Elektronische factuur"
 
-#: views/Pronamic/WP/FormBuilder/create_form_customer.php:59
+#: views/Pronamic/WP/FormBuilder/create_form_customer.php:34
 msgid "Electronic Invoice Email"
 msgstr "Elektronische factuur e-mailadres"
 
-#: views/Pronamic/WP/FormBuilder/create_form_customer.php:63
+#: views/Pronamic/WP/FormBuilder/create_form_customer.php:38
 msgid "Vat Code"
 msgstr "Belasting code"
 
-#: views/Pronamic/WP/FormBuilder/create_form_customer.php:76
+#: views/Pronamic/WP/FormBuilder/create_form_customer.php:51
 msgid "Default?"
 msgstr "Standaaard?"
 
-#: views/Pronamic/WP/FormBuilder/create_form_customer.php:78
+#: views/Pronamic/WP/FormBuilder/create_form_customer.php:54
 msgid "Line 1"
 msgstr "Regel 1"
 
-#: views/Pronamic/WP/FormBuilder/create_form_customer.php:79
+#: views/Pronamic/WP/FormBuilder/create_form_customer.php:55
 msgid "Line 2"
 msgstr "Regel 2"
 
-#: views/Pronamic/WP/FormBuilder/create_form_customer.php:80
+#: views/Pronamic/WP/FormBuilder/create_form_customer.php:56
 msgid "Line 3"
 msgstr "Regel 3"
 
-#: views/Pronamic/WP/FormBuilder/create_form_customer.php:81
+#: views/Pronamic/WP/FormBuilder/create_form_customer.php:57
 msgid "CoC Number"
 msgstr "KvK nummer"
 
-#: views/Pronamic/WP/FormBuilder/create_form_customer.php:82
+#: views/Pronamic/WP/FormBuilder/create_form_customer.php:58
 msgid "Postcode"
 msgstr "Postcode"
 
-#: views/Pronamic/WP/FormBuilder/create_form_customer.php:84
+#: views/Pronamic/WP/FormBuilder/create_form_customer.php:60
 msgid "Country"
 msgstr "Land"
 
-#: views/Pronamic/WP/FormBuilder/create_form_customer.php:85
+#: views/Pronamic/WP/FormBuilder/create_form_customer.php:61
 msgid "Email"
 msgstr "E-mailadres"
 
-#: views/Pronamic/WP/FormBuilder/create_form_customer.php:136
+#: views/Pronamic/WP/FormBuilder/create_form_customer.php:114
 msgid "Send"
 msgstr "Verstuur"
 
-#: views/Pronamic/WP/FormBuilder/create_form_invoice.php:27
+#: views/Pronamic/WP/FormBuilder/create_form_invoice.php:1
 msgid "Invoice Form"
 msgstr "Factuur formulier"
 
-#: views/Pronamic/WP/FormBuilder/create_form_invoice.php:32
+#: views/Pronamic/WP/FormBuilder/create_form_invoice.php:6
 msgid "Invoice Type"
 msgstr "Factuur type"
 
-#: views/Pronamic/WP/FormBuilder/create_form_invoice.php:47
+#: views/Pronamic/WP/FormBuilder/create_form_invoice.php:21
 #: views/Pronamic/WP/Invoice/render_invoice.php:73
 msgid "Article"
 msgstr "Artikel"
 
-#: views/Pronamic/WP/FormBuilder/create_form_invoice.php:48
+#: views/Pronamic/WP/FormBuilder/create_form_invoice.php:22
 msgid "Subarticle"
 msgstr "Subartikel"
 
-#: views/Pronamic/WP/FormBuilder/create_form_invoice.php:49
+#: views/Pronamic/WP/FormBuilder/create_form_invoice.php:23
 #: views/Pronamic/WP/Invoice/render_invoice.php:75
 msgid "Quantity"
 msgstr "Aantal"
 
-#: views/Pronamic/WP/FormBuilder/create_form_invoice.php:50
+#: views/Pronamic/WP/FormBuilder/create_form_invoice.php:24
 #: views/Pronamic/WP/Invoice/render_invoice.php:76
 msgid "Units"
 msgstr "Eenheid"
 
-#: views/Pronamic/WP/FormBuilder/create_form_invoice.php:51
+#: views/Pronamic/WP/FormBuilder/create_form_invoice.php:25
 msgid "Units Excl"
 msgstr "Eenheid excl."
 
-#: views/Pronamic/WP/FormBuilder/create_form_invoice.php:52
+#: views/Pronamic/WP/FormBuilder/create_form_invoice.php:26
 msgid "Vatcode"
 msgstr "BTW-code"
 
-#: views/Pronamic/WP/FormBuilder/create_form_invoice.php:53
+#: views/Pronamic/WP/FormBuilder/create_form_invoice.php:27
 msgid "Free Text 1"
 msgstr "Vrije tekst 1"
 
-#: views/Pronamic/WP/FormBuilder/create_form_invoice.php:54
+#: views/Pronamic/WP/FormBuilder/create_form_invoice.php:28
 msgid "Free Text 2"
 msgstr "Vrije tekst 2"
 
-#: views/Pronamic/WP/FormBuilder/create_form_invoice.php:55
+#: views/Pronamic/WP/FormBuilder/create_form_invoice.php:29
 msgid "Free Text 3"
 msgstr "Vrije tekst 3"
 
@@ -316,7 +313,7 @@ msgstr "Meta veld"
 msgid "Matched?"
 msgstr "Overeenkomst?"
 
-#: views/Pronamic/WP/Merge/Customer/partial_table.php:22
+#: views/Pronamic/WP/Merge/Customer/partial_table.php:24
 msgid "Sync"
 msgstr "Sync"
 
@@ -350,23 +347,45 @@ msgstr "%s"
 msgid "Response Limit"
 msgstr "Response limiet"
 
-#: views/Twinfield/page_merge.php:27
+#: views/Twinfield/page_merge.php:28
+msgid "The number of customers to retrieve from Twinfield."
+msgstr ""
+
+#: views/Twinfield/page_merge.php:33
 msgid "Response Offset"
 msgstr "Response offset"
 
-#: views/Twinfield/page_merge.php:31
+#: views/Twinfield/page_merge.php:38
+msgid "The offset of customers to retrieve from Twinfield."
+msgstr ""
+
+#: views/Twinfield/page_merge.php:43
 msgid "Custom Meta Field"
 msgstr "Maatwerk meta veld"
 
-#: views/Twinfield/page_merge.php:35
+#: views/Twinfield/page_merge.php:48
+#, php-format
+msgid ""
+"The meta field key to retrieve the KvK number from (for example: <code>%s</"
+"code>)."
+msgstr ""
+
+#: views/Twinfield/page_merge.php:53
 msgid "New Custom Field"
 msgstr "Nieuwe maatwerk veld"
 
-#: views/Twinfield/page_merge.php:39
+#: views/Twinfield/page_merge.php:58
+#, php-format
+msgid ""
+"The meta field key to store the Twinfield ID in (for example: <code>%s</"
+"code>)."
+msgstr ""
+
+#: views/Twinfield/page_merge.php:63
 msgid "Show"
 msgstr "Tonen"
 
-#: views/Twinfield/page_merge.php:43
+#: views/Twinfield/page_merge.php:67
 msgid "Automate"
 msgstr "Automatiseer"
 
@@ -393,6 +412,9 @@ msgstr "Organisatie"
 #: views/Twinfield/page_settings.php:38
 msgid "Office Code"
 msgstr "Kantoorcode"
+
+#~ msgid "Successful!"
+#~ msgstr "Succesvol!"
 
 #~ msgid "Title"
 #~ msgstr "Titel"
