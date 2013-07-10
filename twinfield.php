@@ -215,7 +215,7 @@ if ( ! class_exists( 'Twinfield' ) ) :
 				'twinfield', 
 				__( 'Twinfield Form Builder', 'twinfield' ), 
 				__( 'Form Builder', 'twinfield' ), 
-				'manage_options', 
+				'twinfield-form-builder', 
 				'twinfield-form-builder', 
 				array( $this, 'page_form_builder' )
 			);
@@ -224,7 +224,7 @@ if ( ! class_exists( 'Twinfield' ) ) :
 				'twinfield', 
 				__( 'Merger Tool', 'twinfield' ), 
 				__( 'Merger Tool', 'twinfield' ), 
-				'manage_options', 
+				'twinfield-merger', 
 				'twinfield-merger', 
 				array( $this, 'page_merge' )
 			);
