@@ -316,17 +316,6 @@ if ( ! class_exists( 'Twinfield' ) ) :
 		}
 
 		/**
-		 * Callback to display the offices page.
-		 * 
-		 * @access public
-		 * @return void
-		 */
-		public function page_offices() {
-			$view = new View( PRONAMIC_TWINFIELD_FOLDER . '/views/Twinfield' );
-			$view->setView( 'page_offices' )->render();
-		}
-
-		/**
 		 * Callback to display the form builder page.
 		 * 
 		 * @calls action | wp_twinfield_formbuilder_load_forms
