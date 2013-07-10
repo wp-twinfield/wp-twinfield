@@ -213,15 +213,6 @@ if ( ! class_exists( 'Twinfield' ) ) :
 
 			add_submenu_page(
 				'twinfield', 
-				__( 'Twinfield Offices', 'twinfield' ), 
-				__( 'Offices', 'twinfield' ), 
-				'manage_options', 
-				'twinfield-offices', 
-				array( $this, 'page_offices' )
-			);
-
-			add_submenu_page(
-				'twinfield', 
 				__( 'Twinfield Form Builder', 'twinfield' ), 
 				__( 'Form Builder', 'twinfield' ), 
 				'manage_options', 
