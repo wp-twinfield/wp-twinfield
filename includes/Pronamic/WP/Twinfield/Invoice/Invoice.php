@@ -16,7 +16,10 @@ class Invoice {
 	public function generate_rewrite_rules( $wp_rewrite ) {
 		$rules = array();
 
-		$rules['facturen/([^/]+)$'] = 'index.php?twinfield_sales_invoice_id=' . $wp_rewrite->preg_index(1);
+		// Get the invoice slug from options
+		$slug = get_option( 'wp_twinfield_invoice_slug', _x( 'invoice', 'Invoice slug for front end', 'wp-twinfield' ) );
+		
+		$rules[$slug . '/([^/]+)$'] = 'index.php?twinfield_sales_invoice_id=' . $wp_rewrite->preg_index(1);
 
 		$wp_rewrite->rules = array_merge( $rules, $wp_rewrite->rules );
 	}
