@@ -162,24 +162,16 @@ if ( ! class_exists( 'Twinfield' ) ) :
 			$this->article		 = new \Pronamic\WP\Twinfield\Article\Article();
 			
 			// Load the FormBuilder Component
-			$this->form_builder  = new Form\FormBuilder();			
+			$this->form_builder  = new Form\FormBuilder();
+			
+			
 		}
-
-		/**
-		 * Registers the default settings for WP Twinfield.
-		 * 
-		 * @todo abstract into settings class
-		 * 
-		 * @hooked admin_init
-		 * 
-		 * @access public
-		 * @return void
-		 */
+		
 		public function admin_init() {
-			register_setting( 'twinfield', 'twinfield_username' );
-			register_setting( 'twinfield', 'twinfield_password' );
-			register_setting( 'twinfield', 'twinfield_organisation' );
-			register_setting( 'twinfield', 'twinfield_office_code' );
+			// Load the settings
+			$this->settings = new \Pronamic\WP\Twinfield\Settings\Settings();
+			
+			$this->settings->register_settings();
 		}
 
 		/**
