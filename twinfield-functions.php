@@ -37,6 +37,22 @@ function twinfield_get_merger_table_action( $support ) {
 	return admin_url( 'admin.php?page=twinfield-merger&twinfield-table=' . $support );
 }
 
+function twinfield_admin_view_customer_link( $customer_id ) {
+	return add_query_arg( array(
+		'page' => 'twinfield',
+		'tab' => 'customer',
+		'twinfield_customer_id' => $customer_id
+	), admin_url( 'admin.php' ) );
+}
+
+function twinfield_admin_view_invoice_link( $invoice_id ) {
+	return add_query_arg( array(
+		'page' => 'twinfield',
+		'tab' => 'invoice',
+		'twinfield_invoice_id' => $invoice_id
+	) );
+}
+
 function twinfield_price( $price ) {
 	$return = '';
 

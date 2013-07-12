@@ -2,7 +2,7 @@
 	<?php screen_icon( 'twinfield' ); ?>
 
 	<h2 class="nav-tab-wrapper">
-		<?php \Pronamic\WP\Twinfield\Settings\Settings::tab_html( 'api' ); ?>
+		<?php \Pronamic\WP\Twinfield\Settings\Settings::tab_html( 'api', true ); ?>
 		<?php \Pronamic\WP\Twinfield\Settings\Settings::tab_html( 'permalinks' ); ?>
 	</h2>
 

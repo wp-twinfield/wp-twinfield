@@ -17,7 +17,7 @@ class Invoice {
 		$rules = array();
 
 		// Get the invoice slug from options
-		$slug = get_option( 'wp_twinfield_invoice_slug', _x( 'invoice', 'Invoice slug for front end', 'wp-twinfield' ) );
+		$slug = get_option( 'wp_twinfield_invoice_slug', _x( 'invoice', 'Invoice slug for front end', 'twinfield' ) );
 		
 		$rules[$slug . '/([^/]+)$'] = 'index.php?twinfield_sales_invoice_id=' . $wp_rewrite->preg_index(1);
 

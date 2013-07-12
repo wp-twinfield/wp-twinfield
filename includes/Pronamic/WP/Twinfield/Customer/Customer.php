@@ -33,7 +33,7 @@ class Customer {
 		$rules = array();
 		
 		// Get the customer slug from options
-		$slug = get_option( 'wp_twinfield_customer_slug', _x( 'customer', 'Customer slug for frontend', 'wp-twinfield' ) );
+		$slug = get_option( 'wp_twinfield_customer_slug', _x( 'customer', 'Customer slug for frontend', 'twinfield' ) );
 		
 		$rules[$slug . '/([^/]+)$'] = 'index.php?pid=11&twinfield_debtor_id=' . $wp_rewrite->preg_index(1);
 		

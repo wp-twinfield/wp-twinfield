@@ -14,14 +14,14 @@ class Settings {
 		
 		add_settings_section(
 			'api',
-			__( 'API Settings', 'wp-twinfield' ),
+			__( 'API Settings', 'twinfield' ),
 			array( $this, 'section_view' ),
 			'twinfield-settings'
 		);
 		
 		add_settings_field(
 			'twinfield_username',
-			__( 'Username', 'wp-twinfield' ),
+			__( 'Username', 'twinfield' ),
 			array( $this, 'render_text' ),
 			'twinfield-settings',
 			'api',
@@ -30,7 +30,7 @@ class Settings {
 		
 		add_settings_field(
 			'twinfield_password',
-			__( 'Password', 'wp-twinfield' ),
+			__( 'Password', 'twinfield' ),
 			array( $this, 'render_password' ),
 			'twinfield-settings',
 			'api',
@@ -39,7 +39,7 @@ class Settings {
 		
 		add_settings_field(
 			'twinfield_organisation',
-			__( 'Organisation', 'wp-twinfield' ),
+			__( 'Organisation', 'twinfield' ),
 			array( $this, 'render_text' ),
 			'twinfield-settings',
 			'api',
@@ -48,7 +48,7 @@ class Settings {
 		
 		add_settings_field(
 			'twinfield_office_code',
-			__( 'Office Code', 'wp-twinfield' ),
+			__( 'Office Code', 'twinfield' ),
 			array( $this, 'render_text' ),
 			'twinfield-settings',
 			'api',
@@ -69,14 +69,14 @@ class Settings {
 		
 		add_settings_section(
 			'permalinks',
-			__( 'Permalink Settings', 'wp-twinfield' ),
+			__( 'Permalink Settings', 'twinfield' ),
 			array( $this, 'section_view' ),
 			'twinfield-settings'
 		);
 		
 		add_settings_field(
 			'wp_twinfield_invoice_slug',
-			__( 'Invoice Slug', 'wp-twinfield' ),
+			__( 'Invoice Slug', 'twinfield' ),
 			array( $this, 'render_text' ),
 			'twinfield-settings',
 			'permalinks',
@@ -85,7 +85,7 @@ class Settings {
 		
 		add_settings_field(
 			'wp_twinfield_customer_slug',
-			__( 'Customer Slug', 'wp-twinfield' ),
+			__( 'Customer Slug', 'twinfield' ),
 			array( $this, 'render_text' ),
 			'twinfield-settings',
 			'permalinks',
@@ -113,11 +113,11 @@ class Settings {
 		<?php
 	}
 	
-	public static function tab_html( $section ) {
+	public static function tab_html( $section, $default = false ) {
 		
 		printf( 
 			"<a class='nav-tab %s' href='%s'>%s</a>",
-			( self::is_active_tab( $section ) ) ? 'nav-tab-active' : '',
+			( self::is_active_tab( $section ) || ( ! filter_has_var( INPUT_GET, 'tab' ) && 'api' === $section ) ) ? 'nav-tab-active' : '',
 			add_query_arg( array( 'page' => 'twinfield-settings', 'tab' => $section ), admin_url( 'admin.php' ) ),
 			ucfirst( $section )
 		);
