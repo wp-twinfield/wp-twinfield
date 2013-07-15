@@ -34,6 +34,10 @@ class Invoice {
 
 		if ( empty( $invoice_id ) )
 			return;
+		
+		if ( ! is_user_logged_in() || ! current_user_can( 'twinfield_read_invoice' ) )
+			wp_redirect( wp_login_url( site_url( get_option( 'wp_twinfield_invoice_slug', _x( 'invoice', 'Invoice slug for front end', 'twinfield' ) ) . '/' . $invoice_id ) ) );
+		
 
 		global $twinfield_config;
 		$invoiceFactory = new \Pronamic\Twinfield\Invoice\InvoiceFactory( $twinfield_config );

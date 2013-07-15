@@ -50,7 +50,10 @@ class Customer {
 		
 		if ( empty( $customer_id ) )
 			return;
-			
+		
+		if ( ! is_user_logged_in() || ! current_user_can( 'twinfield_read_customer' ) )
+			wp_redirect( wp_login_url( site_url( get_option( 'wp_twinfield_customer_slug', _x( 'customer', 'Customer slug for frontend', 'twinfield' ) ) . '/' . $customer_id ) ) );
+		
 		global $twinfield_config;
 		$customerFactory = new \Pronamic\Twinfield\Customer\CustomerFactory( $twinfield_config );
 
