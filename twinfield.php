@@ -192,6 +192,15 @@ if ( ! class_exists( 'Twinfield' ) ) :
 				array( $this, 'page_parent' ), 
 				plugins_url( 'images/icon-16x16.png', PRONAMIC_TWINFIELD_FILE )
 			);
+            
+            add_submenu_page(
+                'twinfield',
+                __( 'Twinfield Query', 'twinfield' ),
+                __( 'Query', 'twinfield' ),
+                'twinfield-query',
+                'twinfield-query',
+                array( $this, 'page_query' )
+            );
 
 			// Sub pages
 			add_submenu_page(
@@ -296,6 +305,14 @@ if ( ! class_exists( 'Twinfield' ) ) :
 			$view->setView( 'page_parent' )->render();
 		}
 
+        public function page_query() {
+            $view = new View( PRONAMIC_TWINFIELD_FOLDER . '/views/Twinfield' );
+            $view
+                ->setView( 'page_query' )
+                ->setVariable('tab', filter_input( INPUT_GET, 'tab', FILTER_SANITIZE_STRING ) )
+                ->render();
+        }
+        
 		/**
 		 * Callback to display the settings page.
 		 * 
