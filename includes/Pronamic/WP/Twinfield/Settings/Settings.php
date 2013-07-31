@@ -93,8 +93,8 @@ class Settings {
 		);
 		
 		// Settings for the permalinks section
-		register_setting( 'wp_twinfield_permalinks', 'wp_twinfield_invoice_slug' );
-		register_setting( 'wp_twinfield_permalinks', 'wp_twinfield_customer_slug' );
+		register_setting( 'wp_twinfield_api', 'wp_twinfield_invoice_slug' );
+		register_setting( 'wp_twinfield_api', 'wp_twinfield_customer_slug' );
 	}
 	
 	public function section_view() {}
