@@ -190,16 +190,25 @@ if ( ! class_exists( 'Twinfield' ) ) :
 				'manage_options', 
 				'twinfield', 
 				array( $this, 'page_parent' ), 
-				plugins_url( 'images/icon-16x16.png', PRONAMIC_TWINFIELD_FILE )
+				plugins_url( 'assets/admin/images/icon-16x16.png', PRONAMIC_TWINFIELD_FILE )
 			);
             
             add_submenu_page(
                 'twinfield',
-                __( 'Twinfield Query', 'twinfield' ),
-                __( 'Query', 'twinfield' ),
-                'twinfield-query',
-                'twinfield-query',
-                array( $this, 'page_query' )
+                __( 'Customer Query', 'twinfield' ),
+                __( 'Customer', 'twinfield' ),
+                'twinfield-query-customer',
+                'twinfield-query-customer',
+                array( $this, 'page_query_customer' )
+            );
+            
+            add_submenu_page(
+                'twinfield',
+                __( 'Invoice Query', 'twinfield' ),
+                __( 'Invoice', 'twinfield' ),
+                'twinfield-query-invoice',
+                'twinfield-query-invoice',
+                array( $this, 'page_query_invoice' )
             );
 
 			// Sub pages
@@ -305,11 +314,53 @@ if ( ! class_exists( 'Twinfield' ) ) :
 			$view->setView( 'page_parent' )->render();
 		}
 
-        public function page_query() {
-            $view = new View( PRONAMIC_TWINFIELD_FOLDER . '/views/Twinfield' );
+        public function page_query_customer() {
+            $view = new View( PRONAMIC_TWINFIELD_FOLDER . '/views/Pronamic/WP/Customer' );
+            
+            if ( filter_has_var( INPUT_GET, 'twinfield_customer_id' ) ) {
+                global $twinfield_config;
+                
+                $customer_factory = new \Pronamic\Twinfield\Customer\CustomerFactory( $twinfield_config );
+                
+                $customer = $customer_factory->get(
+                    filter_input( INPUT_GET, 'twinfield_customer_id', FILTER_VALIDATE_INT )
+                );
+                
+                if ( ! $customer_factory->getResponse()->isSuccessful() )
+                    $view->setVariable( 'error_messages', $customer_factory->getResponse()->getErrorMessages() );
+                
+            } else {
+                $customer = false;
+            }
+            
             $view
-                ->setView( 'page_query' )
-                ->setVariable('tab', filter_input( INPUT_GET, 'tab', FILTER_SANITIZE_STRING ) )
+                ->setView( 'render_customer_admin' )
+                ->setVariable( 'customer', $customer )
+                ->render();
+        }
+        
+        public function page_query_invoice() {
+            $view = new View( PRONAMIC_TWINFIELD_FOLDER . '/views/Pronamic/WP/Invoice' );
+            
+            if ( filter_has_var( INPUT_GET, 'twinfield_invoice_id' ) ) {
+                global $twinfield_config;
+                
+                $invoice_factory = new \Pronamic\Twinfield\Invoice\InvoiceFactory( $twinfield_config );
+                
+                $invoice = $invoice_factory->get(
+                    'FACTUUR',
+                    filter_input( INPUT_GET, 'twinfield_invoice_id', FILTER_VALIDATE_INT )
+                );
+                
+                if ( ! $invoice_factory->getResponse()->isSuccessful() )
+                    $view->setVariable( 'error_messages', $invoice_factory->getResponse()->getErrorMessages() );
+            } else {
+                $invoice = false;
+            }
+            
+            $view
+                ->setView( 'render_invoice_admin' )
+                ->setVariable( 'invoice', $invoice )
                 ->render();
         }
         
