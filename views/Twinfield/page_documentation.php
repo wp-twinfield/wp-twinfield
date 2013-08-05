@@ -3,8 +3,8 @@
 
 	<h2><?php echo get_admin_page_title(); ?></h2>
 
-	<?php 
-	
+	<?php
+
 	$sections = array(
 		'general' => array(
 			'name'      => __( 'General', 'twinfield' ),
@@ -87,7 +87,7 @@
 		),
 		'templates-nl' => array(
 			'name'      => __( 'Templates (Dutch)', 'twinfield' ),
-			'url'       => 'http://twinfield.nl/', 
+			'url'       => 'http://twinfield.nl/',
 			'resources' => array(
 				array(
 					'url'     => 'http://remcotolsma.nl/wp-content/uploads/uitleg_Word_sjabloon.doc',
@@ -128,7 +128,7 @@
 		),
 		'templates-en' => array(
 			'name'      => __( 'Templates (English)', 'twinfield' ),
-			'url'       => 'http://twinfield.nl/', 
+			'url'       => 'http://twinfield.nl/',
 			'resources' => array(
 				array(
 					'url'     => 'http://remcotolsma.nl/wp-content/uploads/ChequeTemplate.doc',
@@ -192,51 +192,51 @@
 	);
 
 	foreach ( $sections as $section ): ?>
-	
+
 		<h3>
 			<?php echo $section['name']; ?>
-			
+
 			<?php if ( isset( $section['url'] ) ) : ?>
-			
+
 				<small><a href="<?php echo $section['url']; ?>"><?php echo $section['url']; ?></a></small>
-				
+
 			<?php endif; ?>
 		</h3>
-	
+
 		<ul>
-	
+
 			<?php foreach ( $section['resources'] as $resource ): ?>
-	
+
 				<li>
-					<?php 
-					
+					<?php
+
 					$href = null;
-		
+
 					if ( isset( $resource['path'] ) ) {
 						$href = plugins_url( $resource['path'], Twinfield::$file );
 					}
-		
+
 					if ( isset( $resource['url'] ) ) {
 						$href = $resource['url'];
 					}
-					
+
 					?>
 					<a href="<?php echo $href; ?>" target="_blank">
 						<?php echo $resource['name']; ?>
-		
+
 						<?php if ( isset( $resource['version'] ) ): ?>
 							<small><?php printf( __( 'version %s', 'pronamic_ideal' ), $resource['version'] ); ?> </small>
 						<?php endif; ?>
-		
+
 						<?php if ( isset( $resource['date'] ) ): ?>
 							<small><?php printf( __( '%s', 'pronamic_ideal' ), $resource['date']->format( 'd-m-Y' ) ); ?> </small>
 						<?php endif; ?>
 					</a>
 				</li>
-	
+
 			<?php endforeach; ?>
-	
+
 		</ul>
-	
+
 	<?php endforeach; ?>
 </div>
