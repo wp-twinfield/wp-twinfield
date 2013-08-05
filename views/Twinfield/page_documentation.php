@@ -13,6 +13,10 @@
 					'url'     => 'http://remcotolsma.nl/wp-content/uploads/Handleiding_Twinfield_V1_HR_SVDWA.pdf',
 					'name'    => 'Starten met Twinfield',
 					'version' => '6.0'
+				),
+				array(
+					'url'     => 'https://c1.twinfield.com/webservices/documentation/',
+					'name'    => 'Twinfield API Documentation site'
 				)
 			)
 		),
