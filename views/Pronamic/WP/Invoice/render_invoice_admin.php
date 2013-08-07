@@ -13,7 +13,7 @@
                     </td>
                 </tr>
             </table>
-            <?php submit_button( __( 'Load Invoice', 'twinfield' ), 'primary', null ); ?>
+            <?php submit_button( __( 'Search', 'twinfield' ), 'primary', null ); ?>
         </form>
         <!-- Invoice Load Form End -->
     <?php endif; ?>

@@ -18,7 +18,7 @@
 				</tr>
 			</table>
 
-			<?php submit_button( __( 'Load Customer', 'twinfield' ), 'primary', null ); ?>
+			<?php submit_button( __( 'Search', 'twinfield' ), 'primary', null ); ?>
 	    </form>
 
 	<?php endif; ?>
