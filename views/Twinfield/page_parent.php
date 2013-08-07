@@ -1,4 +1,9 @@
-<?php global $twinfield_config; ?>
+<?php 
+
+global $twinfield_config; 
+
+?>
+
 <div class="wrap">
 	<?php screen_icon( 'twinfield' ); ?>
 
@@ -27,6 +32,4 @@
 			</div>
 		</div>
 	</div>
-
-
 </div>
