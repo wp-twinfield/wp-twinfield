@@ -198,7 +198,7 @@ if ( ! class_exists( 'Twinfield' ) ) :
                 __( 'Twinfield Customers', 'twinfield' ),
                 __( 'Customers', 'twinfield' ),
                 'twinfield_read_customer',
-                'twinfield-query-customer',
+                'twinfield_customers',
                 array( $this, 'page_query_customer' )
             );
 
@@ -207,7 +207,7 @@ if ( ! class_exists( 'Twinfield' ) ) :
                 __( 'Twinfield Invoices', 'twinfield' ),
                 __( 'Invoices', 'twinfield' ),
                 'twinfield_read_invoice',
-                'twinfield-query-invoice',
+                'twinfield_invoices',
                 array( $this, 'page_query_invoice' )
             );
 
