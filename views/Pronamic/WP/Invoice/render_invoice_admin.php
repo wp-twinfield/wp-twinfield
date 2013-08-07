@@ -10,6 +10,8 @@
 
 			<h2><?php _e( 'Load Invoice', 'twinfield' ); ?></h2>
 
+			<h3><?php _e( 'Search for invoices', 'twinfield' ); ?></h3>
+
 			<table class="form-table">
 				<tr>
 					<th><?php _e( 'Invoice ID', 'twinfield' ); ?></th>

@@ -9,6 +9,8 @@
 
 			<h2><?php echo get_admin_page_title(); ?></h2>
 
+			<h3><?php _e( 'Search for customers', 'twinfield' ); ?></h3>
+
 			<table class="form-table">
 				<tr>
 					<th><?php _e( 'Customer ID', 'twinfield' ); ?></th>
