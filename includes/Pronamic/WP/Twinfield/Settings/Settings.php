@@ -80,7 +80,10 @@ class Settings {
 			array( $this, 'render_text' ),
 			'twinfield-settings',
 			'permalinks',
-			array( 'label_for' => 'wp_twinfield_invoice_slug' )
+			array(
+				'label_for' => 'wp_twinfield_invoice_slug',
+				'classes'   => array( 'regular-text', 'code' )
+			)
 		);
 
 		add_settings_field(
@@ -89,7 +92,10 @@ class Settings {
 			array( $this, 'render_text' ),
 			'twinfield-settings',
 			'permalinks',
-			array( 'label_for' => 'wp_twinfield_customer_slug' )
+			array(
+				'label_for' => 'wp_twinfield_customer_slug',
+				'classes'   => array( 'regular-text', 'code' )
+			)
 		);
 
 		// Settings for the permalinks section
@@ -100,17 +106,35 @@ class Settings {
 	public function section_view() {}
 
 	public function render_text( $attributes ) {
-		?>
-		<input id="<?php echo $attributes['label_for']; ?>" type="text" name="<?php echo $attributes['label_for']; ?>" value="<?php echo get_option( $attributes['label_for'] ); ?>"/>
-		<?php if ( isset( $attributes['description'] ) ) : ?><span class="description"><?php echo $attributes['description']; ?></span><?php endif; ?>
-			<?php
+		$attributes = wp_parse_args( $attributes, array(
+ 			'id'      => '',
+ 			'type'    => 'text',
+ 			'name'    => '',
+ 			'value'   => '',
+			'classes' => array( 'regular-text' )
+		) );
+		
+		printf(
+			'<input id="%s" name="%s" value="%s" type="%s" class="%s" />',
+			esc_attr( $attributes['label_for'] ),
+			esc_attr( $attributes['label_for'] ),
+			esc_attr( get_option( $attributes['label_for'] ) ),
+			esc_attr( $attributes['type'] ),
+			esc_attr( implode( ' ', $attributes['classes'] ) )
+		);
+		
+		if ( isset( $attributes['description'] ) ) {
+			printf(
+				'<span class="description">%s</span>',
+				$attributes['description']
+			);
+		}
 	}
 
 	public function render_password( $attributes ) {
-		?>
-		<input id="<?php echo $attributes['label_for']; ?>" type="password" name="<?php echo $attributes['label_for']; ?>" value="<?php echo get_option( $attributes['label_for'] ); ?>"/>
-		<?php if ( isset( $attributes['description'] ) ) : ?><span class="description"><?php echo $attributes['description']; ?></span><?php endif; ?>
-		<?php
+		$attributes['type'] = 'password';
+
+		$this->render_text( $attributes );
 	}
 
 	public static function tab_html( $section, $default = false ) {
@@ -137,5 +161,4 @@ class Settings {
 	public static function active_tab() {
 		return ( $tab = filter_input( INPUT_GET, 'tab', FILTER_SANITIZE_STRING ) ) ? $tab : 'api';
 	}
-
 }
