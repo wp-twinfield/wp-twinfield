@@ -1,19 +1,26 @@
 <div class="wrap">
     <?php screen_icon( 'twinfield' ); ?>
+
     <?php if ( ! filter_has_var( INPUT_GET, 'twinfield_customer_id' ) || isset( $error_messages ) ) : ?>
-    <form method="GET">
-        <input type="hidden" name="page" value='twinfield-query-customer' />
-        <h2><?php _e( 'Load Customer', 'twinfield' ); ?></h2>
-        <table class="form-table">
-            <tr>
-                <th><?php _e( 'Customer ID', 'twinfield' ); ?></th>
-                <td>
-                    <input type="text" name="twinfield_customer_id" value="<?php echo filter_input( INPUT_GET, 'twinfield_customer_id', FILTER_VALIDATE_INT ); ?>"/>
-                </td>
-            </tr>
-        </table>
-        <?php submit_button( __( 'Load Customer', 'twinfield' ), 'primary', null ); ?>
-    </form>
+
+	    <form method="GET">
+	        <input type="hidden" name="page" value='twinfield-query-customer' />
+
+	        <h2><?php _e( 'Load Customer', 'twinfield' ); ?></h2>
+
+	        <table class="form-table">
+	            <tr>
+	                <th><?php _e( 'Customer ID', 'twinfield' ); ?></th>
+	                <td>
+	                    <input type="text" name="twinfield_customer_id" value="<?php echo filter_input( INPUT_GET, 'twinfield_customer_id', FILTER_VALIDATE_INT ); ?>"/>
+	                </td>
+	            </tr>
+	        </table>
+
+	        <?php submit_button( __( 'Load Customer', 'twinfield' ), 'primary', null ); ?>
+
+	    </form>
+
     <?php endif; ?>
     
     <?php if ( ! isset( $error_messages ) && false !== $customer ) : ?>
