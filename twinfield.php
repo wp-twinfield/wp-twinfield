@@ -195,7 +195,7 @@ if ( ! class_exists( 'Twinfield' ) ) :
 
             add_submenu_page(
                 'twinfield',
-                __( 'Customer Query', 'twinfield' ),
+                __( 'Twinfield Customers', 'twinfield' ),
                 __( 'Customers', 'twinfield' ),
                 'twinfield_read_customer',
                 'twinfield-query-customer',
@@ -204,7 +204,7 @@ if ( ! class_exists( 'Twinfield' ) ) :
 
             add_submenu_page(
                 'twinfield',
-                __( 'Invoice Query', 'twinfield' ),
+                __( 'Twinfield Invoices', 'twinfield' ),
                 __( 'Invoices', 'twinfield' ),
                 'twinfield_read_invoice',
                 'twinfield-query-invoice',
