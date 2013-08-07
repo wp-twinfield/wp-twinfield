@@ -6,7 +6,7 @@
 	    <form method="GET">
 	        <input type="hidden" name="page" value='twinfield-query-customer' />
 
-	        <h2><?php _e( 'Load Customer', 'twinfield' ); ?></h2>
+	        <h2><?php echo get_admin_page_title(); ?></h2>
 
 	        <table class="form-table">
 	            <tr>
