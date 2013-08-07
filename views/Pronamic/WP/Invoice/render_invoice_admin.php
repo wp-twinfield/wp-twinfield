@@ -8,7 +8,7 @@
 			<input type="hidden" name="page" value='twinfield-query-invoice' />
 			<input type="hidden" name="tab" value="invoice" />
 
-			<h2><?php _e( 'Load Invoice', 'twinfield' ); ?></h2>
+			<h2><?php echo get_admin_page_title(); ?></h2>
 
 			<h3><?php _e( 'Search for invoices', 'twinfield' ); ?></h3>
 
