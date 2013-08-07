@@ -14,7 +14,7 @@ class Settings {
 
 		add_settings_section(
 			'api',
-			__( 'API Settings', 'twinfield' ),
+			__( 'API', 'twinfield' ),
 			array( $this, 'section_view' ),
 			'twinfield-settings'
 		);
@@ -69,7 +69,7 @@ class Settings {
 
 		add_settings_section(
 			'permalinks',
-			__( 'Permalink Settings', 'twinfield' ),
+			__( 'Permalink', 'twinfield' ),
 			array( $this, 'section_view' ),
 			'twinfield-settings'
 		);
