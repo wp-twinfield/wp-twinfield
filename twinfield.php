@@ -217,7 +217,7 @@ if ( ! class_exists( 'Twinfield' ) ) :
 				__( 'Twinfield Settings', 'twinfield' ),
 				__( 'Settings', 'twinfield' ),
 				'manage_options',
-				'twinfield-settings',
+				'twinfield_settings',
 				array( $this, 'page_settings' )
 			);
 
