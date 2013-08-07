@@ -4,9 +4,8 @@
 
 	<?php if ( ! filter_has_var( INPUT_GET, 'twinfield_invoice_id' )  || isset( $error_messages ) ) : ?>
 	
-		<form method="GET">
-			<input type="hidden" name="page" value='twinfield-query-invoice' />
-			<input type="hidden" name="tab" value="invoice" />
+		<form method="get">
+			<input type="hidden" name="page" value="twinfield_invoices" />
 
 			<h2><?php echo get_admin_page_title(); ?></h2>
 

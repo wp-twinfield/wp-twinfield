@@ -4,8 +4,8 @@
 
 	<?php if ( ! filter_has_var( INPUT_GET, 'twinfield_customer_id' ) || isset( $error_messages ) ) : ?>
 
-		<form method="GET">
-			<input type="hidden" name="page" value="twinfield-query-customer" />
+		<form method="get">
+			<input type="hidden" name="page" value="twinfield_customers" />
 
 			<h2><?php echo get_admin_page_title(); ?></h2>
 
