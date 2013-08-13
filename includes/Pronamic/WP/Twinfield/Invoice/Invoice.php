@@ -18,21 +18,25 @@ class Invoice {
 
 		// Get the invoice slug from options
 		$slug = get_option( 'wp_twinfield_invoice_slug', _x( 'invoice', 'Invoice slug for front end', 'twinfield' ) );
-		
-		$rules[$slug . '/([^/]+)$'] = 'index.php?twinfield_sales_invoice_id=' . $wp_rewrite->preg_index(1);
+		$default_type = get_option( 'wp_twinfield_default_invoice_type', 'FACTUUR' );
+        
+        $rules[$slug . '/([^/]+)$'] = 'index.php?twinfield_sales_invoice_type=' . $default_type . '&twinfield_sales_invoice_id=' . $wp_rewrite->preg_index(1);
+		$rules[$slug . '/([^/]+)/([^/]+)$'] = 'index.php?twinfield_sales_invoice_type=' . $wp_rewrite->preg_index(2) . '&twinfield_sales_invoice_id=' . $wp_rewrite->preg_index(1);
 
 		$wp_rewrite->rules = array_merge( $rules, $wp_rewrite->rules );
 	}
 
 	public function query_vars( $query_vars ) {
 		$query_vars[] = 'twinfield_sales_invoice_id';
+        $query_vars[] = 'twinfield_sales_invoice_type';
 		return $query_vars;
 	}
 
 	public function render_invoice() {
 		$invoice_id = get_query_var( 'twinfield_sales_invoice_id' );
+        $invoice_type = get_query_var( 'twinfield_sales_invoice_type' );
 
-		if ( empty( $invoice_id ) )
+		if ( empty( $invoice_id ) || empty( $invoice_type ) )
 			return;
 		
 		if ( ! is_user_logged_in() || ! current_user_can( 'twinfield_read_invoice' ) )
@@ -43,7 +47,7 @@ class Invoice {
 		$invoiceFactory = new \Pronamic\Twinfield\Invoice\InvoiceFactory( $twinfield_config );
 
 		// Make the request
-		$invoice = $invoiceFactory->get( 'FACTUUR', $invoice_id,  $twinfield_config->getOffice() );
+		$invoice = $invoiceFactory->get( $invoice_type, $invoice_id,  $twinfield_config->getOffice() );
 
 		if ( $invoiceFactory->getResponse()->isSuccessful() ) {
 

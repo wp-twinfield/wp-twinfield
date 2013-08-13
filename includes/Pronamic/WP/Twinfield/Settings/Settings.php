@@ -61,6 +61,33 @@ class Settings {
 		register_setting( 'wp_twinfield_api', 'twinfield_organisation' );
 		register_setting( 'wp_twinfield_api', 'twinfield_office_code' );
 
+        /**
+		 * =========
+		 * Defaults Section
+		 * ==========
+		 */
+        
+        add_settings_section(
+            'defaults',
+            __( 'Defaults', 'twinfield' ),
+            array( $this, 'section_view' ),
+            'twinfield-settings'
+        );
+        
+        add_settings_field(
+            'wp_twinfield_default_invoice_type',
+            __( 'Default Invoice Type', 'twinfield' ),
+            array( $this, 'render_text' ),
+            'twinfield-settings',
+            'defaults',
+            array(
+                'label_for' => 'wp_twinfield_default_invoice_type',
+                'classes' => array( 'regular-text', 'code' )
+            )
+        );
+        
+        register_setting( 'wp_twinfield_api', 'wp_twinfield_default_invoice_type' );
+        
 		/**
 		 * =========
 		 * Permalinks Section
