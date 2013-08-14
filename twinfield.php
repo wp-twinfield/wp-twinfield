@@ -291,6 +291,12 @@ if ( ! class_exists( 'Twinfield' ) ) :
 				'twinfield-admin',
 				plugins_url( 'assets/admin/css/twinfield_admin.css', PRONAMIC_TWINFIELD_FILE )
 			);
+            
+            wp_register_script(
+                'WP_Twinfield',
+                plugins_url( 'assets/admin/js/WP_Twinfield.js', PRONAMIC_TWINFIELD_FILE ),
+                array( 'jquery' )
+            );
 
 			// Javascripts for admin
 			wp_register_script(
@@ -298,9 +304,14 @@ if ( ! class_exists( 'Twinfield' ) ) :
 				plugins_url( 'assets/admin/js/FormBuilderUI.js', PRONAMIC_TWINFIELD_FILE ),
 				array( 'jquery')
 			);
+            
+            wp_localize_script( 'WP_Twinfield', 'WP_Twinfield_Vars', array(
+                'spinner' => admin_url( 'images/wpspin_light.gif' )
+            ) );
 
 			// Auto enqueued assets
 			wp_enqueue_style( 'twinfield-admin' );
+            wp_enqueue_script( 'WP_Twinfield' );
 		}
 
 		/**

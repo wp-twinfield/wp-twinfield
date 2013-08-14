@@ -11,7 +11,13 @@ class Invoice {
 		add_action( 'query_vars', array( $this, 'query_vars' ) );
 
 		add_action( 'template_redirect', array( $this, 'render_invoice' ) );
+        
+        add_action( 'admin_init', array( $this, 'admin_init' ) );
 	}
+    
+    public function admin_init() {
+        new InvoiceMetaBox();
+    }
 
 	public function generate_rewrite_rules( $wp_rewrite ) {
 		$rules = array();
