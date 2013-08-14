@@ -131,13 +131,11 @@ WP_Twinfield_Sync.invoice = {
 	 * @returns void
 	 */
 	, sync: function(e) {
-		console.log('yep');
 		e.preventDefault();
 		
 		WP_Twinfield_Sync.invoice.clearMessagesHolder();
 		WP_Twinfield_Sync.startSpinner(WP_Twinfield_Sync.invoice.config.dom.spinnerHolder);
-		console.log(WP_Twinfield_Sync.invoice.config.dom.customerID.val());
-		console.log(WP_Twinfield_Sync.invoice.config.dom.invoiceType.val());
+		
 		jQuery.ajax({
 			type: 'POST'
 			, url: ajaxurl
@@ -165,7 +163,6 @@ WP_Twinfield_Sync.invoice = {
 	 * @returns void
 	 */
 	, syncSuccess: function(data) {
-		console.log(data);
 		WP_Twinfield_Sync.stopSpinner(WP_Twinfield_Sync.invoice.config.dom.spinnerHolder);
 		
 		if(true === data.ret) {
@@ -180,11 +177,7 @@ WP_Twinfield_Sync.invoice = {
 	 * 
 	 * @returns {undefined}
 	 */
-	, syncError: function(one,two,three) {
-		console.log(one);
-		console.log(two);
-		console.log(three);
-	}
+	, syncError: function(one,two,three) {}
 	
 	/**
 	 * Emptys the existing messages from the metabox.
