@@ -74,15 +74,12 @@ function twinfield_admin_view_customer_link( $customer_id = null ) {
 	return add_query_arg( $query_args, admin_url( 'admin.php' ) );
 }
 
-function twinfield_admin_view_invoice_link( $invoice_id = null ) {
-    $query_args = array(
-        'page' => 'twinfield-query',
-        'tab' => 'invoice'
+function twinfield_admin_view_invoice_link( $invoice_id = false ) {
+	$query_args = array(
+		'page'                 => 'twinfield_invoices',
+		'twinfield_invoice_id' => $invoice_id
     );
-    
-    if ( null !== $invoice_id )
-        $query_args['twinfield_invoice_id'] = $invoice_id;
-    
+
 	return add_query_arg( $query_args, admin_url( 'admin.php' ) );
 }
 
