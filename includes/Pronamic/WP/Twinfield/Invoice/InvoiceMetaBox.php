@@ -184,7 +184,7 @@ class InvoiceMetaBox {
                 ) );
             } else {
                 echo json_encode( array(
-                    'ret' => false,
+                    'ret'  => false,
                     'msgs' => $form_invoice->get_response()->getErrorMessages()
                 ) );
             }
