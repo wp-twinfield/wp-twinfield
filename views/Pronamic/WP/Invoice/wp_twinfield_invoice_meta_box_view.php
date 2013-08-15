@@ -21,7 +21,7 @@
 <!-- start invoice number input -->
 <p>
 	<label for="TwinfieldInvoiceMetaBoxSync_InvoiceID">
-		<?php _e( 'Twinfield Invoice ID', 'twinfield' ); ?>
+		<?php _e( 'Invoice ID', 'twinfield' ); ?>
 	</label>
 	<input id="TwinfieldInvoiceMetaBoxSync_InvoiceID" class="small-text" type="text" name="twinfield_invoice_id" value="<?php echo $invoice_id; ?>"
 </p> 
