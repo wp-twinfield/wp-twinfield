@@ -18,16 +18,14 @@
 </div>
 <!-- invoice meta box message holder end -->
 
-<?php if ( $invoice_id ) : ?>
-    <!-- start invoice number input -->
-    <p>
-        <label for="TwinfieldInvoiceMetaBoxSync_InvoiceID">
-            <?php _e( 'Twinfield Invoice ID', 'twinfield' ); ?>
-        </label>
-        <input id="TwinfieldInvoiceMetaBoxSync_InvoiceID" class="small-text" type="text" name="twinfield_invoice_id" value="<?php echo $invoice_id; ?>"
-    </p> 
-    <!-- end invoice number input -->
-<?php endif; ?>
+<!-- start invoice number input -->
+<p>
+	<label for="TwinfieldInvoiceMetaBoxSync_InvoiceID">
+		<?php _e( 'Twinfield Invoice ID', 'twinfield' ); ?>
+	</label>
+	<input id="TwinfieldInvoiceMetaBoxSync_InvoiceID" class="small-text" type="text" name="twinfield_invoice_id" value="<?php echo $invoice_id; ?>"
+</p> 
+<!-- end invoice number input -->
 
 <!-- start invoice customer id input -->
 <p>
