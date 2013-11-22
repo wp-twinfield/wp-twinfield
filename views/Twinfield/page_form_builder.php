@@ -1,23 +1,33 @@
 <?php
+
+/**
+ * Form Builder UI Page
+ * 
+ * Loads an instance of the FormBuilder and gets the twinfield-form value
+ * from the $_GET super global.
+ * 
+ * Will attempt a show_form call with the $current_form from $_GET
+ */
+
+// Get the Form Builder
 $form_builder = new \Pronamic\WP\Twinfield\FormBuilder\FormBuilder();
 
-if ( isset( $_GET[ 'twinfield-form' ] ) ) {
-	$page_form = $_GET[ 'twinfield-form' ];
-} else {
-	$page_form = '';
-}
+// Get the current form
+$current_form = filter_input( INPUT_GET, 'twinfield-form', FILTER_SANITIZE_STRING );
+
 ?>
 <div class="wrap">
 	<?php screen_icon(); ?>
 	<h2 class="nav-tab-wrapper">
-		<a class="nav-tab <?php if ( empty( $page_form ) ): ?> nav-tab-active <?php endif; ?>" href="<?php echo admin_url( 'admin.php?page=twinfield-form-builder' ); ?>"><?php echo get_admin_page_title(); ?></a>
-		<?php foreach ( $form_builder->get_valid_forms() as $type ) : ?>
-			<a class="nav-tab <?php echo ( $page_form == $type ? 'nav-tab-active' : '' ); ?>" href="<?php echo twinfield_get_form_action( $type ); ?>"><?php echo ucfirst( $type ); ?></a>
+		<a class="nav-tab <?php if ( empty( $current_form ) ): ?> nav-tab-active <?php endif; ?>" href="<?php echo admin_url( 'admin.php?page=twinfield-form-builder' ); ?>"><?php echo get_admin_page_title(); ?></a>
+		
+		<?php foreach ( \Pronamic\WP\Twinfield\FormBuilder\FormBuilderFactory::get_all_form_names() as $type ) : ?>
+			<a class="nav-tab <?php echo ( $current_form == $type ? 'nav-tab-active' : '' ); ?>" href="<?php echo twinfield_get_form_action( $type ); ?>"><?php echo ucfirst( $type ); ?></a>
 		<?php endforeach; ?>
 	</h2>
-
-	<?php $form_builder->create_form(); ?>
-	<?php if ( empty( $page_form ) ) : ?>
+	<?php if ( ! empty( $current_form ) ) : ?>
+		<?php $form_builder->show_form( $current_form ); ?>
+	<?php else : ?>
 		<div>
 			<form action="<?php echo twinfield_get_form_action( 'invoice' ); ?>" method="post">
 				<input type="hidden" name="customerID" value="1002"/>

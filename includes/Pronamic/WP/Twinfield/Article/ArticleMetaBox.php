@@ -88,7 +88,7 @@ class ArticleMetaBox {
 		$nonce = wp_nonce_field( 'twinfield_article', 'twinfield_article_nonce', true, false );
 
 		// Make the view
-		$view = new View( dirname( \Twinfield::$file ) . '/views/Pronamic/WP/Article' );
+		$view = new View( PRONAMIC_TWINFIELD_FOLDER . '/views/Pronamic/WP/Article' );
 		$view
 			->setVariable( 'nonce', $nonce )
 			->setVariable( 'twinfield_article_id', $twinfield_article_id )
@@ -123,8 +123,8 @@ class ArticleMetaBox {
 		if ( ! post_type_supports( $post->post_type, 'twinfield_article' ) )
 			return;
 
-		$twinfield_article_id = filter_input( INPUT_POST, 'twinfield_article_id', FILTER_VALIDATE_INT );
-		$twinfield_subarticle_id = filter_input( INPUT_POST, 'twinfield_subarticle_id', FILTER_VALIDATE_INT );
+		$twinfield_article_id = filter_input( INPUT_POST, 'twinfield_article_id', FILTER_SANITIZE_STRING );
+		$twinfield_subarticle_id = filter_input( INPUT_POST, 'twinfield_subarticle_id', FILTER_SANITIZE_STRING );
 
 		// Updates the post meta
 		if ( isset( $twinfield_article_id ) ) {

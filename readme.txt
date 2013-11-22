@@ -2,14 +2,14 @@
 Contributors: pronamic, remcotolsma 
 Tags: twinfield, administration
 Requires at least: 3.0
-Tested up to: 3.0
-Stable tag: 0.1
+Tested up to: 3.7.1
+Stable tag: 1.0.0
 
 This plugin makes a connection with the Twinfield adminsitration software.
 
 == Description ==
 
-...
+>	This plugin requires PHP 5.3 or greater
 
 
 == Installation ==
@@ -20,17 +20,25 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 == Screenshots ==
 
-1.	Twinfield
+1.	Twinfield Dashboard
+2.	Twinfield Settings
+3.	Twinfield Documentation
 
 
 == ToDo ==
 
-*	Encrypting en decrypting options if they are not set yet
+*	Encrypting en decrypting options if they are not set yet.
+
 
 == Changelog ==
 
-= 0.1 =
-*	Initial release
+= 1.0.0 =
+*	Initial release.
+
+
+== Developers ==
+
+*	php ~/wp/svn/i18n-tools/makepot.php wp-plugin ~/wp/git/twinfield ~/wp/git/twinfield/languages/twinfield.pot
 
 
 == Links ==

@@ -32,7 +32,10 @@ class Customer {
 	public function generate_rewrite_rules( $wp_rewrite ) {
 		$rules = array();
 		
-		$rules['debiteuren/([^/]+)$'] = 'index.php?pid=11&twinfield_debtor_id=' . $wp_rewrite->preg_index(1);
+		// Get the customer slug from options
+		$slug = get_option( 'wp_twinfield_customer_slug', _x( 'customer', 'Customer slug for frontend', 'twinfield' ) );
+		
+		$rules[$slug . '/([^/]+)$'] = 'index.php?twinfield_debtor_id=' . $wp_rewrite->preg_index(1);
 		
 		$wp_rewrite->rules = array_merge( $rules, $wp_rewrite->rules );
 	}
@@ -47,7 +50,10 @@ class Customer {
 		
 		if ( empty( $customer_id ) )
 			return;
-			
+		
+		if ( ! is_user_logged_in() || ! current_user_can( 'twinfield_read_customer' ) )
+			wp_redirect( wp_login_url( site_url( get_option( 'wp_twinfield_customer_slug', _x( 'customer', 'Customer slug for frontend', 'twinfield' ) ) . '/' . $customer_id ) ) );
+		
 		global $twinfield_config;
 		$customerFactory = new \Pronamic\Twinfield\Customer\CustomerFactory( $twinfield_config );
 

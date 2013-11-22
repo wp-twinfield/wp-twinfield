@@ -1,29 +1,3 @@
-<script type="text/javascript">
-	;(function($) {
-
-		$(function(){
-
-			$('.jAddLine').click(function(e) {
-				e.preventDefault();
-
-				linesRow = jQuery('.jLinesRow');
-
-				var lastLineEntry = linesRow.children('tr').last();
-				var number = lastLineEntry.data('number');
-				var nextNumber = number + 1;
-
-				lastLineEntry.clone().appendTo('.jLinesRow').data('number', nextNumber).find('input').each( function(index) {
-					var self = $(this);
-					var currentName = self.attr('name');
-					var newName = currentName.replace(number, nextNumber, "gi");
-					self.attr('name', newName);
-					self.attr('value', '');
-				});
-			});
-		});
-
-	})(jQuery);
-</script>
 <h2><?php _e( 'Invoice Form', 'twinfield' ); ?></h2>
 <form method="POST" class="input-form">
 	<?php echo $nonce; ?>
@@ -31,13 +5,13 @@
 		<tr>
 			<th><?php _e( 'Invoice Type', 'twinfield' ); ?></th>
 			<td>
-				<input type="text" name="invoiceType" value="<?php echo $invoice->getInvoiceType(); ?>"/>
+				<input type="text" name="invoiceType" value="<?php echo $object->getInvoiceType(); ?>"/>
 			</td>
 		</tr>
 		<tr>
 			<th><?php _e( 'Customer ID', 'twinfield' ); ?></th>
 			<td>
-				<input type="text" name="customerID" value="<?php echo $invoice->getCustomer()->getID(); ?>"/>
+				<input type="text" name="customerID" value="<?php echo $object->getCustomer()->getID(); ?>"/>
 			</td>
 		</tr>
 	</table>
@@ -54,11 +28,11 @@
 			<th><?php _e( 'Free Text 2', 'twinfield' ); ?></th>
 			<th><?php _e( 'Free Text 3', 'twinfield' ); ?></th>
 		</thead>
-		<tbody class="jLinesRow">
-			<?php $lines = $invoice->getLines(); ?>
+		<tbody class="jFormBuilderUI_TableBody">
+			<?php $lines = $object->getLines(); ?>
 			<?php if ( ! empty( $lines ) ) : ?>
 				<?php $line_number = 1; ?>
-				<?php foreach ( $invoice->getLines() as $line ) : ?>
+				<?php foreach ( $object->getLines() as $line ) : ?>
 					<tr data-number="<?php echo $line_number; ?>">
 						<input type="hidden" name="lines[<?php echo $line_number; ?>][active]" value="true" />
 						<td><input type="text" name="lines[<?php echo $line_number; ?>][article]" value="<?php echo $line->getArticle(); ?>"/></td>

@@ -2,42 +2,50 @@
 
 namespace Pronamic\WP\Twinfield\FormBuilder\Form;
 
-use Pronamic\Twinfield\Customer\Customer;
-use Pronamic\Twinfield\Invoice as I;
-
 class Invoice extends ParentForm {
 
-	public function submit() {
+	public function prepare_extra_variables() {}
+	
+	public function submit( $data = array() ) {
 
 		global $twinfield_config;
 
 		$invoice_factory = new \Pronamic\Twinfield\Invoice\InvoiceFactory( $twinfield_config );
 
-		if ( $invoice_factory->send( $this->fill_class() ) ) {
-			return __( 'Successful!', 'twinfield' );
+		if ( $invoice_factory->send( $this->fill_class( $data ) ) ) {
+			$this->set_response( $invoice_factory->getResponse() );
+			return true;
 		} else {
-			return $invoice_factory->getResponse()->getResponseDocument()->saveXML();
+			$this->set_response( $invoice_factory->getResponse() );
+			return false;
 		}
 
 	}
 
-	public function extra_variables() {
-		
-	}
-
-	public function fill_class( $data = null ) {
-		if ( ! $data )
-			$data = $_POST;
+	public function fill_class( array $data ) {
 
 		$defaultData = array(
-			'customerID' => '',
-			'invoiceType' => ''
+			'customerID'             => '',
+			'invoiceType'            => '',
+			'invoiceNumber'          => '',
+			'status'                 => '',
+			'currency'               => '',
+			'period'                 => '',
+			'invoicedate'            => '',
+			'duedate'                => '',
+			'performancedate'        => '',
+			'paymentmethod'          => '',
+			'bank'                   => '',
+			'invoiceaddressnumber'   => '',
+			'deliveraddressnumber'   => '',
+			'headertext'             => '',
+			'footertext'             => ''
 		);
 
 		$data = array_merge( $defaultData, $data );
 
-		$customer = new Customer();
-		$invoice = new I\Invoice();
+		$customer = new \Pronamic\Twinfield\Customer\Customer();
+		$invoice = new \Pronamic\Twinfield\Invoice\Invoice();
 
 		if ( empty( $data ) ) {
 			$invoice->setCustomer($customer);
@@ -45,23 +53,40 @@ class Invoice extends ParentForm {
 		}
 
 		$customer->setID( filter_var( $data['customerID'], FILTER_VALIDATE_INT ) );
+		
+		if ( ! empty( $data['invoiceNumber'] ) )
+			$invoice->setInvoiceNumber( filter_var( $data['invoiceNumber'], FILTER_SANITIZE_NUMBER_INT ) );
 
 		$invoice
+			->setCustomer($customer)
 			->setInvoiceType( filter_var( $data['invoiceType'], FILTER_SANITIZE_STRING ) )
-			->setCustomer($customer);
+			->setStatus( filter_var( $data['status'], FILTER_SANITIZE_STRING ) )
+			->setCurrency( filter_var( $data['currency'], FILTER_SANITIZE_STRING ) )
+			->setPeriod( filter_var( $data['period'], FILTER_SANITIZE_STRING ) )
+			->setInvoiceDate( filter_var( $data['invoicedate'], FILTER_SANITIZE_STRING ) )
+			->setDueDate( filter_var( $data['duedate'], FILTER_SANITIZE_STRING ) )
+			->setPerformanceDate( filter_var( $data['performancedate'], FILTER_SANITIZE_STRING ) )
+			->setPaymentMethod( filter_var( $data['paymentmethod'], FILTER_SANITIZE_STRING ) )
+			->setBank( filter_var( $data['bank'], FILTER_SANITIZE_STRING ) )
+			->setInvoiceAddressNumber( filter_var( $data['invoiceaddressnumber'], FILTER_SANITIZE_NUMBER_INT ) )
+			->setDeliverAddressNumber( filter_var( $data['deliveraddressnumber'], FILTER_SANITIZE_NUMBER_INT ) )
+			->setHeaderText( filter_var( $data['headertext'], FILTER_SANITIZE_STRING ) )
+			->setFooterText( filter_var( $data['footertext'], FILTER_SANITIZE_STRING ) );
+		
 
+		
 		if ( ! empty( $data['lines'] ) ) {
 
 			$defaultLineData = array(
-				'article' => '',
-				'quantity' => '',
-				'subarticle' => '',
-				'units' => '',
+				'article'        => '',
+				'quantity'       => '',
+				'subarticle'     => '',
+				'units'          => '',
 				'unitspriceexcl' => '',
-				'vatcode' => '',
-				'freetext1' => '',
-				'freetext2' => '',
-				'freetext3' => ''
+				'vatcode'        => '',
+				'freetext1'      => '',
+				'freetext2'      => '',
+				'freetext3'      => ''
 			);
 
 			foreach ( $data['lines'] as $line ) {
@@ -71,7 +96,7 @@ class Invoice extends ParentForm {
 
 				$line = array_merge( $defaultLineData, $line );
 
-				$temp_line = new I\InvoiceLine();
+				$temp_line = new \Pronamic\Twinfield\Invoice\InvoiceLine();
 				$temp_line
 						->setArticle( $line['article'] )
 						->setQuantity( $line['quantity'] )

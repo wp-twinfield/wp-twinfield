@@ -8,31 +8,37 @@ use \Pronamic\Twinfield\Customer\CustomerFactory as TwinfieldCustomerFactory;
 
 class Customer extends ParentForm {
 	public $defaultCustomerData = array(
-		'id'		 => '',
-		'name'		 => '',
-		'type'		 => 'DEB',
-		'website'	 => '',
-		'duedays'	 => '',
-		'ebilling'	 => '',
-		'ebillmail'	 => '',
-		'vatcode'	 => ''
+		'id'         => '',
+		'name'       => '',
+		'type'       => 'DEB',
+		'website'    => '',
+		'duedays'    => '',
+		'ebilling'   => '',
+		'ebillmail'  => '',
+		'vatcode'    => ''
 	);
 	
 	public $defaultCustomerAddressData = array(
-		'default'	 => true,
-		'type'		 => '',
-		'name'		 => '',
-		'field1'	 => '',
-		'field2'	 => '',
-		'field3'	 => '',
-		'field5'	 => '',
-		'postcode'	 => '',
-		'city'		 => '',
-		'country'	 => '',
-		'email'		 => ''
+		'default'    => true,
+		'type'       => '',
+		'name'       => '',
+		'field1'     => '',
+		'field2'     => '',
+		'field3'     => '',
+		'field4'     => '',
+		'field5'     => '',
+		'postcode'   => '',
+		'city'       => '',
+		'country'    => '',
+		'email'      => ''
 	);
 	
-	public function submit( $data = null ) {
+	public function prepare_extra_variables() {
+		// Set the extra beneficial variables for this form.
+		$this->set_extra_variables( 'latest_customer_id', $this->_get_latest_key() );
+	}
+	
+	public function submit( $data = array() ) {
 		global $twinfield_config;
 
 		$customer_factory = new TwinfieldCustomerFactory( $twinfield_config );
@@ -46,7 +52,52 @@ class Customer extends ParentForm {
 		}
 	}
 
-	public function extra_variables() {
+	public function fill_class( array $data ) {
+		
+		$data = array_merge( $this->defaultCustomerData , $data );
+		$data = stripslashes_deep( $data );
+
+		$customer = new TwinfieldCustomer();
+		$customer
+				->setID( $data['id'] )
+				->setName( $data['name'] )
+				->setType( $data['type'] )
+				->setWebsite( $data['website'] )
+				->setDueDays( $data['duedays'] )
+				->setEbilling( filter_var( $data['ebilling'], FILTER_VALIDATE_BOOLEAN ) )
+				->setEBillMail( $data['ebillmail'] )
+				->setVatCode( $data['vatcode'] );
+
+		if ( ! empty( $data['addresses'] ) ) {
+
+			foreach ( $data['addresses'] as $address ) {
+				$address = array_merge( $this->defaultCustomerAddressData, $address );
+
+				$temp_address = new TwinfieldCustomerAddress();
+				$temp_address
+						->setDefault( $address['default'] )
+						->setType( $address['type'] )
+						->setName( $address['name'] )
+						->setField1( $address['field1'] )
+						->setField2( $address['field2'] )
+						->setField3( $address['field3'] )
+						->setField4( $address['field4'] )
+						->setField5( $address['field5'] )
+						->setPostcode( $address['postcode'] )
+						->setCity( $address['city'] )
+						->setCountry( $address['country'] )
+						->setEmail( $address['email'] );
+				
+				$customer->addAddress( $temp_address );
+
+			}
+		}
+
+		return $customer;
+
+	}
+	
+	public function _get_latest_key() {
 		// Latest customer id
 		global $twinfield_config;
 
@@ -64,53 +115,6 @@ class Customer extends ParentForm {
 
 		$latest_customer_id = $customer_keys[0];
 
-		return array(
-			'latest_customer_id' => ++$latest_customer_id
-		);
-	}
-
-	public function fill_class( $data = array() ) {
-		
-		$data = array_merge( $this->defaultCustomerData , $data );
-		
-		$data = stripslashes_deep( $data );
-
-		$customer = new TwinfieldCustomer();
-		$customer
-				->setID( $data['id'] )
-				->setName( $data['name'] )
-				->setType( $data['type'] )
-				->setWebsite( $data['website'] )
-				->setDueDays( $data['duedays'] )
-				->setEbilling( $data['ebilling'] )
-				->setEBillMail( $data['ebillmail'] )
-				->setVatCode( $data['vatcode'] );
-
-		if ( ! empty( $data['addresses'] ) ) {
-
-			foreach ( $data['addresses'] as $address ) {
-				$address = array_merge( $this->defaultCustomerAddressData, $address );
-
-				$temp_address = new TwinfieldCustomerAddress();
-				$temp_address
-						->setDefault( $address['default'] )
-						->setType( $address['type'] )
-						->setName( $address['name'] )
-						->setField1( $address['field1'] )
-						->setField2( $address['field2'] )
-						->setField3( $address['field3'] )
-						->setField5( $address['field5'] )
-						->setPostcode( $address['postcode'] )
-						->setCity( $address['city'] )
-						->setCountry( $address['country'] )
-						->setEmail( $address['email'] );
-				
-				$customer->addAddress( $temp_address );
-
-			}
-		}
-
-		return $customer;
-
+		return ++$latest_customer_id;
 	}
 }
