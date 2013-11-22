@@ -25,13 +25,13 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 == ToDo ==
 
-*	Encrypting en decrypting options if they are not set yet
+*	Encrypting en decrypting options if they are not set yet.
 
 
 == Changelog ==
 
 = 1.0.0 =
-*	Initial release
+*	Initial release.
 
 
 == Developers ==
