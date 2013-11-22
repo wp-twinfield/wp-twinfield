@@ -9,7 +9,7 @@ This plugin makes a connection with the Twinfield adminsitration software.
 
 == Description ==
 
-...
+>	This plugin requires PHP 5.3 or greater
 
 
 == Installation ==
