@@ -68,8 +68,8 @@ class Settings {
 		 */
         
         add_settings_section(
-            'defaults',
-            __( 'Defaults', 'twinfield' ),
+            'general',
+            __( 'General', 'twinfield' ),
             array( $this, 'section_view' ),
             'twinfield-settings'
         );
@@ -79,7 +79,7 @@ class Settings {
             __( 'Default Invoice Type', 'twinfield' ),
             array( $this, 'render_text' ),
             'twinfield-settings',
-            'defaults',
+            'general',
             array(
                 'label_for' => 'wp_twinfield_default_invoice_type',
                 'classes' => array( 'regular-text', 'code' )
@@ -96,7 +96,7 @@ class Settings {
 
 		add_settings_section(
 			'permalinks',
-			__( 'Permalink', 'twinfield' ),
+			__( 'Permalinks', 'twinfield' ),
 			array( $this, 'section_view' ),
 			'twinfield-settings'
 		);
