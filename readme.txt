@@ -20,7 +20,9 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 == Screenshots ==
 
-1.	Twinfield
+1.	Twinfield Dashboard
+2.	Twinfield Settings
+3.	Twinfield Documentation
 
 
 == ToDo ==
