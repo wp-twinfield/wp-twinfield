@@ -1,9 +1,3 @@
-<?php 
-
-global $twinfield_config; 
-
-?>
-
 <div class="wrap">
 	<?php screen_icon( 'twinfield' ); ?>
 
@@ -20,9 +14,9 @@ global $twinfield_config;
 					        <p>
 					        	<a href="https://login.twinfield.com/" target="_blank">https://login.twinfield.com/</a>
 
-					            <input name="txtUserID" type="hidden" value="<?php echo $twinfield_config->getUsername(); ?>" />
-					            <input name="txtPassword" type="hidden" value="<?php echo $twinfield_config->getPassword(); ?>" />
-					            <input name="txtcompanyID" type="hidden" value="<?php echo $twinfield_config->getOrganisation(); ?>" />
+					            <input name="txtUserID" type="hidden" value="<?php form_option( 'twinfield_username' ); ?>" />
+					            <input name="txtPassword" type="hidden" value="<?php form_option( 'twinfield_password' ); ?>" />
+					            <input name="txtcompanyID" type="hidden" value="<?php form_option( 'twinfield_organisation' ); ?>" />
 
 					            <?php submit_button( __( 'Login', 'twinfield' ), 'primary', 'btnLogin', false ); ?>
 					        </p>
