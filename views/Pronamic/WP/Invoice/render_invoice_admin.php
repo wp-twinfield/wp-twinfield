@@ -1,13 +1,12 @@
 <div class="wrap">
-
 	<?php screen_icon( 'twinfield' ); ?>
+
+	<h2><?php echo get_admin_page_title(); ?></h2>
 
 	<?php if ( ! filter_has_var( INPUT_GET, 'twinfield_invoice_id' )  || isset( $error_messages ) ) : ?>
 	
 		<form method="get">
 			<input type="hidden" name="page" value="twinfield_invoices" />
-
-			<h2><?php echo get_admin_page_title(); ?></h2>
 
 			<h3><?php _e( 'Search for invoices', 'twinfield' ); ?></h3>
 
@@ -27,9 +26,7 @@
 
 	<?php if ( ! isset( $error_messages ) && false !== $invoice ) : ?>
 	
-		<h2>
-			<?php printf( __( 'Invoice %d', 'twinfield' ), $invoice->getInvoiceNumber() ); ?>
-		</h2>
+		<h3><?php printf( __( 'Invoice %d', 'twinfield' ), $invoice->getInvoiceNumber() ); ?></h3>
 	
 		<h4><?php _e( 'Header', 'twinfield' ); ?></h4>
 

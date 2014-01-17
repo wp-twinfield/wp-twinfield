@@ -1,13 +1,12 @@
 <div class="wrap">
-
 	<?php screen_icon( 'twinfield' ); ?>
+
+	<h2><?php echo get_admin_page_title(); ?></h2>
 
 	<?php if ( ! filter_has_var( INPUT_GET, 'twinfield_customer_id' ) || isset( $error_messages ) ) : ?>
 
 		<form method="get">
 			<input type="hidden" name="page" value="twinfield_customers" />
-
-			<h2><?php echo get_admin_page_title(); ?></h2>
 
 			<h3><?php _e( 'Search for customers', 'twinfield' ); ?></h3>
 
@@ -27,9 +26,9 @@
     
 	<?php if ( ! isset( $error_messages ) && false !== $customer ) : ?>
 
-		<h2><?php printf( __( 'Customer %s', 'twinfield' ), $customer->getID() ); ?></h2>
+		<h3><?php printf( __( 'Customer %s', 'twinfield' ), $customer->getID() ); ?></h3>
 
-		<table class="form-table">
+		<table class="widefat">
 			<tr>
 				<th><strong><?php _e( 'Name', 'twinfield' ); ?></strong></th>
 				<td><?php echo $customer->getName(); ?></td>
