@@ -15,7 +15,6 @@ class Customer {
 		add_filter( 'wp_title', array( $this, 'wp_title' ) );
 		// Start the Metabox
 		$metabox = new CustomerMetaBox();
-		$shortcode = new Shortcode\CustomerShortcode;
 
 	}
 	
