@@ -118,8 +118,8 @@ if ( ! class_exists( 'Twinfield' ) ) :
 
 			if ( file_exists( dirname( __FILE__ ) . '/twinfield/src/' . $fileName ) ) {
 				require dirname( __FILE__ ) . '/twinfield/src/' . $fileName;
-			} elseif ( file_exists( dirname( __FILE__ ) . '/includes/' . $fileName ) ) {
-				require dirname( __FILE__ ) . '/includes/' . $fileName;
+			} elseif ( file_exists( dirname( __FILE__ ) . '/classes/' . $fileName ) ) {
+				require dirname( __FILE__ ) . '/classes/' . $fileName;
 			}
 
 		}
