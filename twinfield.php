@@ -19,7 +19,6 @@
 define( 'PRONAMIC_TWINFIELD_FILE', __FILE__ );
 define( 'PRONAMIC_TWINFIELD_FOLDER', plugin_dir_path( PRONAMIC_TWINFIELD_FILE ) );
 
-use ZFramework\Base\View;
 use Pronamic\WP\Twinfield\FormBuilder as Form;
 
 if ( ! class_exists( 'Twinfield' ) ) :

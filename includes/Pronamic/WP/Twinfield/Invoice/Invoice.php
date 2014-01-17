@@ -2,8 +2,6 @@
 
 namespace Pronamic\WP\Twinfield\Invoice;
 
-use \ZFramework\Base\View;
-
 class Invoice {
 
 	public function __construct() {

@@ -2,8 +2,6 @@
 
 namespace Pronamic\WP\Twinfield\Customer;
 
-use \ZFramework\Base\View;
-
 class Customer {
 
 	public function __construct() {
