@@ -37,7 +37,7 @@ class Pronamic_WP_TwinfieldPlugin_Admin {
 	 * Admin initialize
 	 */
 	public function admin_init() {
-		
+		$this->settings = Pronamic_WP_TwinfieldPlugin_Settings::get_instance( $this->plugin );
 	}
 
 	//////////////////////////////////////////////////

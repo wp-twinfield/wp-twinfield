@@ -1,11 +1,30 @@
 <?php
 
-namespace Pronamic\WP\Twinfield\Settings;
+class Pronamic_WP_TwinfieldPlugin_Settings {
+	/**
+	 * Instance of this class.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @var Pronamic_WP_ExtensionsPlugin_Plugin
+	 */
+	protected static $instance = null;
 
-class Settings {
+	//////////////////////////////////////////////////
 
-	public function register_settings() {
+	/**
+	 * Extensions plugin
+	 * 
+	 * @var Pronamic_WP_TwinfieldPlugin_Plugin
+	 */
+	private $plugin;
 
+	//////////////////////////////////////////////////
+
+	/**
+	 * Constructs and initialize Twinfield plugin admin
+	 */
+	private function __construct( Pronamic_WP_TwinfieldPlugin_Plugin $plugin ) {
 		/**
 		 * ======
 		 * API Section
@@ -192,5 +211,23 @@ class Settings {
 
 	public static function active_tab() {
 		return ( $tab = filter_input( INPUT_GET, 'tab', FILTER_SANITIZE_STRING ) ) ? $tab : 'api';
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Return an instance of this class.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return object A single instance of this class.
+	 */
+	public static function get_instance( Pronamic_WP_TwinfieldPlugin_Plugin $plugin ) {
+		// If the single instance hasn't been set, set it now.
+		if ( null == self::$instance ) {
+			self::$instance = new self( $plugin );
+		}
+	
+		return self::$instance;
 	}
 }

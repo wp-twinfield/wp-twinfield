@@ -73,7 +73,6 @@ if ( ! class_exists( 'Twinfield' ) ) :
 		public function __construct() {
 			add_action( 'init', array( $this, 'init' ) );
 
-			add_action( 'admin_init', array( $this, 'admin_init' ) );
 			add_action( 'admin_enqueue_scripts', array( $this, 'admin_scripts' ) );
 			add_action( 'wp_twinfield_formbuilder_load_forms', array( $this, 'load_forms' ) );
 
@@ -160,13 +159,6 @@ if ( ! class_exists( 'Twinfield' ) ) :
 			$this->form_builder  = new Form\FormBuilder();
 
 
-		}
-
-		public function admin_init() {
-			// Load the settings
-			$this->settings = new \Pronamic\WP\Twinfield\Settings\Settings();
-
-			$this->settings->register_settings();
 		}
 
 		/**
