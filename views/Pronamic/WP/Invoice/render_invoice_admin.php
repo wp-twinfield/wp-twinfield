@@ -79,7 +79,7 @@
 
 					$customer = $invoice->getCustomer();
 	
-					printf( '<a href="%s" target="_blank">%s</a>', twinfield_admin_view_customer_link( $customer->getID() ), $customer->getID() );
+					printf( '<a href="%s">%s</a>', twinfield_admin_view_customer_link( $customer->getID() ), $customer->getID() );
 
 					?>
 				</td>
