@@ -75,11 +75,8 @@ class ArticleMetaBox {
 	 */
 	public function view( $post ) {
 		// Get current id information
-		$twinfield_article = get_post_meta( $post->ID, '_twinfield_article', true );
-
-		// Get the article and subarticle ids
-		$twinfield_article_id = ( isset( $twinfield_article['article_id'] ) ? $twinfield_article['article_id'] : '' );
-		$twinfield_subarticle_id = ( isset( $twinfield_article['subarticle_id'] ) ? $twinfield_article['subarticle_id'] : '' );
+		$twinfield_article_id = get_post_meta( $post->ID, '_twinfield_article_id', true );
+		$twinfield_subarticle_id = get_post_meta( $post->ID, '_twinfield_subarticle_id', true );
 
 		// Make the view
 		global $twinfield_plugin;
@@ -121,13 +118,11 @@ class ArticleMetaBox {
 
 		// Updates the post meta
 		if ( isset( $twinfield_article_id ) ) {
-			update_post_meta( $post_id, '_twinfield_article', array(
-				'article_id' => $twinfield_article_id,
-				'subarticle_id' => $twinfield_subarticle_id
-			) );
+			update_post_meta( $post_id, '_twinfield_article_id', $twinfield_article_id );
+			update_post_meta( $post_id, '_twinfield_subarticle_id', $twinfield_subarticle_id );
 		} else {
-			delete_post_meta( $post_id, '_twinfield_article' );
+			delete_post_meta( $post_id, '_twinfield_article_id' );
+			delete_post_meta( $post_id, '_twinfield_subarticle_id' );
 		}
-
 	}
 }
