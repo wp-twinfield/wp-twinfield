@@ -70,15 +70,12 @@ function wp_twinfield_admin_query_nav( $ignore_trigger = '' ) {
     <?php endif;
 }
 
-function twinfield_admin_view_customer_link( $customer_id = null ) {
+function twinfield_admin_view_customer_link( $customer_id = false ) {
     $query_args = array(
-        'page' => 'twinfield-query',
-        'tab' => 'customer'
+        'page'                  => 'twinfield_customers',
+        'twinfield_customer_id' => $customer_id,
     );
-    
-    if ( null !== $customer_id )
-        $query_args['twinfield_customer_id'] = $customer_id;
-    
+
 	return add_query_arg( $query_args, admin_url( 'admin.php' ) );
 }
 
