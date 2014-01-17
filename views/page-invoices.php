@@ -1,3 +1,23 @@
+<?php 
+
+if ( filter_has_var( INPUT_GET, 'twinfield_invoice_id' ) ) {
+	global $twinfield_config;
+
+	$invoice_factory = new \Pronamic\Twinfield\Invoice\InvoiceFactory( $twinfield_config );
+
+	$invoice = $invoice_factory->get(
+		'FACTUUR',
+		filter_input( INPUT_GET, 'twinfield_invoice_id', FILTER_VALIDATE_INT )
+	);
+
+	if ( ! $invoice_factory->getResponse()->isSuccessful() ) {
+		$error_messages = $invoice_factory->getResponse()->getErrorMessages();
+	}
+} else {
+	$invoice = false;
+}
+
+?>
 <div class="wrap">
 	<?php screen_icon( 'twinfield' ); ?>
 

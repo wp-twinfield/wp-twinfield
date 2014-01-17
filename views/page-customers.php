@@ -1,3 +1,22 @@
+<?php 
+
+if ( filter_has_var( INPUT_GET, 'twinfield_customer_id' ) ) {
+	global $twinfield_config;
+
+	$customer_factory = new \Pronamic\Twinfield\Customer\CustomerFactory( $twinfield_config );
+
+	$customer = $customer_factory->get(
+		filter_input( INPUT_GET, 'twinfield_customer_id', FILTER_VALIDATE_INT )
+	);
+
+	if ( ! $customer_factory->getResponse()->isSuccessful() )
+		$error_messages = $customer_factory->getResponse()->getErrorMessages();
+
+} else {
+	$customer = false;
+}
+
+?>
 <div class="wrap">
 	<?php screen_icon( 'twinfield' ); ?>
 

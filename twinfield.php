@@ -75,7 +75,6 @@ if ( ! class_exists( 'Twinfield' ) ) :
 			add_action( 'init', array( $this, 'init' ) );
 
 			add_action( 'admin_init', array( $this, 'admin_init' ) );
-			add_action( 'admin_menu', array( $this, 'admin_menu' ) );
 			add_action( 'admin_enqueue_scripts', array( $this, 'admin_scripts' ) );
 			add_action( 'wp_twinfield_formbuilder_load_forms', array( $this, 'load_forms' ) );
 
@@ -142,8 +141,6 @@ if ( ! class_exists( 'Twinfield' ) ) :
 		 * @return void
 		 */
 		public function init() {
-			load_plugin_textdomain( 'twinfield', false, dirname( plugin_basename( PRONAMIC_TWINFIELD_FILE ) ) . '/languages/' );
-
 			global $twinfield_config;
 			$twinfield_config = new Pronamic\Twinfield\Secure\Config();
 
@@ -171,81 +168,6 @@ if ( ! class_exists( 'Twinfield' ) ) :
 			$this->settings = new \Pronamic\WP\Twinfield\Settings\Settings();
 
 			$this->settings->register_settings();
-		}
-
-		/**
-		 * Adds all menu items required for WP Twinfield
-		 *
-		 * @hooked admin_menu
-		 *
-		 * @access public
-		 * @return void
-		 */
-		public function admin_menu() {
-			// Top level menu item
-			add_menu_page(
-				__( 'Twinfield', 'twinfield' ),
-				__( 'Twinfield', 'twinfield' ),
-				'manage_options',
-				'twinfield',
-				array( $this, 'page_parent' ),
-				plugins_url( 'assets/admin/images/icon-16x16.png', PRONAMIC_TWINFIELD_FILE )
-			);
-
-            add_submenu_page(
-                'twinfield',
-                __( 'Twinfield Customers', 'twinfield' ),
-                __( 'Customers', 'twinfield' ),
-                'twinfield_read_customer',
-                'twinfield_customers',
-                array( $this, 'page_query_customer' )
-            );
-
-            add_submenu_page(
-                'twinfield',
-                __( 'Twinfield Invoices', 'twinfield' ),
-                __( 'Invoices', 'twinfield' ),
-                'twinfield_read_invoice',
-                'twinfield_invoices',
-                array( $this, 'page_query_invoice' )
-            );
-
-			// Sub pages
-			add_submenu_page(
-				'twinfield',
-				__( 'Twinfield Settings', 'twinfield' ),
-				__( 'Settings', 'twinfield' ),
-				'manage_options',
-				'twinfield_settings',
-				array( $this, 'page_settings' )
-			);
-
-			add_submenu_page(
-				'twinfield',
-				__( 'Twinfield Form Builder', 'twinfield' ),
-				__( 'Form Builder', 'twinfield' ),
-				'twinfield-form-builder',
-				'twinfield-form-builder',
-				array( $this, 'page_form_builder' )
-			);
-
-			add_submenu_page(
-				'twinfield',
-				__( 'Merger Tool', 'twinfield' ),
-				__( 'Merger Tool', 'twinfield' ),
-				'twinfield-merger',
-				'twinfield-merger',
-				array( $this, 'page_merge' )
-			);
-
-			add_submenu_page(
-				'twinfield',
-				__( 'Twinfield Documentation', 'twinfield' ),
-				__( 'Documentation', 'twinfield' ),
-				'manage_options',
-				'twinfield-documentation',
-				array( $this, 'page_documentation' )
-			);
 		}
 
 		/**
@@ -313,17 +235,6 @@ if ( ! class_exists( 'Twinfield' ) ) :
             wp_enqueue_script( 'WP_Twinfield' );
 		}
 
-		/**
-		 * Callback to display the parent menu item page
-		 *
-		 * @access public
-		 * @return void
-		 */
-		public function page_parent() {
-			$view = new View( PRONAMIC_TWINFIELD_FOLDER . '/views/Twinfield' );
-			$view->setView( 'page_parent' )->render();
-		}
-
         public function page_query_customer() {
             $view = new View( PRONAMIC_TWINFIELD_FOLDER . '/views/Pronamic/WP/Customer' );
 
@@ -373,62 +284,13 @@ if ( ! class_exists( 'Twinfield' ) ) :
                 ->setVariable( 'invoice', $invoice )
                 ->render();
         }
-
-		/**
-		 * Callback to display the settings page.
-		 *
-		 * @access public
-		 * @return void
-		 */
-		public function page_settings() {
-			$view = new View( PRONAMIC_TWINFIELD_FOLDER . '/views/Twinfield' );
-			$view->setView( 'page_settings' )->render();
-		}
-
-		/**
-		 * Callback to display the form builder page.
-		 *
-		 * @calls action | wp_twinfield_formbuilder_load_forms
-		 * @enqueues script | FormBuilderUI
-		 *
-		 * @access public
-		 * @return void
-		 */
-		public function page_form_builder() {
-			do_action( 'wp_twinfield_formbuilder_load_forms' );
-
-			// Load FormBuilderUI JS Script on this page
-			wp_enqueue_script( 'FormBuilderUI' );
-
-			$view = new View( PRONAMIC_TWINFIELD_FOLDER . '/views/Twinfield' );
-			$view->setView( 'page_form_builder' )->render();
-		}
-
-		/**
-		 * Callback to display the merge page.
-		 *
-		 * @access public
-		 * @return void
-		 */
-		public function page_merge() {
-			$view = new View( PRONAMIC_TWINFIELD_FOLDER . '/views/Twinfield' );
-			$view->setView( 'page_merge' )->render();
-		}
-
-		/**
-		 * Callback to display the documentation page.
-		 *
-		 * @access public
-		 * @return void
-		 */
-		public function page_documentation() {
-			$view = new View( PRONAMIC_TWINFIELD_FOLDER . '/views/Twinfield' );
-			$view->setView( 'page_documentation' )->render();
-		}
-
 	}
 
 endif;
 
 global $twinfield;
 $twinfield = new Twinfield();
+
+global $twinfield_plugin;
+
+$twinfield_plugin = Pronamic_WP_TwinfieldPlugin_Plugin::get_instance( __FILE__ );

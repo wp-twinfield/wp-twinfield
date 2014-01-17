@@ -15,7 +15,7 @@
 
 	$offices = $twinfield_client->getOffices();
 
-	if ( $offices ): ?>
+	if ( $offices ) : ?>
 
 		<table>
 			<thead>
@@ -27,15 +27,20 @@
 			</thead>
 			
 			<tbody>
+
 				<?php foreach ( $offices as $office ): ?>
+
 					<tr>
 						<td><?php echo $office->getCode(); ?></td>
 						<td><?php echo $office->getShortName(); ?></td>
 						<td><?php echo $office->getName(); ?></td>
 					</tr>
+
 				<?php endforeach; ?>
+
 			</tbody>
 		</table>
 
 	<?php endif; ?>
+
 </div>

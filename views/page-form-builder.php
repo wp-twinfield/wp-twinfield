@@ -1,5 +1,10 @@
 <?php
 
+do_action( 'wp_twinfield_formbuilder_load_forms' );
+
+// Load FormBuilderUI JS Script on this page
+wp_enqueue_script( 'FormBuilderUI' );
+
 /**
  * Form Builder UI Page
  * 

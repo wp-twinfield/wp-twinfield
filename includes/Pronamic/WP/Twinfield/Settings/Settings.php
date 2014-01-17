@@ -16,14 +16,14 @@ class Settings {
 			'twinfield_login',
 			__( 'Login', 'twinfield' ),
 			create_function( null, "twinfield_settings_section( 'section-login' );" ),
-			'twinfield_settings'
+			'twinfield'
 		);
 
 		add_settings_field(
 			'twinfield_username',
 			__( 'Username', 'twinfield' ),
 			array( $this, 'render_text' ),
-			'twinfield_settings',
+			'twinfield',
 			'twinfield_login',
 			array( 'label_for' => 'twinfield_username' )
 		);
@@ -32,7 +32,7 @@ class Settings {
 			'twinfield_password',
 			__( 'Password', 'twinfield' ),
 			array( $this, 'render_password' ),
-			'twinfield_settings',
+			'twinfield',
 			'twinfield_login',
 			array( 'label_for' => 'twinfield_password' )
 		);
@@ -41,7 +41,7 @@ class Settings {
 			'twinfield_organisation',
 			__( 'Organisation', 'twinfield' ),
 			array( $this, 'render_text' ),
-			'twinfield_settings',
+			'twinfield',
 			'twinfield_login',
 			array( 'label_for' => 'twinfield_organisation' )
 		);
@@ -61,7 +61,7 @@ class Settings {
             'twinfield_defaults',
             __( 'Defaults', 'twinfield' ),
             create_function( null, "twinfield_settings_section( 'section-defaults' );" ),
-            'twinfield_settings'
+            'twinfield'
         );
 
 		add_settings_field(
@@ -69,7 +69,7 @@ class Settings {
 			/* translators: use same translations as on Twinfield.com. */
 			_x( 'Default Company', 'twinfield.com', 'twinfield' ),
 			array( $this, 'render_text' ),
-			'twinfield_settings',
+			'twinfield',
 			'twinfield_defaults',
 			array(
 				'label_for'   => 'twinfield_default_office_code',
@@ -82,7 +82,7 @@ class Settings {
             'twinfield_default_invoice_type',
             __( 'Default Invoice Type', 'twinfield' ),
             array( $this, 'render_text' ),
-            'twinfield_settings',
+            'twinfield',
             'twinfield_defaults',
             array(
                 'label_for'   => 'twinfield_default_invoice_type',
@@ -105,14 +105,14 @@ class Settings {
 			'twinfield_permalinks',
 			__( 'Permalinks', 'twinfield' ),
 			create_function( null, "twinfield_settings_section( 'section-permalinks' );" ),
-			'twinfield_settings'
+			'twinfield'
 		);
 
 		add_settings_field(
 			'twinfield_invoice_slug',
 			__( 'Invoice Slug', 'twinfield' ),
 			array( $this, 'render_text' ),
-			'twinfield_settings',
+			'twinfield',
 			'twinfield_permalinks',
 			array(
 				'label_for' => 'twinfield_invoice_slug',
@@ -124,7 +124,7 @@ class Settings {
 			'twinfield_customer_slug',
 			__( 'Customer Slug', 'twinfield' ),
 			array( $this, 'render_text' ),
-			'twinfield_settings',
+			'twinfield',
 			'twinfield_permalinks',
 			array(
 				'label_for' => 'twinfield_customer_slug',
