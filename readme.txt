@@ -33,7 +33,8 @@ WordPress installation and then activate the Plugin from Plugins page.
 == Changelog ==
 
 = 1.0.1 =
-*	Refactored code.
+*	Refactored code - From 195.133 bytes (101 files) to 193.737 bytes (95 files).
+*	Improved settings page with some helpful descriptions.
  
 = 1.0.0 =
 *	Initial release.
