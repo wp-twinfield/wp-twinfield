@@ -9,11 +9,13 @@
 	$password = get_option( 'twinfield_password' );
 	$organisation = get_option( 'twinfield_organisation' );
 	
-	$twinfield_client = new Pronamic\Twinfield\TwinfieldClient();
+	// $twinfield_client = new Pronamic\Twinfield\TwinfieldClient();
 
-	$result = $twinfield_client->logon( $username, $password, $organisation );
+	// $result = $twinfield_client->logon( $username, $password, $organisation );
 
-	$offices = $twinfield_client->getOffices();
+	// $offices = $twinfield_client->getOffices();
+	
+	$offices = false;
 
 	if ( $offices ) : ?>
 

@@ -59,13 +59,13 @@ class InvoiceMetaBox {
                     __( 'Twinfield Invoice', 'twinfield' ),
                     array( $this, 'view' ),
                     $post_type,
-                    'side',
+                    'normal',
                     'high'
                 );
             }
         }
     }
-    
+
     /**
      * Shows the contents of the wp_twinfield_invoice_meta_box.  Passes
      * invoice_id, customer_id, invoice_type and is_supported variables to the 
@@ -83,15 +83,15 @@ class InvoiceMetaBox {
         $invoice_type = get_post_meta( $post->ID, '_twinfield_invoice_type', true );
         
         $is_supported = InvoiceMetaBoxFactory::supported( $post->post_type );
+
+        global $twinfield_plugin;
         
-        $view = new \ZFramework\Base\View( PRONAMIC_TWINFIELD_FOLDER . '/views/Pronamic/WP/Invoice' );
-        $view
-            ->setView( 'wp_twinfield_invoice_meta_box_view' )
-            ->setVariable( 'invoice_id', $invoice_id )
-            ->setVariable( 'customer_id', $customer_id )
-            ->setVariable( 'invoice_type', $invoice_type )
-            ->setVariable( 'is_supported', $is_supported )
-            ->render();
+        $twinfield_plugin->display( 'views/meta-box-invoice.php', array(
+        	'invoice_id'   => $invoice_id,
+        	'customer_id'  => $customer_id,
+        	'invoice_type' => $invoice_type,
+        	'is_supported' => $is_supported,
+        ) );
     }
     
     /**

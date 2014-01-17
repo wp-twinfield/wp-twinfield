@@ -57,6 +57,15 @@ class Pronamic_WP_TwinfieldPlugin_Admin {
 
 		add_submenu_page(
 			'twinfield',
+			_x( 'Twinfield Administrations', 'twinfield.com', 'twinfield' ),
+			_x( 'Administrations', 'twinfield.com', 'twinfield' ),
+			'twinfield_read_offices',
+			'twinfield_offices',
+			array( $this, 'page_offices' )
+		);
+
+		add_submenu_page(
+			'twinfield',
 			__( 'Twinfield Customers', 'twinfield' ),
 			__( 'Customers', 'twinfield' ),
 			'twinfield_read_customer',
@@ -125,6 +134,7 @@ class Pronamic_WP_TwinfieldPlugin_Admin {
 
 	// Helper functions
 	public function page_twinfield() { $this->page( 'twinfield' ); }
+	public function page_offices() { $this->page( 'offices' ); }
 	public function page_customers() { $this->page( 'customers' ); }
 	public function page_invoices() { $this->page( 'invoices' ); }
 	public function page_settings() { $this->page( 'settings' ); }
