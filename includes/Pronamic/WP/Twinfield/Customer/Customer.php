@@ -60,15 +60,15 @@ class Customer {
 		$customer = $customerFactory->get( $customer_id );
 
 		if ( $customerFactory->getResponse()->isSuccessful() ) {
-			
+
+			global $twinfield_plugin;
 			global $twinfield_customer;
+
 			$twinfield_customer = $customer;
 			
-			$view = new View( PRONAMIC_TWINFIELD_FOLDER . '/views/Pronamic/WP/Customer' );
-			$view
-				->setView( 'render_customer' )
-				->setVariable( 'customer', $customer )
-				->render();
+			$twinfield_plugin->display( 'templates/customer.php', array(
+				'twinfield_customer' => $twinfield_customer,
+			) );
 				
 			exit;
 		} else {

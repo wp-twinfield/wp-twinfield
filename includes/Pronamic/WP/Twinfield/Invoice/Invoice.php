@@ -57,15 +57,14 @@ class Invoice {
 
 		if ( $invoiceFactory->getResponse()->isSuccessful() ) {
 
+			global $twinfield_plugin;
 			global $twinfield_invoice;
-			$twinfield_invoice = $invoice;
 
-			// Generate view from invoice
-			$view = new View( PRONAMIC_TWINFIELD_FOLDER . '/views/Pronamic/WP/Invoice' );
-			$view
-					->setView( 'render_invoice' )
-					->setVariable( 'invoice', $invoice )
-					->render();
+			$twinfield_invoice = $invoice;
+			
+			$twinfield_plugin->display( 'templates/invoice.php', array(
+				'twinfield_invoice' => $invoice,
+			) );
 
 			exit;
 		} else {

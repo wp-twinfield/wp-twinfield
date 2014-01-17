@@ -4,7 +4,7 @@
 	<div id="content" role="main">
 
 		<div class="page-header">
-			<h1><?php printf( __( 'Invoice %s', 'twinfield' ), $invoice->getInvoiceNumber() ); ?></h1>
+			<h1><?php printf( __( 'Invoice %s', 'twinfield' ), $twinfield_invoice->getInvoiceNumber() ); ?></h1>
 		</div>
 
 		<div class="panel">
@@ -15,16 +15,16 @@
 			<div class="content">
 				<dl class="dl-horizontal">
 					<dt><?php _e( 'Invoice Number', 'twinfield' ); ?></dt>
-					<dd><?php echo $invoice->getInvoiceNumber(); ?></dd>
+					<dd><?php echo $twinfield_invoice->getInvoiceNumber(); ?></dd>
 	
-					<?php if ( $invoice_date = $invoice->getInvoiceDate() ): ?>
+					<?php if ( $invoice_date = $twinfield_invoice->getInvoiceDate() ): ?>
 	
 						<dt><?php _e( 'Invoice Date', 'twinfield' ); ?></dt>
 						<dd><?php echo $invoice_date; ?></dd>
 	
 					<?php endif; ?>
 	
-					<?php if ( $due_date = $invoice->getDueDate() ): ?>
+					<?php if ( $due_date = $twinfield_invoice->getDueDate() ): ?>
 	
 						<dt><?php _e( 'Due Date', 'twinfield' ); ?></dt>
 						<dd><?php echo $due_date; ?></dd>
@@ -33,16 +33,16 @@
 	
 	
 					<dt><?php _e( 'Office', 'twinfield' ); ?></dt>
-					<dd><?php echo $invoice->getOffice(); ?></dd>
+					<dd><?php echo $twinfield_invoice->getOffice(); ?></dd>
 	
 					<dt><?php _e( 'Type', 'twinfield' ); ?></dt>
-					<dd><?php echo $invoice->getInvoiceType(); ?></dd>
+					<dd><?php echo $twinfield_invoice->getInvoiceType(); ?></dd>
 	
 					<dt><?php _e( 'Customer', 'twinfield' ); ?></dt>
 					<dd>
 						<?php
 	
-						$customer = $invoice->getCustomer();
+						$customer = $twinfield_invoice->getCustomer();
 	
 						printf(
 							'<a href="%s" target="_blank">%s</a>',
@@ -54,7 +54,7 @@
 					</dd>
 	
 					<dt><?php _e( 'Status', 'twinfield' ); ?></dt>
-					<dd><?php echo $invoice->getStatus(); ?></dd>
+					<dd><?php echo $twinfield_invoice->getStatus(); ?></dd>
 				</dl>
 			</div>
 		</div>
@@ -64,7 +64,7 @@
 				<h3><?php _e( 'Lines', 'twinfield' ); ?></h3>
 			</header>
 
-			<?php $lines = $invoice->getLines(); ?>
+			<?php $lines = $twinfield_invoice->getLines(); ?>
 
 			<table class="table table-striped table-bordered table-condensed">
 				<thead>
