@@ -5,7 +5,7 @@
 
 	<?php if ( ! filter_has_var( INPUT_GET, 'twinfield_invoice_id' )  || isset( $error_messages ) ) : ?>
 	
-		<form method="get">
+		<form method="get" action="">
 			<input type="hidden" name="page" value="twinfield_invoices" />
 
 			<h3><?php _e( 'Search for invoices', 'twinfield' ); ?></h3>

@@ -5,7 +5,7 @@
 
 	<?php if ( ! filter_has_var( INPUT_GET, 'twinfield_customer_id' ) || isset( $error_messages ) ) : ?>
 
-		<form method="get">
+		<form method="get" action="">
 			<input type="hidden" name="page" value="twinfield_customers" />
 
 			<h3><?php _e( 'Search for customers', 'twinfield' ); ?></h3>
