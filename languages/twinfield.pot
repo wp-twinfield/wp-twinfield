@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Twinfield package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Twinfield 1.0.0\n"
+"Project-Id-Version: Twinfield 1.0.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/twinfield\n"
-"POT-Creation-Date: 2014-01-17 09:18:39+00:00\n"
+"POT-Creation-Date: 2014-01-17 13:26:18+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -12,22 +12,22 @@ msgstr ""
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
-#: includes/Pronamic/WP/Twinfield/Article/ArticleMetaBox.php:58
+#: includes/Pronamic/WP/Twinfield/Article/ArticleMetaBox.php:55
 msgid "Twinfield Article"
 msgstr ""
 
-#: includes/Pronamic/WP/Twinfield/Customer/Customer.php:36
-#: includes/Pronamic/WP/Twinfield/Customer/Customer.php:55
+#: includes/Pronamic/WP/Twinfield/Customer/Customer.php:33
+#: includes/Pronamic/WP/Twinfield/Customer/Customer.php:52
 msgctxt "Customer slug for frontend"
 msgid "customer"
 msgstr ""
 
-#: includes/Pronamic/WP/Twinfield/Customer/CustomerMetaBox.php:58
+#: includes/Pronamic/WP/Twinfield/Customer/CustomerMetaBox.php:55
 msgid "Twinfield Customer"
 msgstr ""
 
-#: includes/Pronamic/WP/Twinfield/Invoice/Invoice.php:26
-#: includes/Pronamic/WP/Twinfield/Invoice/Invoice.php:49
+#: includes/Pronamic/WP/Twinfield/Invoice/Invoice.php:24
+#: includes/Pronamic/WP/Twinfield/Invoice/Invoice.php:47
 msgctxt "Invoice slug for front end"
 msgid "invoice"
 msgstr ""
@@ -44,236 +44,267 @@ msgstr ""
 msgid "Customer requires CoC Number as Custom Meta Field"
 msgstr ""
 
-#: includes/Pronamic/WP/Twinfield/Settings/Settings.php:17
-#: views/Twinfield/page_parent.php:27
+#. #-#-#-#-#  twinfield.pot (Twinfield 1.0.1)  #-#-#-#-#
+#. Plugin Name of the plugin/theme
+#: includes/Pronamic/WP/TwinfieldPlugin/Admin.php:50
+#: includes/Pronamic/WP/TwinfieldPlugin/Admin.php:51
+msgid "Twinfield"
+msgstr ""
+
+#: includes/Pronamic/WP/TwinfieldPlugin/Admin.php:60
+msgctxt "twinfield.com"
+msgid "Twinfield Companies"
+msgstr ""
+
+#: includes/Pronamic/WP/TwinfieldPlugin/Admin.php:61
+msgctxt "twinfield.com"
+msgid "Companies"
+msgstr ""
+
+#: includes/Pronamic/WP/TwinfieldPlugin/Admin.php:69
+msgid "Twinfield Customers"
+msgstr ""
+
+#: includes/Pronamic/WP/TwinfieldPlugin/Admin.php:70
+msgid "Customers"
+msgstr ""
+
+#: includes/Pronamic/WP/TwinfieldPlugin/Admin.php:78
+msgid "Twinfield Invoices"
+msgstr ""
+
+#: includes/Pronamic/WP/TwinfieldPlugin/Admin.php:79
+msgid "Invoices"
+msgstr ""
+
+#: includes/Pronamic/WP/TwinfieldPlugin/Admin.php:87
+msgid "Twinfield Settings"
+msgstr ""
+
+#: includes/Pronamic/WP/TwinfieldPlugin/Admin.php:88
+msgid "Settings"
+msgstr ""
+
+#: includes/Pronamic/WP/TwinfieldPlugin/Admin.php:96
+msgid "Twinfield Form Builder"
+msgstr ""
+
+#: includes/Pronamic/WP/TwinfieldPlugin/Admin.php:97
+msgid "Form Builder"
+msgstr ""
+
+#: includes/Pronamic/WP/TwinfieldPlugin/Admin.php:105
+#: includes/Pronamic/WP/TwinfieldPlugin/Admin.php:106
+msgid "Merger Tool"
+msgstr ""
+
+#: includes/Pronamic/WP/TwinfieldPlugin/Admin.php:114
+msgid "Twinfield Documentation"
+msgstr ""
+
+#: includes/Pronamic/WP/TwinfieldPlugin/Admin.php:115
+msgid "Documentation"
+msgstr ""
+
+#: includes/Pronamic/WP/TwinfieldPlugin/Settings.php:36
+#: views/page-twinfield.php:21
 msgid "Login"
 msgstr ""
 
-#: includes/Pronamic/WP/Twinfield/Settings/Settings.php:24
+#: includes/Pronamic/WP/TwinfieldPlugin/Settings.php:43
 msgid "Username"
 msgstr ""
 
-#: includes/Pronamic/WP/Twinfield/Settings/Settings.php:33
+#: includes/Pronamic/WP/TwinfieldPlugin/Settings.php:52
 msgid "Password"
 msgstr ""
 
-#: includes/Pronamic/WP/Twinfield/Settings/Settings.php:42
+#: includes/Pronamic/WP/TwinfieldPlugin/Settings.php:61
 msgid "Organisation"
 msgstr ""
 
-#: includes/Pronamic/WP/Twinfield/Settings/Settings.php:62
+#: includes/Pronamic/WP/TwinfieldPlugin/Settings.php:81
 msgid "Defaults"
 msgstr ""
 
 #. translators: use same translations as on Twinfield.com.
-#: includes/Pronamic/WP/Twinfield/Settings/Settings.php:70
+#: includes/Pronamic/WP/TwinfieldPlugin/Settings.php:89
 msgctxt "twinfield.com"
 msgid "Default Company"
 msgstr ""
 
 #. translators: use same translations as on Twinfield.com.
-#: includes/Pronamic/WP/Twinfield/Settings/Settings.php:77
+#: includes/Pronamic/WP/TwinfieldPlugin/Settings.php:96
 msgctxt "twinfield.com"
 msgid ""
 "You can find your companies in Twinfield under \"Profile » Companies\" or "
 "\"General » System » Switch company\"."
 msgstr ""
 
-#: includes/Pronamic/WP/Twinfield/Settings/Settings.php:83
+#: includes/Pronamic/WP/TwinfieldPlugin/Settings.php:102
 msgid "Default Invoice Type"
 msgstr ""
 
 #. translators: use same translations as on Twinfield.com.
-#: includes/Pronamic/WP/Twinfield/Settings/Settings.php:91
+#: includes/Pronamic/WP/TwinfieldPlugin/Settings.php:110
 msgctxt "twinfield.com"
 msgid ""
 "You can find your invoice types in Twinfield under \"Credit management » "
 "Invoicing » Invoicing types\"."
 msgstr ""
 
-#: includes/Pronamic/WP/Twinfield/Settings/Settings.php:106
+#: includes/Pronamic/WP/TwinfieldPlugin/Settings.php:125
 msgid "Permalinks"
 msgstr ""
 
-#: includes/Pronamic/WP/Twinfield/Settings/Settings.php:113
+#: includes/Pronamic/WP/TwinfieldPlugin/Settings.php:132
 msgid "Invoice Slug"
 msgstr ""
 
-#: includes/Pronamic/WP/Twinfield/Settings/Settings.php:125
+#: includes/Pronamic/WP/TwinfieldPlugin/Settings.php:144
 msgid "Customer Slug"
 msgstr ""
 
-#: templates/sales-invoice.php:19
-#: views/Pronamic/WP/Invoice/render_invoice.php:17
-#: views/Pronamic/WP/Invoice/render_invoice_admin.php:39
+#: templates/customer.php:7 templates/customer.php:18
+#: views/Pronamic/WP/FormBuilder/create_form_customer.php:18
+#: views/Pronamic/WP/FormBuilder/create_form_customer.php:53
+#: views/page-customers.php:52 views/page-customers.php:65
+#: views/page-offices.php:27
+msgid "Name"
+msgstr ""
+
+#: templates/customer.php:10 views/page-customers.php:60
+msgid "Addresses"
+msgstr ""
+
+#: templates/customer.php:21
+#: views/Pronamic/WP/FormBuilder/create_form_customer.php:59
+#: views/page-customers.php:66
+msgid "City"
+msgstr ""
+
+#: templates/customer.php:24 views/page-customers.php:67
+msgid "Postal Code"
+msgstr ""
+
+#: templates/customer.php:27 views/page-customers.php:68
+msgid "Telephone"
+msgstr ""
+
+#: templates/invoice.php:7
+msgid "Invoice %s"
+msgstr ""
+
+#: templates/invoice.php:12
+msgid "Header"
+msgstr ""
+
+#: templates/invoice.php:17 views/page-invoices.php:54
 msgid "Invoice Number"
 msgstr ""
 
-#: templates/sales-invoice.php:24
-#: views/Pronamic/WP/Invoice/render_invoice.php:22
-#: views/Pronamic/WP/Invoice/render_invoice_admin.php:48
+#: templates/invoice.php:22 views/page-invoices.php:63
 msgid "Invoice Date"
 msgstr ""
 
-#: templates/sales-invoice.php:31
-#: views/Pronamic/WP/Invoice/render_invoice.php:29
-#: views/Pronamic/WP/Invoice/render_invoice_admin.php:59
+#: templates/invoice.php:29 views/page-invoices.php:74
 msgid "Due Date"
 msgstr ""
 
-#: templates/sales-invoice.php:37
-#: views/Pronamic/WP/Invoice/render_invoice.php:35
-#: views/Pronamic/WP/Invoice/render_invoice_admin.php:68
+#: templates/invoice.php:35 views/page-invoices.php:83
 msgid "Office"
 msgstr ""
 
-#: templates/sales-invoice.php:40
+#: templates/invoice.php:38
 #: views/Pronamic/WP/FormBuilder/create_form_customer.php:52
-#: views/Pronamic/WP/Invoice/render_invoice.php:38
-#: views/Pronamic/WP/Invoice/render_invoice_admin.php:74
+#: views/page-invoices.php:89
 msgid "Type"
 msgstr ""
 
-#: templates/sales-invoice.php:43 twinfield-functions.php:53
-#: views/Pronamic/WP/Invoice/render_invoice.php:41
-#: views/Pronamic/WP/Invoice/render_invoice_admin.php:80
+#: templates/invoice.php:41 twinfield-functions.php:53
+#: views/page-invoices.php:95
 msgid "Customer"
 msgstr ""
 
-#: templates/sales-invoice.php:58
-#: views/Pronamic/WP/Invoice/render_invoice.php:56
-#: views/Pronamic/WP/Invoice/render_invoice_admin.php:94
+#: templates/invoice.php:56 views/page-invoices.php:109
 msgid "Status"
+msgstr ""
+
+#: templates/invoice.php:64
+msgid "Lines"
+msgstr ""
+
+#: templates/invoice.php:72 views/page-invoices.php:122
+msgid "Id"
+msgstr ""
+
+#: templates/invoice.php:73
+#: views/Pronamic/WP/FormBuilder/create_form_invoice.php:21
+#: views/page-invoices.php:123
+msgid "Article"
+msgstr ""
+
+#: templates/invoice.php:74 views/page-invoices.php:124
+msgid "Sub article"
+msgstr ""
+
+#: templates/invoice.php:75
+#: views/Pronamic/WP/FormBuilder/create_form_invoice.php:23
+#: views/page-invoices.php:125
+msgid "Quantity"
+msgstr ""
+
+#: templates/invoice.php:76
+#: views/Pronamic/WP/FormBuilder/create_form_invoice.php:24
+#: views/page-invoices.php:126
+msgid "Units"
+msgstr ""
+
+#: templates/invoice.php:77 views/page-invoices.php:127
+msgid "Description"
+msgstr ""
+
+#: templates/invoice.php:78 views/page-invoices.php:128
+msgid "Value Excl"
+msgstr ""
+
+#: templates/invoice.php:79 views/page-invoices.php:129
+msgid "Vat Value"
+msgstr ""
+
+#: templates/invoice.php:80 views/page-invoices.php:130
+msgid "Value Inc"
+msgstr ""
+
+#: templates/invoice.php:81 views/page-invoices.php:131
+msgid "Units Price Excl"
+msgstr ""
+
+#: templates/invoice.php:82 views/page-invoices.php:132
+msgid "Free text 1"
 msgstr ""
 
 #: twinfield-functions.php:57
 msgid "Invoice"
 msgstr ""
 
-#. #-#-#-#-#  twinfield.pot (Twinfield 1.0.0)  #-#-#-#-#
-#. Plugin Name of the plugin/theme
-#: twinfield.php:187 twinfield.php:188
-msgid "Twinfield"
-msgstr ""
-
-#: twinfield.php:197
-msgid "Twinfield Customers"
-msgstr ""
-
-#: twinfield.php:198
-msgid "Customers"
-msgstr ""
-
-#: twinfield.php:206
-msgid "Twinfield Invoices"
-msgstr ""
-
-#: twinfield.php:207
-msgid "Invoices"
-msgstr ""
-
-#: twinfield.php:216
-msgid "Twinfield Settings"
-msgstr ""
-
-#: twinfield.php:217
-msgid "Settings"
-msgstr ""
-
-#: twinfield.php:225
-msgid "Twinfield Form Builder"
-msgstr ""
-
-#: twinfield.php:226
-msgid "Form Builder"
-msgstr ""
-
-#: twinfield.php:234 twinfield.php:235
-msgid "Merger Tool"
-msgstr ""
-
-#: twinfield.php:243
-msgid "Twinfield Documentation"
-msgstr ""
-
-#: twinfield.php:244
-msgid "Documentation"
-msgstr ""
-
-#: views/Pronamic/WP/Article/articlemetabox_view.php:4
-msgid "Article ID"
-msgstr ""
-
-#: views/Pronamic/WP/Article/articlemetabox_view.php:8
-msgid "Subarticle ID"
-msgstr ""
-
-#: views/Pronamic/WP/Customer/customermetabox_view.php:4
-msgid "Twinfield Customer ID"
-msgstr ""
-
-#: views/Pronamic/WP/Customer/render_customer.php:8
-#: views/Pronamic/WP/Customer/render_customer.php:21
-#: views/Pronamic/WP/Customer/render_customer_admin.php:34
-#: views/Pronamic/WP/Customer/render_customer_admin.php:47
-#: views/Pronamic/WP/FormBuilder/create_form_customer.php:18
-#: views/Pronamic/WP/FormBuilder/create_form_customer.php:53
-#: views/Twinfield/page_offices.php:25
-msgid "Name"
-msgstr ""
-
-#: views/Pronamic/WP/Customer/render_customer.php:13
-#: views/Pronamic/WP/Customer/render_customer_admin.php:42
-msgid "Addresses"
-msgstr ""
-
-#: views/Pronamic/WP/Customer/render_customer.php:26
-#: views/Pronamic/WP/Customer/render_customer_admin.php:48
-#: views/Pronamic/WP/FormBuilder/create_form_customer.php:59
-msgid "City"
-msgstr ""
-
-#: views/Pronamic/WP/Customer/render_customer.php:31
-#: views/Pronamic/WP/Customer/render_customer_admin.php:49
-msgid "Postal Code"
-msgstr ""
-
-#: views/Pronamic/WP/Customer/render_customer.php:36
-#: views/Pronamic/WP/Customer/render_customer_admin.php:50
-msgid "Telephone"
-msgstr ""
-
-#: views/Pronamic/WP/Customer/render_customer_admin.php:12
-msgid "Search for customers"
-msgstr ""
-
-#: views/Pronamic/WP/Customer/render_customer_admin.php:16
-#: views/Pronamic/WP/FormBuilder/create_form_customer.php:14
-#: views/Pronamic/WP/FormBuilder/create_form_invoice.php:12
-#: views/Pronamic/WP/Invoice/wp_twinfield_invoice_meta_box_view.php:33
-msgid "Customer ID"
-msgstr ""
-
-#: views/Pronamic/WP/Customer/render_customer_admin.php:23
-#: views/Pronamic/WP/Invoice/render_invoice_admin.php:23
-msgid "Search"
-msgstr ""
-
-#: views/Pronamic/WP/Customer/render_customer_admin.php:30
-msgid "Customer %s"
-msgstr ""
-
-#: views/Pronamic/WP/Customer/render_customer_admin.php:38
-#: views/Pronamic/WP/FormBuilder/create_form_customer.php:22
-msgid "Website"
-msgstr ""
-
 #: views/Pronamic/WP/FormBuilder/create_form_customer.php:9
 msgid "Customer Form"
 msgstr ""
 
+#: views/Pronamic/WP/FormBuilder/create_form_customer.php:14
+#: views/Pronamic/WP/FormBuilder/create_form_invoice.php:12
+#: views/meta-box-invoice.php:20 views/page-customers.php:34
+msgid "Customer ID"
+msgstr ""
+
 #: views/Pronamic/WP/FormBuilder/create_form_customer.php:15
 msgid "Newest Number"
+msgstr ""
+
+#: views/Pronamic/WP/FormBuilder/create_form_customer.php:22
+#: views/page-customers.php:56
+msgid "Website"
 msgstr ""
 
 #: views/Pronamic/WP/FormBuilder/create_form_customer.php:26
@@ -333,30 +364,12 @@ msgid "Invoice Form"
 msgstr ""
 
 #: views/Pronamic/WP/FormBuilder/create_form_invoice.php:6
-#: views/Pronamic/WP/Invoice/wp_twinfield_invoice_meta_box_view.php:42
+#: views/meta-box-invoice.php:28
 msgid "Invoice Type"
-msgstr ""
-
-#: views/Pronamic/WP/FormBuilder/create_form_invoice.php:21
-#: views/Pronamic/WP/Invoice/render_invoice.php:73
-#: views/Pronamic/WP/Invoice/render_invoice_admin.php:112
-msgid "Article"
 msgstr ""
 
 #: views/Pronamic/WP/FormBuilder/create_form_invoice.php:22
 msgid "Subarticle"
-msgstr ""
-
-#: views/Pronamic/WP/FormBuilder/create_form_invoice.php:23
-#: views/Pronamic/WP/Invoice/render_invoice.php:75
-#: views/Pronamic/WP/Invoice/render_invoice_admin.php:114
-msgid "Quantity"
-msgstr ""
-
-#: views/Pronamic/WP/FormBuilder/create_form_invoice.php:24
-#: views/Pronamic/WP/Invoice/render_invoice.php:76
-#: views/Pronamic/WP/Invoice/render_invoice_admin.php:115
-msgid "Units"
 msgstr ""
 
 #: views/Pronamic/WP/FormBuilder/create_form_invoice.php:25
@@ -379,86 +392,6 @@ msgstr ""
 msgid "Free Text 3"
 msgstr ""
 
-#: views/Pronamic/WP/Invoice/render_invoice.php:7
-msgid "Invoice %s"
-msgstr ""
-
-#: views/Pronamic/WP/Invoice/render_invoice.php:12
-#: views/Pronamic/WP/Invoice/render_invoice_admin.php:34
-msgid "Header"
-msgstr ""
-
-#: views/Pronamic/WP/Invoice/render_invoice.php:64
-#: views/Pronamic/WP/Invoice/render_invoice_admin.php:103
-msgid "Lines"
-msgstr ""
-
-#: views/Pronamic/WP/Invoice/render_invoice.php:72
-#: views/Pronamic/WP/Invoice/render_invoice_admin.php:111
-msgid "Id"
-msgstr ""
-
-#: views/Pronamic/WP/Invoice/render_invoice.php:74
-#: views/Pronamic/WP/Invoice/render_invoice_admin.php:113
-msgid "Sub article"
-msgstr ""
-
-#: views/Pronamic/WP/Invoice/render_invoice.php:77
-#: views/Pronamic/WP/Invoice/render_invoice_admin.php:116
-msgid "Description"
-msgstr ""
-
-#: views/Pronamic/WP/Invoice/render_invoice.php:78
-#: views/Pronamic/WP/Invoice/render_invoice_admin.php:117
-msgid "Value Excl"
-msgstr ""
-
-#: views/Pronamic/WP/Invoice/render_invoice.php:79
-#: views/Pronamic/WP/Invoice/render_invoice_admin.php:118
-msgid "Vat Value"
-msgstr ""
-
-#: views/Pronamic/WP/Invoice/render_invoice.php:80
-#: views/Pronamic/WP/Invoice/render_invoice_admin.php:119
-msgid "Value Inc"
-msgstr ""
-
-#: views/Pronamic/WP/Invoice/render_invoice.php:81
-#: views/Pronamic/WP/Invoice/render_invoice_admin.php:120
-msgid "Units Price Excl"
-msgstr ""
-
-#: views/Pronamic/WP/Invoice/render_invoice.php:82
-#: views/Pronamic/WP/Invoice/render_invoice_admin.php:121
-msgid "Free text 1"
-msgstr ""
-
-#: views/Pronamic/WP/Invoice/render_invoice_admin.php:12
-msgid "Search for invoices"
-msgstr ""
-
-#: views/Pronamic/WP/Invoice/render_invoice_admin.php:16
-#: views/Pronamic/WP/Invoice/wp_twinfield_invoice_meta_box_view.php:24
-msgid "Invoice ID"
-msgstr ""
-
-#: views/Pronamic/WP/Invoice/render_invoice_admin.php:31
-msgid "Invoice %d"
-msgstr ""
-
-#: views/Pronamic/WP/Invoice/wp_twinfield_invoice_meta_box_view.php:49
-msgid "View"
-msgstr ""
-
-#: views/Pronamic/WP/Invoice/wp_twinfield_invoice_meta_box_view.php:53
-#: views/Pronamic/WP/Merge/Customer/partial_table.php:24
-msgid "Sync"
-msgstr ""
-
-#: views/Pronamic/WP/Invoice/wp_twinfield_invoice_meta_box_view.php:56
-msgid "Looking for automatic synchronization?"
-msgstr ""
-
 #: views/Pronamic/WP/Merge/Customer/partial_table.php:4
 msgid "Post Title"
 msgstr ""
@@ -471,83 +404,132 @@ msgstr ""
 msgid "Matched?"
 msgstr ""
 
-#: views/Twinfield/page_documentation.php:10
+#: views/Pronamic/WP/Merge/Customer/partial_table.php:24
+#: views/meta-box-invoice.php:44
+msgid "Sync"
+msgstr ""
+
+#: views/meta-box-article.php:6
+msgid "Article ID"
+msgstr ""
+
+#: views/meta-box-article.php:14
+msgid "Subarticle ID"
+msgstr ""
+
+#: views/meta-box-customer.php:6
+msgid "Twinfield Customer ID"
+msgstr ""
+
+#: views/meta-box-invoice.php:12 views/page-invoices.php:35
+msgid "Invoice ID"
+msgstr ""
+
+#: views/meta-box-invoice.php:38
+msgid "View"
+msgstr ""
+
+#: views/meta-box-invoice.php:51
+msgid "Looking for automatic synchronization?"
+msgstr ""
+
+#: views/page-customers.php:30
+msgid "Search for customers"
+msgstr ""
+
+#: views/page-customers.php:41 views/page-invoices.php:42
+msgid "Search"
+msgstr ""
+
+#: views/page-customers.php:48
+msgid "Customer %s"
+msgstr ""
+
+#: views/page-documentation.php:10
 msgid "General"
 msgstr ""
 
-#: views/Twinfield/page_documentation.php:24
+#: views/page-documentation.php:24
 msgid "Webservices"
 msgstr ""
 
-#: views/Twinfield/page_documentation.php:93
+#: views/page-documentation.php:93
 msgid "Templates (Dutch)"
 msgstr ""
 
-#: views/Twinfield/page_documentation.php:134
+#: views/page-documentation.php:134
 msgid "Templates (English)"
 msgstr ""
 
-#: views/Twinfield/page_documentation.php:232
+#: views/page-documentation.php:232
 msgid "version %s"
 msgstr ""
 
-#: views/Twinfield/page_documentation.php:236
+#: views/page-documentation.php:236
 msgid "%s"
 msgstr ""
 
-#: views/Twinfield/page_merge.php:23
+#: views/page-invoices.php:31
+msgid "Search for invoices"
+msgstr ""
+
+#: views/page-invoices.php:49
+msgid "Invoice %d"
+msgstr ""
+
+#: views/page-merger-tool.php:23
 msgid "Response Limit"
 msgstr ""
 
-#: views/Twinfield/page_merge.php:28
+#: views/page-merger-tool.php:28
 msgid "The number of customers to retrieve from Twinfield."
 msgstr ""
 
-#: views/Twinfield/page_merge.php:33
+#: views/page-merger-tool.php:33
 msgid "Response Offset"
 msgstr ""
 
-#: views/Twinfield/page_merge.php:38
+#: views/page-merger-tool.php:38
 msgid "The offset of customers to retrieve from Twinfield."
 msgstr ""
 
-#: views/Twinfield/page_merge.php:43
+#: views/page-merger-tool.php:43
 msgid "Custom Meta Field"
 msgstr ""
 
-#: views/Twinfield/page_merge.php:48
+#: views/page-merger-tool.php:48
 msgid ""
 "The meta field key to retrieve the KvK number from (for example: <code>%s</"
 "code>)."
 msgstr ""
 
-#: views/Twinfield/page_merge.php:53
+#: views/page-merger-tool.php:53
 msgid "New Custom Field"
 msgstr ""
 
-#: views/Twinfield/page_merge.php:58
+#: views/page-merger-tool.php:58
 msgid ""
 "The meta field key to store the Twinfield ID in (for example: <code>%s</"
 "code>)."
 msgstr ""
 
-#: views/Twinfield/page_merge.php:63
+#: views/page-merger-tool.php:63
 msgid "Show"
 msgstr ""
 
-#: views/Twinfield/page_merge.php:67
+#: views/page-merger-tool.php:67
 msgid "Automate"
 msgstr ""
 
-#: views/Twinfield/page_offices.php:23
+#: views/page-offices.php:25
 msgid "Code"
 msgstr ""
 
-#: views/Twinfield/page_offices.php:24
+#: views/page-offices.php:26
 msgid "Shortname"
 msgstr ""
 
-#: views/Twinfield/page_parent.php:16
+#: views/page-twinfield.php:10
 msgid "Quick Login"
 msgstr ""
 

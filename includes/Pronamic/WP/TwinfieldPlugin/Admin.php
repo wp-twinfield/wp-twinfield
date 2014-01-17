@@ -57,8 +57,8 @@ class Pronamic_WP_TwinfieldPlugin_Admin {
 
 		add_submenu_page(
 			'twinfield',
-			_x( 'Twinfield Administrations', 'twinfield.com', 'twinfield' ),
-			_x( 'Administrations', 'twinfield.com', 'twinfield' ),
+			_x( 'Twinfield Companies', 'twinfield.com', 'twinfield' ),
+			_x( 'Companies', 'twinfield.com', 'twinfield' ),
 			'twinfield_read_offices',
 			'twinfield_offices',
 			array( $this, 'page_offices' )

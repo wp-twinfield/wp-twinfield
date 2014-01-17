@@ -2,8 +2,8 @@
 Contributors: pronamic, remcotolsma, zogot
 Tags: twinfield, administration
 Requires at least: 3.0
-Tested up to: 3.7.1
-Stable tag: 1.0.0
+Tested up to: 3.8
+Stable tag: 1.0.1
 
 This plugin makes a connection with the Twinfield adminsitration software.
 
@@ -32,6 +32,9 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 == Changelog ==
 
+= 1.0.1 =
+*	Refactored code.
+ 
 = 1.0.0 =
 *	Initial release.
 

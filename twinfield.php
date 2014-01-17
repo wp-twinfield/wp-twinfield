@@ -1,20 +1,22 @@
 <?php
-/**
- * Plugin Name: Twinfield
- * Plugin URI: http://wp.pronamic.eu/plugins/twinfield/
- * Description: A base plugin to make the connection with the Twinfield administration software.
- *
- * Author: Pronamic
- * Author URI: http://www.pronamic.eu/
- *
- * Version: 1.0.0
- * Requires at least: 3.0
- *
- * Text Domain: twinfield
- * Domain Path: /languages/
- *
- * License: GPL
- */
+/*
+Plugin Name: Twinfield
+Plugin URI: http://wp.pronamic.eu/plugins/twinfield/
+Description: A base plugin to make the connection with the Twinfield administration software.
+
+Author: Pronamic
+Author URI: http://www.pronamic.eu/
+
+Version: 1.0.1
+Requires at least: 3.0
+
+Text Domain: twinfield
+Domain Path: /languages/
+
+License: GPL
+
+GitHub URI: https://github.com/pronamic/wp-twinfield
+*/
 
 define( 'PRONAMIC_TWINFIELD_FILE', __FILE__ );
 define( 'PRONAMIC_TWINFIELD_FOLDER', plugin_dir_path( PRONAMIC_TWINFIELD_FILE ) );
