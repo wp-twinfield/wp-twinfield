@@ -1,14 +1,14 @@
-# Copyright (C) 2013 Twinfield
+# Copyright (C) 2014 Twinfield
 # This file is distributed under the same license as the Twinfield package.
 msgid ""
 msgstr ""
 "Project-Id-Version: Twinfield 1.0.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/twinfield\n"
-"POT-Creation-Date: 2013-11-22 14:10:12+00:00\n"
+"POT-Creation-Date: 2014-01-17 09:18:39+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2013-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
@@ -45,7 +45,8 @@ msgid "Customer requires CoC Number as Custom Meta Field"
 msgstr ""
 
 #: includes/Pronamic/WP/Twinfield/Settings/Settings.php:17
-msgid "API"
+#: views/Twinfield/page_parent.php:27
+msgid "Login"
 msgstr ""
 
 #: includes/Pronamic/WP/Twinfield/Settings/Settings.php:24
@@ -60,28 +61,45 @@ msgstr ""
 msgid "Organisation"
 msgstr ""
 
-#: includes/Pronamic/WP/Twinfield/Settings/Settings.php:51
-msgid "Office Code"
+#: includes/Pronamic/WP/Twinfield/Settings/Settings.php:62
+msgid "Defaults"
 msgstr ""
 
-#: includes/Pronamic/WP/Twinfield/Settings/Settings.php:72
-#: views/Twinfield/page_documentation.php:10
-msgid "General"
+#. translators: use same translations as on Twinfield.com.
+#: includes/Pronamic/WP/Twinfield/Settings/Settings.php:70
+msgctxt "twinfield.com"
+msgid "Default Company"
 msgstr ""
 
-#: includes/Pronamic/WP/Twinfield/Settings/Settings.php:79
+#. translators: use same translations as on Twinfield.com.
+#: includes/Pronamic/WP/Twinfield/Settings/Settings.php:77
+msgctxt "twinfield.com"
+msgid ""
+"You can find your companies in Twinfield under \"Profile » Companies\" or "
+"\"General » System » Switch company\"."
+msgstr ""
+
+#: includes/Pronamic/WP/Twinfield/Settings/Settings.php:83
 msgid "Default Invoice Type"
 msgstr ""
 
-#: includes/Pronamic/WP/Twinfield/Settings/Settings.php:99
-msgid "Permalinks"
+#. translators: use same translations as on Twinfield.com.
+#: includes/Pronamic/WP/Twinfield/Settings/Settings.php:91
+msgctxt "twinfield.com"
+msgid ""
+"You can find your invoice types in Twinfield under \"Credit management » "
+"Invoicing » Invoicing types\"."
 msgstr ""
 
 #: includes/Pronamic/WP/Twinfield/Settings/Settings.php:106
+msgid "Permalinks"
+msgstr ""
+
+#: includes/Pronamic/WP/Twinfield/Settings/Settings.php:113
 msgid "Invoice Slug"
 msgstr ""
 
-#: includes/Pronamic/WP/Twinfield/Settings/Settings.php:118
+#: includes/Pronamic/WP/Twinfield/Settings/Settings.php:125
 msgid "Customer Slug"
 msgstr ""
 
@@ -116,7 +134,7 @@ msgstr ""
 msgid "Type"
 msgstr ""
 
-#: templates/sales-invoice.php:43 twinfield-functions.php:45
+#: templates/sales-invoice.php:43 twinfield-functions.php:53
 #: views/Pronamic/WP/Invoice/render_invoice.php:41
 #: views/Pronamic/WP/Invoice/render_invoice_admin.php:80
 msgid "Customer"
@@ -128,7 +146,7 @@ msgstr ""
 msgid "Status"
 msgstr ""
 
-#: twinfield-functions.php:49
+#: twinfield-functions.php:57
 msgid "Invoice"
 msgstr ""
 
@@ -453,6 +471,10 @@ msgstr ""
 msgid "Matched?"
 msgstr ""
 
+#: views/Twinfield/page_documentation.php:10
+msgid "General"
+msgstr ""
+
 #: views/Twinfield/page_documentation.php:24
 msgid "Webservices"
 msgstr ""
@@ -529,8 +551,13 @@ msgstr ""
 msgid "Quick Login"
 msgstr ""
 
-#: views/Twinfield/page_parent.php:27
-msgid "Login"
+#: views/section-permalinks.php:9
+msgid ""
+"If you like, you may enter custom structures for your invoice and customer "
+"<abbr title=\"Universal Resource Locator\">URL</abbr>s here. For example, "
+"using <code>invoices</code> as your invoice base would make your invoice "
+"links like <code>http://example.org/invoices/140001/</code>. If you leave "
+"these blank the defaults will be used."
 msgstr ""
 
 #. Plugin URI of the plugin/theme

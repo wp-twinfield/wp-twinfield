@@ -23,7 +23,7 @@ class Invoice {
 		$rules = array();
 
 		// Get the invoice slug from options
-		$slug = get_option( 'wp_twinfield_invoice_slug', _x( 'invoice', 'Invoice slug for front end', 'twinfield' ) );
+		$slug = get_option( 'twinfield_invoice_slug', _x( 'invoice', 'Invoice slug for front end', 'twinfield' ) );
 		$default_type = get_option( 'wp_twinfield_default_invoice_type', 'FACTUUR' );
         
         $rules[$slug . '/([^/]+)$'] = 'index.php?twinfield_sales_invoice_type=' . $default_type . '&twinfield_sales_invoice_id=' . $wp_rewrite->preg_index(1);
@@ -46,7 +46,7 @@ class Invoice {
 			return;
 		
 		if ( ! is_user_logged_in() || ! current_user_can( 'twinfield_read_invoice' ) )
-			wp_redirect( wp_login_url( site_url( get_option( 'wp_twinfield_invoice_slug', _x( 'invoice', 'Invoice slug for front end', 'twinfield' ) ) . '/' . $invoice_id ) ) );
+			wp_redirect( wp_login_url( site_url( get_option( 'twinfield_invoice_slug', _x( 'invoice', 'Invoice slug for front end', 'twinfield' ) ) . '/' . $invoice_id ) ) );
 		
 
 		global $twinfield_config;

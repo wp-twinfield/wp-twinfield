@@ -17,7 +17,7 @@
  */
 
 define( 'PRONAMIC_TWINFIELD_FILE', __FILE__ );
-define( 'PRONAMIC_TWINFIELD_FOLDER', dirname( PRONAMIC_TWINFIELD_FILE ) );
+define( 'PRONAMIC_TWINFIELD_FOLDER', plugin_dir_path( PRONAMIC_TWINFIELD_FILE ) );
 
 use ZFramework\Base\View;
 use Pronamic\WP\Twinfield\FormBuilder as Form;
@@ -151,7 +151,7 @@ if ( ! class_exists( 'Twinfield' ) ) :
 				get_option( 'twinfield_username' ),
 				get_option( 'twinfield_password' ),
 				get_option( 'twinfield_organisation' ),
-				get_option( 'twinfield_office_code' )
+				get_option( 'twinfield_default_office_code' )
 			);
 
 			// Load the modules

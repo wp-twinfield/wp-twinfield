@@ -13,18 +13,18 @@ class Settings {
 		 */
 
 		add_settings_section(
-			'api',
-			__( 'API', 'twinfield' ),
-			array( $this, 'section_view' ),
-			'twinfield-settings'
+			'twinfield_login',
+			__( 'Login', 'twinfield' ),
+			create_function( null, "twinfield_settings_section( 'section-login' );" ),
+			'twinfield_settings'
 		);
 
 		add_settings_field(
 			'twinfield_username',
 			__( 'Username', 'twinfield' ),
 			array( $this, 'render_text' ),
-			'twinfield-settings',
-			'api',
+			'twinfield_settings',
+			'twinfield_login',
 			array( 'label_for' => 'twinfield_username' )
 		);
 
@@ -32,8 +32,8 @@ class Settings {
 			'twinfield_password',
 			__( 'Password', 'twinfield' ),
 			array( $this, 'render_password' ),
-			'twinfield-settings',
-			'api',
+			'twinfield_settings',
+			'twinfield_login',
 			array( 'label_for' => 'twinfield_password' )
 		);
 
@@ -41,25 +41,15 @@ class Settings {
 			'twinfield_organisation',
 			__( 'Organisation', 'twinfield' ),
 			array( $this, 'render_text' ),
-			'twinfield-settings',
-			'api',
+			'twinfield_settings',
+			'twinfield_login',
 			array( 'label_for' => 'twinfield_organisation' )
 		);
 
-		add_settings_field(
-			'twinfield_office_code',
-			__( 'Office Code', 'twinfield' ),
-			array( $this, 'render_text' ),
-			'twinfield-settings',
-			'api',
-			array( 'label_for' => 'twinfield_office_code' )
-		);
-
 		// Registered settings for the api section
-		register_setting( 'wp_twinfield_api', 'twinfield_username' );
-		register_setting( 'wp_twinfield_api', 'twinfield_password' );
-		register_setting( 'wp_twinfield_api', 'twinfield_organisation' );
-		register_setting( 'wp_twinfield_api', 'twinfield_office_code' );
+		register_setting( 'twinfield', 'twinfield_username' );
+		register_setting( 'twinfield', 'twinfield_password' );
+		register_setting( 'twinfield', 'twinfield_organisation' );
 
         /**
 		 * =========
@@ -68,25 +58,42 @@ class Settings {
 		 */
         
         add_settings_section(
-            'general',
-            __( 'General', 'twinfield' ),
-            array( $this, 'section_view' ),
-            'twinfield-settings'
+            'twinfield_defaults',
+            __( 'Defaults', 'twinfield' ),
+            create_function( null, "twinfield_settings_section( 'section-defaults' );" ),
+            'twinfield_settings'
         );
+
+		add_settings_field(
+			'twinfield_default_office_code',
+			/* translators: use same translations as on Twinfield.com. */
+			_x( 'Default Company', 'twinfield.com', 'twinfield' ),
+			array( $this, 'render_text' ),
+			'twinfield_settings',
+			'twinfield_defaults',
+			array(
+				'label_for'   => 'twinfield_default_office_code',
+				/* translators: use same translations as on Twinfield.com. */
+				'description' => _x( 'You can find your companies in Twinfield under "Profile » Companies" or "General » System » Switch company".', 'twinfield.com', 'twinfield' ),
+			)
+		);
         
         add_settings_field(
-            'wp_twinfield_default_invoice_type',
+            'twinfield_default_invoice_type',
             __( 'Default Invoice Type', 'twinfield' ),
             array( $this, 'render_text' ),
-            'twinfield-settings',
-            'general',
+            'twinfield_settings',
+            'twinfield_defaults',
             array(
-                'label_for' => 'wp_twinfield_default_invoice_type',
-                'classes' => array( 'regular-text', 'code' )
+                'label_for'   => 'twinfield_default_invoice_type',
+                'classes'     => array( 'regular-text', 'code' ),
+				/* translators: use same translations as on Twinfield.com. */
+				'description' => _x( 'You can find your invoice types in Twinfield under "Credit management » Invoicing » Invoicing types".', 'twinfield.com', 'twinfield' ),
             )
         );
-        
-        register_setting( 'wp_twinfield_api', 'wp_twinfield_default_invoice_type' );
+
+        register_setting( 'twinfield', 'twinfield_default_office_code' );
+        register_setting( 'twinfield', 'twinfield_default_invoice_type' );
         
 		/**
 		 * =========
@@ -95,42 +102,40 @@ class Settings {
 		 */
 
 		add_settings_section(
-			'permalinks',
+			'twinfield_permalinks',
 			__( 'Permalinks', 'twinfield' ),
-			array( $this, 'section_view' ),
-			'twinfield-settings'
+			create_function( null, "twinfield_settings_section( 'section-permalinks' );" ),
+			'twinfield_settings'
 		);
 
 		add_settings_field(
-			'wp_twinfield_invoice_slug',
+			'twinfield_invoice_slug',
 			__( 'Invoice Slug', 'twinfield' ),
 			array( $this, 'render_text' ),
-			'twinfield-settings',
-			'permalinks',
+			'twinfield_settings',
+			'twinfield_permalinks',
 			array(
-				'label_for' => 'wp_twinfield_invoice_slug',
-				'classes'   => array( 'regular-text', 'code' )
+				'label_for' => 'twinfield_invoice_slug',
+				'classes'   => array( 'regular-text', 'code' ),
 			)
 		);
 
 		add_settings_field(
-			'wp_twinfield_customer_slug',
+			'twinfield_customer_slug',
 			__( 'Customer Slug', 'twinfield' ),
 			array( $this, 'render_text' ),
-			'twinfield-settings',
-			'permalinks',
+			'twinfield_settings',
+			'twinfield_permalinks',
 			array(
-				'label_for' => 'wp_twinfield_customer_slug',
-				'classes'   => array( 'regular-text', 'code' )
+				'label_for' => 'twinfield_customer_slug',
+				'classes'   => array( 'regular-text', 'code' ),
 			)
 		);
 
 		// Settings for the permalinks section
-		register_setting( 'wp_twinfield_api', 'wp_twinfield_invoice_slug' );
-		register_setting( 'wp_twinfield_api', 'wp_twinfield_customer_slug' );
+		register_setting( 'twinfield', 'twinfield_invoice_slug' );
+		register_setting( 'twinfield', 'twinfield_customer_slug' );
 	}
-
-	public function section_view() {}
 
 	public function render_text( $attributes ) {
 		$attributes = wp_parse_args( $attributes, array(
@@ -152,7 +157,7 @@ class Settings {
 		
 		if ( isset( $attributes['description'] ) ) {
 			printf(
-				'<span class="description">%s</span>',
+				'<span class="description"><br />%s</span>',
 				$attributes['description']
 			);
 		}

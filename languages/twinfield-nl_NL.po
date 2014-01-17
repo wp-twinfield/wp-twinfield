@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Twinfield\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/twinfield\n"
-"POT-Creation-Date: 2013-11-22 14:10:12+00:00\n"
-"PO-Revision-Date: 2013-11-22 15:10+0100\n"
+"POT-Creation-Date: 2014-01-17 09:18:39+00:00\n"
+"PO-Revision-Date: 2014-01-17 10:20+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-KeywordsList: __;_e\n"
-"X-Generator: Poedit 1.5.7\n"
+"X-Generator: Poedit 1.6.3\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
@@ -48,8 +48,9 @@ msgid "Customer requires CoC Number as Custom Meta Field"
 msgstr "Klant vereist KvK nummer als een maatwerk meta veld"
 
 #: includes/Pronamic/WP/Twinfield/Settings/Settings.php:17
-msgid "API"
-msgstr "API"
+#: views/Twinfield/page_parent.php:27
+msgid "Login"
+msgstr "Inloggen"
 
 #: includes/Pronamic/WP/Twinfield/Settings/Settings.php:24
 msgid "Username"
@@ -63,28 +64,49 @@ msgstr "Wachtwoord"
 msgid "Organisation"
 msgstr "Organisatie"
 
-#: includes/Pronamic/WP/Twinfield/Settings/Settings.php:51
-msgid "Office Code"
-msgstr "Kantoorcode"
+#: includes/Pronamic/WP/Twinfield/Settings/Settings.php:62
+msgid "Defaults"
+msgstr "Standaaarden"
 
-#: includes/Pronamic/WP/Twinfield/Settings/Settings.php:72
-#: views/Twinfield/page_documentation.php:10
-msgid "General"
-msgstr "Algemeen"
+#. translators: use same translations as on Twinfield.com.
+#: includes/Pronamic/WP/Twinfield/Settings/Settings.php:70
+msgctxt "twinfield.com"
+msgid "Default Company"
+msgstr "Standaardadministratie"
 
-#: includes/Pronamic/WP/Twinfield/Settings/Settings.php:79
+#. translators: use same translations as on Twinfield.com.
+#: includes/Pronamic/WP/Twinfield/Settings/Settings.php:77
+msgctxt "twinfield.com"
+msgid ""
+"You can find your companies in Twinfield under \"Profile » Companies\" or "
+"\"General » System » Switch company\"."
+msgstr ""
+"Je kunt je administraties in Twinfield vinden onder \"Profiel » "
+"Administraties\" of \"Algemeen » Systeem » Administratie wisselen\"."
+
+#: includes/Pronamic/WP/Twinfield/Settings/Settings.php:83
 msgid "Default Invoice Type"
-msgstr "Standaard factuur type"
+msgstr "Standaard factuurtype"
 
-#: includes/Pronamic/WP/Twinfield/Settings/Settings.php:99
+#. translators: use same translations as on Twinfield.com.
+#: includes/Pronamic/WP/Twinfield/Settings/Settings.php:91
+msgctxt "twinfield.com"
+msgid ""
+"You can find your invoice types in Twinfield under \"Credit management » "
+"Invoicing » Invoicing types\"."
+msgstr ""
+"Je kunt je factuurtypen in Twinfield vinden onder \"Facturatie » Factureren "
+"» Factuurtypen\"."
+
+#: includes/Pronamic/WP/Twinfield/Settings/Settings.php:106
 msgid "Permalinks"
 msgstr "Permalinks"
 
-#: includes/Pronamic/WP/Twinfield/Settings/Settings.php:106
+#: includes/Pronamic/WP/Twinfield/Settings/Settings.php:113
 msgid "Invoice Slug"
 msgstr "Factuurbasis"
 
-#: includes/Pronamic/WP/Twinfield/Settings/Settings.php:118
+#: includes/Pronamic/WP/Twinfield/Settings/Settings.php:125
 msgid "Customer Slug"
 msgstr "Klantbasis"
 
@@ -119,7 +141,7 @@ msgstr "Kantoor"
 msgid "Type"
 msgstr "Type"
 
-#: templates/sales-invoice.php:43 twinfield-functions.php:45
+#: templates/sales-invoice.php:43 twinfield-functions.php:53
 #: views/Pronamic/WP/Invoice/render_invoice.php:41
 #: views/Pronamic/WP/Invoice/render_invoice_admin.php:80
 msgid "Customer"
@@ -131,11 +153,10 @@ msgstr "Klant"
 msgid "Status"
 msgstr "Status"
 
-#: twinfield-functions.php:49
+#: twinfield-functions.php:57
 msgid "Invoice"
 msgstr "Factuur"
 
-#. #-#-#-#-#  twinfield.pot (Twinfield 1.0.0)  #-#-#-#-#
 #. Plugin Name of the plugin/theme
 #: twinfield.php:187 twinfield.php:188
 msgid "Twinfield"
@@ -320,7 +341,7 @@ msgstr "Factuur formulier"
 #: views/Pronamic/WP/FormBuilder/create_form_invoice.php:6
 #: views/Pronamic/WP/Invoice/wp_twinfield_invoice_meta_box_view.php:42
 msgid "Invoice Type"
-msgstr "Factuur type"
+msgstr "Factuurtype"
 
 #: views/Pronamic/WP/FormBuilder/create_form_invoice.php:21
 #: views/Pronamic/WP/Invoice/render_invoice.php:73
@@ -441,8 +462,9 @@ msgid "Sync"
 msgstr "Sync"
 
 #: views/Pronamic/WP/Invoice/wp_twinfield_invoice_meta_box_view.php:56
+#, fuzzy
 msgid "Looking for automatic synchronization?"
-msgstr ""
+msgstr "Het lijkt erop dat we niet kunnen vinden wat je zoekt."
 
 #: views/Pronamic/WP/Merge/Customer/partial_table.php:4
 msgid "Post Title"
@@ -455,6 +477,10 @@ msgstr "Meta veld"
 #: views/Pronamic/WP/Merge/Customer/partial_table.php:6
 msgid "Matched?"
 msgstr "Overeenkomst?"
+
+#: views/Twinfield/page_documentation.php:10
+msgid "General"
+msgstr "Algemeen"
 
 #: views/Twinfield/page_documentation.php:24
 msgid "Webservices"
@@ -481,36 +507,40 @@ msgid "Response Limit"
 msgstr "Response limiet"
 
 #: views/Twinfield/page_merge.php:28
+#, fuzzy
 msgid "The number of customers to retrieve from Twinfield."
-msgstr ""
+msgstr "Twinfield klanten"
 
 #: views/Twinfield/page_merge.php:33
 msgid "Response Offset"
 msgstr "Response offset"
 
 #: views/Twinfield/page_merge.php:38
+#, fuzzy
 msgid "The offset of customers to retrieve from Twinfield."
-msgstr ""
+msgstr "Twinfield klanten"
 
 #: views/Twinfield/page_merge.php:43
 msgid "Custom Meta Field"
 msgstr "Maatwerk meta veld"
 
 #: views/Twinfield/page_merge.php:48
+#, fuzzy
 msgid ""
 "The meta field key to retrieve the KvK number from (for example: <code>%s</"
 "code>)."
-msgstr ""
+msgstr "De antwoord code (<code>%s<code>) van de iDEAL-provider was onjuist."
 
 #: views/Twinfield/page_merge.php:53
 msgid "New Custom Field"
 msgstr "Nieuwe maatwerk veld"
 
 #: views/Twinfield/page_merge.php:58
+#, fuzzy
 msgid ""
 "The meta field key to store the Twinfield ID in (for example: <code>%s</"
 "code>)."
-msgstr ""
+msgstr "Standaard: <code>%s</code>."
 
 #: views/Twinfield/page_merge.php:63
 msgid "Show"
@@ -532,19 +562,32 @@ msgstr "Korte naam"
 msgid "Quick Login"
 msgstr "Snel inloggen"
 
-#: views/Twinfield/page_parent.php:27
-msgid "Login"
-msgstr "Inloggen"
+#: views/section-permalinks.php:9
+msgid ""
+"If you like, you may enter custom structures for your invoice and customer "
+"<abbr title=\"Universal Resource Locator\">URL</abbr>s here. For example, "
+"using <code>invoices</code> as your invoice base would make your invoice "
+"links like <code>http://example.org/invoices/140001/</code>. If you leave "
+"these blank the defaults will be used."
+msgstr ""
+"Als je wilt, kan je hier aangepaste structuren voor je factuur- en klant-"
+"<abbr title=”Universal Resource Locator”>URL</abbr>s invoeren. Als je "
+"bijvoorbeeld <code>facturen</code> als je factuurbasis gebruikt, worden je "
+"factuurlinks iets als <code>http://example.org/facturen/140001/</code>. Als "
+"je dit leeg laat, worden de standaardwaarden gebruikt."
 
 #. Plugin URI of the plugin/theme
 msgid "http://wp.pronamic.eu/plugins/twinfield/"
 msgstr "http://wp.pronamic.eu/plugins/twinfield/"
 
 #. Description of the plugin/theme
+#, fuzzy
 msgid ""
 "A base plugin to make the connection with the Twinfield administration "
 "software."
 msgstr ""
+"De Orbis Twinfield plugin laat je Orbis informatie synchroniseren met "
+"Twinfield."
 
 #. Author of the plugin/theme
 msgid "Pronamic"
@@ -554,8 +597,11 @@ msgstr "Pronamic"
 msgid "http://www.pronamic.eu/"
 msgstr "http://www.pronamic.nl/"
 
-#~ msgid "Defaults"
-#~ msgstr "Standaaarden"
+#~ msgid "Office Code"
+#~ msgstr "Kantoorcode"
+
+#~ msgid "API"
+#~ msgstr "API"
 
 #~ msgid "Twinfield Invoice ID"
 #~ msgstr "Twinfield factuur ID"
