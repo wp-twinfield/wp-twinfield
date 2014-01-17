@@ -27,8 +27,6 @@
 	<?php if ( ! isset( $error_messages ) && false !== $invoice ) : ?>
 	
 		<h3><?php printf( __( 'Invoice %d', 'twinfield' ), $invoice->getInvoiceNumber() ); ?></h3>
-	
-		<h4><?php _e( 'Header', 'twinfield' ); ?></h4>
 
 		<table class="form-table">
 			<tr>
@@ -82,7 +80,7 @@
 					$customer = $invoice->getCustomer();
 	
 					printf( '<a href="%s" target="_blank">%s</a>', twinfield_admin_view_customer_link( $customer->getID() ), $customer->getID() );
-	
+
 					?>
 				</td>
 			</tr>
@@ -95,10 +93,6 @@
 				</td>
 			</tr>
 		</table>
-	
-		<h4>
-			<?php _e( 'Lines', 'twinfield' ); ?>
-		</h4>
 
 		<?php $lines = $invoice->getLines(); ?>
 	
