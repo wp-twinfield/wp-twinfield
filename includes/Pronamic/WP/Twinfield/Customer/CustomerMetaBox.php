@@ -21,15 +21,12 @@ namespace Pronamic\WP\Twinfield\Customer;
  *
  * @since 0.0.1
  *
- * @uses \ZFrameowkr\Base\View()
- *
  * @package Pronamic\WP\Twinfield
  * @subpackage Customer
  * @author Leon Rowland <leon@rowland.nl>
  * @copyright (c) 2013, Leon Rowland
  * @version 0.0.1
  */
-use \ZFramework\Base\View;
 
 class CustomerMetaBox {
 	public function __construct() {

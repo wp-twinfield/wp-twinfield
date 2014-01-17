@@ -21,15 +21,12 @@ namespace Pronamic\WP\Twinfield\Article;
  *
  * @since 0.0.1
  *
- * @uses \ZFramework\Base\View()
- *
  * @package Pronamic\WP\Twinfield
  * @subpackage Article
  * @author Leon Rowland <leon@rowland.nl>
  * @copyright (c) 2013, Leon Rowland
  * @version 0.0.1
  */
-use \ZFramework\Base\View;
 
 class ArticleMetaBox {
 	public function __construct() {
@@ -54,12 +51,12 @@ class ArticleMetaBox {
 		foreach ( $post_types as $post_type ) {
 			if ( post_type_supports( $post_type, 'twinfield_article' ) ) {
 				add_meta_box(
-						'pronamic_twinfield_article',
-						__( 'Twinfield Article', 'twinfield' ),
-						array( $this, 'view' ),
-						$post_type,
-						'normal',
-						'high'
+					'pronamic_twinfield_article',
+					__( 'Twinfield Article', 'twinfield' ),
+					array( $this, 'view' ),
+					$post_type,
+					'normal',
+					'high'
 				);
 			}
 		}
@@ -84,17 +81,13 @@ class ArticleMetaBox {
 		$twinfield_article_id = ( isset( $twinfield_article['article_id'] ) ? $twinfield_article['article_id'] : '' );
 		$twinfield_subarticle_id = ( isset( $twinfield_article['subarticle_id'] ) ? $twinfield_article['subarticle_id'] : '' );
 
-		// Generate the nonce field
-		$nonce = wp_nonce_field( 'twinfield_article', 'twinfield_article_nonce', true, false );
-
 		// Make the view
-		$view = new View( PRONAMIC_TWINFIELD_FOLDER . '/views/Pronamic/WP/Article' );
-		$view
-			->setVariable( 'nonce', $nonce )
-			->setVariable( 'twinfield_article_id', $twinfield_article_id )
-			->setVariable( 'twinfield_subarticle_id', $twinfield_subarticle_id )
-			->setView( 'articlemetabox_view' )
-			->render();
+		global $twinfield_plugin;
+		
+		$twinfield_plugin->display( 'views/meta-box-article.php', array(
+			'twinfield_article_id'    => $twinfield_article_id,
+			'twinfield_subarticle_id' => $twinfield_subarticle_id,
+		) );
 	}
 
 	/**
