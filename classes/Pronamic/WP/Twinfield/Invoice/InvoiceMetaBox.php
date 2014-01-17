@@ -76,7 +76,7 @@ class InvoiceMetaBox {
      * @return void
      */
     public function view( \WP_Post $post ) {
-        wp_enqueue_script( 'twinfield_sync', plugins_url( '/assets/admin/js/WP_Twinfield_Sync.js', PRONAMIC_TWINFIELD_FILE ) );
+        wp_enqueue_script( 'twinfield_sync' );
         
         $invoice_id   = get_post_meta( $post->ID, '_twinfield_invoice_id', true );
         $customer_id  = get_post_meta( $post->ID, '_twinfield_customer_id', true );

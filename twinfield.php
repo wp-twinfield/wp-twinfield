@@ -75,25 +75,9 @@ if ( ! class_exists( 'Twinfield' ) ) :
 		public function __construct() {
 			add_action( 'init', array( $this, 'init' ) );
 
-			add_action( 'admin_enqueue_scripts', array( $this, 'admin_scripts' ) );
 			add_action( 'wp_twinfield_formbuilder_load_forms', array( $this, 'load_forms' ) );
 
-			$this->includes();
-
 			spl_autoload_register( array( $this, 'autoload' ) );
-		}
-
-		/**
-		 * Base includes for every load.
-		 *
-		 * @todo minimize/remove
-		 *
-		 * @access public
-		 * @return void
-		 */
-		public function includes() {
-			//include 'vendor/autoload.php';
-			include 'twinfield-functions.php';
 		}
 
 
@@ -189,94 +173,6 @@ if ( ! class_exists( 'Twinfield' ) ) :
 			Form\FormBuilderFactory::register_form( 'customer', $customer_form );
 			Form\FormBuilderFactory::register_form( 'invoice', $invoice_form );
 		}
-
-		/**
-		 * Registers all scripts (js/css) to be used by Twinfield.  Autoloads the
-		 * twinfield-admin css file.
-		 *
-		 * @asset js FormBuilderUI
-		 *
-		 * @access public
-		 * @return void
-		 */
-		public function admin_scripts() {
-			// Styles for admin
-			wp_register_style(
-				'twinfield-admin',
-				plugins_url( 'assets/admin/css/twinfield_admin.css', PRONAMIC_TWINFIELD_FILE )
-			);
-            
-            wp_register_script(
-                'WP_Twinfield',
-                plugins_url( 'assets/admin/js/WP_Twinfield.js', PRONAMIC_TWINFIELD_FILE ),
-                array( 'jquery' )
-            );
-
-			// Javascripts for admin
-			wp_register_script(
-				'FormBuilderUI',
-				plugins_url( 'assets/admin/js/FormBuilderUI.js', PRONAMIC_TWINFIELD_FILE ),
-				array( 'jquery')
-			);
-            
-            wp_localize_script( 'WP_Twinfield', 'WP_Twinfield_Vars', array(
-                'spinner' => admin_url( 'images/wpspin_light.gif' )
-            ) );
-
-			// Auto enqueued assets
-			wp_enqueue_style( 'twinfield-admin' );
-            wp_enqueue_script( 'WP_Twinfield' );
-		}
-
-        public function page_query_customer() {
-            $view = new View( PRONAMIC_TWINFIELD_FOLDER . '/views/Pronamic/WP/Customer' );
-
-            if ( filter_has_var( INPUT_GET, 'twinfield_customer_id' ) ) {
-                global $twinfield_config;
-
-                $customer_factory = new \Pronamic\Twinfield\Customer\CustomerFactory( $twinfield_config );
-
-                $customer = $customer_factory->get(
-                    filter_input( INPUT_GET, 'twinfield_customer_id', FILTER_VALIDATE_INT )
-                );
-
-                if ( ! $customer_factory->getResponse()->isSuccessful() )
-                    $view->setVariable( 'error_messages', $customer_factory->getResponse()->getErrorMessages() );
-
-            } else {
-                $customer = false;
-            }
-
-            $view
-                ->setView( 'render_customer_admin' )
-                ->setVariable( 'customer', $customer )
-                ->render();
-        }
-
-        public function page_query_invoice() {
-            $view = new View( PRONAMIC_TWINFIELD_FOLDER . '/views/Pronamic/WP/Invoice' );
-
-            if ( filter_has_var( INPUT_GET, 'twinfield_invoice_id' ) ) {
-                global $twinfield_config;
-
-                $invoice_factory = new \Pronamic\Twinfield\Invoice\InvoiceFactory( $twinfield_config );
-
-                $invoice = $invoice_factory->get(
-                    'FACTUUR',
-                    filter_input( INPUT_GET, 'twinfield_invoice_id', FILTER_VALIDATE_INT )
-                );
-
-                if ( ! $invoice_factory->getResponse()->isSuccessful() )
-                    $view->setVariable( 'error_messages', $invoice_factory->getResponse()->getErrorMessages() );
-            } else {
-                $invoice = false;
-            }
-
-            $view
-                ->setView( 'render_invoice_admin' )
-                ->setVariable( 'invoice', $invoice )
-                ->render();
-        }
 	}
 
 endif;

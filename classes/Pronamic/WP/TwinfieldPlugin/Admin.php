@@ -27,7 +27,9 @@ class Pronamic_WP_TwinfieldPlugin_Admin {
 	private function __construct( Pronamic_WP_TwinfieldPlugin_Plugin $plugin ) {
 		$this->plugin = $plugin;
 
+		// Actions
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
+
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
 	}
 
@@ -38,6 +40,8 @@ class Pronamic_WP_TwinfieldPlugin_Admin {
 	 */
 	public function admin_init() {
 		$this->settings = Pronamic_WP_TwinfieldPlugin_Settings::get_instance( $this->plugin );
+
+		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
 	}
 
 	//////////////////////////////////////////////////
@@ -117,6 +121,51 @@ class Pronamic_WP_TwinfieldPlugin_Admin {
 			'twinfield_documentation',
 			array( $this, 'page_documentation' )
 		);
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Admin enqueue scripts
+	 */
+	public function admin_enqueue_scripts() {
+		// Styles
+		wp_register_style(
+			'twinfield-admin',
+			$this->plugin->plugins_url( 'assets/admin/css/twinfield_admin.css' ),
+			array(),
+			'1.0.0'
+		);
+
+		// Scripts
+		wp_register_script(
+			'twinfield_sync',
+			$this->plugin->plugins_url( 'assets/admin/js/WP_Twinfield_Sync.js' ),
+			array( 'jquery' ),
+			'1.0.0'
+		);
+
+		wp_register_script(
+			'WP_Twinfield',
+			$this->plugin->plugins_url( 'assets/admin/js/WP_Twinfield.js' ),
+			array( 'jquery' ),
+			'1.0.0'
+		);
+
+		wp_register_script(
+			'FormBuilderUI',
+			$this->plugin->plugins_url( 'assets/admin/js/FormBuilderUI.js' ),
+			array( 'jquery'),
+			'1.0.0'
+		);
+	
+		wp_localize_script( 'WP_Twinfield', 'WP_Twinfield_Vars', array(
+			'spinner' => admin_url( 'images/wpspin_light.gif' )
+		) );
+	
+		// Auto enqueued assets
+		wp_enqueue_style( 'twinfield-admin' );
+		wp_enqueue_script( 'WP_Twinfield' );
 	}
 
 	//////////////////////////////////////////////////
