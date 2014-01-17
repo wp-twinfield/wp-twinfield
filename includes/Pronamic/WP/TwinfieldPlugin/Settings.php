@@ -188,31 +188,6 @@ class Pronamic_WP_TwinfieldPlugin_Settings {
 		$this->render_text( $attributes );
 	}
 
-	public static function tab_html( $section, $default = false ) {
-
-		printf(
-			"<a class='nav-tab %s' href='%s'>%s</a>",
-			( self::is_active_tab( $section ) || ( ! filter_has_var( INPUT_GET, 'tab' ) && 'api' === $section ) ) ? 'nav-tab-active' : '',
-			add_query_arg( array( 'page' => 'twinfield-settings', 'tab' => $section ), admin_url( 'admin.php' ) ),
-			ucfirst( $section )
-		);
-
-	}
-
-	public static function is_active_tab( $section ) {
-		return ( $section === filter_input( INPUT_GET, 'tab', FILTER_SANITIZE_STRING ) );
-	}
-
-	public static function active_tab_group() {
-		$tab = self::active_tab();
-
-		return 'wp_twinfield_' . $tab ;
-	}
-
-	public static function active_tab() {
-		return ( $tab = filter_input( INPUT_GET, 'tab', FILTER_SANITIZE_STRING ) ) ? $tab : 'api';
-	}
-
 	//////////////////////////////////////////////////
 
 	/**
