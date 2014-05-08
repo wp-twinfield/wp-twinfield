@@ -39,3 +39,8 @@ Thumbs.db
 /nbproject
 /.settings
 .project
+
+# Grunt #
+#########
+node_modules
+release
