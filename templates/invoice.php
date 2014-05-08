@@ -16,43 +16,43 @@
 				<dl class="dl-horizontal">
 					<dt><?php _e( 'Invoice Number', 'twinfield' ); ?></dt>
 					<dd><?php echo $twinfield_invoice->getInvoiceNumber(); ?></dd>
-	
+
 					<?php if ( $invoice_date = $twinfield_invoice->getInvoiceDate() ): ?>
-	
+
 						<dt><?php _e( 'Invoice Date', 'twinfield' ); ?></dt>
 						<dd><?php echo $invoice_date; ?></dd>
-	
+
 					<?php endif; ?>
-	
+
 					<?php if ( $due_date = $twinfield_invoice->getDueDate() ): ?>
-	
+
 						<dt><?php _e( 'Due Date', 'twinfield' ); ?></dt>
 						<dd><?php echo $due_date; ?></dd>
-	
+
 					<?php endif; ?>
-	
-	
+
+
 					<dt><?php _e( 'Office', 'twinfield' ); ?></dt>
 					<dd><?php echo $twinfield_invoice->getOffice(); ?></dd>
-	
+
 					<dt><?php _e( 'Type', 'twinfield' ); ?></dt>
 					<dd><?php echo $twinfield_invoice->getInvoiceType(); ?></dd>
-	
+
 					<dt><?php _e( 'Customer', 'twinfield' ); ?></dt>
 					<dd>
 						<?php
-	
+
 						$customer = $twinfield_invoice->getCustomer();
-	
+
 						printf(
 							'<a href="%s" target="_blank">%s</a>',
 							site_url( '/debiteuren/' . $customer->getID() . '/' ),
 							$customer->getID()
 						);
-	
+
 						?>
 					</dd>
-	
+
 					<dt><?php _e( 'Status', 'twinfield' ); ?></dt>
 					<dd><?php echo $twinfield_invoice->getStatus(); ?></dd>
 				</dl>
