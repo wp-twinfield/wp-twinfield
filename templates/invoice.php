@@ -80,6 +80,7 @@
 						<th scope="col"><?php _e( 'Value Inc', 'twinfield' ); ?></th>
 						<th scope="col"><?php _e( 'Units Price Excl', 'twinfield' ); ?></th>
 						<th scope="col"><?php _e( 'Free text 1', 'twinfield' ); ?></th>
+						<th scope="col"><?php _e( 'Free text 2', 'twinfield' ); ?></th>
 					</tr>
 				</thead>
 
@@ -99,6 +100,7 @@
 							<td><?php echo twinfield_price( $line->getValueInc() ); ?></td>
 							<td><?php echo twinfield_price( $line->getUnitsPriceExcl() ); ?></td>
 							<td><?php echo $line->getFreeText1(); ?></td>
+							<td><?php echo $line->getFreeText2(); ?></td>
 						</tr>
 
 					<?php endforeach; ?>
