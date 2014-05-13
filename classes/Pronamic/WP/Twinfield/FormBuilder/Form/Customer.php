@@ -17,7 +17,7 @@ class Customer extends ParentForm {
 		'ebillmail'  => '',
 		'vatcode'    => ''
 	);
-	
+
 	public $defaultCustomerAddressData = array(
 		'default'    => true,
 		'type'       => '',
@@ -32,12 +32,12 @@ class Customer extends ParentForm {
 		'country'    => '',
 		'email'      => ''
 	);
-	
+
 	public function prepare_extra_variables() {
 		// Set the extra beneficial variables for this form.
 		$this->set_extra_variables( 'latest_customer_id', $this->_get_latest_key() );
 	}
-	
+
 	public function submit( $data = array() ) {
 		global $twinfield_config;
 
@@ -53,7 +53,7 @@ class Customer extends ParentForm {
 	}
 
 	public function fill_class( array $data ) {
-		
+
 		$data = array_merge( $this->defaultCustomerData , $data );
 		$data = stripslashes_deep( $data );
 
@@ -87,7 +87,7 @@ class Customer extends ParentForm {
 						->setCity( $address['city'] )
 						->setCountry( $address['country'] )
 						->setEmail( $address['email'] );
-				
+
 				$customer->addAddress( $temp_address );
 
 			}
@@ -96,7 +96,7 @@ class Customer extends ParentForm {
 		return $customer;
 
 	}
-	
+
 	public function _get_latest_key() {
 		// Latest customer id
 		global $twinfield_config;
