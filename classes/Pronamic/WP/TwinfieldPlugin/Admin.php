@@ -63,7 +63,7 @@ class Pronamic_WP_TwinfieldPlugin_Admin {
 			'twinfield',
 			_x( 'Twinfield Companies', 'twinfield.com', 'twinfield' ),
 			_x( 'Companies', 'twinfield.com', 'twinfield' ),
-			'twinfield_read_offices',
+			'manage_options',
 			'twinfield_offices',
 			array( $this, 'page_offices' )
 		);
@@ -72,7 +72,7 @@ class Pronamic_WP_TwinfieldPlugin_Admin {
 			'twinfield',
 			__( 'Twinfield Customers', 'twinfield' ),
 			__( 'Customers', 'twinfield' ),
-			'twinfield_read_customer',
+			'manage_options',
 			'twinfield_customers',
 			array( $this, 'page_customers' )
 		);
@@ -81,7 +81,7 @@ class Pronamic_WP_TwinfieldPlugin_Admin {
 			'twinfield',
 			__( 'Twinfield Invoices', 'twinfield' ),
 			__( 'Invoices', 'twinfield' ),
-			'twinfield_read_invoice',
+			'manage_options',
 			'twinfield_invoices',
 			array( $this, 'page_invoices' )
 		);
