@@ -51,20 +51,18 @@ class InvoiceMetaBox {
      * @access public
      * @return void
      */
-    public function add_meta_box() {
-        foreach ( get_post_types() as $post_type ) {
-            if ( post_type_supports( $post_type, 'twinfield_invoiceable' ) ) {
-                add_meta_box(
-                    'wp_twinfield_invoice_meta_box',
-                    __( 'Twinfield Invoice', 'twinfield' ),
-                    array( $this, 'view' ),
-                    $post_type,
-                    'normal',
-                    'high'
-                );
-            }
-        }
-    }
+    public function add_meta_box( $post_type ) {
+		if ( post_type_supports( $post_type, 'twinfield_invoiceable' ) ) {
+			add_meta_box(
+				'wp_twinfield_invoice_meta_box',
+				__( 'Twinfield Invoice', 'twinfield' ),
+				array( $this, 'view' ),
+				$post_type,
+				'normal',
+				'high'
+			);
+		}
+	}
 
     /**
      * Shows the contents of the wp_twinfield_invoice_meta_box.  Passes
