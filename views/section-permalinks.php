@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 // @see https://github.com/WordPress/WordPress/blob/3.8/wp-admin/options-permalink.php#L237
 
