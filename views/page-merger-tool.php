@@ -7,7 +7,6 @@ if ( isset( $_GET[ 'twinfield-table' ] ) ) {
 }
 ?>
 <div class="wrap">
-	<?php screen_icon(); ?>
 	<h2 class="nav-tab-wrapper">
 		<a class="nav-tab <?php if ( empty( $table ) ) : ?> nav-tab-active <?php endif; ?>" href="<?php echo admin_url( 'admin.php?page=twinfield-merger' ); ?>"><?php echo get_admin_page_title(); ?></a>
 		<?php foreach ( $merger->get_valid_supports() as $support ) : ?>

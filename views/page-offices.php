@@ -1,20 +1,18 @@
 <div class="wrap">
-	<?php screen_icon( 'twinfield' ); ?>
-
 	<h2><?php echo get_admin_page_title(); ?></h2>
 
-	<?php 
+	<?php
 
 	$username = get_option( 'twinfield_username' );
 	$password = get_option( 'twinfield_password' );
 	$organisation = get_option( 'twinfield_organisation' );
-	
+
 	// $twinfield_client = new Pronamic\Twinfield\TwinfieldClient();
 
 	// $result = $twinfield_client->logon( $username, $password, $organisation );
 
 	// $offices = $twinfield_client->getOffices();
-	
+
 	$offices = false;
 
 	if ( $offices ) : ?>
@@ -27,7 +25,7 @@
 					<th scope="col"><?php _e( 'Name', 'twinfield' ); ?></th>
 				</tr>
 			</thead>
-			
+
 			<tbody>
 
 				<?php foreach ( $offices as $office ): ?>

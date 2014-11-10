@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 if ( filter_has_var( INPUT_GET, 'twinfield_invoice_id' ) ) {
 	global $twinfield_config;
@@ -19,12 +19,10 @@ if ( filter_has_var( INPUT_GET, 'twinfield_invoice_id' ) ) {
 
 ?>
 <div class="wrap">
-	<?php screen_icon( 'twinfield' ); ?>
-
 	<h2><?php echo get_admin_page_title(); ?></h2>
 
 	<?php if ( ! filter_has_var( INPUT_GET, 'twinfield_invoice_id' )  || isset( $error_messages ) ) : ?>
-	
+
 		<form method="get" action="">
 			<input type="hidden" name="page" value="twinfield_invoices" />
 
@@ -45,7 +43,7 @@ if ( filter_has_var( INPUT_GET, 'twinfield_invoice_id' ) ) {
 	<?php endif; ?>
 
 	<?php if ( ! isset( $error_messages ) && false !== $invoice ) : ?>
-	
+
 		<h3><?php printf( __( 'Invoice %d', 'twinfield' ), $invoice->getInvoiceNumber() ); ?></h3>
 
 		<table class="form-table">
@@ -95,10 +93,10 @@ if ( filter_has_var( INPUT_GET, 'twinfield_invoice_id' ) ) {
 					<strong><?php _e( 'Customer', 'twinfield' ); ?></strong>
 				</th>
 				<td>
-					<?php 
+					<?php
 
 					$customer = $invoice->getCustomer();
-	
+
 					printf( '<a href="%s">%s</a>', twinfield_admin_view_customer_link( $customer->getID() ), $customer->getID() );
 
 					?>
@@ -115,7 +113,7 @@ if ( filter_has_var( INPUT_GET, 'twinfield_invoice_id' ) ) {
 		</table>
 
 		<?php $lines = $invoice->getLines(); ?>
-	
+
 		<table class="widefat">
 			<thead>
 				<tr>
@@ -132,11 +130,11 @@ if ( filter_has_var( INPUT_GET, 'twinfield_invoice_id' ) ) {
 					<th scope="col"><?php _e( 'Free text 1', 'twinfield' ); ?></th>
 				</tr>
 			</thead>
-	
+
 			<tbody>
-	
+
 				<?php foreach ( $lines as $line ) : ?>
-		
+
 					<tr>
 						<td><?php echo $line->getID(); ?></td>
 						<td><?php echo $line->getArticle(); ?></td>
@@ -150,9 +148,9 @@ if ( filter_has_var( INPUT_GET, 'twinfield_invoice_id' ) ) {
 						<td><?php echo twinfield_price( $line->getUnitsPriceExcl() ); ?></td>
 						<td><?php echo $line->getFreeText1(); ?></td>
 					</tr>
-	
+
 				<?php endforeach; ?>
-	
+
 			</tbody>
 		</table>
 

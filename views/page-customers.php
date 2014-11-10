@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 if ( filter_has_var( INPUT_GET, 'twinfield_customer_id' ) ) {
 	global $twinfield_config;
@@ -18,8 +18,6 @@ if ( filter_has_var( INPUT_GET, 'twinfield_customer_id' ) ) {
 
 ?>
 <div class="wrap">
-	<?php screen_icon( 'twinfield' ); ?>
-
 	<h2><?php echo get_admin_page_title(); ?></h2>
 
 	<?php if ( ! filter_has_var( INPUT_GET, 'twinfield_customer_id' ) || isset( $error_messages ) ) : ?>
@@ -42,7 +40,7 @@ if ( filter_has_var( INPUT_GET, 'twinfield_customer_id' ) ) {
 	    </form>
 
 	<?php endif; ?>
-    
+
 	<?php if ( ! isset( $error_messages ) && false !== $customer ) : ?>
 
 		<h3><?php printf( __( 'Customer %s', 'twinfield' ), $customer->getID() ); ?></h3>
@@ -72,7 +70,7 @@ if ( filter_has_var( INPUT_GET, 'twinfield_customer_id' ) ) {
 						<tbody>
 
 							<?php foreach ( $customer->getAddresses() as $address ) : ?>
-	
+
 								<tr>
 									<td><?php echo $address->getName(); ?></td>
 									<td><?php echo $address->getCity(); ?></td>

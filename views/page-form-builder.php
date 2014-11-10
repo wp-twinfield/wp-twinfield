@@ -7,10 +7,10 @@ wp_enqueue_script( 'FormBuilderUI' );
 
 /**
  * Form Builder UI Page
- * 
+ *
  * Loads an instance of the FormBuilder and gets the twinfield-form value
  * from the $_GET super global.
- * 
+ *
  * Will attempt a show_form call with the $current_form from $_GET
  */
 
@@ -22,10 +22,9 @@ $current_form = filter_input( INPUT_GET, 'twinfield-form', FILTER_SANITIZE_STRIN
 
 ?>
 <div class="wrap">
-	<?php screen_icon(); ?>
 	<h2 class="nav-tab-wrapper">
 		<a class="nav-tab <?php if ( empty( $current_form ) ): ?> nav-tab-active <?php endif; ?>" href="<?php echo admin_url( 'admin.php?page=twinfield-form-builder' ); ?>"><?php echo get_admin_page_title(); ?></a>
-		
+
 		<?php foreach ( \Pronamic\WP\Twinfield\FormBuilder\FormBuilderFactory::get_all_form_names() as $type ) : ?>
 			<a class="nav-tab <?php echo ( $current_form == $type ? 'nav-tab-active' : '' ); ?>" href="<?php echo twinfield_get_form_action( $type ); ?>"><?php echo ucfirst( $type ); ?></a>
 		<?php endforeach; ?>
