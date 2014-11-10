@@ -45,6 +45,8 @@ $twinfield_respone = get_post_meta( $post->ID, '_twinfield_response', true );
 if ( $twinfield_respone ) {
 	$plugin = Pronamic_WP_TwinfieldPlugin_Plugin::get_instance();
 
+	echo '<pre>', htmlspecialchars( $twinfield_respone ), '</pre>';
+
 	$xml = new DOMDocument();
 	$xml->loadXML( $twinfield_respone );
 
