@@ -40,11 +40,24 @@ $twinfield_respone = get_post_meta( $post->ID, '_twinfield_response', true );
 	</tr>
 </table>
 
-<?php if ( $twinfield_respone ) : ?>
+<?php
 
-	<pre><?php echo htmlspecialchars( $twinfield_respone ); ?></pre>
+if ( $twinfield_respone ) {
+	$plugin = Pronamic_WP_TwinfieldPlugin_Plugin::get_instance();
 
-<?php endif; ?>
+	$xml = new DOMDocument();
+	$xml->loadXML( $twinfield_respone );
+
+	$xsl = new DOMDocument;
+	$xsl->load( plugin_dir_path( $plugin->file ) . '/admin/twinfield-salesinvoices.xsl' );
+
+	$proc = new XSLTProcessor;
+	$proc->importStyleSheet( $xsl );
+
+	echo $proc->transformToXML( $xml );
+}
+
+?>
 
 <?php if ( $invoice_id ) : ?>
 
