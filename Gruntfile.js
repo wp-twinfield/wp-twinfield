@@ -19,7 +19,7 @@ module.exports = function( grunt ) {
 				dir: [ '*.php', 'includes/*.php' ],
 			},
 			options: {
-				standard: 'project.ruleset.xml',
+				standard: 'phpcs.ruleset.xml',
 			},
 		},
 
