@@ -14,7 +14,7 @@ class Pronamic_WP_TwinfieldPlugin_Admin {
 
 	/**
 	 * Extensions plugin
-	 * 
+	 *
 	 * @var Pronamic_WP_TwinfieldPlugin_Plugin
 	 */
 	private $plugin;
@@ -158,26 +158,26 @@ class Pronamic_WP_TwinfieldPlugin_Admin {
 			array( 'jquery'),
 			'1.0.0'
 		);
-	
+
 		wp_localize_script( 'WP_Twinfield', 'WP_Twinfield_Vars', array(
 			'spinner' => admin_url( 'images/wpspin_light.gif' )
 		) );
-	
+
 		// Auto enqueued assets
 		wp_enqueue_style( 'twinfield-admin' );
 		wp_enqueue_script( 'WP_Twinfield' );
 	}
 
 	//////////////////////////////////////////////////
-	
+
 	/**
 	 * Page
-	 * 
+	 *
 	 * @param string $id
 	 */
 	public function page( $id ) {
 		$filename = 'views/page-' . $id . '.php';
-		
+
 		$this->plugin->display( $filename );
 	}
 
@@ -205,7 +205,7 @@ class Pronamic_WP_TwinfieldPlugin_Admin {
 		if ( null == self::$instance ) {
 			self::$instance = new self( $plugin );
 		}
-	
+
 		return self::$instance;
 	}
 }
