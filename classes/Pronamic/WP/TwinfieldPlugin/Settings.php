@@ -14,7 +14,7 @@ class Pronamic_WP_TwinfieldPlugin_Settings {
 
 	/**
 	 * Extensions plugin
-	 * 
+	 *
 	 * @var Pronamic_WP_TwinfieldPlugin_Plugin
 	 */
 	private $plugin;
@@ -25,12 +25,9 @@ class Pronamic_WP_TwinfieldPlugin_Settings {
 	 * Constructs and initialize Twinfield plugin admin
 	 */
 	private function __construct( Pronamic_WP_TwinfieldPlugin_Plugin $plugin ) {
-		/**
-		 * ======
-		 * API Section
-		 * ======
+		/*
+		 * API
 		 */
-
 		add_settings_section(
 			'twinfield_login',
 			__( 'Login', 'twinfield' ),
@@ -70,12 +67,9 @@ class Pronamic_WP_TwinfieldPlugin_Settings {
 		register_setting( 'twinfield', 'twinfield_password' );
 		register_setting( 'twinfield', 'twinfield_organisation' );
 
-        /**
-		 * =========
-		 * Defaults Section
-		 * ==========
+		/*
+		 * Defaults
 		 */
-        
         add_settings_section(
             'twinfield_defaults',
             __( 'Defaults', 'twinfield' ),
@@ -96,7 +90,7 @@ class Pronamic_WP_TwinfieldPlugin_Settings {
 				'description' => _x( 'You can find your companies in Twinfield under "Profile » Companies" or "General » System » Switch company".', 'twinfield.com', 'twinfield' ),
 			)
 		);
-        
+
         add_settings_field(
             'twinfield_default_invoice_type',
             __( 'Default Invoice Type', 'twinfield' ),
@@ -113,13 +107,10 @@ class Pronamic_WP_TwinfieldPlugin_Settings {
 
         register_setting( 'twinfield', 'twinfield_default_office_code' );
         register_setting( 'twinfield', 'twinfield_default_invoice_type' );
-        
-		/**
-		 * =========
-		 * Permalinks Section
-		 * ==========
-		 */
 
+		/*
+		 * Permalinks
+		 */
 		add_settings_section(
 			'twinfield_permalinks',
 			__( 'Permalinks', 'twinfield' ),
@@ -156,6 +147,13 @@ class Pronamic_WP_TwinfieldPlugin_Settings {
 		register_setting( 'twinfield', 'twinfield_customer_slug' );
 	}
 
+	//////////////////////////////////////////////////
+
+	/**
+	 * Render text
+	 *
+	 * @param array $attributes
+	 */
 	public function render_text( $attributes ) {
 		$attributes = wp_parse_args( $attributes, array(
  			'id'      => '',
@@ -164,7 +162,7 @@ class Pronamic_WP_TwinfieldPlugin_Settings {
  			'value'   => '',
 			'classes' => array( 'regular-text' )
 		) );
-		
+
 		printf(
 			'<input id="%s" name="%s" value="%s" type="%s" class="%s" />',
 			esc_attr( $attributes['label_for'] ),
@@ -173,7 +171,7 @@ class Pronamic_WP_TwinfieldPlugin_Settings {
 			esc_attr( $attributes['type'] ),
 			esc_attr( implode( ' ', $attributes['classes'] ) )
 		);
-		
+
 		if ( isset( $attributes['description'] ) ) {
 			printf(
 				'<span class="description"><br />%s</span>',
@@ -182,6 +180,11 @@ class Pronamic_WP_TwinfieldPlugin_Settings {
 		}
 	}
 
+	/**
+	 * Render password
+	 *
+	 * @param array $attributes
+	 */
 	public function render_password( $attributes ) {
 		$attributes['type'] = 'password';
 
@@ -202,7 +205,7 @@ class Pronamic_WP_TwinfieldPlugin_Settings {
 		if ( null == self::$instance ) {
 			self::$instance = new self( $plugin );
 		}
-	
+
 		return self::$instance;
 	}
 }
