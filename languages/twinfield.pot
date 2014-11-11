@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Twinfield 1.0.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/twinfield\n"
-"POT-Creation-Date: 2014-11-11 11:30:39+00:00\n"
+"POT-Creation-Date: 2014-11-11 13:11:57+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -100,15 +100,19 @@ msgid "Defaults"
 msgstr ""
 
 #: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:96
-msgid "Default Invoice Type"
+#: views/Pronamic/WP/FormBuilder/create_form_invoice.php:6
+#: views/meta-box-invoice.php:35
+msgid "Invoice Type"
 msgstr ""
 
 #: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:110
-msgid "Default Article Code"
+#: views/meta-box-article.php:6
+msgid "Article Code"
 msgstr ""
 
 #: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:124
-msgid "Default Subarticle Code"
+#: views/meta-box-article.php:14
+msgid "Subarticle Code"
 msgstr ""
 
 #: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:146
@@ -326,11 +330,6 @@ msgstr ""
 msgid "Invoice Form"
 msgstr ""
 
-#: views/Pronamic/WP/FormBuilder/create_form_invoice.php:6
-#: views/meta-box-invoice.php:35
-msgid "Invoice Type"
-msgstr ""
-
 #: views/Pronamic/WP/FormBuilder/create_form_invoice.php:22
 msgid "Subarticle"
 msgstr ""
@@ -369,14 +368,6 @@ msgstr ""
 
 #: views/Pronamic/WP/Merge/Customer/partial_table.php:24
 msgid "Sync"
-msgstr ""
-
-#: views/meta-box-article.php:6
-msgid "Article Code"
-msgstr ""
-
-#: views/meta-box-article.php:14
-msgid "Subarticle Code"
 msgstr ""
 
 #: views/meta-box-invoice.php:19 views/page-invoices.php:33
@@ -547,7 +538,7 @@ msgstr ""
 #: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:83
 #. translators: use same translations as on Twinfield.com.
 msgctxt "twinfield.com"
-msgid "Default Company"
+msgid "Company"
 msgstr ""
 
 #: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:90

@@ -80,7 +80,7 @@ class Pronamic_WP_TwinfieldPlugin_Settings {
 		add_settings_field(
 			'twinfield_default_office_code',
 			/* translators: use same translations as on Twinfield.com. */
-			_x( 'Default Company', 'twinfield.com', 'twinfield' ),
+			_x( 'Company', 'twinfield.com', 'twinfield' ),
 			array( $this, 'render_text' ),
 			'twinfield',
 			'twinfield_defaults',
@@ -93,7 +93,7 @@ class Pronamic_WP_TwinfieldPlugin_Settings {
 
         add_settings_field(
             'twinfield_default_invoice_type',
-            __( 'Default Invoice Type', 'twinfield' ),
+            __( 'Invoice Type', 'twinfield' ),
             array( $this, 'render_text' ),
             'twinfield',
             'twinfield_defaults',
@@ -107,7 +107,7 @@ class Pronamic_WP_TwinfieldPlugin_Settings {
 
         add_settings_field(
             'twinfield_default_article_code',
-            __( 'Default Article Code', 'twinfield' ),
+            __( 'Article Code', 'twinfield' ),
             array( $this, 'render_text' ),
             'twinfield',
             'twinfield_defaults',
@@ -121,7 +121,7 @@ class Pronamic_WP_TwinfieldPlugin_Settings {
 
         add_settings_field(
             'twinfield_default_subarticle_code',
-            __( 'Default Subarticle Code', 'twinfield' ),
+            __( 'Subarticle Code', 'twinfield' ),
             array( $this, 'render_text' ),
             'twinfield',
             'twinfield_defaults',

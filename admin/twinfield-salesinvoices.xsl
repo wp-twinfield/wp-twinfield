@@ -2,41 +2,52 @@
 
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	<xsl:template match="/">
-		<h2>Twinfield Invoices</h2>
-
-		<xsl:apply-templates />
+		<div class="twinfield-invoices">
+			<xsl:apply-templates />
+		</div>
 	</xsl:template>
 	
 	<xsl:template match="salesinvoice">
-		<h3>Invoice</h3>
-
-		<xsl:apply-templates />
+		<div class="twinfield-invoice">
+			<xsl:apply-templates />
+		</div>
 	</xsl:template>
 
-	<xsl:template match="salesinvoice/header">
-		<h4>Header</h4>
-		
-		<xsl:value-of select="@msg" />
+	<xsl:template match="salesinvoice/header">			
+		<xsl:if test="@msg">
+			<em><xsl:value-of select="@msg" /></em>
+		</xsl:if>
 		
 		<dl>
 			<dt>Invoice Type</dt>
 			<dd>
 				<xsl:value-of select="invoicetype" />
 				
-				<xsl:value-of select="invoicetype/@msg" />
+				<xsl:if test="invoicetype/@msg">
+					<em><xsl:value-of select="invoicetype/@msg" /></em>
+				</xsl:if>
+			</dd>
+			
+			<dt>Customer</dt>
+			<dd>
+				<xsl:value-of select="customer" />
+				
+				<xsl:if test="customer/@msg">
+					<em><xsl:value-of select="customer/@msg" /></em>
+				</xsl:if>
 			</dd>
 		</dl>
 	</xsl:template>
 
 	<xsl:template match="salesinvoice/lines">
-		<table>
+		<table class="twinfield-invoice-lines">
 			<thead>
 				<tr>
 					<th>Quantity</th>
 					<th>Article</th>
 					<th>Sub article</th>
 					<th>Description</th>
-					<th>unitspriceexcl</th>
+					<th>Units price excl</th>
 				</tr>
 			</thead>
 

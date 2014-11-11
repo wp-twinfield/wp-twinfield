@@ -50,7 +50,7 @@ class InvoiceMetaBox {
 			if ( InvoiceMetaBoxFactory::supported( $post->post_type ) ) {
             	$synchronizer = InvoiceMetaBoxFactory::get( $post->post_type );
 
-            	$data_proxy = $synchronizer->prepare_sync( $post_id, $customer_id, $invoice_id, $invoice_type );
+            	$data_proxy = $synchronizer->prepare_sync( $post_id );
 
             	$state = $data_proxy->submit();
 
@@ -59,9 +59,9 @@ class InvoiceMetaBox {
             	if ( true === $state ) {
             		$invoice = \Pronamic\Twinfield\Invoice\Mapper\InvoiceMapper::map( $data_proxy->get_response() );
 
-            		update_post_meta( $post_id, '_twinfield_invoice_id', $invoice->getInvoiceNumber() );
-            		update_post_meta( $post_id, '_twinfield_customer_id', $invoice->getCustomer()->getID() );
+            		update_post_meta( $post_id, '_twinfield_invoice_number', $invoice->getInvoiceNumber() );
             		update_post_meta( $post_id, '_twinfield_invoice_type', $invoice->getInvoiceType() );
+            		update_post_meta( $post_id, '_twinfield_customer_id', $invoice->getCustomer()->getID() );
 				}
 			}
 		}
@@ -82,7 +82,7 @@ class InvoiceMetaBox {
 				array( $this, 'view' ),
 				$post_type,
 				'normal',
-				'high'
+				'default'
 			);
 		}
 	}
@@ -97,23 +97,9 @@ class InvoiceMetaBox {
      * @return void
      */
     public function view( \WP_Post $post ) {
-        wp_enqueue_script( 'twinfield_sync' );
-
-        $invoice_id   = get_post_meta( $post->ID, '_twinfield_invoice_id', true );
-        $customer_id  = get_post_meta( $post->ID, '_twinfield_customer_id', true );
-        $invoice_type = get_post_meta( $post->ID, '_twinfield_invoice_type', true );
-
-        $is_supported = InvoiceMetaBoxFactory::supported( $post->post_type );
-
         global $twinfield_plugin;
 
-        $twinfield_plugin->display( 'views/meta-box-invoice.php', array(
-        	'post_id'      => $post->ID,
-        	'invoice_id'   => $invoice_id,
-        	'customer_id'  => $customer_id,
-        	'invoice_type' => $invoice_type,
-        	'is_supported' => $is_supported,
-        ) );
+        $twinfield_plugin->display( 'views/meta-box-invoice.php' );
     }
 
     /**
@@ -130,12 +116,12 @@ class InvoiceMetaBox {
             return;
         }
 
-        $invoice_id   = filter_input( INPUT_POST, 'invoice_id', FILTER_SANITIZE_NUMBER_INT );
-        $customer_id  = filter_input( INPUT_POST, 'twinfield_customer_id', FILTER_SANITIZE_NUMBER_INT );
-        $invoice_type = filter_input( INPUT_POST, 'twinfield_invoice_type', FILTER_SANITIZE_STRING );
+        $invoice_number = filter_input( INPUT_POST, 'twinfield_invoice_number', FILTER_SANITIZE_NUMBER_INT );
+        $invoice_type   = filter_input( INPUT_POST, 'twinfield_invoice_type', FILTER_SANITIZE_STRING );
+        $customer_id    = filter_input( INPUT_POST, 'twinfield_customer_id', FILTER_SANITIZE_NUMBER_INT );
 
-        update_post_meta( $post_id, '_twinfield_invoice_id', $invoice_id );
-        update_post_meta( $post_id, '_twinfield_customer_id', $customer_id );
+        update_post_meta( $post_id, '_twinfield_invoice_number', $invoice_number );
         update_post_meta( $post_id, '_twinfield_invoice_type', $invoice_type );
+        update_post_meta( $post_id, '_twinfield_customer_id', $customer_id );
     }
 }
