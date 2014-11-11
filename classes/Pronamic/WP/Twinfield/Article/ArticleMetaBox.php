@@ -75,15 +75,15 @@ class ArticleMetaBox {
 	 */
 	public function view( $post ) {
 		// Get current id information
-		$twinfield_article_id = get_post_meta( $post->ID, '_twinfield_article_id', true );
-		$twinfield_subarticle_id = get_post_meta( $post->ID, '_twinfield_subarticle_id', true );
+		$twinfield_article_code    = get_post_meta( $post->ID, '_twinfield_article_code', true );
+		$twinfield_subarticle_code = get_post_meta( $post->ID, '_twinfield_subarticle_code', true );
 
 		// Make the view
 		global $twinfield_plugin;
-		
+
 		$twinfield_plugin->display( 'views/meta-box-article.php', array(
-			'twinfield_article_id'    => $twinfield_article_id,
-			'twinfield_subarticle_id' => $twinfield_subarticle_id,
+			'twinfield_article_code'    => $twinfield_article_code,
+			'twinfield_subarticle_code' => $twinfield_subarticle_code,
 		) );
 	}
 
@@ -98,31 +98,38 @@ class ArticleMetaBox {
 	 * @return void
 	 */
 	public function save( $post_id, $post ) {
-		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
+		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 			return;
+		}
 
-		if ( ! isset( $_POST['twinfield_article_nonce'] ) )
+		if ( ! isset( $_POST['twinfield_article_nonce'] ) ) {
 			return;
+		}
 
-		if ( ! current_user_can( 'edit_post', $post_id ) )
+		if ( ! current_user_can( 'edit_post', $post_id ) ) {
 			return;
+		}
 
-		if ( ! wp_verify_nonce( filter_input( INPUT_POST, 'twinfield_article_nonce'), 'twinfield_article' ) )
+		if ( ! wp_verify_nonce( filter_input( INPUT_POST, 'twinfield_article_nonce'), 'twinfield_article' ) ) {
 			return;
+		}
 
-		if ( ! post_type_supports( $post->post_type, 'twinfield_article' ) )
+		if ( ! post_type_supports( $post->post_type, 'twinfield_article' ) ) {
 			return;
+		}
 
-		$twinfield_article_id = filter_input( INPUT_POST, 'twinfield_article_id', FILTER_SANITIZE_STRING );
-		$twinfield_subarticle_id = filter_input( INPUT_POST, 'twinfield_subarticle_id', FILTER_SANITIZE_STRING );
-
-		// Updates the post meta
-		if ( isset( $twinfield_article_id ) ) {
-			update_post_meta( $post_id, '_twinfield_article_id', $twinfield_article_id );
-			update_post_meta( $post_id, '_twinfield_subarticle_id', $twinfield_subarticle_id );
+		$twinfield_article_code    = filter_input( INPUT_POST, 'twinfield_article_code', FILTER_SANITIZE_STRING );
+		if ( empty( $twinfield_article_code ) ) {
+			delete_post_meta( $post_id, '_twinfield_article_code' );
 		} else {
-			delete_post_meta( $post_id, '_twinfield_article_id' );
-			delete_post_meta( $post_id, '_twinfield_subarticle_id' );
+			update_post_meta( $post_id, '_twinfield_article_code', $twinfield_article_code );
+		}
+
+		$twinfield_subarticle_code = filter_input( INPUT_POST, 'twinfield_subarticle_code', FILTER_SANITIZE_STRING );
+		if ( empty( $twinfield_subarticle_code ) ) {
+			delete_post_meta( $post_id, '_twinfield_subarticle_code' );
+		} else {
+			update_post_meta( $post_id, '_twinfield_subarticle_code', $twinfield_subarticle_code );
 		}
 	}
 }
