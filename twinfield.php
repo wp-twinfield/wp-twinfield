@@ -78,6 +78,8 @@ if ( ! class_exists( 'Twinfield' ) ) :
 			add_action( 'wp_twinfield_formbuilder_load_forms', array( $this, 'load_forms' ) );
 
 			spl_autoload_register( array( $this, 'autoload' ) );
+
+			do_action( 'twinfield_bootstrap' );
 		}
 
 
