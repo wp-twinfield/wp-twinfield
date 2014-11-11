@@ -9,7 +9,9 @@
 	
 	<xsl:template match="salesinvoice">
 		<div class="twinfield-invoice">
-			<xsl:apply-templates />
+			<xsl:apply-templates select="header" />
+
+			<xsl:apply-templates select="lines" />
 		</div>
 	</xsl:template>
 
