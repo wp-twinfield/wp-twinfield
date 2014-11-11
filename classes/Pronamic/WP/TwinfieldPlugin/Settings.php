@@ -105,8 +105,38 @@ class Pronamic_WP_TwinfieldPlugin_Settings {
             )
         );
 
+        add_settings_field(
+            'twinfield_default_article_code',
+            __( 'Default Article Code', 'twinfield' ),
+            array( $this, 'render_text' ),
+            'twinfield',
+            'twinfield_defaults',
+            array(
+                'label_for'   => 'twinfield_default_article_code',
+                'classes'     => array( 'regular-text', 'code' ),
+				/* translators: use same translations as on Twinfield.com. */
+				'description' => _x( 'You can find your articles in Twinfield under "Credit management » Items".', 'twinfield.com', 'twinfield' ),
+            )
+        );
+
+        add_settings_field(
+            'twinfield_default_subarticle_code',
+            __( 'Default Subarticle Code', 'twinfield' ),
+            array( $this, 'render_text' ),
+            'twinfield',
+            'twinfield_defaults',
+            array(
+                'label_for'   => 'twinfield_default_subarticle_code',
+                'classes'     => array( 'regular-text', 'code' ),
+				/* translators: use same translations as on Twinfield.com. */
+				'description' => _x( 'You can find your articles in Twinfield under "Credit management » Items".', 'twinfield.com', 'twinfield' ),
+            )
+        );
+
         register_setting( 'twinfield', 'twinfield_default_office_code' );
         register_setting( 'twinfield', 'twinfield_default_invoice_type' );
+        register_setting( 'twinfield', 'twinfield_default_article_id' );
+        register_setting( 'twinfield', 'twinfield_default_subarticle_id' );
 
 		/*
 		 * Permalinks
