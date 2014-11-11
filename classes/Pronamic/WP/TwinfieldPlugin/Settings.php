@@ -135,8 +135,8 @@ class Pronamic_WP_TwinfieldPlugin_Settings {
 
         register_setting( 'twinfield', 'twinfield_default_office_code' );
         register_setting( 'twinfield', 'twinfield_default_invoice_type' );
-        register_setting( 'twinfield', 'twinfield_default_article_id' );
-        register_setting( 'twinfield', 'twinfield_default_subarticle_id' );
+        register_setting( 'twinfield', 'twinfield_default_article_code' );
+        register_setting( 'twinfield', 'twinfield_default_subarticle_code' );
 
 		/*
 		 * Permalinks
