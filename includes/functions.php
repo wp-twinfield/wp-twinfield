@@ -41,10 +41,6 @@ function twinfield_get_form_action( $type ) {
 	return admin_url( 'admin.php?page=twinfield-form-builder&twinfield-form=' . $type );
 }
 
-function twinfield_get_merger_table_action( $support ) {
-	return admin_url( 'admin.php?page=twinfield-merger&twinfield-table=' . $support );
-}
-
 function wp_twinfield_admin_query_nav( $ignore_trigger = '' ) {
 	$selected_tab = filter_input( INPUT_GET, 'tab', FILTER_SANITIZE_STRING );
 
