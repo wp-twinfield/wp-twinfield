@@ -5,7 +5,7 @@ namespace Pronamic\WP\Twinfield\FormBuilder\Form;
 class Invoice extends ParentForm {
 
 	public function prepare_extra_variables() {}
-	
+
 	public function submit( $data = array() ) {
 
 		global $twinfield_config;
@@ -53,7 +53,7 @@ class Invoice extends ParentForm {
 		}
 
 		$customer->setID( filter_var( $data['customerID'], FILTER_VALIDATE_INT ) );
-		
+
 		if ( ! empty( $data['invoiceNumber'] ) )
 			$invoice->setInvoiceNumber( filter_var( $data['invoiceNumber'], FILTER_SANITIZE_NUMBER_INT ) );
 
@@ -72,9 +72,9 @@ class Invoice extends ParentForm {
 			->setDeliverAddressNumber( filter_var( $data['deliveraddressnumber'], FILTER_SANITIZE_NUMBER_INT ) )
 			->setHeaderText( filter_var( $data['headertext'], FILTER_SANITIZE_STRING ) )
 			->setFooterText( filter_var( $data['footertext'], FILTER_SANITIZE_STRING ) );
-		
 
-		
+
+
 		if ( ! empty( $data['lines'] ) ) {
 
 			$defaultLineData = array(
