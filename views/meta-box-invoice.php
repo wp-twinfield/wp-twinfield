@@ -3,9 +3,10 @@
 global $post;
 
 $is_supported   = \Pronamic\WP\Twinfield\Invoice\InvoiceMetaBoxFactory::supported( $post->post_type );
+
 $invoice_number = get_post_meta( $post->ID, '_twinfield_invoice_number', true );
-$invoice_type   = get_post_meta( $post->ID, '_twinfield_invoice_type', true );
 $customer_id    = get_post_meta( $post->ID, '_twinfield_customer_id', true );
+
 $response       = get_post_meta( $post->ID, '_twinfield_response', true );
 
 ?>
@@ -16,14 +17,6 @@ $response       = get_post_meta( $post->ID, '_twinfield_response', true );
 		</th>
 		<td>
 			<input id="twinfield_invoice_number" type="text" name="twinfield_invoice_number" value="<?php echo esc_attr( $invoice_number ); ?>" />
-		</td>
-	</tr>
-	<tr>
-		<th>
-			<label for="twinfield_invoice_type"><?php _e( 'Invoice Type', 'twinfield' ); ?></label>
-		</th>
-		<td>
-			<input id="twinfield_invoice_type" type="text" name="twinfield_invoice_type" value="<?php echo esc_attr( $invoice_type ); ?>" />
 		</td>
 	</tr>
 	<tr>
