@@ -45,11 +45,11 @@
 		<table class="twinfield-invoice-lines">
 			<thead>
 				<tr>
-					<th>Quantity</th>
-					<th>Article</th>
-					<th>Sub article</th>
-					<th>Description</th>
-					<th>Units price excl</th>
+					<th scope="col">Quantity</th>
+					<th scope="col">Article</th>
+					<th scope="col">Sub article</th>
+					<th scope="col">Description</th>
+					<th scope="col">Units price excl</th>
 				</tr>
 			</thead>
 
@@ -58,18 +58,38 @@
 					<tr>
 						<td>
 							<xsl:value-of select="quantity" />
+							
+							<xsl:if test="quantity/@msg">
+								<em><xsl:value-of select="quantity/@msg" /></em>
+							</xsl:if>
 						</td>
 						<td>
 							<xsl:value-of select="article" />
+							
+							<xsl:if test="article/@msg">
+								<em><xsl:value-of select="article/@msg" /></em>
+							</xsl:if>
 						</td>
 						<td>
 							<xsl:value-of select="subarticle" />
+							
+							<xsl:if test="subarticle/@msg">
+								<em><xsl:value-of select="subarticle/@msg" /></em>
+							</xsl:if>
 						</td>
 						<td>
 							<xsl:value-of select="description" />
+							
+							<xsl:if test="description/@msg">
+								<em><xsl:value-of select="description/@msg" /></em>
+							</xsl:if>
 						</td>
 						<td>
 							<xsl:value-of select="unitspriceexcl" />
+
+							<xsl:if test="unitspriceexcl/@msg">
+								<em><xsl:value-of select="unitspriceexcl/@msg" /></em>
+							</xsl:if>
 						</td>
 					</tr>
 				</xsl:for-each>
