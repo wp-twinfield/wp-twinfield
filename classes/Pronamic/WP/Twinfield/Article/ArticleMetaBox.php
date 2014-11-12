@@ -45,20 +45,16 @@ class ArticleMetaBox {
 	 * @access public
 	 * @return void
 	 */
-	public function add_meta_boxes() {
-		$post_types = get_post_types( '', 'names' );
-
-		foreach ( $post_types as $post_type ) {
-			if ( post_type_supports( $post_type, 'twinfield_article' ) ) {
-				add_meta_box(
-					'pronamic_twinfield_article',
-					__( 'Twinfield Article', 'twinfield' ),
-					array( $this, 'view' ),
-					$post_type,
-					'normal',
-					'high'
-				);
-			}
+	public function add_meta_boxes( $post_type ) {
+		if ( post_type_supports( $post_type, 'twinfield_article' ) ) {
+			add_meta_box(
+				'pronamic_twinfield_article',
+				__( 'Twinfield Article', 'twinfield' ),
+				array( $this, 'view' ),
+				$post_type,
+				'normal',
+				'default'
+			);
 		}
 	}
 
