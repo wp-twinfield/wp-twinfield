@@ -60,7 +60,6 @@ class InvoiceMetaBox {
             		$invoice = \Pronamic\Twinfield\Invoice\Mapper\InvoiceMapper::map( $data_proxy->get_response() );
 
             		update_post_meta( $post_id, '_twinfield_invoice_number', $invoice->getInvoiceNumber() );
-            		update_post_meta( $post_id, '_twinfield_invoice_type', $invoice->getInvoiceType() );
             		update_post_meta( $post_id, '_twinfield_customer_id', $invoice->getCustomer()->getID() );
 				}
 			}
@@ -89,7 +88,7 @@ class InvoiceMetaBox {
 
     /**
      * Shows the contents of the wp_twinfield_invoice_meta_box.  Passes
-     * invoice_id, customer_id, invoice_type and is_supported variables to the
+     * invoice_id, customer_id and is_supported variables to the
      * view.
      *
      * @access public
@@ -103,7 +102,7 @@ class InvoiceMetaBox {
     }
 
     /**
-     * Saves the contents of the meta box inputs, invoice_id, customer_id and invoice_type.  Will also
+     * Saves the contents of the meta box inputs, invoice_id and customer_id.  Will also
      * synchronize if supported.
      *
      * @access public
@@ -117,11 +116,9 @@ class InvoiceMetaBox {
         }
 
         $invoice_number = filter_input( INPUT_POST, 'twinfield_invoice_number', FILTER_SANITIZE_NUMBER_INT );
-        $invoice_type   = filter_input( INPUT_POST, 'twinfield_invoice_type', FILTER_SANITIZE_STRING );
         $customer_id    = filter_input( INPUT_POST, 'twinfield_customer_id', FILTER_SANITIZE_NUMBER_INT );
 
         update_post_meta( $post_id, '_twinfield_invoice_number', $invoice_number );
-        update_post_meta( $post_id, '_twinfield_invoice_type', $invoice_type );
         update_post_meta( $post_id, '_twinfield_customer_id', $customer_id );
     }
 }
