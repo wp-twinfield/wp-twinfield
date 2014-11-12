@@ -79,9 +79,12 @@ if ( ! class_exists( 'Twinfield' ) ) :
 
 			spl_autoload_register( array( $this, 'autoload' ) );
 
-			do_action( 'twinfield_bootstrap' );
+			add_action( 'plugins_loaded', array( $this, 'plugins_loaded' ), 9 );
 		}
 
+		public function plugins_loaded() {
+			do_action( 'twinfield_bootstrap' );
+		}
 
 		/**
 		 * Autoloads classes. When I start removing the composer package this method will probably be
