@@ -180,6 +180,24 @@ class Pronamic_WP_TwinfieldPlugin_Settings {
 	//////////////////////////////////////////////////
 
 	/**
+	 * Array to HTML attributes
+	 *
+	 * @param array $pieces
+	 */
+	private function array_to_html_attributes( array $attributes ) {
+		$html  = '';
+		$space = '';
+
+		foreach ( $attributes as $key => $value ) {
+			$html .= $space . $key . '=' . '"' . esc_attr( $value ) . '"';
+
+			$space = ' ';
+		}
+
+		return $html;
+	}
+
+	/**
 	 * Render text
 	 *
 	 * @param array $attributes
@@ -193,19 +211,25 @@ class Pronamic_WP_TwinfieldPlugin_Settings {
 			'classes' => array( 'regular-text' )
 		) );
 
-		printf(
-			'<input id="%s" name="%s" value="%s" type="%s" class="%s" />',
-			esc_attr( $attributes['label_for'] ),
-			esc_attr( $attributes['label_for'] ),
-			esc_attr( get_option( $attributes['label_for'] ) ),
-			esc_attr( $attributes['type'] ),
-			esc_attr( implode( ' ', $attributes['classes'] ) )
-		);
+		if ( isset( $attributes['classes'] ) ) {
+			$attributes['class'] = implode( ' ', $attributes['classes'] ) ;
 
+			unset( $attributes['classes'] );
+		}
+
+		$description = null;
 		if ( isset( $attributes['description'] ) ) {
+			$description = $attributes['description'];
+
+			unset( $attributes['description'] );
+		}
+
+		printf( '<input %s />', $this->array_to_html_attributes( $attributes ) );
+
+		if ( $description ) {
 			printf(
 				'<span class="description"><br />%s</span>',
-				$attributes['description']
+				$description
 			);
 		}
 	}
@@ -216,7 +240,8 @@ class Pronamic_WP_TwinfieldPlugin_Settings {
 	 * @param array $attributes
 	 */
 	public function render_password( $attributes ) {
-		$attributes['type'] = 'password';
+		$attributes['type']         = 'password';
+		$attributes['autocomplete'] = 'off';
 
 		$this->render_text( $attributes );
 	}
