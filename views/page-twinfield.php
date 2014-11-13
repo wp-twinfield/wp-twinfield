@@ -11,7 +11,9 @@
 					    <form action="https://login.twinfield.com/default.aspx" method="post" target="_blank">
 					        <p>
 					        	<a href="https://login.twinfield.com/" target="_blank">https://login.twinfield.com/</a>
+					        </p>
 
+					        <p>
 					            <input name="txtUserID" type="hidden" value="<?php form_option( 'twinfield_username' ); ?>" />
 					            <input name="txtPassword" type="hidden" value="<?php form_option( 'twinfield_password' ); ?>" />
 					            <input name="txtcompanyID" type="hidden" value="<?php form_option( 'twinfield_organisation' ); ?>" />
