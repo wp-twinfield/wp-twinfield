@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Twinfield\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/twinfield\n"
-"POT-Creation-Date: 2014-11-13 12:24:40+00:00\n"
-"PO-Revision-Date: 2014-11-13 13:25+0100\n"
+"POT-Creation-Date: 2014-11-13 12:26:46+00:00\n"
+"PO-Revision-Date: 2014-11-13 13:27+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -102,9 +102,8 @@ msgid "Defaults"
 msgstr "Standaaarden"
 
 #: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:96
-#: views/Pronamic/WP/FormBuilder/create_form_invoice.php:6
-msgid "Invoice Type"
-msgstr "Factuurtype"
+msgid "Invoice Type Code"
+msgstr "Factuurtype code"
 
 #: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:110
 #: views/meta-box-article.php:6
@@ -326,6 +325,10 @@ msgstr "Verstuur"
 #: views/Pronamic/WP/FormBuilder/create_form_invoice.php:1
 msgid "Invoice Form"
 msgstr "Factuur formulier"
+
+#: views/Pronamic/WP/FormBuilder/create_form_invoice.php:6
+msgid "Invoice Type"
+msgstr "Factuurtype"
 
 #: views/Pronamic/WP/FormBuilder/create_form_invoice.php:22
 msgid "Subarticle"

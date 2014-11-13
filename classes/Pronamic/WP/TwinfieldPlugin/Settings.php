@@ -93,7 +93,7 @@ class Pronamic_WP_TwinfieldPlugin_Settings {
 
         add_settings_field(
             'twinfield_default_invoice_type',
-            __( 'Invoice Type', 'twinfield' ),
+            __( 'Invoice Type Code', 'twinfield' ),
             array( $this, 'render_text' ),
             'twinfield',
             'twinfield_defaults',
