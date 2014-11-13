@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Twinfield 1.0.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/twinfield\n"
-"POT-Creation-Date: 2014-11-13 12:17:54+00:00\n"
+"POT-Creation-Date: 2014-11-13 12:24:40+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -33,48 +33,48 @@ msgstr ""
 msgid "Twinfield"
 msgstr ""
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:73
+#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:75
 msgid "Twinfield Customers"
 msgstr ""
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:74
+#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:76
 msgid "Customers"
 msgstr ""
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:82
+#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:84
 msgid "Twinfield Invoices"
 msgstr ""
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:83
+#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:85
 msgid "Invoices"
 msgstr ""
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:91
+#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:93
 msgid "Twinfield Settings"
 msgstr ""
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:92
+#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:94
 msgid "Settings"
 msgstr ""
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:100
+#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:102
 msgid "Twinfield Form Builder"
 msgstr ""
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:101
+#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:103
 msgid "Form Builder"
 msgstr ""
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:109
-#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:110
+#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:111
+#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:112
 msgid "Merger Tool"
 msgstr ""
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:118
+#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:120
 msgid "Twinfield Documentation"
 msgstr ""
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:119
+#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:121
 msgid "Documentation"
 msgstr ""
 
@@ -476,20 +476,10 @@ msgctxt "Invoice slug for front end"
 msgid "invoice"
 msgstr ""
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:64
-msgctxt "twinfield.com"
-msgid "Twinfield Companies"
-msgstr ""
-
-#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:65
-msgctxt "twinfield.com"
-msgid "Companies"
-msgstr ""
-
 #: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:83
 #. translators: use same translations as on Twinfield.com.
 msgctxt "twinfield.com"
-msgid "Company"
+msgid "Company Code"
 msgstr ""
 
 #: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:90

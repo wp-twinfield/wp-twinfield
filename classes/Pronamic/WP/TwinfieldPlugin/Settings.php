@@ -80,7 +80,7 @@ class Pronamic_WP_TwinfieldPlugin_Settings {
 		add_settings_field(
 			'twinfield_default_office_code',
 			/* translators: use same translations as on Twinfield.com. */
-			_x( 'Company', 'twinfield.com', 'twinfield' ),
+			_x( 'Company Code', 'twinfield.com', 'twinfield' ),
 			array( $this, 'render_text' ),
 			'twinfield',
 			'twinfield_defaults',

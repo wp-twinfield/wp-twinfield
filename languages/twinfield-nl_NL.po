@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Twinfield\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/twinfield\n"
-"POT-Creation-Date: 2014-11-13 12:17:54+00:00\n"
-"PO-Revision-Date: 2014-11-13 13:19+0100\n"
+"POT-Creation-Date: 2014-11-13 12:24:40+00:00\n"
+"PO-Revision-Date: 2014-11-13 13:25+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -35,48 +35,48 @@ msgstr "Klant vereist KvK nummer als een maatwerk meta veld"
 msgid "Twinfield"
 msgstr "Twinfield"
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:73
+#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:75
 msgid "Twinfield Customers"
 msgstr "Twinfield klanten"
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:74
+#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:76
 msgid "Customers"
 msgstr "Klanten"
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:82
+#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:84
 msgid "Twinfield Invoices"
 msgstr "Twinfield facturen"
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:83
+#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:85
 msgid "Invoices"
 msgstr "Facturen"
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:91
+#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:93
 msgid "Twinfield Settings"
 msgstr "Twinfield instellingen"
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:92
+#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:94
 msgid "Settings"
 msgstr "Instellingen"
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:100
+#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:102
 msgid "Twinfield Form Builder"
 msgstr "Twinfield formulieren"
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:101
+#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:103
 msgid "Form Builder"
 msgstr "Formulieren"
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:109
-#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:110
+#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:111
+#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:112
 msgid "Merger Tool"
 msgstr "Samenvoegen tool"
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:118
+#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:120
 msgid "Twinfield Documentation"
 msgstr "Twinfield documentatie"
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:119
+#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:121
 msgid "Documentation"
 msgstr "Documentatie"
 
@@ -487,21 +487,11 @@ msgctxt "Invoice slug for front end"
 msgid "invoice"
 msgstr "factuur"
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:64
-msgctxt "twinfield.com"
-msgid "Twinfield Companies"
-msgstr "Twinfield administraties"
-
-#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:65
-msgctxt "twinfield.com"
-msgid "Companies"
-msgstr "Administraties"
-
 #. translators: use same translations as on Twinfield.com.
 #: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:83
 msgctxt "twinfield.com"
-msgid "Company"
-msgstr "Administratie"
+msgid "Company Code"
+msgstr "Administratiecode"
 
 #. translators: use same translations as on Twinfield.com.
 #: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:90
@@ -531,6 +521,14 @@ msgid ""
 "You can find your articles in Twinfield under \"Credit management » Items\"."
 msgstr ""
 "Je kunt je artikelen in Twinfield vinden onder \"Facturatie » Artikelen\"."
+
+#~ msgctxt "twinfield.com"
+#~ msgid "Twinfield Companies"
+#~ msgstr "Twinfield administraties"
+
+#~ msgctxt "twinfield.com"
+#~ msgid "Companies"
+#~ msgstr "Administraties"
 
 #~ msgid "Invoice"
 #~ msgstr "Factuur"
