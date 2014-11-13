@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Twinfield\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/twinfield\n"
-"POT-Creation-Date: 2014-11-13 12:26:46+00:00\n"
-"PO-Revision-Date: 2014-11-13 13:28+0100\n"
+"POT-Creation-Date: 2014-11-13 12:55:06+00:00\n"
+"PO-Revision-Date: 2014-11-13 13:55+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -80,76 +80,76 @@ msgstr "Twinfield documentatie"
 msgid "Documentation"
 msgstr "Documentatie"
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:33
+#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:35
 #: views/page-twinfield.php:19
 msgid "Login"
 msgstr "Inloggen"
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:40
+#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:42
 msgid "Username"
 msgstr "Gebruikersnaam"
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:49
+#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:51
 msgid "Password"
 msgstr "Wachtwoord"
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:58
+#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:60
 msgid "Organisation"
 msgstr "Organisatie"
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:75
+#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:77
 msgid "Defaults"
 msgstr "Standaarden"
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:96
+#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:98
 msgid "Invoice Type Code"
 msgstr "Factuurtype code"
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:110
+#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:112
 #: views/meta-box-article.php:6
 msgid "Article Code"
 msgstr "Artikel code"
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:124
+#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:126
 #: views/meta-box-article.php:14
 msgid "Subarticle Code"
 msgstr "Subartikel code"
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:146
+#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:148
 msgid "Permalinks"
 msgstr "Permalinks"
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:153
+#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:155
 msgid "Invoice Slug"
 msgstr "Factuurbasis"
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:165
+#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:167
 msgid "Customer Slug"
 msgstr "Klantbasis"
 
 #: templates/customer.php:7 templates/customer.php:18
 #: views/Pronamic/WP/FormBuilder/create_form_customer.php:18
 #: views/Pronamic/WP/FormBuilder/create_form_customer.php:53
-#: views/page-customers.php:50 views/page-customers.php:63
+#: views/page-customers.php:56 views/page-customers.php:69
 #: views/page-offices.php:25
 msgid "Name"
 msgstr "Naam"
 
-#: templates/customer.php:10 views/page-customers.php:58
+#: templates/customer.php:10 views/page-customers.php:64
 msgid "Addresses"
 msgstr "Adressen"
 
 #: templates/customer.php:21
 #: views/Pronamic/WP/FormBuilder/create_form_customer.php:59
-#: views/page-customers.php:64
+#: views/page-customers.php:70
 msgid "City"
 msgstr "Plaats"
 
-#: templates/customer.php:24 views/page-customers.php:65
+#: templates/customer.php:24 views/page-customers.php:71
 msgid "Postal Code"
 msgstr "Postcode"
 
-#: templates/customer.php:27 views/page-customers.php:66
+#: templates/customer.php:27 views/page-customers.php:72
 msgid "Telephone"
 msgstr "Telefoon"
 
@@ -162,33 +162,33 @@ msgid "Header"
 msgstr "Header"
 
 #: templates/invoice.php:17 views/meta-box-invoice.php:16
-#: views/page-invoices.php:52
+#: views/page-invoices.php:58
 msgid "Invoice Number"
 msgstr "Factuurnummer"
 
-#: templates/invoice.php:22 views/page-invoices.php:61
+#: templates/invoice.php:22 views/page-invoices.php:67
 msgid "Invoice Date"
 msgstr "Factuurdatum"
 
-#: templates/invoice.php:29 views/page-invoices.php:72
+#: templates/invoice.php:29 views/page-invoices.php:78
 msgid "Due Date"
 msgstr "Vervaldatum"
 
-#: templates/invoice.php:35 views/page-invoices.php:81
+#: templates/invoice.php:35 views/page-invoices.php:87
 msgid "Office"
 msgstr "Kantoor"
 
 #: templates/invoice.php:38
 #: views/Pronamic/WP/FormBuilder/create_form_customer.php:52
-#: views/page-invoices.php:87
+#: views/page-invoices.php:93
 msgid "Type"
 msgstr "Type"
 
-#: templates/invoice.php:41 views/page-invoices.php:93
+#: templates/invoice.php:41 views/page-invoices.php:99
 msgid "Customer"
 msgstr "Klant"
 
-#: templates/invoice.php:56 views/page-invoices.php:107
+#: templates/invoice.php:56 views/page-invoices.php:113
 msgid "Status"
 msgstr "Status"
 
@@ -196,53 +196,53 @@ msgstr "Status"
 msgid "Lines"
 msgstr "Regels"
 
-#: templates/invoice.php:72 views/page-invoices.php:120
+#: templates/invoice.php:72 views/page-invoices.php:126
 msgid "Id"
 msgstr "Id"
 
 #: templates/invoice.php:73
 #: views/Pronamic/WP/FormBuilder/create_form_invoice.php:21
-#: views/page-invoices.php:121
+#: views/page-invoices.php:127
 msgid "Article"
 msgstr "Artikel"
 
-#: templates/invoice.php:74 views/page-invoices.php:122
+#: templates/invoice.php:74 views/page-invoices.php:128
 msgid "Sub article"
 msgstr "Subartikel"
 
 #: templates/invoice.php:75
 #: views/Pronamic/WP/FormBuilder/create_form_invoice.php:23
-#: views/page-invoices.php:123
+#: views/page-invoices.php:129
 msgid "Quantity"
 msgstr "Aantal"
 
 #: templates/invoice.php:76
 #: views/Pronamic/WP/FormBuilder/create_form_invoice.php:24
-#: views/page-invoices.php:124
+#: views/page-invoices.php:130
 msgid "Units"
 msgstr "Eenheid"
 
-#: templates/invoice.php:77 views/page-invoices.php:125
+#: templates/invoice.php:77 views/page-invoices.php:131
 msgid "Description"
 msgstr "Beschrijving"
 
-#: templates/invoice.php:78 views/page-invoices.php:126
+#: templates/invoice.php:78 views/page-invoices.php:132
 msgid "Value Excl"
 msgstr "Waarde excl."
 
-#: templates/invoice.php:79 views/page-invoices.php:127
+#: templates/invoice.php:79 views/page-invoices.php:133
 msgid "Vat Value"
 msgstr "Belasting waarde"
 
-#: templates/invoice.php:80 views/page-invoices.php:128
+#: templates/invoice.php:80 views/page-invoices.php:134
 msgid "Value Inc"
 msgstr "Waarde incl."
 
-#: templates/invoice.php:81 views/page-invoices.php:129
+#: templates/invoice.php:81 views/page-invoices.php:135
 msgid "Units Price Excl"
 msgstr "Eenheid prijs excl."
 
-#: templates/invoice.php:82 views/page-invoices.php:130
+#: templates/invoice.php:82 views/page-invoices.php:136
 msgid "Free text 1"
 msgstr "Vrije tekst 1"
 
@@ -257,7 +257,7 @@ msgstr "Klant formulier"
 #: views/Pronamic/WP/FormBuilder/create_form_customer.php:14
 #: views/Pronamic/WP/FormBuilder/create_form_invoice.php:12
 #: views/meta-box-customer.php:6 views/meta-box-invoice.php:24
-#: views/page-customers.php:32
+#: views/page-customers.php:38
 msgid "Customer ID"
 msgstr "Klant ID"
 
@@ -266,7 +266,7 @@ msgid "Newest Number"
 msgstr "Nieuwste nummer"
 
 #: views/Pronamic/WP/FormBuilder/create_form_customer.php:22
-#: views/page-customers.php:54
+#: views/page-customers.php:60
 msgid "Website"
 msgstr "Website"
 
@@ -383,15 +383,19 @@ msgstr "Factuur aanmaken"
 msgid "Looking for automatic synchronization?"
 msgstr "Voorraad synchronisatie"
 
-#: views/page-customers.php:28
-msgid "Search for customers"
-msgstr "Zoek naar klanten"
+#: views/page-customers.php:16 views/page-invoices.php:17
+msgid "Could not connect to Twinfield."
+msgstr "Kon geen verbinding maken met Twinfield."
 
-#: views/page-customers.php:39 views/page-invoices.php:40
-msgid "Search"
-msgstr "Zoeken"
+#: views/page-customers.php:34
+msgid "Request Customer"
+msgstr "Klant opvragen"
 
-#: views/page-customers.php:46
+#: views/page-customers.php:45 views/page-invoices.php:46
+msgid "Request"
+msgstr "Opvragen"
+
+#: views/page-customers.php:52
 msgid "Customer %s"
 msgstr "Klant %s"
 
@@ -419,15 +423,15 @@ msgstr "versie %s"
 msgid "%s"
 msgstr "%s"
 
-#: views/page-invoices.php:29
-msgid "Search for invoices"
-msgstr "Zoek naar facturen"
+#: views/page-invoices.php:35
+msgid "Request Invoice"
+msgstr "Factuur opvragen"
 
-#: views/page-invoices.php:33
+#: views/page-invoices.php:39
 msgid "Invoice ID"
 msgstr "Factuur ID"
 
-#: views/page-invoices.php:47
+#: views/page-invoices.php:53
 msgid "Invoice %d"
 msgstr "Factuur %d"
 
@@ -491,13 +495,13 @@ msgid "invoice"
 msgstr "factuur"
 
 #. translators: use same translations as on Twinfield.com.
-#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:83
+#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:85
 msgctxt "twinfield.com"
 msgid "Company Code"
 msgstr "Administratiecode"
 
 #. translators: use same translations as on Twinfield.com.
-#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:90
+#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:92
 msgctxt "twinfield.com"
 msgid ""
 "You can find your companies in Twinfield under \"Profile » Companies\" or "
@@ -507,7 +511,7 @@ msgstr ""
 "Administraties\" of \"Algemeen » Systeem » Administratie wisselen\"."
 
 #. translators: use same translations as on Twinfield.com.
-#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:104
+#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:106
 msgctxt "twinfield.com"
 msgid ""
 "You can find your invoice types in Twinfield under \"Credit management » "
@@ -517,13 +521,22 @@ msgstr ""
 "» Factuurtypen\"."
 
 #. translators: use same translations as on Twinfield.com.
-#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:118
-#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:132
+#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:120
+#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:134
 msgctxt "twinfield.com"
 msgid ""
 "You can find your articles in Twinfield under \"Credit management » Items\"."
 msgstr ""
 "Je kunt je artikelen in Twinfield vinden onder \"Facturatie » Artikelen\"."
+
+#~ msgid "Search"
+#~ msgstr "Zoeken"
+
+#~ msgid "Search for customers"
+#~ msgstr "Zoek naar klanten"
+
+#~ msgid "Search for invoices"
+#~ msgstr "Zoek naar facturen"
 
 #~ msgctxt "twinfield.com"
 #~ msgid "Twinfield Companies"

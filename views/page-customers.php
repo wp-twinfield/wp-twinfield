@@ -9,9 +9,15 @@ if ( filter_has_var( INPUT_GET, 'twinfield_customer_id' ) ) {
 		filter_input( INPUT_GET, 'twinfield_customer_id', FILTER_VALIDATE_INT )
 	);
 
-	if ( ! $customer_factory->getResponse()->isSuccessful() )
-		$error_messages = $customer_factory->getResponse()->getErrorMessages();
+	$response = $customer_factory->getResponse();
 
+	if ( ! $response ) {
+		$error_messages = array(
+			__( 'Could not connect to Twinfield.', 'twinfield' ),
+		);
+	} elseif ( ! $response->isSuccessful() ) {
+		$error_messages = $response->getErrorMessages();
+	}
 } else {
 	$customer = false;
 }
@@ -25,7 +31,7 @@ if ( filter_has_var( INPUT_GET, 'twinfield_customer_id' ) ) {
 		<form method="get" action="">
 			<input type="hidden" name="page" value="twinfield_customers" />
 
-			<h3><?php _e( 'Search for customers', 'twinfield' ); ?></h3>
+			<h3><?php _e( 'Request Customer', 'twinfield' ); ?></h3>
 
 			<table class="form-table">
 				<tr>
@@ -36,7 +42,7 @@ if ( filter_has_var( INPUT_GET, 'twinfield_customer_id' ) ) {
 				</tr>
 			</table>
 
-			<?php submit_button( __( 'Search', 'twinfield' ), 'primary', null ); ?>
+			<?php submit_button( __( 'Request', 'twinfield' ), 'primary', null ); ?>
 	    </form>
 
 	<?php endif; ?>

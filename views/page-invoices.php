@@ -10,8 +10,14 @@ if ( filter_has_var( INPUT_GET, 'twinfield_invoice_id' ) ) {
 		filter_input( INPUT_GET, 'twinfield_invoice_id', FILTER_VALIDATE_INT )
 	);
 
-	if ( ! $invoice_factory->getResponse()->isSuccessful() ) {
-		$error_messages = $invoice_factory->getResponse()->getErrorMessages();
+	$response = $invoice_factory->getResponse();
+
+	if ( ! $response ) {
+		$error_messages = array(
+			__( 'Could not connect to Twinfield.', 'twinfield' ),
+		);
+	} elseif ( ! $response->isSuccessful() ) {
+		$error_messages = $response->getErrorMessages();
 	}
 } else {
 	$invoice = false;
@@ -26,7 +32,7 @@ if ( filter_has_var( INPUT_GET, 'twinfield_invoice_id' ) ) {
 		<form method="get" action="">
 			<input type="hidden" name="page" value="twinfield_invoices" />
 
-			<h3><?php _e( 'Search for invoices', 'twinfield' ); ?></h3>
+			<h3><?php _e( 'Request Invoice', 'twinfield' ); ?></h3>
 
 			<table class="form-table">
 				<tr>
@@ -37,7 +43,7 @@ if ( filter_has_var( INPUT_GET, 'twinfield_invoice_id' ) ) {
 				</tr>
 			</table>
 
-			<?php submit_button( __( 'Search', 'twinfield' ), 'primary', null ); ?>
+			<?php submit_button( __( 'Request', 'twinfield' ), 'primary', null ); ?>
 		</form>
 
 	<?php endif; ?>
