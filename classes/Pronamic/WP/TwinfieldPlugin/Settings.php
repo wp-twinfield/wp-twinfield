@@ -25,6 +25,8 @@ class Pronamic_WP_TwinfieldPlugin_Settings {
 	 * Constructs and initialize Twinfield plugin admin
 	 */
 	private function __construct( Pronamic_WP_TwinfieldPlugin_Plugin $plugin ) {
+		$this->plugin = $plugin;
+
 		/*
 		 * API
 		 */
