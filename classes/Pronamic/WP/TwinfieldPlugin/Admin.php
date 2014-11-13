@@ -59,6 +59,7 @@ class Pronamic_WP_TwinfieldPlugin_Admin {
 			$this->plugin->plugins_url( 'assets/admin/images/icon-16x16.png' )
 		);
 
+		/*
 		add_submenu_page(
 			'twinfield',
 			_x( 'Twinfield Companies', 'twinfield.com', 'twinfield' ),
@@ -67,6 +68,7 @@ class Pronamic_WP_TwinfieldPlugin_Admin {
 			'twinfield_offices',
 			array( $this, 'page_offices' )
 		);
+		*/
 
 		add_submenu_page(
 			'twinfield',
