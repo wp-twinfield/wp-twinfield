@@ -211,6 +211,13 @@ class Pronamic_WP_TwinfieldPlugin_Settings {
 			'classes' => array( 'regular-text' )
 		) );
 
+		if ( isset( $attributes['label_for'] ) ) {
+			$attributes['name']  = $attributes['label_for'];
+			$attributes['value'] = get_option( $attributes['label_for'] );
+
+			unset( $attributes['label_for'] );
+		}
+
 		if ( isset( $attributes['classes'] ) ) {
 			$attributes['class'] = implode( ' ', $attributes['classes'] ) ;
 
