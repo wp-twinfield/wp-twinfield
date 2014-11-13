@@ -249,8 +249,7 @@ class Pronamic_WP_TwinfieldPlugin_Settings {
 	 * @param array $attributes
 	 */
 	public function render_password( $attributes ) {
-		$attributes['type']         = 'password';
-		$attributes['autocomplete'] = 'off';
+		$attributes['type'] = 'password';
 
 		$this->render_text( $attributes );
 	}
