@@ -117,7 +117,9 @@ class Pronamic_WP_TwinfieldPlugin_Settings {
                 'label_for'   => 'twinfield_default_article_code',
                 'classes'     => array( 'regular-text', 'code' ),
 				/* translators: use same translations as on Twinfield.com. */
-				'description' => _x( 'You can find your articles in Twinfield under "Credit management » Items".', 'twinfield.com', 'twinfield' ),
+				'description' =>
+					__( 'This article code is used by default to create Twinfield invoice lines unless you have specified an Twinfield article code on a lower level.', 'twinfield' ) . '<br />' .
+					_x( 'You can find your articles in Twinfield under "Credit management » Items".', 'twinfield.com', 'twinfield' ),
             )
         );
 
@@ -131,7 +133,9 @@ class Pronamic_WP_TwinfieldPlugin_Settings {
                 'label_for'   => 'twinfield_default_subarticle_code',
                 'classes'     => array( 'regular-text', 'code' ),
 				/* translators: use same translations as on Twinfield.com. */
-				'description' => _x( 'You can find your articles in Twinfield under "Credit management » Items".', 'twinfield.com', 'twinfield' ),
+				'description' =>
+					__( 'This subarticle code is used by default to create Twinfield invoice lines unless you have specified an Twinfield subarticle code on a lower level.', 'twinfield' ) . '<br />' .
+					_x( 'You can find your articles in Twinfield under "Credit management » Items".', 'twinfield.com', 'twinfield' ),
             )
         );
 

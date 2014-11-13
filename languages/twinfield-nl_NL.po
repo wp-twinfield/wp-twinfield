@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Twinfield\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/twinfield\n"
-"POT-Creation-Date: 2014-11-13 12:55:06+00:00\n"
-"PO-Revision-Date: 2014-11-13 13:55+0100\n"
+"POT-Creation-Date: 2014-11-13 13:09:49+00:00\n"
+"PO-Revision-Date: 2014-11-13 14:12+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -81,7 +81,7 @@ msgid "Documentation"
 msgstr "Documentatie"
 
 #: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:35
-#: views/page-twinfield.php:19
+#: views/page-twinfield.php:21
 msgid "Login"
 msgstr "Inloggen"
 
@@ -110,20 +110,38 @@ msgstr "Factuurtype code"
 msgid "Article Code"
 msgstr "Artikel code"
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:126
+#. translators: use same translations as on Twinfield.com.
+#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:121
+msgid ""
+"This article code is used by default to create Twinfield invoice lines "
+"unless you have specified an Twinfield article code on a lower level."
+msgstr ""
+"Deze artikel code wordt standaard gebruikt om Twinfield factuurregels aan te "
+"maken tenzij op een lager niveau een artikel code is gespecificeerd."
+
+#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:128
 #: views/meta-box-article.php:14
 msgid "Subarticle Code"
 msgstr "Subartikel code"
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:148
+#. translators: use same translations as on Twinfield.com.
+#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:137
+msgid ""
+"This subarticle code is used by default to create Twinfield invoice lines "
+"unless you have specified an Twinfield subarticle code on a lower level."
+msgstr ""
+"Deze subartikel code wordt standaard gebruikt om Twinfield factuurregels aan "
+"te maken tenzij op een lager niveau een subartikel code is gespecificeerd."
+
+#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:152
 msgid "Permalinks"
 msgstr "Permalinks"
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:155
+#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:159
 msgid "Invoice Slug"
 msgstr "Factuurbasis"
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:167
+#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:171
 msgid "Customer Slug"
 msgstr "Klantbasis"
 
@@ -498,7 +516,7 @@ msgstr "factuur"
 #: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:85
 msgctxt "twinfield.com"
 msgid "Company Code"
-msgstr "Administratiecode"
+msgstr "Administratie code"
 
 #. translators: use same translations as on Twinfield.com.
 #: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:92
@@ -520,9 +538,8 @@ msgstr ""
 "Je kunt je factuurtypen in Twinfield vinden onder \"Facturatie » Factureren "
 "» Factuurtypen\"."
 
-#. translators: use same translations as on Twinfield.com.
-#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:120
-#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:134
+#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:122
+#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:138
 msgctxt "twinfield.com"
 msgid ""
 "You can find your articles in Twinfield under \"Credit management » Items\"."

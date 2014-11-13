@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Twinfield 1.0.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/twinfield\n"
-"POT-Creation-Date: 2014-11-13 12:55:06+00:00\n"
+"POT-Creation-Date: 2014-11-13 13:09:49+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -79,7 +79,7 @@ msgid "Documentation"
 msgstr ""
 
 #: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:35
-#: views/page-twinfield.php:19
+#: views/page-twinfield.php:21
 msgid "Login"
 msgstr ""
 
@@ -108,20 +108,34 @@ msgstr ""
 msgid "Article Code"
 msgstr ""
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:126
+#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:121
+#. translators: use same translations as on Twinfield.com.
+msgid ""
+"This article code is used by default to create Twinfield invoice lines "
+"unless you have specified an Twinfield article code on a lower level."
+msgstr ""
+
+#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:128
 #: views/meta-box-article.php:14
 msgid "Subarticle Code"
 msgstr ""
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:148
+#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:137
+#. translators: use same translations as on Twinfield.com.
+msgid ""
+"This subarticle code is used by default to create Twinfield invoice lines "
+"unless you have specified an Twinfield subarticle code on a lower level."
+msgstr ""
+
+#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:152
 msgid "Permalinks"
 msgstr ""
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:155
+#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:159
 msgid "Invoice Slug"
 msgstr ""
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:167
+#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:171
 msgid "Customer Slug"
 msgstr ""
 
@@ -505,9 +519,8 @@ msgid ""
 "Invoicing » Invoicing types\"."
 msgstr ""
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:120
-#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:134
-#. translators: use same translations as on Twinfield.com.
+#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:122
+#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:138
 msgctxt "twinfield.com"
 msgid "You can find your articles in Twinfield under \"Credit management » Items\"."
 msgstr ""
