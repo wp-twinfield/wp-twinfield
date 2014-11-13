@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Twinfield 1.0.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/twinfield\n"
-"POT-Creation-Date: 2014-11-11 13:11:57+00:00\n"
+"POT-Creation-Date: 2014-11-13 12:17:54+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "X-Generator: grunt-wp-i18n 0.4.9\n"
 
-#: classes/Pronamic/WP/Twinfield/Article/ArticleMetaBox.php:55
+#: classes/Pronamic/WP/Twinfield/Article/ArticleMetaBox.php:52
 msgid "Twinfield Article"
 msgstr ""
 
@@ -21,7 +21,7 @@ msgstr ""
 msgid "Twinfield Customer"
 msgstr ""
 
-#: classes/Pronamic/WP/Twinfield/Invoice/InvoiceMetaBox.php:81
+#: classes/Pronamic/WP/Twinfield/Invoice/InvoiceMetaBox.php:80
 msgid "Twinfield Invoice"
 msgstr ""
 
@@ -101,7 +101,6 @@ msgstr ""
 
 #: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:96
 #: views/Pronamic/WP/FormBuilder/create_form_invoice.php:6
-#: views/meta-box-invoice.php:35
 msgid "Invoice Type"
 msgstr ""
 
@@ -125,15 +124,6 @@ msgstr ""
 
 #: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:165
 msgid "Customer Slug"
-msgstr ""
-
-#: includes/functions.php:53 templates/invoice.php:41
-#: views/page-invoices.php:93
-msgid "Customer"
-msgstr ""
-
-#: includes/functions.php:57
-msgid "Invoice"
 msgstr ""
 
 #: templates/customer.php:7 templates/customer.php:18
@@ -170,7 +160,8 @@ msgstr ""
 msgid "Header"
 msgstr ""
 
-#: templates/invoice.php:17 views/page-invoices.php:52
+#: templates/invoice.php:17 views/meta-box-invoice.php:16
+#: views/page-invoices.php:52
 msgid "Invoice Number"
 msgstr ""
 
@@ -190,6 +181,10 @@ msgstr ""
 #: views/Pronamic/WP/FormBuilder/create_form_customer.php:52
 #: views/page-invoices.php:87
 msgid "Type"
+msgstr ""
+
+#: templates/invoice.php:41 views/page-invoices.php:93
+msgid "Customer"
 msgstr ""
 
 #: templates/invoice.php:56 views/page-invoices.php:107
@@ -260,7 +255,7 @@ msgstr ""
 
 #: views/Pronamic/WP/FormBuilder/create_form_customer.php:14
 #: views/Pronamic/WP/FormBuilder/create_form_invoice.php:12
-#: views/meta-box-customer.php:6 views/meta-box-invoice.php:27
+#: views/meta-box-customer.php:6 views/meta-box-invoice.php:24
 #: views/page-customers.php:32
 msgid "Customer ID"
 msgstr ""
@@ -370,19 +365,15 @@ msgstr ""
 msgid "Sync"
 msgstr ""
 
-#: views/meta-box-invoice.php:19 views/page-invoices.php:33
-msgid "Invoice ID"
-msgstr ""
-
-#: views/meta-box-invoice.php:66
+#: views/meta-box-invoice.php:55
 msgid "View"
 msgstr ""
 
-#: views/meta-box-invoice.php:70
+#: views/meta-box-invoice.php:59
 msgid "Create Invoice"
 msgstr ""
 
-#: views/meta-box-invoice.php:75
+#: views/meta-box-invoice.php:64
 msgid "Looking for automatic synchronization?"
 msgstr ""
 
@@ -426,52 +417,12 @@ msgstr ""
 msgid "Search for invoices"
 msgstr ""
 
+#: views/page-invoices.php:33
+msgid "Invoice ID"
+msgstr ""
+
 #: views/page-invoices.php:47
 msgid "Invoice %d"
-msgstr ""
-
-#: views/page-merger-tool.php:22
-msgid "Response Limit"
-msgstr ""
-
-#: views/page-merger-tool.php:27
-msgid "The number of customers to retrieve from Twinfield."
-msgstr ""
-
-#: views/page-merger-tool.php:32
-msgid "Response Offset"
-msgstr ""
-
-#: views/page-merger-tool.php:37
-msgid "The offset of customers to retrieve from Twinfield."
-msgstr ""
-
-#: views/page-merger-tool.php:42
-msgid "Custom Meta Field"
-msgstr ""
-
-#: views/page-merger-tool.php:47
-msgid ""
-"The meta field key to retrieve the KvK number from (for example: "
-"<code>%s</code>)."
-msgstr ""
-
-#: views/page-merger-tool.php:52
-msgid "New Custom Field"
-msgstr ""
-
-#: views/page-merger-tool.php:57
-msgid ""
-"The meta field key to store the Twinfield ID in (for example: "
-"<code>%s</code>)."
-msgstr ""
-
-#: views/page-merger-tool.php:62
-msgid "Show"
-msgstr ""
-
-#: views/page-merger-tool.php:66
-msgid "Automate"
 msgstr ""
 
 #: views/page-offices.php:23

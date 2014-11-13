@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Twinfield\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/twinfield\n"
-"POT-Creation-Date: 2014-11-11 13:11:57+00:00\n"
-"PO-Revision-Date: 2014-11-11 14:12+0100\n"
+"POT-Creation-Date: 2014-11-13 12:17:54+00:00\n"
+"PO-Revision-Date: 2014-11-13 13:19+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
-#: classes/Pronamic/WP/Twinfield/Article/ArticleMetaBox.php:55
+#: classes/Pronamic/WP/Twinfield/Article/ArticleMetaBox.php:52
 msgid "Twinfield Article"
 msgstr "Twinfield artikel"
 
@@ -23,7 +23,7 @@ msgstr "Twinfield artikel"
 msgid "Twinfield Customer"
 msgstr "Twinfield klant"
 
-#: classes/Pronamic/WP/Twinfield/Invoice/InvoiceMetaBox.php:81
+#: classes/Pronamic/WP/Twinfield/Invoice/InvoiceMetaBox.php:80
 msgid "Twinfield Invoice"
 msgstr "Twinfield factuur"
 
@@ -103,7 +103,6 @@ msgstr "Standaaarden"
 
 #: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:96
 #: views/Pronamic/WP/FormBuilder/create_form_invoice.php:6
-#: views/meta-box-invoice.php:35
 msgid "Invoice Type"
 msgstr "Factuurtype"
 
@@ -128,15 +127,6 @@ msgstr "Factuurbasis"
 #: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:165
 msgid "Customer Slug"
 msgstr "Klantbasis"
-
-#: includes/functions.php:53 templates/invoice.php:41
-#: views/page-invoices.php:93
-msgid "Customer"
-msgstr "Klant"
-
-#: includes/functions.php:57
-msgid "Invoice"
-msgstr "Factuur"
 
 #: templates/customer.php:7 templates/customer.php:18
 #: views/Pronamic/WP/FormBuilder/create_form_customer.php:18
@@ -172,7 +162,8 @@ msgstr "Factuur %s"
 msgid "Header"
 msgstr "Header"
 
-#: templates/invoice.php:17 views/page-invoices.php:52
+#: templates/invoice.php:17 views/meta-box-invoice.php:16
+#: views/page-invoices.php:52
 msgid "Invoice Number"
 msgstr "Factuurnummer"
 
@@ -193,6 +184,10 @@ msgstr "Kantoor"
 #: views/page-invoices.php:87
 msgid "Type"
 msgstr "Type"
+
+#: templates/invoice.php:41 views/page-invoices.php:93
+msgid "Customer"
+msgstr "Klant"
 
 #: templates/invoice.php:56 views/page-invoices.php:107
 msgid "Status"
@@ -262,7 +257,7 @@ msgstr "Klant formulier"
 
 #: views/Pronamic/WP/FormBuilder/create_form_customer.php:14
 #: views/Pronamic/WP/FormBuilder/create_form_invoice.php:12
-#: views/meta-box-customer.php:6 views/meta-box-invoice.php:27
+#: views/meta-box-customer.php:6 views/meta-box-invoice.php:24
 #: views/page-customers.php:32
 msgid "Customer ID"
 msgstr "Klant ID"
@@ -372,19 +367,15 @@ msgstr "Overeenkomst?"
 msgid "Sync"
 msgstr "Sync"
 
-#: views/meta-box-invoice.php:19 views/page-invoices.php:33
-msgid "Invoice ID"
-msgstr "Factuur ID"
-
-#: views/meta-box-invoice.php:66
+#: views/meta-box-invoice.php:55
 msgid "View"
 msgstr "Toon"
 
-#: views/meta-box-invoice.php:70
+#: views/meta-box-invoice.php:59
 msgid "Create Invoice"
 msgstr "Factuur aanmaken"
 
-#: views/meta-box-invoice.php:75
+#: views/meta-box-invoice.php:64
 #, fuzzy
 msgid "Looking for automatic synchronization?"
 msgstr "Voorraad synchronisatie"
@@ -429,57 +420,13 @@ msgstr "%s"
 msgid "Search for invoices"
 msgstr "Zoek naar facturen"
 
+#: views/page-invoices.php:33
+msgid "Invoice ID"
+msgstr "Factuur ID"
+
 #: views/page-invoices.php:47
 msgid "Invoice %d"
 msgstr "Factuur %d"
-
-#: views/page-merger-tool.php:22
-msgid "Response Limit"
-msgstr "Response limiet"
-
-#: views/page-merger-tool.php:27
-#, fuzzy
-msgid "The number of customers to retrieve from Twinfield."
-msgstr "Twinfield klanten"
-
-#: views/page-merger-tool.php:32
-msgid "Response Offset"
-msgstr "Response offset"
-
-#: views/page-merger-tool.php:37
-#, fuzzy
-msgid "The offset of customers to retrieve from Twinfield."
-msgstr "Twinfield klanten"
-
-#: views/page-merger-tool.php:42
-msgid "Custom Meta Field"
-msgstr "Maatwerk meta veld"
-
-#: views/page-merger-tool.php:47
-#, fuzzy
-msgid ""
-"The meta field key to retrieve the KvK number from (for example: <code>%s</"
-"code>)."
-msgstr "De antwoord code (<code>%s<code>) van de iDEAL-provider was onjuist."
-
-#: views/page-merger-tool.php:52
-msgid "New Custom Field"
-msgstr "Nieuwe maatwerk veld"
-
-#: views/page-merger-tool.php:57
-#, fuzzy
-msgid ""
-"The meta field key to store the Twinfield ID in (for example: <code>%s</"
-"code>)."
-msgstr "Standaard: <code>%s</code>."
-
-#: views/page-merger-tool.php:62
-msgid "Show"
-msgstr "Tonen"
-
-#: views/page-merger-tool.php:66
-msgid "Automate"
-msgstr "Automatiseer"
 
 #: views/page-offices.php:23
 msgid "Code"
@@ -584,6 +531,48 @@ msgid ""
 "You can find your articles in Twinfield under \"Credit management » Items\"."
 msgstr ""
 "Je kunt je artikelen in Twinfield vinden onder \"Facturatie » Artikelen\"."
+
+#~ msgid "Invoice"
+#~ msgstr "Factuur"
+
+#~ msgid "Response Limit"
+#~ msgstr "Response limiet"
+
+#, fuzzy
+#~ msgid "The number of customers to retrieve from Twinfield."
+#~ msgstr "Twinfield klanten"
+
+#~ msgid "Response Offset"
+#~ msgstr "Response offset"
+
+#, fuzzy
+#~ msgid "The offset of customers to retrieve from Twinfield."
+#~ msgstr "Twinfield klanten"
+
+#~ msgid "Custom Meta Field"
+#~ msgstr "Maatwerk meta veld"
+
+#, fuzzy
+#~ msgid ""
+#~ "The meta field key to retrieve the KvK number from (for example: <code>"
+#~ "%s</code>)."
+#~ msgstr ""
+#~ "De antwoord code (<code>%s<code>) van de iDEAL-provider was onjuist."
+
+#~ msgid "New Custom Field"
+#~ msgstr "Nieuwe maatwerk veld"
+
+#, fuzzy
+#~ msgid ""
+#~ "The meta field key to store the Twinfield ID in (for example: <code>%s</"
+#~ "code>)."
+#~ msgstr "Standaard: <code>%s</code>."
+
+#~ msgid "Show"
+#~ msgstr "Tonen"
+
+#~ msgid "Automate"
+#~ msgstr "Automatiseer"
 
 #~ msgid "Default Invoice Type"
 #~ msgstr "Standaard factuurtype"
