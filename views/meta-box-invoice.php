@@ -17,6 +17,12 @@ $response       = get_post_meta( $post->ID, '_twinfield_response', true );
 		</th>
 		<td>
 			<input id="twinfield_invoice_number" type="text" name="twinfield_invoice_number" value="<?php echo esc_attr( $invoice_number ); ?>" />
+
+			<?php if ( empty( $invoice_number ) ) : ?>
+
+				<span class="description"><br /><?php _e( 'You can manullay enter an Twinfield invoice number or use the "Create Invoice" button below.', 'twinfield' ); ?></span>
+
+			<?php endif; ?>
 		</td>
 	</tr>
 	<tr>

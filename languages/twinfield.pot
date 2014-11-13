@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Twinfield 1.0.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/twinfield\n"
-"POT-Creation-Date: 2014-11-13 13:09:49+00:00\n"
+"POT-Creation-Date: 2014-11-13 13:17:21+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -268,7 +268,7 @@ msgstr ""
 
 #: views/Pronamic/WP/FormBuilder/create_form_customer.php:14
 #: views/Pronamic/WP/FormBuilder/create_form_invoice.php:12
-#: views/meta-box-customer.php:6 views/meta-box-invoice.php:24
+#: views/meta-box-customer.php:6 views/meta-box-invoice.php:30
 #: views/page-customers.php:38
 msgid "Customer ID"
 msgstr ""
@@ -382,15 +382,21 @@ msgstr ""
 msgid "Sync"
 msgstr ""
 
-#: views/meta-box-invoice.php:55
+#: views/meta-box-invoice.php:23
+msgid ""
+"You can manullay enter an Twinfield invoice number or use the \"Create "
+"Invoice\" button below."
+msgstr ""
+
+#: views/meta-box-invoice.php:61
 msgid "View"
 msgstr ""
 
-#: views/meta-box-invoice.php:59
+#: views/meta-box-invoice.php:65
 msgid "Create Invoice"
 msgstr ""
 
-#: views/meta-box-invoice.php:64
+#: views/meta-box-invoice.php:70
 msgid "Looking for automatic synchronization?"
 msgstr ""
 

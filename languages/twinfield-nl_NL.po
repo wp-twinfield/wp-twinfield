@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Twinfield\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/twinfield\n"
-"POT-Creation-Date: 2014-11-13 13:09:49+00:00\n"
-"PO-Revision-Date: 2014-11-13 14:12+0100\n"
+"POT-Creation-Date: 2014-11-13 13:17:21+00:00\n"
+"PO-Revision-Date: 2014-11-13 14:17+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -274,7 +274,7 @@ msgstr "Klant formulier"
 
 #: views/Pronamic/WP/FormBuilder/create_form_customer.php:14
 #: views/Pronamic/WP/FormBuilder/create_form_invoice.php:12
-#: views/meta-box-customer.php:6 views/meta-box-invoice.php:24
+#: views/meta-box-customer.php:6 views/meta-box-invoice.php:30
 #: views/page-customers.php:38
 msgid "Customer ID"
 msgstr "Klant ID"
@@ -388,15 +388,23 @@ msgstr "Overeenkomst?"
 msgid "Sync"
 msgstr "Sync"
 
-#: views/meta-box-invoice.php:55
+#: views/meta-box-invoice.php:23
+msgid ""
+"You can manullay enter an Twinfield invoice number or use the \"Create "
+"Invoice\" button below."
+msgstr ""
+"Je kunt handmatig een Twinfield factuurnummer invoeren of de \"Factuur "
+"aanmaken\" knop hieronder gebruiken."
+
+#: views/meta-box-invoice.php:61
 msgid "View"
 msgstr "Toon"
 
-#: views/meta-box-invoice.php:59
+#: views/meta-box-invoice.php:65
 msgid "Create Invoice"
 msgstr "Factuur aanmaken"
 
-#: views/meta-box-invoice.php:64
+#: views/meta-box-invoice.php:70
 #, fuzzy
 msgid "Looking for automatic synchronization?"
 msgstr "Voorraad synchronisatie"
