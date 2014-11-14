@@ -108,6 +108,22 @@ class Pronamic_WP_TwinfieldPlugin_Settings {
         );
 
         add_settings_field(
+            'twinfield_default_vat_code',
+            __( 'VAT Code', 'twinfield' ),
+            array( $this, 'render_text' ),
+            'twinfield',
+            'twinfield_defaults',
+            array(
+                'label_for'   => 'twinfield_default_vat_code',
+                'classes'     => array( 'regular-text', 'code' ),
+				/* translators: use same translations as on Twinfield.com. */
+				'description' =>
+					__( 'This VAT code is used by default to create Twinfield invoice lines unless you have specified an Twinfield VAT code on a lower level.', 'twinfield' ) . '<br />' .
+					_x( 'You can find your VAT codes in Twinfield under "General » Company » VAT".', 'twinfield.com', 'twinfield' ),
+            )
+        );
+
+        add_settings_field(
             'twinfield_default_article_code',
             __( 'Article Code', 'twinfield' ),
             array( $this, 'render_text' ),
@@ -141,6 +157,7 @@ class Pronamic_WP_TwinfieldPlugin_Settings {
 
         register_setting( 'twinfield', 'twinfield_default_office_code' );
         register_setting( 'twinfield', 'twinfield_default_invoice_type' );
+        register_setting( 'twinfield', 'twinfield_default_vat_code' );
         register_setting( 'twinfield', 'twinfield_default_article_code' );
         register_setting( 'twinfield', 'twinfield_default_subarticle_code' );
 
