@@ -51,6 +51,9 @@
 					<th scope="col">Description</th>
 					<th scope="col">Units price excl</th>
 					<th scope="col">VAT Code</th>
+					<th scope="col">Freetext 1</th>
+					<th scope="col">Freetext 2</th>
+					<th scope="col">Freetext 3</th>
 				</tr>
 			</thead>
 
@@ -97,6 +100,27 @@
 
 							<xsl:if test="vatcode/@msg">
 								<em><xsl:value-of select="vatcode/@msg" /></em>
+							</xsl:if>
+						</td>
+						<td>
+							<xsl:value-of select="freetext1" />
+
+							<xsl:if test="freetext1/@msg">
+								<em><xsl:value-of select="freetext1/@msg" /></em>
+							</xsl:if>
+						</td>
+						<td>
+							<xsl:value-of select="freetext2" />
+
+							<xsl:if test="freetext2/@msg">
+								<em><xsl:value-of select="freetext2/@msg" /></em>
+							</xsl:if>
+						</td>
+						<td>
+							<xsl:value-of select="freetext3" />
+
+							<xsl:if test="freetext3/@msg">
+								<em><xsl:value-of select="freetext3/@msg" /></em>
 							</xsl:if>
 						</td>
 					</tr>
