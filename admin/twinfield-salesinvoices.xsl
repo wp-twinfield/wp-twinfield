@@ -50,6 +50,7 @@
 					<th scope="col">Sub article</th>
 					<th scope="col">Description</th>
 					<th scope="col">Units price excl</th>
+					<th scope="col">VAT Code</th>
 				</tr>
 			</thead>
 
@@ -89,6 +90,13 @@
 
 							<xsl:if test="unitspriceexcl/@msg">
 								<em><xsl:value-of select="unitspriceexcl/@msg" /></em>
+							</xsl:if>
+						</td>
+						<td>
+							<xsl:value-of select="vatcode" />
+
+							<xsl:if test="vatcode/@msg">
+								<em><xsl:value-of select="vatcode/@msg" /></em>
 							</xsl:if>
 						</td>
 					</tr>
