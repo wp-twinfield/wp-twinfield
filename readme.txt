@@ -1,5 +1,5 @@
 === Twinfield ===
-Contributors: pronamic, remcotolsma, zogot
+Contributors: pronamic, remcotolsma
 Tags: twinfield, administration
 Requires at least: 3.0
 Tested up to: 4.1
