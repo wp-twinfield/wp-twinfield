@@ -7,7 +7,7 @@ Description: A base plugin to make the connection with the Twinfield administrat
 Author: Pronamic
 Author URI: http://www.pronamic.eu/
 
-Version: 1.0.1
+Version: 1.1.0
 Requires at least: 3.0
 
 Text Domain: twinfield

@@ -39,6 +39,7 @@ class Pronamic_WP_TwinfieldPlugin_Plugin {
 
 		// Includes
 		include_once $this->dir_path . '/includes/functions.php';
+		include_once $this->dir_path . '/includes/template.php';
 
 		// Actions
 		add_action( 'init', array( $this, 'init' ) );
