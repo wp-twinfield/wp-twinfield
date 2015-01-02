@@ -45,9 +45,9 @@
 						$customer = $twinfield_invoice->getCustomer();
 
 						printf(
-							'<a href="%s" target="_blank">%s</a>',
-							site_url( '/debiteuren/' . $customer->getID() . '/' ),
-							$customer->getID()
+							'<a href="%s">%s</a>',
+							esc_attr( get_twinfield_customer_link( $customer->getID() ) ),
+							esc_html( $customer->getID() )
 						);
 
 						?>

@@ -1,13 +1,13 @@
 <?php
 /*
 Plugin Name: Twinfield
-Plugin URI: http://wp.pronamic.eu/plugins/twinfield/
+Plugin URI: http://www.pronamic.eu/plugins/twinfield/
 Description: A base plugin to make the connection with the Twinfield administration software.
 
 Author: Pronamic
 Author URI: http://www.pronamic.eu/
 
-Version: 1.0.1
+Version: 1.1.0
 Requires at least: 3.0
 
 Text Domain: twinfield
