@@ -1,5 +1,30 @@
 <?php
 
+namespace Pronamic\WP\Twinfield;
+
+$user         = get_option( 'twinfield_username' );
+$password     = get_option( 'twinfield_password' );
+$organisation = get_option( 'twinfield_organisation' );
+$office       = get_option( 'twinfield_default_office_code' );
+$type         = 'FACTUUR';
+
+$credentials = new Credentials( $user, $password, $organisation );
+
+$client = new Client();
+
+$logon_response = $client->logon( $credentials );
+
+$session = $client->get_session( $logon_response );
+
+$xml_processor = new XMLProcessor( $session );
+
+$service = new SalesInvoices\SalesInvoiceService( $xml_processor );
+
+$sales_invoice = $service->get_sales_invoice( $office, $type, filter_input( INPUT_GET, 'twinfield_invoice_id', FILTER_SANITIZE_STRING ) );
+
+var_dump( $sales_invoice );
+
+
 if ( filter_has_var( INPUT_GET, 'twinfield_invoice_id' ) ) {
 	global $twinfield_config;
 
