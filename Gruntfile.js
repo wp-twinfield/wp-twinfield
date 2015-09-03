@@ -16,10 +16,16 @@ module.exports = function( grunt ) {
 		// PHP Code Sniffer
 		phpcs: {
 			application: {
-				dir: [ '*.php', 'includes/*.php' ],
+				src: [
+					'**/*.php',
+					'!node_modules/**',
+					'!twinfield/**',
+					'!vendor/**'
+				],
 			},
 			options: {
 				standard: 'phpcs.ruleset.xml',
+				showSniffCodes: true
 			},
 		},
 

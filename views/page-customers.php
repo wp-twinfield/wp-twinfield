@@ -1,5 +1,28 @@
 <?php
 
+namespace Pronamic\WP\Twinfield;
+
+$user         = get_option( 'twinfield_username' );
+$password     = get_option( 'twinfield_password' );
+$organisation = get_option( 'twinfield_organisation' );
+$office       = get_option( 'twinfield_default_office_code' );
+
+$credentials = new Credentials( $user, $password, $organisation );
+
+$client = new Client();
+
+$logon_response = $client->logon( $credentials );
+
+$session = $client->get_session( $logon_response );
+
+$xml_processor = new XMLProcessor( $session );
+
+$service = new Customers\CustomerService( $xml_processor );
+
+$customer = $service->get_customer( $office, filter_input( INPUT_GET, 'twinfield_customer_id', FILTER_SANITIZE_STRING ) );
+
+var_dump( $customer );
+
 if ( filter_has_var( INPUT_GET, 'twinfield_customer_id' ) ) {
 	global $twinfield_config;
 

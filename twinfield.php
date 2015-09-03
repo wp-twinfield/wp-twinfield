@@ -18,6 +18,18 @@ License: GPL
 GitHub URI: https://github.com/pronamic/wp-twinfield
 */
 
+/**
+ * Composer autoload
+ */
+$autoload_file = plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
+
+if ( is_readable( $autoload_file ) ) {
+	require_once $autoload_file;
+}
+
+/**
+ * Other
+ */
 define( 'PRONAMIC_TWINFIELD_FILE', __FILE__ );
 define( 'PRONAMIC_TWINFIELD_FOLDER', plugin_dir_path( PRONAMIC_TWINFIELD_FILE ) );
 
