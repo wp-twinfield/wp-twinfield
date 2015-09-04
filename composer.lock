@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "27ce77cf5be9b5a3dc53925751cb0ed5",
+    "hash": "9a80edd80b6e84764e2971c3f357b133",
     "packages": [
         {
             "name": "wp-twinfield/twinfield",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-twinfield/twinfield.git",
-                "reference": "788cd170c58a0076ae0f646ab01bf2294b3e63b7"
+                "reference": "44e358a41350f0edb0214c924ebd095842e6d8a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-twinfield/twinfield/zipball/788cd170c58a0076ae0f646ab01bf2294b3e63b7",
-                "reference": "788cd170c58a0076ae0f646ab01bf2294b3e63b7",
+                "url": "https://api.github.com/repos/wp-twinfield/twinfield/zipball/44e358a41350f0edb0214c924ebd095842e6d8a8",
+                "reference": "44e358a41350f0edb0214c924ebd095842e6d8a8",
                 "shasum": ""
             },
             "require-dev": {
@@ -42,7 +42,7 @@
                 }
             ],
             "description": "Twinfield library for WordPress.",
-            "time": "2015-09-02 15:15:42"
+            "time": "2015-09-04 13:09:03"
         }
     ],
     "packages-dev": [
@@ -576,7 +576,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.2.0"
+        "php": ">=5.3.0"
     },
     "platform-dev": []
 }
