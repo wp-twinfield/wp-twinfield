@@ -31,6 +31,64 @@ class Pronamic_WP_TwinfieldPlugin_Admin {
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
 
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
+
+		// Columns
+		add_filter( 'manage_posts_columns' , array( $this, 'manage_posts_columns' ), 10, 2 );
+
+		add_action( 'manage_posts_custom_column' , array( $this, 'manage_posts_custom_column' ), 10, 2 );
+	}
+
+	/**
+	 * Manage posts columns
+	 *
+	 * @param array  $posts_columns
+	 * @param string $post_type
+	 */
+	function manage_posts_columns( $columns, $post_type ) {
+		if ( post_type_supports( $post_type, 'twinfield_article' ) ) {
+			$columns['twinfield_article'] = __( 'Twinfield', 'orbis_subscriptions' );
+
+			$new_columns = array();
+
+			foreach ( $columns as $name => $label ) {
+				if ( 'author' === $name ) {
+					$new_columns['twinfield_article'] = $columns['twinfield_article'];
+				}
+
+				$new_columns[ $name ] = $label;
+			}
+
+			$columns = $new_columns;
+		}
+
+		return $columns;
+	}
+
+	function manage_posts_custom_column( $column_name, $post_id ) {
+		if ( 'twinfield_article' === $column_name ) {
+			$twinfield_article_code    = get_post_meta( $post_id, '_twinfield_article_code', true );
+			$twinfield_subarticle_code = get_post_meta( $post_id, '_twinfield_subarticle_code', true );
+
+			$items = array();
+
+			if ( ! empty( $twinfield_article_code ) ) {
+				$items[] = sprintf(
+					'<strong>%s</strong>: %s',
+					esc_html__( 'Article', 'twinfield' ),
+					esc_html( $twinfield_article_code )
+				);
+			}
+
+			if ( ! empty( $twinfield_article_code ) ) {
+				$items[] = sprintf(
+					'<strong>%s</strong>: %s',
+					esc_html__( 'Subarticle', 'twinfield' ),
+					esc_html( $twinfield_subarticle_code )
+				);
+			}
+
+			echo implode( '<br />', $items );
+		}
 	}
 
 	//////////////////////////////////////////////////
