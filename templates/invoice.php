@@ -81,6 +81,7 @@
 						<th scope="col"><?php _e( 'Units Price Excl', 'twinfield' ); ?></th>
 						<th scope="col"><?php _e( 'Free text 1', 'twinfield' ); ?></th>
 						<th scope="col"><?php _e( 'Free text 2', 'twinfield' ); ?></th>
+						<th scope="col"><?php _e( 'Free text 3', 'twinfield' ); ?></th>
 					</tr>
 				</thead>
 
@@ -101,6 +102,7 @@
 							<td><?php echo twinfield_price( $line->getUnitsPriceExcl() ); ?></td>
 							<td><?php echo $line->getFreeText1(); ?></td>
 							<td><?php echo $line->getFreeText2(); ?></td>
+							<td><?php echo $line->getFreeText3(); ?></td>
 						</tr>
 
 					<?php endforeach; ?>
