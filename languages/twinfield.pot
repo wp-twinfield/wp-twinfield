@@ -3,20 +3,21 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Twinfield 1.1.0\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/twinfield\n"
-"POT-Creation-Date: 2015-01-02 12:30:18+00:00\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/twinfield\n"
+"POT-Creation-Date: 2015-10-02 13:50:27+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"X-Generator: grunt-wp-i18n 0.4.9\n"
+"X-Generator: grunt-wp-i18n 0.5.3\n"
 
 #: classes/Pronamic/WP/Twinfield/Article/ArticleMetaBox.php:52
 #: deploy/latest/classes/Pronamic/WP/Twinfield/Article/ArticleMetaBox.php:52
 #: deploy/wp-svn/tags/1.0.0/includes/Pronamic/WP/Twinfield/Article/ArticleMetaBox.php:58
 #: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/Twinfield/Article/ArticleMetaBox.php:52
+#: deploy/wp-svn/tags/1.1.0/classes/Pronamic/WP/Twinfield/Article/ArticleMetaBox.php:52
 #: deploy/wp-svn/trunk/classes/Pronamic/WP/Twinfield/Article/ArticleMetaBox.php:52
 msgid "Twinfield Article"
 msgstr ""
@@ -25,6 +26,7 @@ msgstr ""
 #: deploy/latest/classes/Pronamic/WP/Twinfield/Customer/CustomerMetaBox.php:55
 #: deploy/wp-svn/tags/1.0.0/includes/Pronamic/WP/Twinfield/Customer/CustomerMetaBox.php:58
 #: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/Twinfield/Customer/CustomerMetaBox.php:55
+#: deploy/wp-svn/tags/1.1.0/classes/Pronamic/WP/Twinfield/Customer/CustomerMetaBox.php:55
 #: deploy/wp-svn/trunk/classes/Pronamic/WP/Twinfield/Customer/CustomerMetaBox.php:55
 msgid "Twinfield Customer"
 msgstr ""
@@ -33,6 +35,7 @@ msgstr ""
 #: deploy/latest/classes/Pronamic/WP/Twinfield/Invoice/InvoiceMetaBox.php:80
 #: deploy/wp-svn/tags/1.0.0/includes/Pronamic/WP/Twinfield/Invoice/InvoiceMetaBox.php:59
 #: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/Twinfield/Invoice/InvoiceMetaBox.php:80
+#: deploy/wp-svn/tags/1.1.0/classes/Pronamic/WP/Twinfield/Invoice/InvoiceMetaBox.php:80
 #: deploy/wp-svn/trunk/classes/Pronamic/WP/Twinfield/Invoice/InvoiceMetaBox.php:80
 msgid "Twinfield Invoice"
 msgstr ""
@@ -41,6 +44,7 @@ msgstr ""
 #: deploy/latest/classes/Pronamic/WP/Twinfield/Merge/Supports/Customer.php:45
 #: deploy/wp-svn/tags/1.0.0/includes/Pronamic/WP/Twinfield/Merge/Supports/Customer.php:45
 #: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/Twinfield/Merge/Supports/Customer.php:45
+#: deploy/wp-svn/tags/1.1.0/classes/Pronamic/WP/Twinfield/Merge/Supports/Customer.php:45
 #: deploy/wp-svn/trunk/classes/Pronamic/WP/Twinfield/Merge/Supports/Customer.php:45
 msgid "Customer requires CoC Number as Custom Meta Field"
 msgstr ""
@@ -49,95 +53,138 @@ msgstr ""
 msgid "Twinfield"
 msgstr ""
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:75
+#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:77
+#: deploy/latest/templates/invoice.php:73
+#: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_invoice.php:21
+#: deploy/latest/views/page-invoices.php:127
+#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_invoice.php:21
+#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice.php:73
+#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice_admin.php:112
+#: deploy/wp-svn/tags/1.0.1/templates/invoice.php:73
+#: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_invoice.php:21
+#: deploy/wp-svn/tags/1.0.1/views/page-invoices.php:127
+#: deploy/wp-svn/tags/1.1.0/templates/invoice.php:73
+#: deploy/wp-svn/tags/1.1.0/views/Pronamic/WP/FormBuilder/create_form_invoice.php:21
+#: deploy/wp-svn/tags/1.1.0/views/page-invoices.php:127
+#: deploy/wp-svn/trunk/templates/invoice.php:73
+#: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_invoice.php:21
+#: deploy/wp-svn/trunk/views/page-invoices.php:127 templates/invoice.php:73
+#: views/Pronamic/WP/FormBuilder/create_form_invoice.php:21
+#: views/page-invoices.php:152
+msgid "Article"
+msgstr ""
+
+#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:85
+#: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_invoice.php:22
+#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_invoice.php:22
+#: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_invoice.php:22
+#: deploy/wp-svn/tags/1.1.0/views/Pronamic/WP/FormBuilder/create_form_invoice.php:22
+#: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_invoice.php:22
+#: views/Pronamic/WP/FormBuilder/create_form_invoice.php:22
+msgid "Subarticle"
+msgstr ""
+
+#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:133
 #: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:75
 #: deploy/wp-svn/tags/1.0.0/twinfield.php:197
 #: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:75
+#: deploy/wp-svn/tags/1.1.0/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:75
 #: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:75
 msgid "Twinfield Customers"
 msgstr ""
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:76
+#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:134
 #: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:76
 #: deploy/wp-svn/tags/1.0.0/twinfield.php:198
 #: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:76
+#: deploy/wp-svn/tags/1.1.0/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:76
 #: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:76
 msgid "Customers"
 msgstr ""
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:84
+#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:142
 #: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:84
 #: deploy/wp-svn/tags/1.0.0/twinfield.php:206
 #: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:84
+#: deploy/wp-svn/tags/1.1.0/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:84
 #: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:84
 msgid "Twinfield Invoices"
 msgstr ""
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:85
+#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:143
 #: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:85
 #: deploy/wp-svn/tags/1.0.0/twinfield.php:207
 #: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:85
+#: deploy/wp-svn/tags/1.1.0/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:85
 #: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:85
 msgid "Invoices"
 msgstr ""
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:93
+#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:151
 #: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:93
 #: deploy/wp-svn/tags/1.0.0/twinfield.php:216
 #: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:93
+#: deploy/wp-svn/tags/1.1.0/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:93
 #: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:93
 msgid "Twinfield Settings"
 msgstr ""
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:94
+#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:152
 #: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:94
 #: deploy/wp-svn/tags/1.0.0/twinfield.php:217
 #: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:94
+#: deploy/wp-svn/tags/1.1.0/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:94
 #: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:94
 msgid "Settings"
 msgstr ""
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:102
+#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:160
 #: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:102
 #: deploy/wp-svn/tags/1.0.0/twinfield.php:225
 #: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:102
+#: deploy/wp-svn/tags/1.1.0/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:102
 #: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:102
 msgid "Twinfield Form Builder"
 msgstr ""
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:103
+#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:161
 #: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:103
 #: deploy/wp-svn/tags/1.0.0/twinfield.php:226
 #: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:103
+#: deploy/wp-svn/tags/1.1.0/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:103
 #: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:103
 msgid "Form Builder"
 msgstr ""
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:111
-#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:112
+#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:169
+#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:170
 #: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:111
 #: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:112
 #: deploy/wp-svn/tags/1.0.0/twinfield.php:234
 #: deploy/wp-svn/tags/1.0.0/twinfield.php:235
 #: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:111
 #: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:112
+#: deploy/wp-svn/tags/1.1.0/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:111
+#: deploy/wp-svn/tags/1.1.0/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:112
 #: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:111
 #: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:112
 msgid "Merger Tool"
 msgstr ""
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:120
+#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:178
 #: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:120
 #: deploy/wp-svn/tags/1.0.0/twinfield.php:243
 #: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:120
+#: deploy/wp-svn/tags/1.1.0/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:120
 #: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:120
 msgid "Twinfield Documentation"
 msgstr ""
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:121
+#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:179
 #: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:121
 #: deploy/wp-svn/tags/1.0.0/twinfield.php:244
 #: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:121
+#: deploy/wp-svn/tags/1.1.0/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:121
 #: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:121
 msgid "Documentation"
 msgstr ""
@@ -148,6 +195,8 @@ msgstr ""
 #: deploy/wp-svn/tags/1.0.0/views/Twinfield/page_parent.php:27
 #: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:35
 #: deploy/wp-svn/tags/1.0.1/views/page-twinfield.php:21
+#: deploy/wp-svn/tags/1.1.0/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:35
+#: deploy/wp-svn/tags/1.1.0/views/page-twinfield.php:21
 #: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:35
 #: deploy/wp-svn/trunk/views/page-twinfield.php:21 views/page-twinfield.php:21
 msgid "Login"
@@ -157,6 +206,7 @@ msgstr ""
 #: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:42
 #: deploy/wp-svn/tags/1.0.0/includes/Pronamic/WP/Twinfield/Settings/Settings.php:24
 #: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:42
+#: deploy/wp-svn/tags/1.1.0/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:42
 #: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:42
 msgid "Username"
 msgstr ""
@@ -165,6 +215,7 @@ msgstr ""
 #: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:51
 #: deploy/wp-svn/tags/1.0.0/includes/Pronamic/WP/Twinfield/Settings/Settings.php:33
 #: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:51
+#: deploy/wp-svn/tags/1.1.0/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:51
 #: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:51
 msgid "Password"
 msgstr ""
@@ -173,6 +224,7 @@ msgstr ""
 #: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:60
 #: deploy/wp-svn/tags/1.0.0/includes/Pronamic/WP/Twinfield/Settings/Settings.php:42
 #: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:60
+#: deploy/wp-svn/tags/1.1.0/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:60
 #: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:60
 msgid "Organisation"
 msgstr ""
@@ -180,6 +232,7 @@ msgstr ""
 #: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:77
 #: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:77
 #: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:77
+#: deploy/wp-svn/tags/1.1.0/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:77
 #: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:77
 msgid "Defaults"
 msgstr ""
@@ -187,6 +240,7 @@ msgstr ""
 #: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:98
 #: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:98
 #: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:98
+#: deploy/wp-svn/tags/1.1.0/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:98
 #: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:98
 msgid "Invoice Type Code"
 msgstr ""
@@ -194,6 +248,7 @@ msgstr ""
 #: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:112
 #: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:112
 #: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:112
+#: deploy/wp-svn/tags/1.1.0/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:112
 #: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:112
 msgid "VAT Code"
 msgstr ""
@@ -201,6 +256,7 @@ msgstr ""
 #: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:121
 #: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:121
 #: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:121
+#: deploy/wp-svn/tags/1.1.0/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:121
 #: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:121
 #. translators: use same translations as on Twinfield.com.
 msgid ""
@@ -213,6 +269,8 @@ msgstr ""
 #: deploy/latest/views/meta-box-article.php:6
 #: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:128
 #: deploy/wp-svn/tags/1.0.1/views/meta-box-article.php:6
+#: deploy/wp-svn/tags/1.1.0/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:128
+#: deploy/wp-svn/tags/1.1.0/views/meta-box-article.php:6
 #: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:128
 #: deploy/wp-svn/trunk/views/meta-box-article.php:6
 #: views/meta-box-article.php:6
@@ -222,6 +280,7 @@ msgstr ""
 #: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:137
 #: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:137
 #: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:137
+#: deploy/wp-svn/tags/1.1.0/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:137
 #: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:137
 #. translators: use same translations as on Twinfield.com.
 msgid ""
@@ -234,6 +293,8 @@ msgstr ""
 #: deploy/latest/views/meta-box-article.php:14
 #: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:144
 #: deploy/wp-svn/tags/1.0.1/views/meta-box-article.php:14
+#: deploy/wp-svn/tags/1.1.0/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:144
+#: deploy/wp-svn/tags/1.1.0/views/meta-box-article.php:14
 #: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:144
 #: deploy/wp-svn/trunk/views/meta-box-article.php:14
 #: views/meta-box-article.php:14
@@ -243,6 +304,7 @@ msgstr ""
 #: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:153
 #: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:153
 #: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:153
+#: deploy/wp-svn/tags/1.1.0/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:153
 #: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:153
 #. translators: use same translations as on Twinfield.com.
 msgid ""
@@ -254,6 +316,7 @@ msgstr ""
 #: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:169
 #: deploy/wp-svn/tags/1.0.0/includes/Pronamic/WP/Twinfield/Settings/Settings.php:99
 #: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:169
+#: deploy/wp-svn/tags/1.1.0/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:169
 #: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:169
 msgid "Permalinks"
 msgstr ""
@@ -262,6 +325,7 @@ msgstr ""
 #: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:176
 #: deploy/wp-svn/tags/1.0.0/includes/Pronamic/WP/Twinfield/Settings/Settings.php:106
 #: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:176
+#: deploy/wp-svn/tags/1.1.0/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:176
 #: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:176
 msgid "Invoice Slug"
 msgstr ""
@@ -270,6 +334,7 @@ msgstr ""
 #: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:188
 #: deploy/wp-svn/tags/1.0.0/includes/Pronamic/WP/Twinfield/Settings/Settings.php:118
 #: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:188
+#: deploy/wp-svn/tags/1.1.0/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:188
 #: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:188
 msgid "Customer Slug"
 msgstr ""
@@ -295,6 +360,13 @@ msgstr ""
 #: deploy/wp-svn/tags/1.0.1/views/page-customers.php:56
 #: deploy/wp-svn/tags/1.0.1/views/page-customers.php:69
 #: deploy/wp-svn/tags/1.0.1/views/page-offices.php:25
+#: deploy/wp-svn/tags/1.1.0/templates/customer.php:7
+#: deploy/wp-svn/tags/1.1.0/templates/customer.php:18
+#: deploy/wp-svn/tags/1.1.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:18
+#: deploy/wp-svn/tags/1.1.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:53
+#: deploy/wp-svn/tags/1.1.0/views/page-customers.php:56
+#: deploy/wp-svn/tags/1.1.0/views/page-customers.php:69
+#: deploy/wp-svn/tags/1.1.0/views/page-offices.php:25
 #: deploy/wp-svn/trunk/templates/customer.php:7
 #: deploy/wp-svn/trunk/templates/customer.php:18
 #: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_customer.php:18
@@ -305,7 +377,7 @@ msgstr ""
 #: templates/customer.php:18
 #: views/Pronamic/WP/FormBuilder/create_form_customer.php:18
 #: views/Pronamic/WP/FormBuilder/create_form_customer.php:53
-#: views/page-customers.php:56 views/page-customers.php:69
+#: views/page-customers.php:79 views/page-customers.php:92
 #: views/page-offices.php:25
 msgid "Name"
 msgstr ""
@@ -316,9 +388,11 @@ msgstr ""
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Customer/render_customer_admin.php:42
 #: deploy/wp-svn/tags/1.0.1/templates/customer.php:10
 #: deploy/wp-svn/tags/1.0.1/views/page-customers.php:64
+#: deploy/wp-svn/tags/1.1.0/templates/customer.php:10
+#: deploy/wp-svn/tags/1.1.0/views/page-customers.php:64
 #: deploy/wp-svn/trunk/templates/customer.php:10
 #: deploy/wp-svn/trunk/views/page-customers.php:64 templates/customer.php:10
-#: views/page-customers.php:64
+#: views/page-customers.php:87
 msgid "Addresses"
 msgstr ""
 
@@ -331,11 +405,14 @@ msgstr ""
 #: deploy/wp-svn/tags/1.0.1/templates/customer.php:21
 #: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_customer.php:59
 #: deploy/wp-svn/tags/1.0.1/views/page-customers.php:70
+#: deploy/wp-svn/tags/1.1.0/templates/customer.php:21
+#: deploy/wp-svn/tags/1.1.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:59
+#: deploy/wp-svn/tags/1.1.0/views/page-customers.php:70
 #: deploy/wp-svn/trunk/templates/customer.php:21
 #: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_customer.php:59
 #: deploy/wp-svn/trunk/views/page-customers.php:70 templates/customer.php:21
 #: views/Pronamic/WP/FormBuilder/create_form_customer.php:59
-#: views/page-customers.php:70
+#: views/page-customers.php:93
 msgid "City"
 msgstr ""
 
@@ -345,9 +422,11 @@ msgstr ""
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Customer/render_customer_admin.php:49
 #: deploy/wp-svn/tags/1.0.1/templates/customer.php:24
 #: deploy/wp-svn/tags/1.0.1/views/page-customers.php:71
+#: deploy/wp-svn/tags/1.1.0/templates/customer.php:24
+#: deploy/wp-svn/tags/1.1.0/views/page-customers.php:71
 #: deploy/wp-svn/trunk/templates/customer.php:24
 #: deploy/wp-svn/trunk/views/page-customers.php:71 templates/customer.php:24
-#: views/page-customers.php:71
+#: views/page-customers.php:94
 msgid "Postal Code"
 msgstr ""
 
@@ -357,15 +436,18 @@ msgstr ""
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Customer/render_customer_admin.php:50
 #: deploy/wp-svn/tags/1.0.1/templates/customer.php:27
 #: deploy/wp-svn/tags/1.0.1/views/page-customers.php:72
+#: deploy/wp-svn/tags/1.1.0/templates/customer.php:27
+#: deploy/wp-svn/tags/1.1.0/views/page-customers.php:72
 #: deploy/wp-svn/trunk/templates/customer.php:27
 #: deploy/wp-svn/trunk/views/page-customers.php:72 templates/customer.php:27
-#: views/page-customers.php:72
+#: views/page-customers.php:95
 msgid "Telephone"
 msgstr ""
 
 #: deploy/latest/templates/invoice.php:7
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice.php:7
 #: deploy/wp-svn/tags/1.0.1/templates/invoice.php:7
+#: deploy/wp-svn/tags/1.1.0/templates/invoice.php:7
 #: deploy/wp-svn/trunk/templates/invoice.php:7 templates/invoice.php:7
 msgid "Invoice %s"
 msgstr ""
@@ -374,6 +456,7 @@ msgstr ""
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice.php:12
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice_admin.php:34
 #: deploy/wp-svn/tags/1.0.1/templates/invoice.php:12
+#: deploy/wp-svn/tags/1.1.0/templates/invoice.php:12
 #: deploy/wp-svn/trunk/templates/invoice.php:12 templates/invoice.php:12
 msgid "Header"
 msgstr ""
@@ -387,10 +470,13 @@ msgstr ""
 #: deploy/wp-svn/tags/1.0.1/templates/invoice.php:17
 #: deploy/wp-svn/tags/1.0.1/views/meta-box-invoice.php:16
 #: deploy/wp-svn/tags/1.0.1/views/page-invoices.php:58
+#: deploy/wp-svn/tags/1.1.0/templates/invoice.php:17
+#: deploy/wp-svn/tags/1.1.0/views/meta-box-invoice.php:16
+#: deploy/wp-svn/tags/1.1.0/views/page-invoices.php:58
 #: deploy/wp-svn/trunk/templates/invoice.php:17
 #: deploy/wp-svn/trunk/views/meta-box-invoice.php:16
 #: deploy/wp-svn/trunk/views/page-invoices.php:58 templates/invoice.php:17
-#: views/meta-box-invoice.php:16 views/page-invoices.php:58
+#: views/meta-box-invoice.php:16 views/page-invoices.php:83
 msgid "Invoice Number"
 msgstr ""
 
@@ -401,9 +487,11 @@ msgstr ""
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice_admin.php:48
 #: deploy/wp-svn/tags/1.0.1/templates/invoice.php:22
 #: deploy/wp-svn/tags/1.0.1/views/page-invoices.php:67
+#: deploy/wp-svn/tags/1.1.0/templates/invoice.php:22
+#: deploy/wp-svn/tags/1.1.0/views/page-invoices.php:67
 #: deploy/wp-svn/trunk/templates/invoice.php:22
 #: deploy/wp-svn/trunk/views/page-invoices.php:67 templates/invoice.php:22
-#: views/page-invoices.php:67
+#: views/page-invoices.php:92
 msgid "Invoice Date"
 msgstr ""
 
@@ -414,9 +502,11 @@ msgstr ""
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice_admin.php:59
 #: deploy/wp-svn/tags/1.0.1/templates/invoice.php:29
 #: deploy/wp-svn/tags/1.0.1/views/page-invoices.php:78
+#: deploy/wp-svn/tags/1.1.0/templates/invoice.php:29
+#: deploy/wp-svn/tags/1.1.0/views/page-invoices.php:78
 #: deploy/wp-svn/trunk/templates/invoice.php:29
 #: deploy/wp-svn/trunk/views/page-invoices.php:78 templates/invoice.php:29
-#: views/page-invoices.php:78
+#: views/page-invoices.php:103
 msgid "Due Date"
 msgstr ""
 
@@ -427,9 +517,11 @@ msgstr ""
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice_admin.php:68
 #: deploy/wp-svn/tags/1.0.1/templates/invoice.php:35
 #: deploy/wp-svn/tags/1.0.1/views/page-invoices.php:87
+#: deploy/wp-svn/tags/1.1.0/templates/invoice.php:35
+#: deploy/wp-svn/tags/1.1.0/views/page-invoices.php:87
 #: deploy/wp-svn/trunk/templates/invoice.php:35
 #: deploy/wp-svn/trunk/views/page-invoices.php:87 templates/invoice.php:35
-#: views/page-invoices.php:87
+#: views/page-invoices.php:112
 msgid "Office"
 msgstr ""
 
@@ -443,11 +535,14 @@ msgstr ""
 #: deploy/wp-svn/tags/1.0.1/templates/invoice.php:38
 #: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_customer.php:52
 #: deploy/wp-svn/tags/1.0.1/views/page-invoices.php:93
+#: deploy/wp-svn/tags/1.1.0/templates/invoice.php:38
+#: deploy/wp-svn/tags/1.1.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:52
+#: deploy/wp-svn/tags/1.1.0/views/page-invoices.php:93
 #: deploy/wp-svn/trunk/templates/invoice.php:38
 #: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_customer.php:52
 #: deploy/wp-svn/trunk/views/page-invoices.php:93 templates/invoice.php:38
 #: views/Pronamic/WP/FormBuilder/create_form_customer.php:52
-#: views/page-invoices.php:93
+#: views/page-invoices.php:118
 msgid "Type"
 msgstr ""
 
@@ -459,9 +554,11 @@ msgstr ""
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice_admin.php:80
 #: deploy/wp-svn/tags/1.0.1/templates/invoice.php:41
 #: deploy/wp-svn/tags/1.0.1/views/page-invoices.php:99
+#: deploy/wp-svn/tags/1.1.0/templates/invoice.php:41
+#: deploy/wp-svn/tags/1.1.0/views/page-invoices.php:99
 #: deploy/wp-svn/trunk/templates/invoice.php:41
 #: deploy/wp-svn/trunk/views/page-invoices.php:99 templates/invoice.php:41
-#: views/page-invoices.php:99
+#: views/page-invoices.php:124
 msgid "Customer"
 msgstr ""
 
@@ -472,9 +569,11 @@ msgstr ""
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice_admin.php:94
 #: deploy/wp-svn/tags/1.0.1/templates/invoice.php:56
 #: deploy/wp-svn/tags/1.0.1/views/page-invoices.php:113
+#: deploy/wp-svn/tags/1.1.0/templates/invoice.php:56
+#: deploy/wp-svn/tags/1.1.0/views/page-invoices.php:113
 #: deploy/wp-svn/trunk/templates/invoice.php:56
 #: deploy/wp-svn/trunk/views/page-invoices.php:113 templates/invoice.php:56
-#: views/page-invoices.php:113
+#: views/page-invoices.php:138
 msgid "Status"
 msgstr ""
 
@@ -482,6 +581,7 @@ msgstr ""
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice.php:64
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice_admin.php:103
 #: deploy/wp-svn/tags/1.0.1/templates/invoice.php:64
+#: deploy/wp-svn/tags/1.1.0/templates/invoice.php:64
 #: deploy/wp-svn/trunk/templates/invoice.php:64 templates/invoice.php:64
 msgid "Lines"
 msgstr ""
@@ -492,27 +592,12 @@ msgstr ""
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice_admin.php:111
 #: deploy/wp-svn/tags/1.0.1/templates/invoice.php:72
 #: deploy/wp-svn/tags/1.0.1/views/page-invoices.php:126
+#: deploy/wp-svn/tags/1.1.0/templates/invoice.php:72
+#: deploy/wp-svn/tags/1.1.0/views/page-invoices.php:126
 #: deploy/wp-svn/trunk/templates/invoice.php:72
 #: deploy/wp-svn/trunk/views/page-invoices.php:126 templates/invoice.php:72
-#: views/page-invoices.php:126
+#: views/page-invoices.php:151
 msgid "Id"
-msgstr ""
-
-#: deploy/latest/templates/invoice.php:73
-#: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_invoice.php:21
-#: deploy/latest/views/page-invoices.php:127
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_invoice.php:21
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice.php:73
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice_admin.php:112
-#: deploy/wp-svn/tags/1.0.1/templates/invoice.php:73
-#: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_invoice.php:21
-#: deploy/wp-svn/tags/1.0.1/views/page-invoices.php:127
-#: deploy/wp-svn/trunk/templates/invoice.php:73
-#: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_invoice.php:21
-#: deploy/wp-svn/trunk/views/page-invoices.php:127 templates/invoice.php:73
-#: views/Pronamic/WP/FormBuilder/create_form_invoice.php:21
-#: views/page-invoices.php:127
-msgid "Article"
 msgstr ""
 
 #: deploy/latest/templates/invoice.php:74
@@ -521,9 +606,11 @@ msgstr ""
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice_admin.php:113
 #: deploy/wp-svn/tags/1.0.1/templates/invoice.php:74
 #: deploy/wp-svn/tags/1.0.1/views/page-invoices.php:128
+#: deploy/wp-svn/tags/1.1.0/templates/invoice.php:74
+#: deploy/wp-svn/tags/1.1.0/views/page-invoices.php:128
 #: deploy/wp-svn/trunk/templates/invoice.php:74
 #: deploy/wp-svn/trunk/views/page-invoices.php:128 templates/invoice.php:74
-#: views/page-invoices.php:128
+#: views/page-invoices.php:153
 msgid "Sub article"
 msgstr ""
 
@@ -536,11 +623,14 @@ msgstr ""
 #: deploy/wp-svn/tags/1.0.1/templates/invoice.php:75
 #: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_invoice.php:23
 #: deploy/wp-svn/tags/1.0.1/views/page-invoices.php:129
+#: deploy/wp-svn/tags/1.1.0/templates/invoice.php:75
+#: deploy/wp-svn/tags/1.1.0/views/Pronamic/WP/FormBuilder/create_form_invoice.php:23
+#: deploy/wp-svn/tags/1.1.0/views/page-invoices.php:129
 #: deploy/wp-svn/trunk/templates/invoice.php:75
 #: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_invoice.php:23
 #: deploy/wp-svn/trunk/views/page-invoices.php:129 templates/invoice.php:75
 #: views/Pronamic/WP/FormBuilder/create_form_invoice.php:23
-#: views/page-invoices.php:129
+#: views/page-invoices.php:154
 msgid "Quantity"
 msgstr ""
 
@@ -553,11 +643,14 @@ msgstr ""
 #: deploy/wp-svn/tags/1.0.1/templates/invoice.php:76
 #: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_invoice.php:24
 #: deploy/wp-svn/tags/1.0.1/views/page-invoices.php:130
+#: deploy/wp-svn/tags/1.1.0/templates/invoice.php:76
+#: deploy/wp-svn/tags/1.1.0/views/Pronamic/WP/FormBuilder/create_form_invoice.php:24
+#: deploy/wp-svn/tags/1.1.0/views/page-invoices.php:130
 #: deploy/wp-svn/trunk/templates/invoice.php:76
 #: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_invoice.php:24
 #: deploy/wp-svn/trunk/views/page-invoices.php:130 templates/invoice.php:76
 #: views/Pronamic/WP/FormBuilder/create_form_invoice.php:24
-#: views/page-invoices.php:130
+#: views/page-invoices.php:155
 msgid "Units"
 msgstr ""
 
@@ -567,9 +660,11 @@ msgstr ""
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice_admin.php:116
 #: deploy/wp-svn/tags/1.0.1/templates/invoice.php:77
 #: deploy/wp-svn/tags/1.0.1/views/page-invoices.php:131
+#: deploy/wp-svn/tags/1.1.0/templates/invoice.php:77
+#: deploy/wp-svn/tags/1.1.0/views/page-invoices.php:131
 #: deploy/wp-svn/trunk/templates/invoice.php:77
 #: deploy/wp-svn/trunk/views/page-invoices.php:131 templates/invoice.php:77
-#: views/page-invoices.php:131
+#: views/page-invoices.php:156
 msgid "Description"
 msgstr ""
 
@@ -579,9 +674,11 @@ msgstr ""
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice_admin.php:117
 #: deploy/wp-svn/tags/1.0.1/templates/invoice.php:78
 #: deploy/wp-svn/tags/1.0.1/views/page-invoices.php:132
+#: deploy/wp-svn/tags/1.1.0/templates/invoice.php:78
+#: deploy/wp-svn/tags/1.1.0/views/page-invoices.php:132
 #: deploy/wp-svn/trunk/templates/invoice.php:78
 #: deploy/wp-svn/trunk/views/page-invoices.php:132 templates/invoice.php:78
-#: views/page-invoices.php:132
+#: views/page-invoices.php:157
 msgid "Value Excl"
 msgstr ""
 
@@ -591,9 +688,11 @@ msgstr ""
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice_admin.php:118
 #: deploy/wp-svn/tags/1.0.1/templates/invoice.php:79
 #: deploy/wp-svn/tags/1.0.1/views/page-invoices.php:133
+#: deploy/wp-svn/tags/1.1.0/templates/invoice.php:79
+#: deploy/wp-svn/tags/1.1.0/views/page-invoices.php:133
 #: deploy/wp-svn/trunk/templates/invoice.php:79
 #: deploy/wp-svn/trunk/views/page-invoices.php:133 templates/invoice.php:79
-#: views/page-invoices.php:133
+#: views/page-invoices.php:158
 msgid "Vat Value"
 msgstr ""
 
@@ -603,9 +702,11 @@ msgstr ""
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice_admin.php:119
 #: deploy/wp-svn/tags/1.0.1/templates/invoice.php:80
 #: deploy/wp-svn/tags/1.0.1/views/page-invoices.php:134
+#: deploy/wp-svn/tags/1.1.0/templates/invoice.php:80
+#: deploy/wp-svn/tags/1.1.0/views/page-invoices.php:134
 #: deploy/wp-svn/trunk/templates/invoice.php:80
 #: deploy/wp-svn/trunk/views/page-invoices.php:134 templates/invoice.php:80
-#: views/page-invoices.php:134
+#: views/page-invoices.php:159
 msgid "Value Inc"
 msgstr ""
 
@@ -615,9 +716,11 @@ msgstr ""
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice_admin.php:120
 #: deploy/wp-svn/tags/1.0.1/templates/invoice.php:81
 #: deploy/wp-svn/tags/1.0.1/views/page-invoices.php:135
+#: deploy/wp-svn/tags/1.1.0/templates/invoice.php:81
+#: deploy/wp-svn/tags/1.1.0/views/page-invoices.php:135
 #: deploy/wp-svn/trunk/templates/invoice.php:81
 #: deploy/wp-svn/trunk/views/page-invoices.php:135 templates/invoice.php:81
-#: views/page-invoices.php:135
+#: views/page-invoices.php:160
 msgid "Units Price Excl"
 msgstr ""
 
@@ -627,14 +730,17 @@ msgstr ""
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice_admin.php:121
 #: deploy/wp-svn/tags/1.0.1/templates/invoice.php:82
 #: deploy/wp-svn/tags/1.0.1/views/page-invoices.php:136
+#: deploy/wp-svn/tags/1.1.0/templates/invoice.php:82
+#: deploy/wp-svn/tags/1.1.0/views/page-invoices.php:136
 #: deploy/wp-svn/trunk/templates/invoice.php:82
 #: deploy/wp-svn/trunk/views/page-invoices.php:136 templates/invoice.php:82
-#: views/page-invoices.php:136
+#: views/page-invoices.php:161
 msgid "Free text 1"
 msgstr ""
 
 #: deploy/latest/templates/invoice.php:83
 #: deploy/wp-svn/tags/1.0.1/templates/invoice.php:83
+#: deploy/wp-svn/tags/1.1.0/templates/invoice.php:83
 #: deploy/wp-svn/trunk/templates/invoice.php:83 templates/invoice.php:83
 msgid "Free text 2"
 msgstr ""
@@ -642,6 +748,7 @@ msgstr ""
 #: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_customer.php:9
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:9
 #: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_customer.php:9
+#: deploy/wp-svn/tags/1.1.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:9
 #: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_customer.php:9
 #: views/Pronamic/WP/FormBuilder/create_form_customer.php:9
 msgid "Customer Form"
@@ -661,6 +768,11 @@ msgstr ""
 #: deploy/wp-svn/tags/1.0.1/views/meta-box-customer.php:6
 #: deploy/wp-svn/tags/1.0.1/views/meta-box-invoice.php:30
 #: deploy/wp-svn/tags/1.0.1/views/page-customers.php:38
+#: deploy/wp-svn/tags/1.1.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:14
+#: deploy/wp-svn/tags/1.1.0/views/Pronamic/WP/FormBuilder/create_form_invoice.php:12
+#: deploy/wp-svn/tags/1.1.0/views/meta-box-customer.php:6
+#: deploy/wp-svn/tags/1.1.0/views/meta-box-invoice.php:30
+#: deploy/wp-svn/tags/1.1.0/views/page-customers.php:38
 #: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_customer.php:14
 #: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_invoice.php:12
 #: deploy/wp-svn/trunk/views/meta-box-customer.php:6
@@ -669,13 +781,14 @@ msgstr ""
 #: views/Pronamic/WP/FormBuilder/create_form_customer.php:14
 #: views/Pronamic/WP/FormBuilder/create_form_invoice.php:12
 #: views/meta-box-customer.php:6 views/meta-box-invoice.php:30
-#: views/page-customers.php:38
+#: views/page-customers.php:61
 msgid "Customer ID"
 msgstr ""
 
 #: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_customer.php:15
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:15
 #: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_customer.php:15
+#: deploy/wp-svn/tags/1.1.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:15
 #: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_customer.php:15
 #: views/Pronamic/WP/FormBuilder/create_form_customer.php:15
 msgid "Newest Number"
@@ -687,16 +800,19 @@ msgstr ""
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:22
 #: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_customer.php:22
 #: deploy/wp-svn/tags/1.0.1/views/page-customers.php:60
+#: deploy/wp-svn/tags/1.1.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:22
+#: deploy/wp-svn/tags/1.1.0/views/page-customers.php:60
 #: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_customer.php:22
 #: deploy/wp-svn/trunk/views/page-customers.php:60
 #: views/Pronamic/WP/FormBuilder/create_form_customer.php:22
-#: views/page-customers.php:60
+#: views/page-customers.php:83
 msgid "Website"
 msgstr ""
 
 #: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_customer.php:26
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:26
 #: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_customer.php:26
+#: deploy/wp-svn/tags/1.1.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:26
 #: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_customer.php:26
 #: views/Pronamic/WP/FormBuilder/create_form_customer.php:26
 msgid "Due Days"
@@ -705,6 +821,7 @@ msgstr ""
 #: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_customer.php:30
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:30
 #: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_customer.php:30
+#: deploy/wp-svn/tags/1.1.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:30
 #: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_customer.php:30
 #: views/Pronamic/WP/FormBuilder/create_form_customer.php:30
 msgid "Electronic Invoice"
@@ -713,6 +830,7 @@ msgstr ""
 #: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_customer.php:34
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:34
 #: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_customer.php:34
+#: deploy/wp-svn/tags/1.1.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:34
 #: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_customer.php:34
 #: views/Pronamic/WP/FormBuilder/create_form_customer.php:34
 msgid "Electronic Invoice Email"
@@ -721,6 +839,7 @@ msgstr ""
 #: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_customer.php:38
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:38
 #: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_customer.php:38
+#: deploy/wp-svn/tags/1.1.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:38
 #: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_customer.php:38
 #: views/Pronamic/WP/FormBuilder/create_form_customer.php:38
 msgid "Vat Code"
@@ -729,6 +848,7 @@ msgstr ""
 #: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_customer.php:51
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:51
 #: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_customer.php:51
+#: deploy/wp-svn/tags/1.1.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:51
 #: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_customer.php:51
 #: views/Pronamic/WP/FormBuilder/create_form_customer.php:51
 msgid "Default?"
@@ -737,6 +857,7 @@ msgstr ""
 #: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_customer.php:54
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:54
 #: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_customer.php:54
+#: deploy/wp-svn/tags/1.1.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:54
 #: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_customer.php:54
 #: views/Pronamic/WP/FormBuilder/create_form_customer.php:54
 msgid "Line 1"
@@ -745,6 +866,7 @@ msgstr ""
 #: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_customer.php:55
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:55
 #: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_customer.php:55
+#: deploy/wp-svn/tags/1.1.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:55
 #: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_customer.php:55
 #: views/Pronamic/WP/FormBuilder/create_form_customer.php:55
 msgid "Line 2"
@@ -753,6 +875,7 @@ msgstr ""
 #: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_customer.php:56
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:56
 #: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_customer.php:56
+#: deploy/wp-svn/tags/1.1.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:56
 #: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_customer.php:56
 #: views/Pronamic/WP/FormBuilder/create_form_customer.php:56
 msgid "Line 3"
@@ -761,6 +884,7 @@ msgstr ""
 #: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_customer.php:57
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:57
 #: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_customer.php:57
+#: deploy/wp-svn/tags/1.1.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:57
 #: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_customer.php:57
 #: views/Pronamic/WP/FormBuilder/create_form_customer.php:57
 msgid "CoC Number"
@@ -769,6 +893,7 @@ msgstr ""
 #: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_customer.php:58
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:58
 #: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_customer.php:58
+#: deploy/wp-svn/tags/1.1.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:58
 #: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_customer.php:58
 #: views/Pronamic/WP/FormBuilder/create_form_customer.php:58
 msgid "Postcode"
@@ -777,6 +902,7 @@ msgstr ""
 #: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_customer.php:60
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:60
 #: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_customer.php:60
+#: deploy/wp-svn/tags/1.1.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:60
 #: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_customer.php:60
 #: views/Pronamic/WP/FormBuilder/create_form_customer.php:60
 msgid "Country"
@@ -785,6 +911,7 @@ msgstr ""
 #: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_customer.php:61
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:61
 #: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_customer.php:61
+#: deploy/wp-svn/tags/1.1.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:61
 #: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_customer.php:61
 #: views/Pronamic/WP/FormBuilder/create_form_customer.php:61
 msgid "Email"
@@ -793,6 +920,7 @@ msgstr ""
 #: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_customer.php:114
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:114
 #: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_customer.php:114
+#: deploy/wp-svn/tags/1.1.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:114
 #: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_customer.php:114
 #: views/Pronamic/WP/FormBuilder/create_form_customer.php:114
 msgid "Send"
@@ -801,6 +929,7 @@ msgstr ""
 #: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_invoice.php:1
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_invoice.php:1
 #: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_invoice.php:1
+#: deploy/wp-svn/tags/1.1.0/views/Pronamic/WP/FormBuilder/create_form_invoice.php:1
 #: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_invoice.php:1
 #: views/Pronamic/WP/FormBuilder/create_form_invoice.php:1
 msgid "Invoice Form"
@@ -810,22 +939,16 @@ msgstr ""
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_invoice.php:6
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/wp_twinfield_invoice_meta_box_view.php:42
 #: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_invoice.php:6
+#: deploy/wp-svn/tags/1.1.0/views/Pronamic/WP/FormBuilder/create_form_invoice.php:6
 #: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_invoice.php:6
 #: views/Pronamic/WP/FormBuilder/create_form_invoice.php:6
 msgid "Invoice Type"
 msgstr ""
 
-#: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_invoice.php:22
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_invoice.php:22
-#: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_invoice.php:22
-#: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_invoice.php:22
-#: views/Pronamic/WP/FormBuilder/create_form_invoice.php:22
-msgid "Subarticle"
-msgstr ""
-
 #: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_invoice.php:25
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_invoice.php:25
 #: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_invoice.php:25
+#: deploy/wp-svn/tags/1.1.0/views/Pronamic/WP/FormBuilder/create_form_invoice.php:25
 #: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_invoice.php:25
 #: views/Pronamic/WP/FormBuilder/create_form_invoice.php:25
 msgid "Units Excl"
@@ -834,6 +957,7 @@ msgstr ""
 #: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_invoice.php:26
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_invoice.php:26
 #: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_invoice.php:26
+#: deploy/wp-svn/tags/1.1.0/views/Pronamic/WP/FormBuilder/create_form_invoice.php:26
 #: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_invoice.php:26
 #: views/Pronamic/WP/FormBuilder/create_form_invoice.php:26
 msgid "Vatcode"
@@ -842,6 +966,7 @@ msgstr ""
 #: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_invoice.php:27
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_invoice.php:27
 #: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_invoice.php:27
+#: deploy/wp-svn/tags/1.1.0/views/Pronamic/WP/FormBuilder/create_form_invoice.php:27
 #: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_invoice.php:27
 #: views/Pronamic/WP/FormBuilder/create_form_invoice.php:27
 msgid "Free Text 1"
@@ -850,6 +975,7 @@ msgstr ""
 #: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_invoice.php:28
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_invoice.php:28
 #: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_invoice.php:28
+#: deploy/wp-svn/tags/1.1.0/views/Pronamic/WP/FormBuilder/create_form_invoice.php:28
 #: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_invoice.php:28
 #: views/Pronamic/WP/FormBuilder/create_form_invoice.php:28
 msgid "Free Text 2"
@@ -858,6 +984,7 @@ msgstr ""
 #: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_invoice.php:29
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_invoice.php:29
 #: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_invoice.php:29
+#: deploy/wp-svn/tags/1.1.0/views/Pronamic/WP/FormBuilder/create_form_invoice.php:29
 #: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_invoice.php:29
 #: views/Pronamic/WP/FormBuilder/create_form_invoice.php:29
 msgid "Free Text 3"
@@ -866,6 +993,7 @@ msgstr ""
 #: deploy/latest/views/Pronamic/WP/Merge/Customer/partial_table.php:4
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Merge/Customer/partial_table.php:4
 #: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/Merge/Customer/partial_table.php:4
+#: deploy/wp-svn/tags/1.1.0/views/Pronamic/WP/Merge/Customer/partial_table.php:4
 #: deploy/wp-svn/trunk/views/Pronamic/WP/Merge/Customer/partial_table.php:4
 #: views/Pronamic/WP/Merge/Customer/partial_table.php:4
 msgid "Post Title"
@@ -874,6 +1002,7 @@ msgstr ""
 #: deploy/latest/views/Pronamic/WP/Merge/Customer/partial_table.php:5
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Merge/Customer/partial_table.php:5
 #: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/Merge/Customer/partial_table.php:5
+#: deploy/wp-svn/tags/1.1.0/views/Pronamic/WP/Merge/Customer/partial_table.php:5
 #: deploy/wp-svn/trunk/views/Pronamic/WP/Merge/Customer/partial_table.php:5
 #: views/Pronamic/WP/Merge/Customer/partial_table.php:5
 msgid "Meta Field"
@@ -882,6 +1011,7 @@ msgstr ""
 #: deploy/latest/views/Pronamic/WP/Merge/Customer/partial_table.php:6
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Merge/Customer/partial_table.php:6
 #: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/Merge/Customer/partial_table.php:6
+#: deploy/wp-svn/tags/1.1.0/views/Pronamic/WP/Merge/Customer/partial_table.php:6
 #: deploy/wp-svn/trunk/views/Pronamic/WP/Merge/Customer/partial_table.php:6
 #: views/Pronamic/WP/Merge/Customer/partial_table.php:6
 msgid "Matched?"
@@ -891,6 +1021,7 @@ msgstr ""
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/wp_twinfield_invoice_meta_box_view.php:53
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Merge/Customer/partial_table.php:24
 #: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/Merge/Customer/partial_table.php:24
+#: deploy/wp-svn/tags/1.1.0/views/Pronamic/WP/Merge/Customer/partial_table.php:24
 #: deploy/wp-svn/trunk/views/Pronamic/WP/Merge/Customer/partial_table.php:24
 #: views/Pronamic/WP/Merge/Customer/partial_table.php:24
 msgid "Sync"
@@ -898,6 +1029,7 @@ msgstr ""
 
 #: deploy/latest/views/meta-box-invoice.php:23
 #: deploy/wp-svn/tags/1.0.1/views/meta-box-invoice.php:23
+#: deploy/wp-svn/tags/1.1.0/views/meta-box-invoice.php:23
 #: deploy/wp-svn/trunk/views/meta-box-invoice.php:23
 #: views/meta-box-invoice.php:23
 msgid ""
@@ -908,6 +1040,7 @@ msgstr ""
 #: deploy/latest/views/meta-box-invoice.php:61
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/wp_twinfield_invoice_meta_box_view.php:49
 #: deploy/wp-svn/tags/1.0.1/views/meta-box-invoice.php:61
+#: deploy/wp-svn/tags/1.1.0/views/meta-box-invoice.php:61
 #: deploy/wp-svn/trunk/views/meta-box-invoice.php:61
 #: views/meta-box-invoice.php:61
 msgid "View"
@@ -915,6 +1048,7 @@ msgstr ""
 
 #: deploy/latest/views/meta-box-invoice.php:65
 #: deploy/wp-svn/tags/1.0.1/views/meta-box-invoice.php:65
+#: deploy/wp-svn/tags/1.1.0/views/meta-box-invoice.php:65
 #: deploy/wp-svn/trunk/views/meta-box-invoice.php:65
 #: views/meta-box-invoice.php:65
 msgid "Create Invoice"
@@ -923,6 +1057,7 @@ msgstr ""
 #: deploy/latest/views/meta-box-invoice.php:70
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/wp_twinfield_invoice_meta_box_view.php:56
 #: deploy/wp-svn/tags/1.0.1/views/meta-box-invoice.php:70
+#: deploy/wp-svn/tags/1.1.0/views/meta-box-invoice.php:70
 #: deploy/wp-svn/trunk/views/meta-box-invoice.php:70
 #: views/meta-box-invoice.php:70
 msgid "Looking for automatic synchronization?"
@@ -932,15 +1067,18 @@ msgstr ""
 #: deploy/latest/views/page-invoices.php:17
 #: deploy/wp-svn/tags/1.0.1/views/page-customers.php:16
 #: deploy/wp-svn/tags/1.0.1/views/page-invoices.php:17
+#: deploy/wp-svn/tags/1.1.0/views/page-customers.php:16
+#: deploy/wp-svn/tags/1.1.0/views/page-invoices.php:17
 #: deploy/wp-svn/trunk/views/page-customers.php:16
-#: deploy/wp-svn/trunk/views/page-invoices.php:17 views/page-customers.php:16
-#: views/page-invoices.php:17
+#: deploy/wp-svn/trunk/views/page-invoices.php:17 views/page-customers.php:39
+#: views/page-invoices.php:42
 msgid "Could not connect to Twinfield."
 msgstr ""
 
 #: deploy/latest/views/page-customers.php:34
 #: deploy/wp-svn/tags/1.0.1/views/page-customers.php:34
-#: deploy/wp-svn/trunk/views/page-customers.php:34 views/page-customers.php:34
+#: deploy/wp-svn/tags/1.1.0/views/page-customers.php:34
+#: deploy/wp-svn/trunk/views/page-customers.php:34 views/page-customers.php:57
 msgid "Request Customer"
 msgstr ""
 
@@ -948,16 +1086,19 @@ msgstr ""
 #: deploy/latest/views/page-invoices.php:46
 #: deploy/wp-svn/tags/1.0.1/views/page-customers.php:45
 #: deploy/wp-svn/tags/1.0.1/views/page-invoices.php:46
+#: deploy/wp-svn/tags/1.1.0/views/page-customers.php:45
+#: deploy/wp-svn/tags/1.1.0/views/page-invoices.php:46
 #: deploy/wp-svn/trunk/views/page-customers.php:45
-#: deploy/wp-svn/trunk/views/page-invoices.php:46 views/page-customers.php:45
-#: views/page-invoices.php:46
+#: deploy/wp-svn/trunk/views/page-invoices.php:46 views/page-customers.php:68
+#: views/page-invoices.php:71
 msgid "Request"
 msgstr ""
 
 #: deploy/latest/views/page-customers.php:52
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Customer/render_customer_admin.php:30
 #: deploy/wp-svn/tags/1.0.1/views/page-customers.php:52
-#: deploy/wp-svn/trunk/views/page-customers.php:52 views/page-customers.php:52
+#: deploy/wp-svn/tags/1.1.0/views/page-customers.php:52
+#: deploy/wp-svn/trunk/views/page-customers.php:52 views/page-customers.php:75
 msgid "Customer %s"
 msgstr ""
 
@@ -965,6 +1106,7 @@ msgstr ""
 #: deploy/wp-svn/tags/1.0.0/includes/Pronamic/WP/Twinfield/Settings/Settings.php:72
 #: deploy/wp-svn/tags/1.0.0/views/Twinfield/page_documentation.php:10
 #: deploy/wp-svn/tags/1.0.1/views/page-documentation.php:8
+#: deploy/wp-svn/tags/1.1.0/views/page-documentation.php:8
 #: deploy/wp-svn/trunk/views/page-documentation.php:8
 #: views/page-documentation.php:8
 msgid "General"
@@ -973,6 +1115,7 @@ msgstr ""
 #: deploy/latest/views/page-documentation.php:22
 #: deploy/wp-svn/tags/1.0.0/views/Twinfield/page_documentation.php:24
 #: deploy/wp-svn/tags/1.0.1/views/page-documentation.php:22
+#: deploy/wp-svn/tags/1.1.0/views/page-documentation.php:22
 #: deploy/wp-svn/trunk/views/page-documentation.php:22
 #: views/page-documentation.php:22
 msgid "Webservices"
@@ -981,6 +1124,7 @@ msgstr ""
 #: deploy/latest/views/page-documentation.php:91
 #: deploy/wp-svn/tags/1.0.0/views/Twinfield/page_documentation.php:93
 #: deploy/wp-svn/tags/1.0.1/views/page-documentation.php:91
+#: deploy/wp-svn/tags/1.1.0/views/page-documentation.php:91
 #: deploy/wp-svn/trunk/views/page-documentation.php:91
 #: views/page-documentation.php:91
 msgid "Templates (Dutch)"
@@ -989,6 +1133,7 @@ msgstr ""
 #: deploy/latest/views/page-documentation.php:132
 #: deploy/wp-svn/tags/1.0.0/views/Twinfield/page_documentation.php:134
 #: deploy/wp-svn/tags/1.0.1/views/page-documentation.php:132
+#: deploy/wp-svn/tags/1.1.0/views/page-documentation.php:132
 #: deploy/wp-svn/trunk/views/page-documentation.php:132
 #: views/page-documentation.php:132
 msgid "Templates (English)"
@@ -997,6 +1142,7 @@ msgstr ""
 #: deploy/latest/views/page-documentation.php:230
 #: deploy/wp-svn/tags/1.0.0/views/Twinfield/page_documentation.php:232
 #: deploy/wp-svn/tags/1.0.1/views/page-documentation.php:230
+#: deploy/wp-svn/tags/1.1.0/views/page-documentation.php:230
 #: deploy/wp-svn/trunk/views/page-documentation.php:230
 #: views/page-documentation.php:230
 msgid "version %s"
@@ -1005,6 +1151,7 @@ msgstr ""
 #: deploy/latest/views/page-documentation.php:234
 #: deploy/wp-svn/tags/1.0.0/views/Twinfield/page_documentation.php:236
 #: deploy/wp-svn/tags/1.0.1/views/page-documentation.php:234
+#: deploy/wp-svn/tags/1.1.0/views/page-documentation.php:234
 #: deploy/wp-svn/trunk/views/page-documentation.php:234
 #: views/page-documentation.php:234
 msgid "%s"
@@ -1012,7 +1159,8 @@ msgstr ""
 
 #: deploy/latest/views/page-invoices.php:35
 #: deploy/wp-svn/tags/1.0.1/views/page-invoices.php:35
-#: deploy/wp-svn/trunk/views/page-invoices.php:35 views/page-invoices.php:35
+#: deploy/wp-svn/tags/1.1.0/views/page-invoices.php:35
+#: deploy/wp-svn/trunk/views/page-invoices.php:35 views/page-invoices.php:60
 msgid "Request Invoice"
 msgstr ""
 
@@ -1020,20 +1168,23 @@ msgstr ""
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice_admin.php:16
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/wp_twinfield_invoice_meta_box_view.php:24
 #: deploy/wp-svn/tags/1.0.1/views/page-invoices.php:39
-#: deploy/wp-svn/trunk/views/page-invoices.php:39 views/page-invoices.php:39
+#: deploy/wp-svn/tags/1.1.0/views/page-invoices.php:39
+#: deploy/wp-svn/trunk/views/page-invoices.php:39 views/page-invoices.php:64
 msgid "Invoice ID"
 msgstr ""
 
 #: deploy/latest/views/page-invoices.php:53
 #: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice_admin.php:31
 #: deploy/wp-svn/tags/1.0.1/views/page-invoices.php:53
-#: deploy/wp-svn/trunk/views/page-invoices.php:53 views/page-invoices.php:53
+#: deploy/wp-svn/tags/1.1.0/views/page-invoices.php:53
+#: deploy/wp-svn/trunk/views/page-invoices.php:53 views/page-invoices.php:78
 msgid "Invoice %d"
 msgstr ""
 
 #: deploy/latest/views/page-offices.php:23
 #: deploy/wp-svn/tags/1.0.0/views/Twinfield/page_offices.php:23
 #: deploy/wp-svn/tags/1.0.1/views/page-offices.php:23
+#: deploy/wp-svn/tags/1.1.0/views/page-offices.php:23
 #: deploy/wp-svn/trunk/views/page-offices.php:23 views/page-offices.php:23
 msgid "Code"
 msgstr ""
@@ -1041,6 +1192,7 @@ msgstr ""
 #: deploy/latest/views/page-offices.php:24
 #: deploy/wp-svn/tags/1.0.0/views/Twinfield/page_offices.php:24
 #: deploy/wp-svn/tags/1.0.1/views/page-offices.php:24
+#: deploy/wp-svn/tags/1.1.0/views/page-offices.php:24
 #: deploy/wp-svn/trunk/views/page-offices.php:24 views/page-offices.php:24
 msgid "Shortname"
 msgstr ""
@@ -1048,12 +1200,14 @@ msgstr ""
 #: deploy/latest/views/page-twinfield.php:8
 #: deploy/wp-svn/tags/1.0.0/views/Twinfield/page_parent.php:16
 #: deploy/wp-svn/tags/1.0.1/views/page-twinfield.php:8
+#: deploy/wp-svn/tags/1.1.0/views/page-twinfield.php:8
 #: deploy/wp-svn/trunk/views/page-twinfield.php:8 views/page-twinfield.php:8
 msgid "Quick Login"
 msgstr ""
 
 #: deploy/latest/views/section-permalinks.php:9
 #: deploy/wp-svn/tags/1.0.1/views/section-permalinks.php:9
+#: deploy/wp-svn/tags/1.1.0/views/section-permalinks.php:9
 #: deploy/wp-svn/trunk/views/section-permalinks.php:9
 #: views/section-permalinks.php:9
 msgid ""
@@ -1153,6 +1307,10 @@ msgstr ""
 msgid "Automate"
 msgstr ""
 
+#: templates/invoice.php:84
+msgid "Free text 3"
+msgstr ""
+
 #. Plugin URI of the plugin/theme
 msgid "http://www.pronamic.eu/plugins/twinfield/"
 msgstr ""
@@ -1175,13 +1333,17 @@ msgstr ""
 #: classes/Pronamic/WP/Twinfield/Customer/Customer.php:52
 #: deploy/latest/classes/Pronamic/WP/Twinfield/Customer/Customer.php:33
 #: deploy/latest/classes/Pronamic/WP/Twinfield/Customer/Customer.php:52
+#: deploy/latest/includes/template.php:32
 #: deploy/wp-svn/tags/1.0.0/includes/Pronamic/WP/Twinfield/Customer/Customer.php:36
 #: deploy/wp-svn/tags/1.0.0/includes/Pronamic/WP/Twinfield/Customer/Customer.php:55
 #: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/Twinfield/Customer/Customer.php:33
 #: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/Twinfield/Customer/Customer.php:52
+#: deploy/wp-svn/tags/1.1.0/classes/Pronamic/WP/Twinfield/Customer/Customer.php:33
+#: deploy/wp-svn/tags/1.1.0/classes/Pronamic/WP/Twinfield/Customer/Customer.php:52
+#: deploy/wp-svn/tags/1.1.0/includes/template.php:32
 #: deploy/wp-svn/trunk/classes/Pronamic/WP/Twinfield/Customer/Customer.php:33
 #: deploy/wp-svn/trunk/classes/Pronamic/WP/Twinfield/Customer/Customer.php:52
-#: includes/template.php:32
+#: deploy/wp-svn/trunk/includes/template.php:32 includes/template.php:32
 msgctxt "Customer slug for frontend"
 msgid "customer"
 msgstr ""
@@ -1194,6 +1356,8 @@ msgstr ""
 #: deploy/wp-svn/tags/1.0.0/includes/Pronamic/WP/Twinfield/Invoice/Invoice.php:49
 #: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/Twinfield/Invoice/Invoice.php:24
 #: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/Twinfield/Invoice/Invoice.php:47
+#: deploy/wp-svn/tags/1.1.0/classes/Pronamic/WP/Twinfield/Invoice/Invoice.php:24
+#: deploy/wp-svn/tags/1.1.0/classes/Pronamic/WP/Twinfield/Invoice/Invoice.php:47
 #: deploy/wp-svn/trunk/classes/Pronamic/WP/Twinfield/Invoice/Invoice.php:24
 #: deploy/wp-svn/trunk/classes/Pronamic/WP/Twinfield/Invoice/Invoice.php:47
 msgctxt "Invoice slug for front end"
@@ -1203,6 +1367,7 @@ msgstr ""
 #: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:85
 #: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:85
 #: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:85
+#: deploy/wp-svn/tags/1.1.0/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:85
 #: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:85
 #. translators: use same translations as on Twinfield.com.
 msgctxt "twinfield.com"
@@ -1212,6 +1377,7 @@ msgstr ""
 #: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:92
 #: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:92
 #: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:92
+#: deploy/wp-svn/tags/1.1.0/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:92
 #: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:92
 #. translators: use same translations as on Twinfield.com.
 msgctxt "twinfield.com"
@@ -1223,6 +1389,7 @@ msgstr ""
 #: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:106
 #: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:106
 #: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:106
+#: deploy/wp-svn/tags/1.1.0/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:106
 #: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:106
 #. translators: use same translations as on Twinfield.com.
 msgctxt "twinfield.com"
@@ -1234,6 +1401,7 @@ msgstr ""
 #: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:122
 #: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:122
 #: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:122
+#: deploy/wp-svn/tags/1.1.0/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:122
 #: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:122
 msgctxt "twinfield.com"
 msgid "You can find your VAT codes in Twinfield under \"General » Company » VAT\"."
@@ -1245,13 +1413,17 @@ msgstr ""
 #: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:154
 #: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:138
 #: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:154
+#: deploy/wp-svn/tags/1.1.0/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:138
+#: deploy/wp-svn/tags/1.1.0/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:154
 #: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:138
 #: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:154
 msgctxt "twinfield.com"
 msgid "You can find your articles in Twinfield under \"Credit management » Items\"."
 msgstr ""
 
-#: includes/template.php:12
+#: deploy/latest/includes/template.php:12
+#: deploy/wp-svn/tags/1.1.0/includes/template.php:12
+#: deploy/wp-svn/trunk/includes/template.php:12 includes/template.php:12
 msgctxt "Invoice slug for frontend"
 msgid "invoice"
 msgstr ""
