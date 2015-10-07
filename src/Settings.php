@@ -1,32 +1,32 @@
 <?php
 
-class Pronamic_WP_TwinfieldPlugin_Settings {
-	/**
-	 * Instance of this class.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @var Pronamic_WP_ExtensionsPlugin_Plugin
-	 */
-	protected static $instance = null;
+namespace Pronamic\WP\Twinfield\Plugin;
 
-	//////////////////////////////////////////////////
-
+class Settings {
 	/**
-	 * Extensions plugin
+	 * Twinfield plugin object.
 	 *
-	 * @var Pronamic_WP_TwinfieldPlugin_Plugin
+	 * @var Plugin
 	 */
 	private $plugin;
 
 	//////////////////////////////////////////////////
 
 	/**
-	 * Constructs and initialize Twinfield plugin admin
+	 * Constructs and initialize Twinfield plugin settings.
 	 */
-	private function __construct( Pronamic_WP_TwinfieldPlugin_Plugin $plugin ) {
+	public function __construct( Plugin $plugin ) {
 		$this->plugin = $plugin;
 
+		add_action( 'admin_init', array( $this, 'admin_init' ) );
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Admin initialize
+	 */
+	public function admin_init() {
 		/*
 		 * API
 		 */
@@ -273,23 +273,5 @@ class Pronamic_WP_TwinfieldPlugin_Settings {
 		$attributes['type'] = 'password';
 
 		$this->render_text( $attributes );
-	}
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Return an instance of this class.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @return object A single instance of this class.
-	 */
-	public static function get_instance( Pronamic_WP_TwinfieldPlugin_Plugin $plugin ) {
-		// If the single instance hasn't been set, set it now.
-		if ( null == self::$instance ) {
-			self::$instance = new self( $plugin );
-		}
-
-		return self::$instance;
 	}
 }

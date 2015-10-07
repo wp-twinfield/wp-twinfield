@@ -12,6 +12,9 @@
 			"role": "Developer"
 		}
 	],
+    "autoload": {
+        "psr-4": {"Pronamic\\WP\\Twinfield\\Plugin\\": "src/"}
+    },
 	"require": {
 		"php": ">=5.3.0",
 		"wp-twinfield/twinfield": "dev-develop"

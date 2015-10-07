@@ -11,8 +11,6 @@ class Customer {
 		add_action( 'template_redirect', array( $this, 'render_customer' ) );
 		
 		add_filter( 'wp_title', array( $this, 'wp_title' ) );
-		// Start the Metabox
-		$metabox = new CustomerMetaBox();
 
 	}
 	

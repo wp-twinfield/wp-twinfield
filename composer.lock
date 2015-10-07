@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9a80edd80b6e84764e2971c3f357b133",
+    "hash": "d9247a6fd2ef0a42c65a88caf120a1b8",
     "content-hash": "8a761a0f85762d8a86b557210ae89fc1",
     "packages": [
         {
@@ -13,12 +13,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-twinfield/twinfield.git",
-                "reference": "5779c792abf0958d804c27a28ecb0a86884bb0f6"
+                "reference": "bfc5fdde8ad27f11ef0491e90eb55769eac2c5c7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-twinfield/twinfield/zipball/5779c792abf0958d804c27a28ecb0a86884bb0f6",
-                "reference": "5779c792abf0958d804c27a28ecb0a86884bb0f6",
+                "url": "https://api.github.com/repos/wp-twinfield/twinfield/zipball/bfc5fdde8ad27f11ef0491e90eb55769eac2c5c7",
+                "reference": "bfc5fdde8ad27f11ef0491e90eb55769eac2c5c7",
                 "shasum": ""
             },
             "require-dev": {
@@ -43,7 +43,7 @@
                 }
             ],
             "description": "Twinfield library for WordPress.",
-            "time": "2015-10-02 13:41:01"
+            "time": "2015-10-07 14:48:32"
         }
     ],
     "packages-dev": [

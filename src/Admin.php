@@ -1,21 +1,15 @@
 <?php
 
-class Pronamic_WP_TwinfieldPlugin_Admin {
-	/**
-	 * Instance of this class.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @var self
-	 */
-	protected static $instance = null;
+namespace Pronamic\WP\Twinfield\Plugin;
 
-	//////////////////////////////////////////////////
+use Pronamic\WP\Twinfield\Customers\CustomerService;
+use Pronamic\WP\Twinfield\SalesInvoices\SalesInvoiceService;
 
+class Admin {
 	/**
-	 * Extensions plugin
+	 * Twinfield plugin object.
 	 *
-	 * @var Pronamic_WP_TwinfieldPlugin_Plugin
+	 * @var Plugin
 	 */
 	private $plugin;
 
@@ -24,7 +18,7 @@ class Pronamic_WP_TwinfieldPlugin_Admin {
 	/**
 	 * Constructs and initialize Twinfield plugin admin
 	 */
-	private function __construct( Pronamic_WP_TwinfieldPlugin_Plugin $plugin ) {
+	public function __construct( Plugin $plugin ) {
 		$this->plugin = $plugin;
 
 		// Actions
@@ -32,63 +26,12 @@ class Pronamic_WP_TwinfieldPlugin_Admin {
 
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
 
-		// Columns
-		add_filter( 'manage_posts_columns' , array( $this, 'manage_posts_columns' ), 10, 2 );
+		// Settings
+		$this->settings = new Settings( $plugin );
 
-		add_action( 'manage_posts_custom_column' , array( $this, 'manage_posts_custom_column' ), 10, 2 );
-	}
-
-	/**
-	 * Manage posts columns
-	 *
-	 * @param array  $posts_columns
-	 * @param string $post_type
-	 */
-	function manage_posts_columns( $columns, $post_type ) {
-		if ( post_type_supports( $post_type, 'twinfield_article' ) ) {
-			$columns['twinfield_article'] = __( 'Twinfield', 'orbis_subscriptions' );
-
-			$new_columns = array();
-
-			foreach ( $columns as $name => $label ) {
-				if ( 'author' === $name ) {
-					$new_columns['twinfield_article'] = $columns['twinfield_article'];
-				}
-
-				$new_columns[ $name ] = $label;
-			}
-
-			$columns = $new_columns;
-		}
-
-		return $columns;
-	}
-
-	function manage_posts_custom_column( $column_name, $post_id ) {
-		if ( 'twinfield_article' === $column_name ) {
-			$twinfield_article_code    = get_post_meta( $post_id, '_twinfield_article_code', true );
-			$twinfield_subarticle_code = get_post_meta( $post_id, '_twinfield_subarticle_code', true );
-
-			$items = array();
-
-			if ( ! empty( $twinfield_article_code ) ) {
-				$items[] = sprintf(
-					'<strong>%s</strong>: %s',
-					esc_html__( 'Article', 'twinfield' ),
-					esc_html( $twinfield_article_code )
-				);
-			}
-
-			if ( ! empty( $twinfield_article_code ) ) {
-				$items[] = sprintf(
-					'<strong>%s</strong>: %s',
-					esc_html__( 'Subarticle', 'twinfield' ),
-					esc_html( $twinfield_subarticle_code )
-				);
-			}
-
-			echo implode( '<br />', $items );
-		}
+		// Other
+		$this->customers_admin = new CustomersAdmin( $plugin );
+		$this->articles_admin  = new ArticlesAdmin( $plugin );
 	}
 
 	//////////////////////////////////////////////////
@@ -97,8 +40,6 @@ class Pronamic_WP_TwinfieldPlugin_Admin {
 	 * Admin initialize
 	 */
 	public function admin_init() {
-		$this->settings = Pronamic_WP_TwinfieldPlugin_Settings::get_instance( $this->plugin );
-
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
 	}
 
@@ -113,7 +54,7 @@ class Pronamic_WP_TwinfieldPlugin_Admin {
 			__( 'Twinfield', 'twinfield' ),
 			'manage_options',
 			'twinfield',
-			array( $this, 'page_twinfield' ),
+			array( $this, 'page_dashboard' ),
 			$this->plugin->plugins_url( 'assets/admin/images/icon-16x16.png' )
 		);
 
@@ -215,30 +156,53 @@ class Pronamic_WP_TwinfieldPlugin_Admin {
 	}
 
 	// Helper functions
-	public function page_twinfield() { $this->page( 'twinfield' ); }
+	public function page_dashboard() {
+		include plugin_dir_path( $this->plugin->file ) . 'admin/page-dashboard.php';
+	}
+
 	public function page_offices() { $this->page( 'offices' ); }
-	public function page_customers() { $this->page( 'customers' ); }
-	public function page_invoices() { $this->page( 'invoices' ); }
-	public function page_settings() { $this->page( 'settings' ); }
-	public function page_form_builder() { $this->page( 'form_builder' ); }
-	public function page_merger_tool() { $this->page( 'merger_tool' ); }
-	public function page_documentation() { $this->page( 'documentation' ); }
 
-	//////////////////////////////////////////////////
+	public function page_customers() {
+		$twinfield_response = null;
 
-	/**
-	 * Return an instance of this class.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @return object A single instance of this class.
-	 */
-	public static function get_instance( Pronamic_WP_TwinfieldPlugin_Plugin $plugin ) {
-		// If the single instance hasn't been set, set it now.
-		if ( null == self::$instance ) {
-			self::$instance = new self( $plugin );
+		if ( filter_has_var( INPUT_GET, 'twinfield_customer_id' ) ) {
+			$xml_processor = $this->plugin->get_xml_processor();
+
+			$service = new CustomerService( $xml_processor );
+
+			$office = get_option( 'twinfield_default_office_code' );
+
+			$twinfield_response = $service->get_customer( $office, filter_input( INPUT_GET, 'twinfield_customer_id', FILTER_SANITIZE_STRING ) );
 		}
 
-		return self::$instance;
+		include plugin_dir_path( $this->plugin->file ) . 'admin/page-customers.php';
+	}
+	
+	public function page_invoices() {
+		$twinfield_response = null;
+
+		if ( filter_has_var( INPUT_GET, 'twinfield_invoice_id' ) ) {
+			$xml_processor = $this->plugin->get_xml_processor();
+
+			$service = new SalesInvoiceService( $xml_processor );
+
+			$office = get_option( 'twinfield_default_office_code' );
+			$type   = get_option( 'twinfield_default_invoice_type', 'FACTUUR' );
+
+			$twinfield_response = $service->get_sales_invoice( $office, $type, filter_input( INPUT_GET, 'twinfield_invoice_id', FILTER_SANITIZE_STRING ) );
+		}
+
+		include plugin_dir_path( $this->plugin->file ) . 'admin/page-invoices.php';
+	}
+
+	public function page_settings() {
+		include plugin_dir_path( $this->plugin->file ) . 'admin/page-settings.php';
+	}
+
+	public function page_form_builder() { $this->page( 'form_builder' ); }
+	public function page_merger_tool() { $this->page( 'merger_tool' ); }
+
+	public function page_documentation() {
+		include plugin_dir_path( $this->plugin->file ) . 'admin/page-documentation.php';
 	}
 }

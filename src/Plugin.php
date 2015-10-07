@@ -1,17 +1,12 @@
 <?php
 
-class Pronamic_WP_TwinfieldPlugin_Plugin {
-	/**
-	 * Instance of this class.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @var Pronamic_WP_ExtensionsPlugin_Plugin
-	 */
-	protected static $instance = null;
+namespace Pronamic\WP\Twinfield\Plugin;
 
-	//////////////////////////////////////////////////
+use Pronamic\WP\Twinfield\Credentials;
+use Pronamic\WP\Twinfield\Client;
+use Pronamic\WP\Twinfield\XMLProcessor;
 
+class Plugin {
 	/**
 	 * Plugin file
 	 * 
@@ -33,7 +28,7 @@ class Pronamic_WP_TwinfieldPlugin_Plugin {
 	 * 
 	 * @param string $file
 	 */
-	private function __construct( $file ) {
+	public function __construct( $file ) {
 		$this->file     = $file;
 		$this->dir_path = plugin_dir_path( $file );
 
@@ -48,7 +43,7 @@ class Pronamic_WP_TwinfieldPlugin_Plugin {
 		
 		// Admin
 		if ( is_admin() ) {
-			Pronamic_WP_TwinfieldPlugin_Admin::get_instance( $this );
+			$this->admin = new Admin( $this );
 		}
 	}
 
@@ -95,18 +90,23 @@ class Pronamic_WP_TwinfieldPlugin_Plugin {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Return an instance of this class.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @return object A single instance of this class.
+	 * Get XML processor
 	 */
-	public static function get_instance( $file = false ) {
-		// If the single instance hasn't been set, set it now.
-		if ( null == self::$instance ) {
-			self::$instance = new self( $file );
-		}
-	
-		return self::$instance;
+	public function get_xml_processor() {
+		$user         = get_option( 'twinfield_username' );
+		$password     = get_option( 'twinfield_password' );
+		$organisation = get_option( 'twinfield_organisation' );
+
+		$credentials = new Credentials( $user, $password, $organisation );
+
+		$client = new Client();
+
+		$logon_response = $client->logon( $credentials );
+
+		$session = $client->get_session( $logon_response );
+
+		$xml_processor = new XMLProcessor( $session );
+
+		return $xml_processor;
 	}
 }

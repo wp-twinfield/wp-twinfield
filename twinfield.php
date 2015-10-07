@@ -155,7 +155,6 @@ if ( ! class_exists( 'Twinfield' ) ) :
 			$this->merge		 = new \Pronamic\WP\Twinfield\Merge\Merge();
 			$this->invoice		 = new \Pronamic\WP\Twinfield\Invoice\Invoice();
 			$this->customer		 = new \Pronamic\WP\Twinfield\Customer\Customer();
-			$this->article		 = new \Pronamic\WP\Twinfield\Article\Article();
 
 			// Load the FormBuilder Component
 			$this->form_builder  = new Form\FormBuilder();
@@ -196,4 +195,4 @@ $twinfield = new Twinfield();
 
 global $twinfield_plugin;
 
-$twinfield_plugin = Pronamic_WP_TwinfieldPlugin_Plugin::get_instance( __FILE__ );
+$twinfield_plugin = new Pronamic\WP\Twinfield\Plugin\Plugin( __FILE__ );
