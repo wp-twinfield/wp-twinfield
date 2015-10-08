@@ -98,24 +98,6 @@ class Admin {
 
 		add_submenu_page(
 			'twinfield',
-			__( 'Twinfield Form Builder', 'twinfield' ),
-			__( 'Form Builder', 'twinfield' ),
-			'twinfield_form_builder',
-			'twinfield_form_builder',
-			array( $this, 'page_form_builder' )
-		);
-
-		add_submenu_page(
-			'twinfield',
-			__( 'Merger Tool', 'twinfield' ),
-			__( 'Merger Tool', 'twinfield' ),
-			'twinfield_merger_tool',
-			'twinfield_merger_tool',
-			array( $this, 'page_merger_tool' )
-		);
-
-		add_submenu_page(
-			'twinfield',
 			__( 'Twinfield Documentation', 'twinfield' ),
 			__( 'Documentation', 'twinfield' ),
 			'manage_options',
