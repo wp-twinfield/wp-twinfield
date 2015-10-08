@@ -145,23 +145,22 @@ class Admin {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Page
-	 *
-	 * @param string $id
+	 * Page dashboard.
 	 */
-	public function page( $id ) {
-		$filename = 'views/page-' . $id . '.php';
-
-		$this->plugin->display( $filename );
-	}
-
-	// Helper functions
 	public function page_dashboard() {
 		include plugin_dir_path( $this->plugin->file ) . 'admin/page-dashboard.php';
 	}
 
-	public function page_offices() { $this->page( 'offices' ); }
+	/**
+	 * Page offices.
+	 */
+	public function page_offices() {
+		include plugin_dir_path( $this->plugin->file ) . 'admin/page-offices.php';
+	}
 
+	/**
+	 * Page customers.
+	 */
 	public function page_customers() {
 		$twinfield_response = null;
 
@@ -177,7 +176,10 @@ class Admin {
 
 		include plugin_dir_path( $this->plugin->file ) . 'admin/page-customers.php';
 	}
-	
+
+	/**
+	 * Page invoices.
+	 */
 	public function page_invoices() {
 		$twinfield_response = null;
 
@@ -195,13 +197,16 @@ class Admin {
 		include plugin_dir_path( $this->plugin->file ) . 'admin/page-invoices.php';
 	}
 
+	/**
+	 * Page settings.
+	 */
 	public function page_settings() {
 		include plugin_dir_path( $this->plugin->file ) . 'admin/page-settings.php';
 	}
 
-	public function page_form_builder() { $this->page( 'form_builder' ); }
-	public function page_merger_tool() { $this->page( 'merger_tool' ); }
-
+	/**
+	 * Page documentation.
+	 */
 	public function page_documentation() {
 		include plugin_dir_path( $this->plugin->file ) . 'admin/page-documentation.php';
 	}

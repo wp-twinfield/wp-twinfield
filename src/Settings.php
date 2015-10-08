@@ -33,7 +33,7 @@ class Settings {
 		add_settings_section(
 			'twinfield_login',
 			__( 'Login', 'twinfield' ),
-			create_function( null, "twinfield_settings_section( 'section-login' );" ),
+			'__return_false',
 			'twinfield'
 		);
 
@@ -72,12 +72,12 @@ class Settings {
 		/*
 		 * Defaults
 		 */
-        add_settings_section(
-            'twinfield_defaults',
-            __( 'Defaults', 'twinfield' ),
-            create_function( null, "twinfield_settings_section( 'section-defaults' );" ),
-            'twinfield'
-        );
+		add_settings_section(
+			'twinfield_defaults',
+			__( 'Defaults', 'twinfield' ),
+			'__return_false',
+			'twinfield'
+		);
 
 		add_settings_field(
 			'twinfield_default_office_code',
@@ -93,73 +93,73 @@ class Settings {
 			)
 		);
 
-        add_settings_field(
-            'twinfield_default_invoice_type',
-            __( 'Invoice Type Code', 'twinfield' ),
-            array( $this, 'render_text' ),
-            'twinfield',
-            'twinfield_defaults',
-            array(
-                'label_for'   => 'twinfield_default_invoice_type',
-                'classes'     => array( 'regular-text', 'code' ),
+		add_settings_field(
+			'twinfield_default_invoice_type',
+			__( 'Invoice Type Code', 'twinfield' ),
+			array( $this, 'render_text' ),
+			'twinfield',
+			'twinfield_defaults',
+			array(
+				'label_for'   => 'twinfield_default_invoice_type',
+				'classes'	 => array( 'regular-text', 'code' ),
 				/* translators: use same translations as on Twinfield.com. */
 				'description' => _x( 'You can find your invoice types in Twinfield under "Credit management » Invoicing » Invoicing types".', 'twinfield.com', 'twinfield' ),
-            )
-        );
+			)
+		);
 
-        add_settings_field(
-            'twinfield_default_vat_code',
-            __( 'VAT Code', 'twinfield' ),
-            array( $this, 'render_text' ),
-            'twinfield',
-            'twinfield_defaults',
-            array(
-                'label_for'   => 'twinfield_default_vat_code',
-                'classes'     => array( 'regular-text', 'code' ),
+		add_settings_field(
+			'twinfield_default_vat_code',
+			__( 'VAT Code', 'twinfield' ),
+			array( $this, 'render_text' ),
+			'twinfield',
+			'twinfield_defaults',
+			array(
+				'label_for'   => 'twinfield_default_vat_code',
+				'classes'	 => array( 'regular-text', 'code' ),
 				/* translators: use same translations as on Twinfield.com. */
 				'description' =>
 					__( 'This VAT code is used by default to create Twinfield invoice lines unless you have specified an Twinfield VAT code on a lower level.', 'twinfield' ) . '<br />' .
 					_x( 'You can find your VAT codes in Twinfield under "General » Company » VAT".', 'twinfield.com', 'twinfield' ),
-            )
-        );
+			)
+		);
 
-        add_settings_field(
-            'twinfield_default_article_code',
-            __( 'Article Code', 'twinfield' ),
-            array( $this, 'render_text' ),
-            'twinfield',
-            'twinfield_defaults',
-            array(
-                'label_for'   => 'twinfield_default_article_code',
-                'classes'     => array( 'regular-text', 'code' ),
+		add_settings_field(
+			'twinfield_default_article_code',
+			__( 'Article Code', 'twinfield' ),
+			array( $this, 'render_text' ),
+			'twinfield',
+			'twinfield_defaults',
+			array(
+				'label_for'   => 'twinfield_default_article_code',
+				'classes'	 => array( 'regular-text', 'code' ),
 				/* translators: use same translations as on Twinfield.com. */
 				'description' =>
 					__( 'This article code is used by default to create Twinfield invoice lines unless you have specified an Twinfield article code on a lower level.', 'twinfield' ) . '<br />' .
 					_x( 'You can find your articles in Twinfield under "Credit management » Items".', 'twinfield.com', 'twinfield' ),
-            )
-        );
+			)
+		);
 
-        add_settings_field(
-            'twinfield_default_subarticle_code',
-            __( 'Subarticle Code', 'twinfield' ),
-            array( $this, 'render_text' ),
-            'twinfield',
-            'twinfield_defaults',
-            array(
-                'label_for'   => 'twinfield_default_subarticle_code',
-                'classes'     => array( 'regular-text', 'code' ),
+		add_settings_field(
+			'twinfield_default_subarticle_code',
+			__( 'Subarticle Code', 'twinfield' ),
+			array( $this, 'render_text' ),
+			'twinfield',
+			'twinfield_defaults',
+			array(
+				'label_for'   => 'twinfield_default_subarticle_code',
+				'classes'	 => array( 'regular-text', 'code' ),
 				/* translators: use same translations as on Twinfield.com. */
 				'description' =>
 					__( 'This subarticle code is used by default to create Twinfield invoice lines unless you have specified an Twinfield subarticle code on a lower level.', 'twinfield' ) . '<br />' .
 					_x( 'You can find your articles in Twinfield under "Credit management » Items".', 'twinfield.com', 'twinfield' ),
-            )
-        );
+			)
+		);
 
-        register_setting( 'twinfield', 'twinfield_default_office_code' );
-        register_setting( 'twinfield', 'twinfield_default_invoice_type' );
-        register_setting( 'twinfield', 'twinfield_default_vat_code' );
-        register_setting( 'twinfield', 'twinfield_default_article_code' );
-        register_setting( 'twinfield', 'twinfield_default_subarticle_code' );
+		register_setting( 'twinfield', 'twinfield_default_office_code' );
+		register_setting( 'twinfield', 'twinfield_default_invoice_type' );
+		register_setting( 'twinfield', 'twinfield_default_vat_code' );
+		register_setting( 'twinfield', 'twinfield_default_article_code' );
+		register_setting( 'twinfield', 'twinfield_default_subarticle_code' );
 
 		/*
 		 * Permalinks
@@ -167,7 +167,7 @@ class Settings {
 		add_settings_section(
 			'twinfield_permalinks',
 			__( 'Permalinks', 'twinfield' ),
-			create_function( null, "twinfield_settings_section( 'section-permalinks' );" ),
+			array( $this, 'section_permalinks' ),
 			'twinfield'
 		);
 
@@ -221,15 +221,22 @@ class Settings {
 	}
 
 	/**
+	 * Section permalinks
+	 */
+	public function section_permalinks( $args ) {
+		include plugin_dir_path( $this->plugin->file ) . 'admin/section-permalinks.php';
+	}
+
+	/**
 	 * Render text
 	 *
 	 * @param array $attributes
 	 */
 	public function render_text( $attributes ) {
 		$attributes = wp_parse_args( $attributes, array(
- 			'id'      => '',
- 			'type'    => 'text',
- 			'name'    => '',
+ 			'id'	  => '',
+ 			'type'	=> 'text',
+ 			'name'	=> '',
  			'value'   => '',
 			'classes' => array( 'regular-text' )
 		) );
