@@ -13,7 +13,7 @@ class ArticlesAdmin {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Constructs and initialize Twinfield plugin admin
+	 * Constructs and initialize Twinfield articles admin.
 	 */
 	public function __construct( Plugin $plugin ) {
 		$this->plugin = $plugin;
@@ -138,7 +138,7 @@ class ArticlesAdmin {
 				);
 			}
 
-			echo implode( '<br />', $items );
+			echo implode( '<br />', $items ); //xss ok
 		}
 	}
 }

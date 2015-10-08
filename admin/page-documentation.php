@@ -15,8 +15,8 @@
 				array(
 					'url'     => 'https://c1.twinfield.com/webservices/documentation/',
 					'name'    => 'Twinfield API Documentation site',
-				)
-			)
+				),
+			),
 		),
 		'webservices' => array(
 			'name'      => __( 'Webservices','twinfield' ),
@@ -84,8 +84,8 @@
 					'name'    => 'Webservices Validations',
 					'version' => '5.3',
 					'date'    => new DateTime( '01-04-2007' ),
-				)
-			)
+				),
+			),
 		),
 		'templates-nl' => array(
 			'name'      => __( 'Templates (Dutch)', 'twinfield' ),
@@ -125,8 +125,8 @@
 					'url'     => 'http://remcotolsma.nl/wp-content/uploads/sjabloon-NL-Aanmaning-1.6.dot',
 					'name'    => 'sjabloon-NL-Aanmaning-1.6.dot',
 					'date'    => new DateTime( '30-06-2011 13:10' ),
-				)
-			)
+				),
+			),
 		),
 		'templates-en' => array(
 			'name'      => __( 'Templates (English)', 'twinfield' ),
@@ -171,8 +171,8 @@
 					'url'     => 'http://remcotolsma.nl/wp-content/uploads/template-EN-Dunning-1.6.dot',
 					'name'    => 'template-EN-Dunning-1.6.dot',
 					'date'    => new DateTime( '30-06-2011 16:39' ),
-				)
-			)
+				),
+			),
 		),
 		'libraries' => array(
 			'name'      => 'Libraries',
@@ -188,12 +188,12 @@
 				array(
 					'url'     => 'https://github.com/macernst/twinfield',
 					'name'    => 'Twinfield API written in Ruby',
-				)
-			)
-		)
+				),
+			),
+		),
 	);
 
-	foreach ( $sections as $section ): ?>
+	foreach ( $sections as $section ) : ?>
 
 		<h3>
 			<?php echo esc_html( $section['name'] ); ?>
@@ -207,7 +207,7 @@
 
 		<ul>
 
-			<?php foreach ( $section['resources'] as $resource ): ?>
+			<?php foreach ( $section['resources'] as $resource ) : ?>
 
 				<li>
 					<?php
@@ -215,7 +215,7 @@
 					$href = null;
 
 					if ( isset( $resource['path'] ) ) {
-						$href = plugins_url( $resource['path'], Twinfield::$file );
+						$href = plugins_url( $resource['path'], $this->plugin->file );
 					}
 
 					if ( isset( $resource['url'] ) ) {
@@ -226,12 +226,12 @@
 					<a href="<?php echo esc_attr( $href ); ?>" target="_blank">
 						<?php echo esc_html( $resource['name'] ); ?>
 
-						<?php if ( isset( $resource['version'] ) ): ?>
-							<small><?php printf( __( 'version %s', 'pronamic_ideal' ), esc_html( $resource['version'] ) ); ?> </small>
+						<?php if ( isset( $resource['version'] ) ) : ?>
+							<small><?php printf( esc_html__( 'version %s', 'pronamic_ideal' ), esc_html( $resource['version'] ) ); ?> </small>
 						<?php endif; ?>
 
-						<?php if ( isset( $resource['date'] ) ): ?>
-							<small><?php printf( __( '%s', 'pronamic_ideal' ), esc_html( $resource['date']->format( 'd-m-Y' ) ) ); ?> </small>
+						<?php if ( isset( $resource['date'] ) ) : ?>
+							<small><?php echo esc_html( $resource['date']->format( 'd-m-Y' ) ) ); ?> </small>
 						<?php endif; ?>
 					</a>
 				</li>

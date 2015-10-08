@@ -212,7 +212,7 @@ class Settings {
 		$space = '';
 
 		foreach ( $attributes as $key => $value ) {
-			$html .= $space . $key . '=' . '"' . esc_attr( $value ) . '"';
+			$html .= $space . $key . '="' . esc_attr( $value ) . '"';
 
 			$space = ' ';
 		}
@@ -234,11 +234,11 @@ class Settings {
 	 */
 	public function render_text( $attributes ) {
 		$attributes = wp_parse_args( $attributes, array(
- 			'id'	  => '',
- 			'type'	=> 'text',
- 			'name'	=> '',
- 			'value'   => '',
-			'classes' => array( 'regular-text' )
+			'id'      => '',
+			'type'    => 'text',
+			'name'    => '',
+			'value'   => '',
+			'classes' => array( 'regular-text' ),
 		) );
 
 		if ( isset( $attributes['label_for'] ) ) {
@@ -249,7 +249,7 @@ class Settings {
 		}
 
 		if ( isset( $attributes['classes'] ) ) {
-			$attributes['class'] = implode( ' ', $attributes['classes'] ) ;
+			$attributes['class'] = implode( ' ', $attributes['classes'] );
 
 			unset( $attributes['classes'] );
 		}
@@ -261,13 +261,13 @@ class Settings {
 			unset( $attributes['description'] );
 		}
 
-		printf( '<input %s />', $this->array_to_html_attributes( $attributes ) );
+		printf( '<input %s />', $this->array_to_html_attributes( $attributes ) ); //xss ok
 
 		if ( $description ) {
-			printf(
+			printf( //xss ok
 				'<span class="description"><br />%s</span>',
 				$description
-			);
+			); //xss ok
 		}
 	}
 

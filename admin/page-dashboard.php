@@ -5,7 +5,7 @@
 		<div id="dashboard-widgets" class="metabox-holder columns-2">
 			<div id="postbox-container-1" class="postbox-container">
 				<div class="postbox">
-					<h3 class="hndle"><span><?php _e( 'Quick Login', 'twinfield' ); ?></span></h3>
+					<h3 class="hndle"><span><?php esc_html_e( 'Quick Login', 'twinfield' ); ?></span></h3>
 
 					<div class="inside">
 						<form action="https://login.twinfield.com/default.aspx" method="post" target="_blank">

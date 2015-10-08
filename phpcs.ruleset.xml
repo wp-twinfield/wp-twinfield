@@ -2,6 +2,10 @@
 
 <ruleset name="Twinfield">
 	<rule ref="WordPress">
+		<exclude name="Squiz.Commenting" />
+	</rule>
 
+	<rule ref="Generic.Files.LowercasedFilename.NotFound">
+		<exclude-pattern>/src</exclude-pattern>
 	</rule>
 </ruleset>

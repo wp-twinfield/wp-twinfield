@@ -18,6 +18,7 @@ module.exports = function( grunt ) {
 			application: {
 				src: [
 					'**/*.php',
+					'!deploy/**',
 					'!node_modules/**',
 					'!twinfield/**',
 					'!vendor/**'

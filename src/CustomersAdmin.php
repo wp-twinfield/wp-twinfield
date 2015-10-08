@@ -127,7 +127,7 @@ class CustomersAdmin {
 			$customer_id = get_post_meta( $post_id, '_twinfield_customer_id', true );
 
 			if ( empty( $customer_id ) ) {
-
+				echo esc_html( '—' );
 			} else {
 				echo esc_html( $customer_id );
 			}

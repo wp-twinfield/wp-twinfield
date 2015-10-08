@@ -2,12 +2,7 @@
 
 global $post;
 
-$is_supported   = \Pronamic\WP\Twinfield\Invoice\InvoiceMetaBoxFactory::supported( $post->post_type );
-
-$invoice_number = get_post_meta( $post->ID, '_twinfield_invoice_number', true );
-$customer_id    = get_post_meta( $post->ID, '_twinfield_customer_id', true );
-
-$response       = get_post_meta( $post->ID, '_twinfield_response', true );
+$is_supported   = false;
 
 ?>
 <table class="form-table">
@@ -58,7 +53,7 @@ if ( $response ) {
 <p>
 	<?php if ( $invoice_number ) : ?>
 
-	    <a class="button" target="_blank" href="<?php echo twinfield_admin_view_invoice_link( $invoice_number ); ?>"><?php esc_html_e( 'View', 'twinfield' ); ?></a>
+	    <a class="button" target="_blank" href="<?php echo esc_attr( twinfield_admin_view_invoice_link( $invoice_number ) ); ?>"><?php esc_html_e( 'View', 'twinfield' ); ?></a>
 
 	<?php elseif ( $is_supported ) : ?>
 

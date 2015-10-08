@@ -2,7 +2,7 @@
 
 	<?php $header = $sales_invoice->get_header(); ?>
 
-	<h3><?php printf( __( 'Invoice %d', 'twinfield' ), esc_html( $header->get_number() ) ); ?></h3>
+	<h3><?php printf( esc_html__( 'Invoice %d', 'twinfield' ), esc_html( $header->get_number() ) ); ?></h3>
 
 	<table class="form-table">
 		<tr>
@@ -64,7 +64,11 @@
 
 				$customer = $header->get_customer();
 
-				printf( '<a href="%s">%s</a>', twinfield_admin_view_customer_link( $customer ), $customer );
+				printf(
+					'<a href="%s">%s</a>',
+					esc_attr( twinfield_admin_view_customer_link( $customer ) ),
+					esc_html( $customer )
+				);
 
 				?>
 			</td>

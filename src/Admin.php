@@ -32,6 +32,7 @@ class Admin {
 		// Other
 		$this->customers_admin = new CustomersAdmin( $plugin );
 		$this->articles_admin  = new ArticlesAdmin( $plugin );
+		$this->invoices_admin  = new InvoicesAdmin( $plugin );
 	}
 
 	//////////////////////////////////////////////////

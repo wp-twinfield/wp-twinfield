@@ -14,7 +14,7 @@
 
 			<tbody>
 
-				<?php foreach ( $offices as $office ): ?>
+				<?php foreach ( $offices as $office ) : ?>
 
 					<tr>
 						<td><?php echo esc_html( $office->getCode() ); ?></td>

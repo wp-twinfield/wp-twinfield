@@ -9,14 +9,14 @@ use Pronamic\WP\Twinfield\XMLProcessor;
 class Plugin {
 	/**
 	 * Plugin file
-	 * 
+	 *
 	 * @var string
 	 */
 	public $file;
 
 	/**
 	 * Plugin dir path
-	 * 
+	 *
 	 * @var string
 	 */
 	public $dir_path;
@@ -25,7 +25,7 @@ class Plugin {
 
 	/**
 	 * Constructs and initialize Pronamic WordPress Extensions plugin
-	 * 
+	 *
 	 * @param string $file
 	 */
 	public function __construct( $file ) {
@@ -38,13 +38,17 @@ class Plugin {
 
 		// Actions
 		add_action( 'init', array( $this, 'init' ) );
-		
+
 		add_action( 'plugins_loaded', array( $this, 'plugins_loaded' ), 10, 9 );
-		
+
 		// Admin
 		if ( is_admin() ) {
 			$this->admin = new Admin( $this );
 		}
+
+		// Other
+		$this->invoices_public  = new InvoicesPublic( $this );
+		$this->customers_public = new CustomersPublic( $this );
 	}
 
 	//////////////////////////////////////////////////
@@ -53,7 +57,7 @@ class Plugin {
 	 * Initialize
 	 */
 	public function init() {
-		
+
 	}
 
 	//////////////////////////////////////////////////
@@ -71,24 +75,11 @@ class Plugin {
 
 	/**
 	 * Plugins URL
-	 * 
+	 *
 	 * @param string $path
 	 */
 	public function plugins_url( $path ) {
 		return plugins_url( $path, $this->file );
-	}
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Display/iinclude the specified file
-	 * 
-	 * @param string $file
-	 */
-	public function display( $file, array $args = array() ) {
-		extract( $args );
-
-		include $this->dir_path . $file; 
 	}
 
 	//////////////////////////////////////////////////

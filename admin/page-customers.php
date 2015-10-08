@@ -24,7 +24,7 @@
 
 	<?php endif; ?>
 
-	<?php 
+	<?php
 
 	if ( $twinfield_response ) {
 		if ( $twinfield_response->is_successful() ) {
