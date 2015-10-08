@@ -12,22 +12,22 @@ $response       = get_post_meta( $post->ID, '_twinfield_response', true );
 ?>
 <table class="form-table">
 	<tr>
-		<th>
-			<label for="twinfield_invoice_number"><?php _e( 'Invoice Number', 'twinfield' ); ?></label>
+		<th scope="row">
+			<label for="twinfield_invoice_number"><?php esc_html_e( 'Invoice Number', 'twinfield' ); ?></label>
 		</th>
 		<td>
 			<input id="twinfield_invoice_number" type="text" name="twinfield_invoice_number" value="<?php echo esc_attr( $invoice_number ); ?>" />
 
 			<?php if ( empty( $invoice_number ) ) : ?>
 
-				<span class="description"><br /><?php _e( 'You can manullay enter an Twinfield invoice number or use the "Create Invoice" button below.', 'twinfield' ); ?></span>
+				<span class="description"><br /><?php esc_html_e( 'You can manullay enter an Twinfield invoice number or use the "Create Invoice" button below.', 'twinfield' ); ?></span>
 
 			<?php endif; ?>
 		</td>
 	</tr>
 	<tr>
-		<th>
-			<label for="twinfield_customer_id"><?php _e( 'Customer ID', 'twinfield' ); ?></label>
+		<th scope="row">
+			<label for="twinfield_customer_id"><?php esc_html_e( 'Customer ID', 'twinfield' ); ?></label>
 		</th>
 		<td>
 			<input id="twinfield_customer_id" type="text" name="twinfield_customer_id" value="<?php echo esc_attr( $customer_id ); ?>" />
@@ -51,14 +51,14 @@ if ( $response ) {
 	$proc = new XSLTProcessor;
 	$proc->importStyleSheet( $xsl );
 
-	echo $proc->transformToXML( $xml );
+	echo $proc->transformToXML( $xml ); //xss ok
 }
 
 ?>
 <p>
 	<?php if ( $invoice_number ) : ?>
 
-	    <a class="button" target="_blank" href="<?php echo twinfield_admin_view_invoice_link( $invoice_number ); ?>"><?php _e( 'View' ); ?></a>
+	    <a class="button" target="_blank" href="<?php echo twinfield_admin_view_invoice_link( $invoice_number ); ?>"><?php esc_html_e( 'View', 'twinfield' ); ?></a>
 
 	<?php elseif ( $is_supported ) : ?>
 
