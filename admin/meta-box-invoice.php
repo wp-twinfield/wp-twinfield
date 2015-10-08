@@ -67,7 +67,7 @@ if ( $response ) {
 	<?php else : ?>
 
 	    <p>
-	    	<?php _e( 'Looking for automatic synchronization?', 'twinfield' ); ?>
+	    	<?php esc_html_e( 'Looking for automatic synchronization?', 'twinfield' ); ?>
 	    </p>
 
 	<?php endif; ?>
