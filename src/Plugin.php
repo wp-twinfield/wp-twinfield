@@ -39,7 +39,7 @@ class Plugin {
 		// Actions
 		add_action( 'init', array( $this, 'init' ) );
 		
-		add_action( 'plugins_loaded', array( $this, 'plugins_loaded' ) );
+		add_action( 'plugins_loaded', array( $this, 'plugins_loaded' ), 10, 9 );
 		
 		// Admin
 		if ( is_admin() ) {
@@ -62,7 +62,11 @@ class Plugin {
 	 * Plugins loaded
 	 */
 	public function plugins_loaded() {
+		// Load text domain.
 		load_plugin_textdomain( 'twinfield', false, dirname( plugin_basename( $this->file ) ) . '/languages/' );
+
+		// Bootstrap.
+		do_action( 'twinfield_bootstrap' );
 	}
 
 	/**
