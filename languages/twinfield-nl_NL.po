@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Twinfield\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/twinfield\n"
-"POT-Creation-Date: 2015-01-02 12:30:18+00:00\n"
-"PO-Revision-Date: 2015-10-02 15:50+0100\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/twinfield\n"
+"POT-Creation-Date: 2015-10-08 13:10:53+00:00\n"
+"PO-Revision-Date: 2015-10-08 15:12+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -14,1113 +14,375 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
-#: classes/Pronamic/WP/Twinfield/Article/ArticleMetaBox.php:52
-#: deploy/latest/classes/Pronamic/WP/Twinfield/Article/ArticleMetaBox.php:52
-#: deploy/wp-svn/tags/1.0.0/includes/Pronamic/WP/Twinfield/Article/ArticleMetaBox.php:58
-#: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/Twinfield/Article/ArticleMetaBox.php:52
-#: deploy/wp-svn/trunk/classes/Pronamic/WP/Twinfield/Article/ArticleMetaBox.php:52
-msgid "Twinfield Article"
-msgstr "Twinfield artikel"
+#: admin/customer.php:3 admin/page-documentation.php:8
+msgid "General"
+msgstr "Algemeen"
 
-#: classes/Pronamic/WP/Twinfield/Customer/CustomerMetaBox.php:55
-#: deploy/latest/classes/Pronamic/WP/Twinfield/Customer/CustomerMetaBox.php:55
-#: deploy/wp-svn/tags/1.0.0/includes/Pronamic/WP/Twinfield/Customer/CustomerMetaBox.php:58
-#: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/Twinfield/Customer/CustomerMetaBox.php:55
-#: deploy/wp-svn/trunk/classes/Pronamic/WP/Twinfield/Customer/CustomerMetaBox.php:55
-msgid "Twinfield Customer"
-msgstr "Twinfield klant"
+#: admin/customer.php:8 admin/page-offices.php:9
+msgid "Code"
+msgstr "Code"
 
-#: classes/Pronamic/WP/Twinfield/Invoice/InvoiceMetaBox.php:80
-#: deploy/latest/classes/Pronamic/WP/Twinfield/Invoice/InvoiceMetaBox.php:80
-#: deploy/wp-svn/tags/1.0.0/includes/Pronamic/WP/Twinfield/Invoice/InvoiceMetaBox.php:59
-#: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/Twinfield/Invoice/InvoiceMetaBox.php:80
-#: deploy/wp-svn/trunk/classes/Pronamic/WP/Twinfield/Invoice/InvoiceMetaBox.php:80
-msgid "Twinfield Invoice"
-msgstr "Twinfield factuur"
+#: admin/customer.php:16 admin/customer.php:79 admin/page-offices.php:11
+#: templates/customer.php:7 templates/customer.php:18
+msgid "Name"
+msgstr "Naam"
 
-#: classes/Pronamic/WP/Twinfield/Merge/Supports/Customer.php:45
-#: deploy/latest/classes/Pronamic/WP/Twinfield/Merge/Supports/Customer.php:45
-#: deploy/wp-svn/tags/1.0.0/includes/Pronamic/WP/Twinfield/Merge/Supports/Customer.php:45
-#: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/Twinfield/Merge/Supports/Customer.php:45
-#: deploy/wp-svn/trunk/classes/Pronamic/WP/Twinfield/Merge/Supports/Customer.php:45
-msgid "Customer requires CoC Number as Custom Meta Field"
-msgstr "Klant vereist KvK nummer als een maatwerk meta veld"
+#: admin/customer.php:24
+msgid "Website"
+msgstr "Website"
+
+#: admin/customer.php:34
+msgid "Financials"
+msgstr "Financiën"
+
+#: admin/customer.php:39
+msgid "Due Days"
+msgstr "Vervaldagen"
+
+#: admin/customer.php:51
+msgid "Credit Management"
+msgstr "Creditmanagement"
+
+#: admin/customer.php:56
+msgid "Send Reminder"
+msgstr "Stuur herinnering"
+
+#: admin/customer.php:64
+msgid "Reminder Email"
+msgstr "Herinnering e-mail"
+
+#: admin/customer.php:74 templates/customer.php:10
+msgid "Addresses"
+msgstr "Adressen"
+
+#: admin/customer.php:80 templates/customer.php:21
+msgid "City"
+msgstr "Plaats"
+
+#: admin/customer.php:81 templates/customer.php:24
+msgid "Postal Code"
+msgstr "Postcode"
+
+#: admin/customer.php:82 templates/customer.php:27
+msgid "Telephone"
+msgstr "Telefoon"
+
+#: admin/meta-box-article.php:4 src/Settings.php:128
+msgid "Article Code"
+msgstr "Artikel code"
+
+#: admin/meta-box-article.php:12 src/Settings.php:144
+msgid "Subarticle Code"
+msgstr "Subartikel code"
+
+#: admin/meta-box-customer.php:6 admin/meta-box-invoice.php:25
+#: admin/page-customers.php:14
+msgid "Customer ID"
+msgstr "Klant ID"
+
+#: admin/meta-box-invoice.php:11 admin/sales-invoice.php:10
+#: templates/sales-invoice.php:19
+msgid "Invoice Number"
+msgstr "Factuurnummer"
+
+#: admin/meta-box-invoice.php:18
+msgid ""
+"You can manullay enter an Twinfield invoice number or use the \"Create "
+"Invoice\" button below."
+msgstr ""
+"Je kunt handmatig een Twinfield factuurnummer invoeren of de \"Factuur "
+"aanmaken\" knop hieronder gebruiken."
+
+#: admin/meta-box-invoice.php:56
+msgid "View"
+msgstr "Toon"
+
+#: admin/meta-box-invoice.php:60
+msgid "Create Invoice"
+msgstr "Factuur aanmaken"
+
+#: admin/meta-box-invoice.php:65
+msgid "Looking for automatic synchronization?"
+msgstr "Op zoek naar automatische synchronisatie?"
+
+#: admin/page-customers.php:9
+msgid "Request Customer"
+msgstr "Klant opvragen"
+
+#: admin/page-customers.php:22 admin/page-invoices.php:22
+msgid "Request"
+msgstr "Opvragen"
+
+#: admin/page-customers.php:35 admin/page-invoices.php:35
+msgid "Could not connect to Twinfield."
+msgstr "Kon geen verbinding maken met Twinfield."
+
+#: admin/page-dashboard.php:8
+msgid "Quick Login"
+msgstr "Snel inloggen"
+
+#: admin/page-dashboard.php:21 src/Settings.php:35
+msgid "Login"
+msgstr "Inloggen"
+
+#: admin/page-documentation.php:22
+msgid "Webservices"
+msgstr "Webservices"
+
+#: admin/page-documentation.php:91
+msgid "Templates (Dutch)"
+msgstr "Sjablonen (Nederlands)"
+
+#: admin/page-documentation.php:132
+msgid "Templates (English)"
+msgstr "Sjablonen (Engels)"
+
+#: admin/page-documentation.php:230
+msgid "version %s"
+msgstr "versie %s"
+
+#: admin/page-invoices.php:9
+msgid "Request Invoice"
+msgstr "Factuur opvragen"
+
+#: admin/page-invoices.php:14
+msgid "Invoice ID"
+msgstr "Factuur ID"
+
+#: admin/page-offices.php:10
+msgid "Shortname"
+msgstr "Korte naam"
+
+#: admin/sales-invoice.php:5
+msgid "Invoice %d"
+msgstr "Factuur %d"
+
+#: admin/sales-invoice.php:21
+msgid "Date"
+msgstr "Datum"
+
+#: admin/sales-invoice.php:34 templates/sales-invoice.php:31
+msgid "Due Date"
+msgstr "Vervaldatum"
+
+#: admin/sales-invoice.php:45 templates/sales-invoice.php:36
+msgid "Office"
+msgstr "Kantoor"
+
+#: admin/sales-invoice.php:52 templates/sales-invoice.php:39
+msgid "Type"
+msgstr "Type"
+
+#: admin/sales-invoice.php:60 templates/sales-invoice.php:42
+msgid "Customer"
+msgstr "Klant"
+
+#: admin/sales-invoice.php:78 templates/sales-invoice.php:57
+msgid "Status"
+msgstr "Status"
+
+#: admin/sales-invoice.php:91 templates/sales-invoice.php:73
+msgid "Id"
+msgstr "Id"
+
+#: admin/sales-invoice.php:92 src/ArticlesAdmin.php:128
+#: templates/sales-invoice.php:74
+msgid "Article"
+msgstr "Artikel"
+
+#: admin/sales-invoice.php:93 templates/sales-invoice.php:75
+msgid "Sub article"
+msgstr "Subartikel"
+
+#: admin/sales-invoice.php:94 templates/sales-invoice.php:76
+msgid "Quantity"
+msgstr "Aantal"
+
+#: admin/sales-invoice.php:95 templates/sales-invoice.php:77
+msgid "Units"
+msgstr "Eenheid"
+
+#: admin/sales-invoice.php:96 templates/sales-invoice.php:78
+msgid "Description"
+msgstr "Beschrijving"
+
+#: admin/sales-invoice.php:97 templates/sales-invoice.php:79
+msgid "Value Excl"
+msgstr "Waarde excl."
+
+#: admin/sales-invoice.php:98 templates/sales-invoice.php:80
+msgid "Vat Value"
+msgstr "Belasting waarde"
+
+#: admin/sales-invoice.php:99 templates/sales-invoice.php:81
+msgid "Value Inc"
+msgstr "Waarde incl."
+
+#: admin/sales-invoice.php:100 templates/sales-invoice.php:82
+msgid "Free Text 1"
+msgstr "Vrije tekst 1"
+
+#: admin/sales-invoice.php:101 templates/sales-invoice.php:83
+msgid "Free Text 2"
+msgstr "Vrije tekst 2"
+
+#: admin/sales-invoice.php:102 templates/sales-invoice.php:84
+msgid "Free Text 3"
+msgstr "Vrije tekst 3"
+
+#: admin/section-permalinks.php:10
+msgid ""
+"If you like, you may enter custom structures for your invoice and customer "
+"%s here. For example, using %s as your invoice base would make your invoice "
+"links like %s. If you leave these blank the defaults will be used."
+msgstr ""
+"Als je wilt, kan je hier aangepaste structuren voor je factuur- en klant-%s "
+"invoeren. Als je bijvoorbeeld %s als je factuurbasis gebruikt, worden je "
+"factuurlinks iets als %s. Als je dit leeg laat, worden de standaardwaarden "
+"gebruikt."
 
 #. Plugin Name of the plugin/theme
 msgid "Twinfield"
 msgstr "Twinfield"
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:75
-#: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:75
-#: deploy/wp-svn/tags/1.0.0/twinfield.php:197
-#: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:75
-#: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:75
+#: src/Admin.php:75
 msgid "Twinfield Customers"
 msgstr "Twinfield klanten"
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:76
-#: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:76
-#: deploy/wp-svn/tags/1.0.0/twinfield.php:198
-#: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:76
-#: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:76
+#: src/Admin.php:76
 msgid "Customers"
 msgstr "Klanten"
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:84
-#: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:84
-#: deploy/wp-svn/tags/1.0.0/twinfield.php:206
-#: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:84
-#: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:84
+#: src/Admin.php:84
 msgid "Twinfield Invoices"
 msgstr "Twinfield facturen"
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:85
-#: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:85
-#: deploy/wp-svn/tags/1.0.0/twinfield.php:207
-#: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:85
-#: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:85
+#: src/Admin.php:85
 msgid "Invoices"
 msgstr "Facturen"
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:93
-#: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:93
-#: deploy/wp-svn/tags/1.0.0/twinfield.php:216
-#: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:93
-#: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:93
+#: src/Admin.php:93
 msgid "Twinfield Settings"
 msgstr "Twinfield instellingen"
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:94
-#: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:94
-#: deploy/wp-svn/tags/1.0.0/twinfield.php:217
-#: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:94
-#: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:94
+#: src/Admin.php:94
 msgid "Settings"
 msgstr "Instellingen"
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:102
-#: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:102
-#: deploy/wp-svn/tags/1.0.0/twinfield.php:225
-#: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:102
-#: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:102
-msgid "Twinfield Form Builder"
-msgstr "Twinfield formulieren"
-
-#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:103
-#: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:103
-#: deploy/wp-svn/tags/1.0.0/twinfield.php:226
-#: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:103
-#: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:103
-msgid "Form Builder"
-msgstr "Formulieren"
-
-#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:111
-#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:112
-#: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:111
-#: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:112
-#: deploy/wp-svn/tags/1.0.0/twinfield.php:234 deploy/wp-svn/tags/1.0.0/twinfield.php:235
-#: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:111
-#: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:112
-#: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:111
-#: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:112
-msgid "Merger Tool"
-msgstr "Samenvoegen tool"
-
-#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:120
-#: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:120
-#: deploy/wp-svn/tags/1.0.0/twinfield.php:243
-#: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:120
-#: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:120
+#: src/Admin.php:102
 msgid "Twinfield Documentation"
 msgstr "Twinfield documentatie"
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Admin.php:121
-#: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:121
-#: deploy/wp-svn/tags/1.0.0/twinfield.php:244
-#: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:121
-#: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Admin.php:121
+#: src/Admin.php:103
 msgid "Documentation"
 msgstr "Documentatie"
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:35
-#: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:35
-#: deploy/latest/views/page-twinfield.php:21
-#: deploy/wp-svn/tags/1.0.0/views/Twinfield/page_parent.php:27
-#: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:35
-#: deploy/wp-svn/tags/1.0.1/views/page-twinfield.php:21
-#: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:35
-#: deploy/wp-svn/trunk/views/page-twinfield.php:21 views/page-twinfield.php:21
-msgid "Login"
-msgstr "Inloggen"
+#: src/ArticlesAdmin.php:40
+msgid "Twinfield Article"
+msgstr "Twinfield artikel"
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:42
-#: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:42
-#: deploy/wp-svn/tags/1.0.0/includes/Pronamic/WP/Twinfield/Settings/Settings.php:24
-#: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:42
-#: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:42
+#: src/ArticlesAdmin.php:136
+msgid "Subarticle"
+msgstr "Subartikel"
+
+#: src/CustomersAdmin.php:42
+msgid "Twinfield Customer"
+msgstr "Twinfield klant"
+
+#: src/InvoicesAdmin.php:32
+msgid "Twinfield Invoice"
+msgstr "Twinfield factuur"
+
+#: src/InvoicesPublic.php:118 templates/sales-invoice.php:9
+msgid "Invoice %s"
+msgstr "Factuur %s"
+
+#: src/Settings.php:42
 msgid "Username"
 msgstr "Gebruikersnaam"
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:51
-#: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:51
-#: deploy/wp-svn/tags/1.0.0/includes/Pronamic/WP/Twinfield/Settings/Settings.php:33
-#: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:51
-#: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:51
+#: src/Settings.php:51
 msgid "Password"
 msgstr "Wachtwoord"
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:60
-#: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:60
-#: deploy/wp-svn/tags/1.0.0/includes/Pronamic/WP/Twinfield/Settings/Settings.php:42
-#: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:60
-#: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:60
+#: src/Settings.php:60
 msgid "Organisation"
 msgstr "Organisatie"
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:77
-#: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:77
-#: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:77
-#: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:77
+#: src/Settings.php:77
 msgid "Defaults"
 msgstr "Standaarden"
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:98
-#: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:98
-#: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:98
-#: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:98
+#: src/Settings.php:98
 msgid "Invoice Type Code"
 msgstr "Factuurtype code"
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:112
-#: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:112
-#: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:112
-#: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:112
+#: src/Settings.php:112
 msgid "VAT Code"
 msgstr "BTW-code"
 
 #. translators: use same translations as on Twinfield.com.
-#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:121
-#: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:121
-#: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:121
-#: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:121
+#: src/Settings.php:121
 msgid ""
-"This VAT code is used by default to create Twinfield invoice lines unless you have specified "
-"an Twinfield VAT code on a lower level."
+"This VAT code is used by default to create Twinfield invoice lines unless "
+"you have specified an Twinfield VAT code on a lower level."
 msgstr ""
-"Deze BTW-code wordt standaard gebruikt om Twinfield factuurregels aan te maken tenzij op een "
-"lager niveau een BTW-code is gespecificeerd."
-
-#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:128
-#: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:128
-#: deploy/latest/views/meta-box-article.php:6
-#: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:128
-#: deploy/wp-svn/tags/1.0.1/views/meta-box-article.php:6
-#: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:128
-#: deploy/wp-svn/trunk/views/meta-box-article.php:6 views/meta-box-article.php:6
-msgid "Article Code"
-msgstr "Artikel code"
+"Deze BTW-code wordt standaard gebruikt om Twinfield factuurregels aan te "
+"maken tenzij op een lager niveau een BTW-code is gespecificeerd."
 
 #. translators: use same translations as on Twinfield.com.
-#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:137
-#: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:137
-#: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:137
-#: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:137
+#: src/Settings.php:137
 msgid ""
-"This article code is used by default to create Twinfield invoice lines unless you have "
-"specified an Twinfield article code on a lower level."
+"This article code is used by default to create Twinfield invoice lines "
+"unless you have specified an Twinfield article code on a lower level."
 msgstr ""
-"Deze artikel code wordt standaard gebruikt om Twinfield factuurregels aan te maken tenzij op "
-"een lager niveau een artikel code is gespecificeerd."
-
-#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:144
-#: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:144
-#: deploy/latest/views/meta-box-article.php:14
-#: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:144
-#: deploy/wp-svn/tags/1.0.1/views/meta-box-article.php:14
-#: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:144
-#: deploy/wp-svn/trunk/views/meta-box-article.php:14 views/meta-box-article.php:14
-msgid "Subarticle Code"
-msgstr "Subartikel code"
+"Deze artikel code wordt standaard gebruikt om Twinfield factuurregels aan te "
+"maken tenzij op een lager niveau een artikel code is gespecificeerd."
 
 #. translators: use same translations as on Twinfield.com.
-#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:153
-#: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:153
-#: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:153
-#: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:153
+#: src/Settings.php:153
 msgid ""
-"This subarticle code is used by default to create Twinfield invoice lines unless you have "
-"specified an Twinfield subarticle code on a lower level."
+"This subarticle code is used by default to create Twinfield invoice lines "
+"unless you have specified an Twinfield subarticle code on a lower level."
 msgstr ""
-"Deze subartikel code wordt standaard gebruikt om Twinfield factuurregels aan te maken tenzij "
-"op een lager niveau een subartikel code is gespecificeerd."
+"Deze subartikel code wordt standaard gebruikt om Twinfield factuurregels aan "
+"te maken tenzij op een lager niveau een subartikel code is gespecificeerd."
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:169
-#: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:169
-#: deploy/wp-svn/tags/1.0.0/includes/Pronamic/WP/Twinfield/Settings/Settings.php:99
-#: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:169
-#: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:169
+#: src/Settings.php:169
 msgid "Permalinks"
 msgstr "Permalinks"
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:176
-#: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:176
-#: deploy/wp-svn/tags/1.0.0/includes/Pronamic/WP/Twinfield/Settings/Settings.php:106
-#: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:176
-#: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:176
+#: src/Settings.php:176
 msgid "Invoice Slug"
 msgstr "Factuurbasis"
 
-#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:188
-#: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:188
-#: deploy/wp-svn/tags/1.0.0/includes/Pronamic/WP/Twinfield/Settings/Settings.php:118
-#: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:188
-#: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:188
+#: src/Settings.php:188
 msgid "Customer Slug"
 msgstr "Klantbasis"
 
-#: deploy/latest/templates/customer.php:7 deploy/latest/templates/customer.php:18
-#: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_customer.php:18
-#: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_customer.php:53
-#: deploy/latest/views/page-customers.php:56 deploy/latest/views/page-customers.php:69
-#: deploy/latest/views/page-offices.php:25
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Customer/render_customer.php:8
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Customer/render_customer.php:21
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Customer/render_customer_admin.php:34
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Customer/render_customer_admin.php:47
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:18
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:53
-#: deploy/wp-svn/tags/1.0.0/views/Twinfield/page_offices.php:25
-#: deploy/wp-svn/tags/1.0.1/templates/customer.php:7
-#: deploy/wp-svn/tags/1.0.1/templates/customer.php:18
-#: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_customer.php:18
-#: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_customer.php:53
-#: deploy/wp-svn/tags/1.0.1/views/page-customers.php:56
-#: deploy/wp-svn/tags/1.0.1/views/page-customers.php:69
-#: deploy/wp-svn/tags/1.0.1/views/page-offices.php:25
-#: deploy/wp-svn/trunk/templates/customer.php:7 deploy/wp-svn/trunk/templates/customer.php:18
-#: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_customer.php:18
-#: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_customer.php:53
-#: deploy/wp-svn/trunk/views/page-customers.php:56
-#: deploy/wp-svn/trunk/views/page-customers.php:69
-#: deploy/wp-svn/trunk/views/page-offices.php:25 templates/customer.php:7
-#: templates/customer.php:18 views/Pronamic/WP/FormBuilder/create_form_customer.php:18
-#: views/Pronamic/WP/FormBuilder/create_form_customer.php:53 views/page-customers.php:56
-#: views/page-customers.php:69 views/page-offices.php:25
-msgid "Name"
-msgstr "Naam"
-
-#: deploy/latest/templates/customer.php:10 deploy/latest/views/page-customers.php:64
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Customer/render_customer.php:13
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Customer/render_customer_admin.php:42
-#: deploy/wp-svn/tags/1.0.1/templates/customer.php:10
-#: deploy/wp-svn/tags/1.0.1/views/page-customers.php:64
-#: deploy/wp-svn/trunk/templates/customer.php:10
-#: deploy/wp-svn/trunk/views/page-customers.php:64 templates/customer.php:10
-#: views/page-customers.php:64
-msgid "Addresses"
-msgstr "Adressen"
-
-#: deploy/latest/templates/customer.php:21
-#: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_customer.php:59
-#: deploy/latest/views/page-customers.php:70
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Customer/render_customer.php:26
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Customer/render_customer_admin.php:48
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:59
-#: deploy/wp-svn/tags/1.0.1/templates/customer.php:21
-#: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_customer.php:59
-#: deploy/wp-svn/tags/1.0.1/views/page-customers.php:70
-#: deploy/wp-svn/trunk/templates/customer.php:21
-#: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_customer.php:59
-#: deploy/wp-svn/trunk/views/page-customers.php:70 templates/customer.php:21
-#: views/Pronamic/WP/FormBuilder/create_form_customer.php:59 views/page-customers.php:70
-msgid "City"
-msgstr "Plaats"
-
-#: deploy/latest/templates/customer.php:24 deploy/latest/views/page-customers.php:71
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Customer/render_customer.php:31
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Customer/render_customer_admin.php:49
-#: deploy/wp-svn/tags/1.0.1/templates/customer.php:24
-#: deploy/wp-svn/tags/1.0.1/views/page-customers.php:71
-#: deploy/wp-svn/trunk/templates/customer.php:24
-#: deploy/wp-svn/trunk/views/page-customers.php:71 templates/customer.php:24
-#: views/page-customers.php:71
-msgid "Postal Code"
-msgstr "Postcode"
-
-#: deploy/latest/templates/customer.php:27 deploy/latest/views/page-customers.php:72
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Customer/render_customer.php:36
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Customer/render_customer_admin.php:50
-#: deploy/wp-svn/tags/1.0.1/templates/customer.php:27
-#: deploy/wp-svn/tags/1.0.1/views/page-customers.php:72
-#: deploy/wp-svn/trunk/templates/customer.php:27
-#: deploy/wp-svn/trunk/views/page-customers.php:72 templates/customer.php:27
-#: views/page-customers.php:72
-msgid "Telephone"
-msgstr "Telefoon"
-
-#: deploy/latest/templates/invoice.php:7
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice.php:7
-#: deploy/wp-svn/tags/1.0.1/templates/invoice.php:7
-#: deploy/wp-svn/trunk/templates/invoice.php:7 templates/invoice.php:7
-msgid "Invoice %s"
-msgstr "Factuur %s"
-
-#: deploy/latest/templates/invoice.php:12
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice.php:12
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice_admin.php:34
-#: deploy/wp-svn/tags/1.0.1/templates/invoice.php:12
-#: deploy/wp-svn/trunk/templates/invoice.php:12 templates/invoice.php:12
+#: templates/sales-invoice.php:14
 msgid "Header"
 msgstr "Header"
 
-#: deploy/latest/templates/invoice.php:17 deploy/latest/views/meta-box-invoice.php:16
-#: deploy/latest/views/page-invoices.php:58
-#: deploy/wp-svn/tags/1.0.0/templates/sales-invoice.php:19
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice.php:17
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice_admin.php:39
-#: deploy/wp-svn/tags/1.0.1/templates/invoice.php:17
-#: deploy/wp-svn/tags/1.0.1/views/meta-box-invoice.php:16
-#: deploy/wp-svn/tags/1.0.1/views/page-invoices.php:58
-#: deploy/wp-svn/trunk/templates/invoice.php:17
-#: deploy/wp-svn/trunk/views/meta-box-invoice.php:16
-#: deploy/wp-svn/trunk/views/page-invoices.php:58 templates/invoice.php:17
-#: views/meta-box-invoice.php:16 views/page-invoices.php:58
-msgid "Invoice Number"
-msgstr "Factuurnummer"
-
-#: deploy/latest/templates/invoice.php:22 deploy/latest/views/page-invoices.php:67
-#: deploy/wp-svn/tags/1.0.0/templates/sales-invoice.php:24
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice.php:22
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice_admin.php:48
-#: deploy/wp-svn/tags/1.0.1/templates/invoice.php:22
-#: deploy/wp-svn/tags/1.0.1/views/page-invoices.php:67
-#: deploy/wp-svn/trunk/templates/invoice.php:22 deploy/wp-svn/trunk/views/page-invoices.php:67
-#: templates/invoice.php:22 views/page-invoices.php:67
+#: templates/sales-invoice.php:24
 msgid "Invoice Date"
 msgstr "Factuurdatum"
 
-#: deploy/latest/templates/invoice.php:29 deploy/latest/views/page-invoices.php:78
-#: deploy/wp-svn/tags/1.0.0/templates/sales-invoice.php:31
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice.php:29
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice_admin.php:59
-#: deploy/wp-svn/tags/1.0.1/templates/invoice.php:29
-#: deploy/wp-svn/tags/1.0.1/views/page-invoices.php:78
-#: deploy/wp-svn/trunk/templates/invoice.php:29 deploy/wp-svn/trunk/views/page-invoices.php:78
-#: templates/invoice.php:29 views/page-invoices.php:78
-msgid "Due Date"
-msgstr "Vervaldatum"
-
-#: deploy/latest/templates/invoice.php:35 deploy/latest/views/page-invoices.php:87
-#: deploy/wp-svn/tags/1.0.0/templates/sales-invoice.php:37
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice.php:35
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice_admin.php:68
-#: deploy/wp-svn/tags/1.0.1/templates/invoice.php:35
-#: deploy/wp-svn/tags/1.0.1/views/page-invoices.php:87
-#: deploy/wp-svn/trunk/templates/invoice.php:35 deploy/wp-svn/trunk/views/page-invoices.php:87
-#: templates/invoice.php:35 views/page-invoices.php:87
-msgid "Office"
-msgstr "Kantoor"
-
-#: deploy/latest/templates/invoice.php:38
-#: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_customer.php:52
-#: deploy/latest/views/page-invoices.php:93
-#: deploy/wp-svn/tags/1.0.0/templates/sales-invoice.php:40
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:52
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice.php:38
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice_admin.php:74
-#: deploy/wp-svn/tags/1.0.1/templates/invoice.php:38
-#: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_customer.php:52
-#: deploy/wp-svn/tags/1.0.1/views/page-invoices.php:93
-#: deploy/wp-svn/trunk/templates/invoice.php:38
-#: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_customer.php:52
-#: deploy/wp-svn/trunk/views/page-invoices.php:93 templates/invoice.php:38
-#: views/Pronamic/WP/FormBuilder/create_form_customer.php:52 views/page-invoices.php:93
-msgid "Type"
-msgstr "Type"
-
-#: deploy/latest/templates/invoice.php:41 deploy/latest/views/page-invoices.php:99
-#: deploy/wp-svn/tags/1.0.0/templates/sales-invoice.php:43
-#: deploy/wp-svn/tags/1.0.0/twinfield-functions.php:45
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice.php:41
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice_admin.php:80
-#: deploy/wp-svn/tags/1.0.1/templates/invoice.php:41
-#: deploy/wp-svn/tags/1.0.1/views/page-invoices.php:99
-#: deploy/wp-svn/trunk/templates/invoice.php:41 deploy/wp-svn/trunk/views/page-invoices.php:99
-#: templates/invoice.php:41 views/page-invoices.php:99
-msgid "Customer"
-msgstr "Klant"
-
-#: deploy/latest/templates/invoice.php:56 deploy/latest/views/page-invoices.php:113
-#: deploy/wp-svn/tags/1.0.0/templates/sales-invoice.php:58
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice.php:56
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice_admin.php:94
-#: deploy/wp-svn/tags/1.0.1/templates/invoice.php:56
-#: deploy/wp-svn/tags/1.0.1/views/page-invoices.php:113
-#: deploy/wp-svn/trunk/templates/invoice.php:56
-#: deploy/wp-svn/trunk/views/page-invoices.php:113 templates/invoice.php:56
-#: views/page-invoices.php:113
-msgid "Status"
-msgstr "Status"
-
-#: deploy/latest/templates/invoice.php:64
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice.php:64
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice_admin.php:103
-#: deploy/wp-svn/tags/1.0.1/templates/invoice.php:64
-#: deploy/wp-svn/trunk/templates/invoice.php:64 templates/invoice.php:64
+#: templates/sales-invoice.php:65
 msgid "Lines"
 msgstr "Regels"
-
-#: deploy/latest/templates/invoice.php:72 deploy/latest/views/page-invoices.php:126
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice.php:72
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice_admin.php:111
-#: deploy/wp-svn/tags/1.0.1/templates/invoice.php:72
-#: deploy/wp-svn/tags/1.0.1/views/page-invoices.php:126
-#: deploy/wp-svn/trunk/templates/invoice.php:72
-#: deploy/wp-svn/trunk/views/page-invoices.php:126 templates/invoice.php:72
-#: views/page-invoices.php:126
-msgid "Id"
-msgstr "Id"
-
-#: deploy/latest/templates/invoice.php:73
-#: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_invoice.php:21
-#: deploy/latest/views/page-invoices.php:127
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_invoice.php:21
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice.php:73
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice_admin.php:112
-#: deploy/wp-svn/tags/1.0.1/templates/invoice.php:73
-#: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_invoice.php:21
-#: deploy/wp-svn/tags/1.0.1/views/page-invoices.php:127
-#: deploy/wp-svn/trunk/templates/invoice.php:73
-#: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_invoice.php:21
-#: deploy/wp-svn/trunk/views/page-invoices.php:127 templates/invoice.php:73
-#: views/Pronamic/WP/FormBuilder/create_form_invoice.php:21 views/page-invoices.php:127
-msgid "Article"
-msgstr "Artikel"
-
-#: deploy/latest/templates/invoice.php:74 deploy/latest/views/page-invoices.php:128
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice.php:74
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice_admin.php:113
-#: deploy/wp-svn/tags/1.0.1/templates/invoice.php:74
-#: deploy/wp-svn/tags/1.0.1/views/page-invoices.php:128
-#: deploy/wp-svn/trunk/templates/invoice.php:74
-#: deploy/wp-svn/trunk/views/page-invoices.php:128 templates/invoice.php:74
-#: views/page-invoices.php:128
-msgid "Sub article"
-msgstr "Subartikel"
-
-#: deploy/latest/templates/invoice.php:75
-#: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_invoice.php:23
-#: deploy/latest/views/page-invoices.php:129
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_invoice.php:23
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice.php:75
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice_admin.php:114
-#: deploy/wp-svn/tags/1.0.1/templates/invoice.php:75
-#: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_invoice.php:23
-#: deploy/wp-svn/tags/1.0.1/views/page-invoices.php:129
-#: deploy/wp-svn/trunk/templates/invoice.php:75
-#: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_invoice.php:23
-#: deploy/wp-svn/trunk/views/page-invoices.php:129 templates/invoice.php:75
-#: views/Pronamic/WP/FormBuilder/create_form_invoice.php:23 views/page-invoices.php:129
-msgid "Quantity"
-msgstr "Aantal"
-
-#: deploy/latest/templates/invoice.php:76
-#: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_invoice.php:24
-#: deploy/latest/views/page-invoices.php:130
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_invoice.php:24
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice.php:76
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice_admin.php:115
-#: deploy/wp-svn/tags/1.0.1/templates/invoice.php:76
-#: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_invoice.php:24
-#: deploy/wp-svn/tags/1.0.1/views/page-invoices.php:130
-#: deploy/wp-svn/trunk/templates/invoice.php:76
-#: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_invoice.php:24
-#: deploy/wp-svn/trunk/views/page-invoices.php:130 templates/invoice.php:76
-#: views/Pronamic/WP/FormBuilder/create_form_invoice.php:24 views/page-invoices.php:130
-msgid "Units"
-msgstr "Eenheid"
-
-#: deploy/latest/templates/invoice.php:77 deploy/latest/views/page-invoices.php:131
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice.php:77
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice_admin.php:116
-#: deploy/wp-svn/tags/1.0.1/templates/invoice.php:77
-#: deploy/wp-svn/tags/1.0.1/views/page-invoices.php:131
-#: deploy/wp-svn/trunk/templates/invoice.php:77
-#: deploy/wp-svn/trunk/views/page-invoices.php:131 templates/invoice.php:77
-#: views/page-invoices.php:131
-msgid "Description"
-msgstr "Beschrijving"
-
-#: deploy/latest/templates/invoice.php:78 deploy/latest/views/page-invoices.php:132
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice.php:78
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice_admin.php:117
-#: deploy/wp-svn/tags/1.0.1/templates/invoice.php:78
-#: deploy/wp-svn/tags/1.0.1/views/page-invoices.php:132
-#: deploy/wp-svn/trunk/templates/invoice.php:78
-#: deploy/wp-svn/trunk/views/page-invoices.php:132 templates/invoice.php:78
-#: views/page-invoices.php:132
-msgid "Value Excl"
-msgstr "Waarde excl."
-
-#: deploy/latest/templates/invoice.php:79 deploy/latest/views/page-invoices.php:133
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice.php:79
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice_admin.php:118
-#: deploy/wp-svn/tags/1.0.1/templates/invoice.php:79
-#: deploy/wp-svn/tags/1.0.1/views/page-invoices.php:133
-#: deploy/wp-svn/trunk/templates/invoice.php:79
-#: deploy/wp-svn/trunk/views/page-invoices.php:133 templates/invoice.php:79
-#: views/page-invoices.php:133
-msgid "Vat Value"
-msgstr "Belasting waarde"
-
-#: deploy/latest/templates/invoice.php:80 deploy/latest/views/page-invoices.php:134
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice.php:80
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice_admin.php:119
-#: deploy/wp-svn/tags/1.0.1/templates/invoice.php:80
-#: deploy/wp-svn/tags/1.0.1/views/page-invoices.php:134
-#: deploy/wp-svn/trunk/templates/invoice.php:80
-#: deploy/wp-svn/trunk/views/page-invoices.php:134 templates/invoice.php:80
-#: views/page-invoices.php:134
-msgid "Value Inc"
-msgstr "Waarde incl."
-
-#: deploy/latest/templates/invoice.php:81 deploy/latest/views/page-invoices.php:135
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice.php:81
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice_admin.php:120
-#: deploy/wp-svn/tags/1.0.1/templates/invoice.php:81
-#: deploy/wp-svn/tags/1.0.1/views/page-invoices.php:135
-#: deploy/wp-svn/trunk/templates/invoice.php:81
-#: deploy/wp-svn/trunk/views/page-invoices.php:135 templates/invoice.php:81
-#: views/page-invoices.php:135
-msgid "Units Price Excl"
-msgstr "Eenheid prijs excl."
-
-#: deploy/latest/templates/invoice.php:82 deploy/latest/views/page-invoices.php:136
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice.php:82
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice_admin.php:121
-#: deploy/wp-svn/tags/1.0.1/templates/invoice.php:82
-#: deploy/wp-svn/tags/1.0.1/views/page-invoices.php:136
-#: deploy/wp-svn/trunk/templates/invoice.php:82
-#: deploy/wp-svn/trunk/views/page-invoices.php:136 templates/invoice.php:82
-#: views/page-invoices.php:136
-msgid "Free text 1"
-msgstr "Vrije tekst 1"
-
-#: deploy/latest/templates/invoice.php:83 deploy/wp-svn/tags/1.0.1/templates/invoice.php:83
-#: deploy/wp-svn/trunk/templates/invoice.php:83 templates/invoice.php:83
-msgid "Free text 2"
-msgstr "Vrije tekst 2"
-
-#: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_customer.php:9
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:9
-#: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_customer.php:9
-#: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_customer.php:9
-#: views/Pronamic/WP/FormBuilder/create_form_customer.php:9
-msgid "Customer Form"
-msgstr "Klant formulier"
-
-#: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_customer.php:14
-#: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_invoice.php:12
-#: deploy/latest/views/meta-box-customer.php:6 deploy/latest/views/meta-box-invoice.php:30
-#: deploy/latest/views/page-customers.php:38
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Customer/render_customer_admin.php:16
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:14
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_invoice.php:12
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/wp_twinfield_invoice_meta_box_view.php:33
-#: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_customer.php:14
-#: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_invoice.php:12
-#: deploy/wp-svn/tags/1.0.1/views/meta-box-customer.php:6
-#: deploy/wp-svn/tags/1.0.1/views/meta-box-invoice.php:30
-#: deploy/wp-svn/tags/1.0.1/views/page-customers.php:38
-#: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_customer.php:14
-#: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_invoice.php:12
-#: deploy/wp-svn/trunk/views/meta-box-customer.php:6
-#: deploy/wp-svn/trunk/views/meta-box-invoice.php:30
-#: deploy/wp-svn/trunk/views/page-customers.php:38
-#: views/Pronamic/WP/FormBuilder/create_form_customer.php:14
-#: views/Pronamic/WP/FormBuilder/create_form_invoice.php:12 views/meta-box-customer.php:6
-#: views/meta-box-invoice.php:30 views/page-customers.php:38
-msgid "Customer ID"
-msgstr "Klant ID"
-
-#: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_customer.php:15
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:15
-#: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_customer.php:15
-#: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_customer.php:15
-#: views/Pronamic/WP/FormBuilder/create_form_customer.php:15
-msgid "Newest Number"
-msgstr "Nieuwste nummer"
-
-#: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_customer.php:22
-#: deploy/latest/views/page-customers.php:60
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Customer/render_customer_admin.php:38
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:22
-#: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_customer.php:22
-#: deploy/wp-svn/tags/1.0.1/views/page-customers.php:60
-#: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_customer.php:22
-#: deploy/wp-svn/trunk/views/page-customers.php:60
-#: views/Pronamic/WP/FormBuilder/create_form_customer.php:22 views/page-customers.php:60
-msgid "Website"
-msgstr "Website"
-
-#: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_customer.php:26
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:26
-#: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_customer.php:26
-#: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_customer.php:26
-#: views/Pronamic/WP/FormBuilder/create_form_customer.php:26
-msgid "Due Days"
-msgstr "Vervaldagen"
-
-#: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_customer.php:30
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:30
-#: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_customer.php:30
-#: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_customer.php:30
-#: views/Pronamic/WP/FormBuilder/create_form_customer.php:30
-msgid "Electronic Invoice"
-msgstr "Elektronische factuur"
-
-#: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_customer.php:34
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:34
-#: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_customer.php:34
-#: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_customer.php:34
-#: views/Pronamic/WP/FormBuilder/create_form_customer.php:34
-msgid "Electronic Invoice Email"
-msgstr "Elektronische factuur e-mailadres"
-
-#: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_customer.php:38
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:38
-#: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_customer.php:38
-#: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_customer.php:38
-#: views/Pronamic/WP/FormBuilder/create_form_customer.php:38
-msgid "Vat Code"
-msgstr "Belasting code"
-
-#: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_customer.php:51
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:51
-#: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_customer.php:51
-#: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_customer.php:51
-#: views/Pronamic/WP/FormBuilder/create_form_customer.php:51
-msgid "Default?"
-msgstr "Standaaard?"
-
-#: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_customer.php:54
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:54
-#: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_customer.php:54
-#: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_customer.php:54
-#: views/Pronamic/WP/FormBuilder/create_form_customer.php:54
-msgid "Line 1"
-msgstr "Regel 1"
-
-#: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_customer.php:55
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:55
-#: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_customer.php:55
-#: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_customer.php:55
-#: views/Pronamic/WP/FormBuilder/create_form_customer.php:55
-msgid "Line 2"
-msgstr "Regel 2"
-
-#: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_customer.php:56
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:56
-#: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_customer.php:56
-#: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_customer.php:56
-#: views/Pronamic/WP/FormBuilder/create_form_customer.php:56
-msgid "Line 3"
-msgstr "Regel 3"
-
-#: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_customer.php:57
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:57
-#: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_customer.php:57
-#: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_customer.php:57
-#: views/Pronamic/WP/FormBuilder/create_form_customer.php:57
-msgid "CoC Number"
-msgstr "KvK nummer"
-
-#: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_customer.php:58
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:58
-#: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_customer.php:58
-#: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_customer.php:58
-#: views/Pronamic/WP/FormBuilder/create_form_customer.php:58
-msgid "Postcode"
-msgstr "Postcode"
-
-#: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_customer.php:60
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:60
-#: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_customer.php:60
-#: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_customer.php:60
-#: views/Pronamic/WP/FormBuilder/create_form_customer.php:60
-msgid "Country"
-msgstr "Land"
-
-#: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_customer.php:61
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:61
-#: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_customer.php:61
-#: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_customer.php:61
-#: views/Pronamic/WP/FormBuilder/create_form_customer.php:61
-msgid "Email"
-msgstr "E-mailadres"
-
-#: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_customer.php:114
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_customer.php:114
-#: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_customer.php:114
-#: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_customer.php:114
-#: views/Pronamic/WP/FormBuilder/create_form_customer.php:114
-msgid "Send"
-msgstr "Verstuur"
-
-#: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_invoice.php:1
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_invoice.php:1
-#: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_invoice.php:1
-#: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_invoice.php:1
-#: views/Pronamic/WP/FormBuilder/create_form_invoice.php:1
-msgid "Invoice Form"
-msgstr "Factuur formulier"
-
-#: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_invoice.php:6
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_invoice.php:6
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/wp_twinfield_invoice_meta_box_view.php:42
-#: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_invoice.php:6
-#: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_invoice.php:6
-#: views/Pronamic/WP/FormBuilder/create_form_invoice.php:6
-msgid "Invoice Type"
-msgstr "Factuurtype"
-
-#: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_invoice.php:22
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_invoice.php:22
-#: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_invoice.php:22
-#: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_invoice.php:22
-#: views/Pronamic/WP/FormBuilder/create_form_invoice.php:22
-msgid "Subarticle"
-msgstr "Subartikel"
-
-#: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_invoice.php:25
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_invoice.php:25
-#: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_invoice.php:25
-#: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_invoice.php:25
-#: views/Pronamic/WP/FormBuilder/create_form_invoice.php:25
-msgid "Units Excl"
-msgstr "Eenheid excl."
-
-#: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_invoice.php:26
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_invoice.php:26
-#: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_invoice.php:26
-#: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_invoice.php:26
-#: views/Pronamic/WP/FormBuilder/create_form_invoice.php:26
-msgid "Vatcode"
-msgstr "BTW-code"
-
-#: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_invoice.php:27
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_invoice.php:27
-#: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_invoice.php:27
-#: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_invoice.php:27
-#: views/Pronamic/WP/FormBuilder/create_form_invoice.php:27
-msgid "Free Text 1"
-msgstr "Vrije tekst 1"
-
-#: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_invoice.php:28
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_invoice.php:28
-#: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_invoice.php:28
-#: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_invoice.php:28
-#: views/Pronamic/WP/FormBuilder/create_form_invoice.php:28
-msgid "Free Text 2"
-msgstr "Vrije tekst 2"
-
-#: deploy/latest/views/Pronamic/WP/FormBuilder/create_form_invoice.php:29
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/FormBuilder/create_form_invoice.php:29
-#: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/FormBuilder/create_form_invoice.php:29
-#: deploy/wp-svn/trunk/views/Pronamic/WP/FormBuilder/create_form_invoice.php:29
-#: views/Pronamic/WP/FormBuilder/create_form_invoice.php:29
-msgid "Free Text 3"
-msgstr "Vrije tekst 3"
-
-#: deploy/latest/views/Pronamic/WP/Merge/Customer/partial_table.php:4
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Merge/Customer/partial_table.php:4
-#: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/Merge/Customer/partial_table.php:4
-#: deploy/wp-svn/trunk/views/Pronamic/WP/Merge/Customer/partial_table.php:4
-#: views/Pronamic/WP/Merge/Customer/partial_table.php:4
-msgid "Post Title"
-msgstr "Bericht titel"
-
-#: deploy/latest/views/Pronamic/WP/Merge/Customer/partial_table.php:5
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Merge/Customer/partial_table.php:5
-#: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/Merge/Customer/partial_table.php:5
-#: deploy/wp-svn/trunk/views/Pronamic/WP/Merge/Customer/partial_table.php:5
-#: views/Pronamic/WP/Merge/Customer/partial_table.php:5
-msgid "Meta Field"
-msgstr "Meta veld"
-
-#: deploy/latest/views/Pronamic/WP/Merge/Customer/partial_table.php:6
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Merge/Customer/partial_table.php:6
-#: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/Merge/Customer/partial_table.php:6
-#: deploy/wp-svn/trunk/views/Pronamic/WP/Merge/Customer/partial_table.php:6
-#: views/Pronamic/WP/Merge/Customer/partial_table.php:6
-msgid "Matched?"
-msgstr "Overeenkomst?"
-
-#: deploy/latest/views/Pronamic/WP/Merge/Customer/partial_table.php:24
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/wp_twinfield_invoice_meta_box_view.php:53
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Merge/Customer/partial_table.php:24
-#: deploy/wp-svn/tags/1.0.1/views/Pronamic/WP/Merge/Customer/partial_table.php:24
-#: deploy/wp-svn/trunk/views/Pronamic/WP/Merge/Customer/partial_table.php:24
-#: views/Pronamic/WP/Merge/Customer/partial_table.php:24
-msgid "Sync"
-msgstr "Sync"
-
-#: deploy/latest/views/meta-box-invoice.php:23
-#: deploy/wp-svn/tags/1.0.1/views/meta-box-invoice.php:23
-#: deploy/wp-svn/trunk/views/meta-box-invoice.php:23 views/meta-box-invoice.php:23
-msgid ""
-"You can manullay enter an Twinfield invoice number or use the \"Create Invoice\" button "
-"below."
-msgstr ""
-"Je kunt handmatig een Twinfield factuurnummer invoeren of de \"Factuur aanmaken\" knop "
-"hieronder gebruiken."
-
-#: deploy/latest/views/meta-box-invoice.php:61
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/wp_twinfield_invoice_meta_box_view.php:49
-#: deploy/wp-svn/tags/1.0.1/views/meta-box-invoice.php:61
-#: deploy/wp-svn/trunk/views/meta-box-invoice.php:61 views/meta-box-invoice.php:61
-msgid "View"
-msgstr "Toon"
-
-#: deploy/latest/views/meta-box-invoice.php:65
-#: deploy/wp-svn/tags/1.0.1/views/meta-box-invoice.php:65
-#: deploy/wp-svn/trunk/views/meta-box-invoice.php:65 views/meta-box-invoice.php:65
-msgid "Create Invoice"
-msgstr "Factuur aanmaken"
-
-#: deploy/latest/views/meta-box-invoice.php:70
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/wp_twinfield_invoice_meta_box_view.php:56
-#: deploy/wp-svn/tags/1.0.1/views/meta-box-invoice.php:70
-#: deploy/wp-svn/trunk/views/meta-box-invoice.php:70 views/meta-box-invoice.php:70
-msgid "Looking for automatic synchronization?"
-msgstr "Op zoek naar automatische synchronisatie?"
-
-#: deploy/latest/views/page-customers.php:16 deploy/latest/views/page-invoices.php:17
-#: deploy/wp-svn/tags/1.0.1/views/page-customers.php:16
-#: deploy/wp-svn/tags/1.0.1/views/page-invoices.php:17
-#: deploy/wp-svn/trunk/views/page-customers.php:16
-#: deploy/wp-svn/trunk/views/page-invoices.php:17 views/page-customers.php:16
-#: views/page-invoices.php:17
-msgid "Could not connect to Twinfield."
-msgstr "Kon geen verbinding maken met Twinfield."
-
-#: deploy/latest/views/page-customers.php:34
-#: deploy/wp-svn/tags/1.0.1/views/page-customers.php:34
-#: deploy/wp-svn/trunk/views/page-customers.php:34 views/page-customers.php:34
-msgid "Request Customer"
-msgstr "Klant opvragen"
-
-#: deploy/latest/views/page-customers.php:45 deploy/latest/views/page-invoices.php:46
-#: deploy/wp-svn/tags/1.0.1/views/page-customers.php:45
-#: deploy/wp-svn/tags/1.0.1/views/page-invoices.php:46
-#: deploy/wp-svn/trunk/views/page-customers.php:45
-#: deploy/wp-svn/trunk/views/page-invoices.php:46 views/page-customers.php:45
-#: views/page-invoices.php:46
-msgid "Request"
-msgstr "Opvragen"
-
-#: deploy/latest/views/page-customers.php:52
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Customer/render_customer_admin.php:30
-#: deploy/wp-svn/tags/1.0.1/views/page-customers.php:52
-#: deploy/wp-svn/trunk/views/page-customers.php:52 views/page-customers.php:52
-msgid "Customer %s"
-msgstr "Klant %s"
-
-#: deploy/latest/views/page-documentation.php:8
-#: deploy/wp-svn/tags/1.0.0/includes/Pronamic/WP/Twinfield/Settings/Settings.php:72
-#: deploy/wp-svn/tags/1.0.0/views/Twinfield/page_documentation.php:10
-#: deploy/wp-svn/tags/1.0.1/views/page-documentation.php:8
-#: deploy/wp-svn/trunk/views/page-documentation.php:8 views/page-documentation.php:8
-msgid "General"
-msgstr "Algemeen"
-
-#: deploy/latest/views/page-documentation.php:22
-#: deploy/wp-svn/tags/1.0.0/views/Twinfield/page_documentation.php:24
-#: deploy/wp-svn/tags/1.0.1/views/page-documentation.php:22
-#: deploy/wp-svn/trunk/views/page-documentation.php:22 views/page-documentation.php:22
-msgid "Webservices"
-msgstr "Webservices"
-
-#: deploy/latest/views/page-documentation.php:91
-#: deploy/wp-svn/tags/1.0.0/views/Twinfield/page_documentation.php:93
-#: deploy/wp-svn/tags/1.0.1/views/page-documentation.php:91
-#: deploy/wp-svn/trunk/views/page-documentation.php:91 views/page-documentation.php:91
-msgid "Templates (Dutch)"
-msgstr "Sjablonen (Nederlands)"
-
-#: deploy/latest/views/page-documentation.php:132
-#: deploy/wp-svn/tags/1.0.0/views/Twinfield/page_documentation.php:134
-#: deploy/wp-svn/tags/1.0.1/views/page-documentation.php:132
-#: deploy/wp-svn/trunk/views/page-documentation.php:132 views/page-documentation.php:132
-msgid "Templates (English)"
-msgstr "Sjablonen (Engels)"
-
-#: deploy/latest/views/page-documentation.php:230
-#: deploy/wp-svn/tags/1.0.0/views/Twinfield/page_documentation.php:232
-#: deploy/wp-svn/tags/1.0.1/views/page-documentation.php:230
-#: deploy/wp-svn/trunk/views/page-documentation.php:230 views/page-documentation.php:230
-msgid "version %s"
-msgstr "versie %s"
-
-#: deploy/latest/views/page-documentation.php:234
-#: deploy/wp-svn/tags/1.0.0/views/Twinfield/page_documentation.php:236
-#: deploy/wp-svn/tags/1.0.1/views/page-documentation.php:234
-#: deploy/wp-svn/trunk/views/page-documentation.php:234 views/page-documentation.php:234
-msgid "%s"
-msgstr "%s"
-
-#: deploy/latest/views/page-invoices.php:35
-#: deploy/wp-svn/tags/1.0.1/views/page-invoices.php:35
-#: deploy/wp-svn/trunk/views/page-invoices.php:35 views/page-invoices.php:35
-msgid "Request Invoice"
-msgstr "Factuur opvragen"
-
-#: deploy/latest/views/page-invoices.php:39
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice_admin.php:16
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/wp_twinfield_invoice_meta_box_view.php:24
-#: deploy/wp-svn/tags/1.0.1/views/page-invoices.php:39
-#: deploy/wp-svn/trunk/views/page-invoices.php:39 views/page-invoices.php:39
-msgid "Invoice ID"
-msgstr "Factuur ID"
-
-#: deploy/latest/views/page-invoices.php:53
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice_admin.php:31
-#: deploy/wp-svn/tags/1.0.1/views/page-invoices.php:53
-#: deploy/wp-svn/trunk/views/page-invoices.php:53 views/page-invoices.php:53
-msgid "Invoice %d"
-msgstr "Factuur %d"
-
-#: deploy/latest/views/page-offices.php:23
-#: deploy/wp-svn/tags/1.0.0/views/Twinfield/page_offices.php:23
-#: deploy/wp-svn/tags/1.0.1/views/page-offices.php:23
-#: deploy/wp-svn/trunk/views/page-offices.php:23 views/page-offices.php:23
-msgid "Code"
-msgstr "Code"
-
-#: deploy/latest/views/page-offices.php:24
-#: deploy/wp-svn/tags/1.0.0/views/Twinfield/page_offices.php:24
-#: deploy/wp-svn/tags/1.0.1/views/page-offices.php:24
-#: deploy/wp-svn/trunk/views/page-offices.php:24 views/page-offices.php:24
-msgid "Shortname"
-msgstr "Korte naam"
-
-#: deploy/latest/views/page-twinfield.php:8
-#: deploy/wp-svn/tags/1.0.0/views/Twinfield/page_parent.php:16
-#: deploy/wp-svn/tags/1.0.1/views/page-twinfield.php:8
-#: deploy/wp-svn/trunk/views/page-twinfield.php:8 views/page-twinfield.php:8
-msgid "Quick Login"
-msgstr "Snel inloggen"
-
-#: deploy/latest/views/section-permalinks.php:9
-#: deploy/wp-svn/tags/1.0.1/views/section-permalinks.php:9
-#: deploy/wp-svn/trunk/views/section-permalinks.php:9 views/section-permalinks.php:9
-msgid ""
-"If you like, you may enter custom structures for your invoice and customer <abbr title="
-"\"Universal Resource Locator\">URL</abbr>s here. For example, using <code>invoices</code> as "
-"your invoice base would make your invoice links like <code>http://example.org/"
-"invoices/140001/</code>. If you leave these blank the defaults will be used."
-msgstr ""
-"Als je wilt, kan je hier aangepaste structuren voor je factuur- en klant-<abbr "
-"title=”Universal Resource Locator”>URL</abbr>s invoeren. Als je bijvoorbeeld <code>facturen</"
-"code> als je factuurbasis gebruikt, worden je factuurlinks iets als <code>http://example.org/"
-"facturen/140001/</code>. Als je dit leeg laat, worden de standaardwaarden gebruikt."
-
-#: deploy/wp-svn/tags/1.0.0/includes/Pronamic/WP/Twinfield/Invoice/InvoiceMetaBox.php:183
-msgid "Successfully synced"
-msgstr "Succesvol gesynchroniseerd"
-
-#: deploy/wp-svn/tags/1.0.0/includes/Pronamic/WP/Twinfield/Settings/Settings.php:17
-msgid "API"
-msgstr "API"
-
-#: deploy/wp-svn/tags/1.0.0/includes/Pronamic/WP/Twinfield/Settings/Settings.php:51
-msgid "Office Code"
-msgstr "Kantoorcode"
-
-#: deploy/wp-svn/tags/1.0.0/includes/Pronamic/WP/Twinfield/Settings/Settings.php:79
-msgid "Default Invoice Type"
-msgstr "Standaard factuurtype"
-
-#: deploy/wp-svn/tags/1.0.0/twinfield-functions.php:49
-msgid "Invoice"
-msgstr "Factuur"
-
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Article/articlemetabox_view.php:4
-msgid "Article ID"
-msgstr "Artikel ID"
-
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Article/articlemetabox_view.php:8
-msgid "Subarticle ID"
-msgstr "Subartikel ID"
-
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Customer/customermetabox_view.php:4
-msgid "Twinfield Customer ID"
-msgstr "Twinfield klant ID"
-
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Customer/render_customer_admin.php:12
-msgid "Search for customers"
-msgstr "Zoek naar klanten"
-
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Customer/render_customer_admin.php:23
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice_admin.php:23
-msgid "Search"
-msgstr "Zoeken"
-
-#: deploy/wp-svn/tags/1.0.0/views/Pronamic/WP/Invoice/render_invoice_admin.php:12
-msgid "Search for invoices"
-msgstr "Zoek naar facturen"
-
-#: deploy/wp-svn/tags/1.0.0/views/Twinfield/page_merge.php:23
-msgid "Response Limit"
-msgstr "Response limiet"
-
-#: deploy/wp-svn/tags/1.0.0/views/Twinfield/page_merge.php:28
-msgid "The number of customers to retrieve from Twinfield."
-msgstr "Het aantal op te vragen klanten uit Twinfield."
-
-#: deploy/wp-svn/tags/1.0.0/views/Twinfield/page_merge.php:33
-msgid "Response Offset"
-msgstr "Response offset"
-
-#: deploy/wp-svn/tags/1.0.0/views/Twinfield/page_merge.php:38
-#, fuzzy
-msgid "The offset of customers to retrieve from Twinfield."
-msgstr "Twinfield klanten"
-
-#: deploy/wp-svn/tags/1.0.0/views/Twinfield/page_merge.php:43
-msgid "Custom Meta Field"
-msgstr "Maatwerk meta veld"
-
-#: deploy/wp-svn/tags/1.0.0/views/Twinfield/page_merge.php:48
-#, fuzzy
-msgid "The meta field key to retrieve the KvK number from (for example: <code>%s</code>)."
-msgstr "De antwoord code (<code>%s<code>) van de iDEAL-provider was onjuist."
-
-#: deploy/wp-svn/tags/1.0.0/views/Twinfield/page_merge.php:53
-msgid "New Custom Field"
-msgstr "Nieuwe maatwerk veld"
-
-#: deploy/wp-svn/tags/1.0.0/views/Twinfield/page_merge.php:58
-#, fuzzy
-msgid "The meta field key to store the Twinfield ID in (for example: <code>%s</code>)."
-msgstr "Standaard: <code>%s</code>."
-
-#: deploy/wp-svn/tags/1.0.0/views/Twinfield/page_merge.php:63
-msgid "Show"
-msgstr "Tonen"
-
-#: deploy/wp-svn/tags/1.0.0/views/Twinfield/page_merge.php:67
-msgid "Automate"
-msgstr "Automatiseer"
 
 #. Plugin URI of the plugin/theme
 msgid "http://www.pronamic.eu/plugins/twinfield/"
 msgstr "http://www.pronamic.eu/plugins/twinfield/"
 
 #. Description of the plugin/theme
-msgid "A base plugin to make the connection with the Twinfield administration software."
+msgid ""
+"A base plugin to make the connection with the Twinfield administration "
+"software."
 msgstr ""
-"Een basis plugin voor het maken van een verbinding met de Twinfield administratie software."
+"Een basis plugin voor het maken van een verbinding met de Twinfield "
+"administratie software."
 
 #. Author of the plugin/theme
 msgid "Pronamic"
@@ -1130,93 +392,231 @@ msgstr "Pronamic"
 msgid "http://www.pronamic.eu/"
 msgstr "http://www.pronamic.nl/"
 
-#: classes/Pronamic/WP/Twinfield/Customer/Customer.php:33
-#: classes/Pronamic/WP/Twinfield/Customer/Customer.php:52
-#: deploy/latest/classes/Pronamic/WP/Twinfield/Customer/Customer.php:33
-#: deploy/latest/classes/Pronamic/WP/Twinfield/Customer/Customer.php:52
-#: deploy/wp-svn/tags/1.0.0/includes/Pronamic/WP/Twinfield/Customer/Customer.php:36
-#: deploy/wp-svn/tags/1.0.0/includes/Pronamic/WP/Twinfield/Customer/Customer.php:55
-#: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/Twinfield/Customer/Customer.php:33
-#: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/Twinfield/Customer/Customer.php:52
-#: deploy/wp-svn/trunk/classes/Pronamic/WP/Twinfield/Customer/Customer.php:33
-#: deploy/wp-svn/trunk/classes/Pronamic/WP/Twinfield/Customer/Customer.php:52
-#: includes/template.php:32
-msgctxt "Customer slug for frontend"
-msgid "customer"
-msgstr "klant"
-
-#: classes/Pronamic/WP/Twinfield/Invoice/Invoice.php:24
-#: classes/Pronamic/WP/Twinfield/Invoice/Invoice.php:47
-#: deploy/latest/classes/Pronamic/WP/Twinfield/Invoice/Invoice.php:24
-#: deploy/latest/classes/Pronamic/WP/Twinfield/Invoice/Invoice.php:47
-#: deploy/wp-svn/tags/1.0.0/includes/Pronamic/WP/Twinfield/Invoice/Invoice.php:26
-#: deploy/wp-svn/tags/1.0.0/includes/Pronamic/WP/Twinfield/Invoice/Invoice.php:49
-#: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/Twinfield/Invoice/Invoice.php:24
-#: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/Twinfield/Invoice/Invoice.php:47
-#: deploy/wp-svn/trunk/classes/Pronamic/WP/Twinfield/Invoice/Invoice.php:24
-#: deploy/wp-svn/trunk/classes/Pronamic/WP/Twinfield/Invoice/Invoice.php:47
-msgctxt "Invoice slug for front end"
-msgid "invoice"
+#: admin/section-permalinks.php:12 admin/section-permalinks.php:13
+msgctxt "slug"
+msgid "invoices"
 msgstr "factuur"
-
-#. translators: use same translations as on Twinfield.com.
-#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:85
-#: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:85
-#: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:85
-#: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:85
-msgctxt "twinfield.com"
-msgid "Company Code"
-msgstr "Administratie code"
-
-#. translators: use same translations as on Twinfield.com.
-#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:92
-#: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:92
-#: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:92
-#: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:92
-msgctxt "twinfield.com"
-msgid ""
-"You can find your companies in Twinfield under \"Profile » Companies\" or \"General » System "
-"» Switch company\"."
-msgstr ""
-"Je kunt je administraties in Twinfield vinden onder \"Profiel » Administraties\" of "
-"\"Algemeen » Systeem » Administratie wisselen\"."
-
-#. translators: use same translations as on Twinfield.com.
-#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:106
-#: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:106
-#: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:106
-#: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:106
-msgctxt "twinfield.com"
-msgid ""
-"You can find your invoice types in Twinfield under \"Credit management » Invoicing » "
-"Invoicing types\"."
-msgstr ""
-"Je kunt je factuurtypen in Twinfield vinden onder \"Facturatie » Factureren » Factuurtypen\"."
-
-#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:122
-#: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:122
-#: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:122
-#: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:122
-msgctxt "twinfield.com"
-msgid "You can find your VAT codes in Twinfield under \"General » Company » VAT\"."
-msgstr "Je kunt je BTW-codes in Twinfield vinden onder \"Algemeen » Administratie » Btw\"."
-
-#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:138
-#: classes/Pronamic/WP/TwinfieldPlugin/Settings.php:154
-#: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:138
-#: deploy/latest/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:154
-#: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:138
-#: deploy/wp-svn/tags/1.0.1/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:154
-#: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:138
-#: deploy/wp-svn/trunk/classes/Pronamic/WP/TwinfieldPlugin/Settings.php:154
-msgctxt "twinfield.com"
-msgid "You can find your articles in Twinfield under \"Credit management » Items\"."
-msgstr "Je kunt je artikelen in Twinfield vinden onder \"Facturatie » Artikelen\"."
 
 #: includes/template.php:12
 msgctxt "Invoice slug for frontend"
 msgid "invoice"
 msgstr "factuur"
+
+#: includes/template.php:32 src/CustomersPublic.php:43
+#: src/CustomersPublic.php:72
+msgctxt "Customer slug for frontend"
+msgid "customer"
+msgstr "klant"
+
+#: src/InvoicesPublic.php:43 src/InvoicesPublic.php:81
+msgctxt "Invoice slug for front end"
+msgid "invoice"
+msgstr "factuur"
+
+#. translators: use same translations as on Twinfield.com.
+#: src/Settings.php:85
+msgctxt "twinfield.com"
+msgid "Company Code"
+msgstr "Administratie code"
+
+#. translators: use same translations as on Twinfield.com.
+#: src/Settings.php:92
+msgctxt "twinfield.com"
+msgid ""
+"You can find your companies in Twinfield under \"Profile » Companies\" or "
+"\"General » System » Switch company\"."
+msgstr ""
+"Je kunt je administraties in Twinfield vinden onder \"Profiel » "
+"Administraties\" of \"Algemeen » Systeem » Administratie wisselen\"."
+
+#. translators: use same translations as on Twinfield.com.
+#: src/Settings.php:106
+msgctxt "twinfield.com"
+msgid ""
+"You can find your invoice types in Twinfield under \"Credit management » "
+"Invoicing » Invoicing types\"."
+msgstr ""
+"Je kunt je factuurtypen in Twinfield vinden onder \"Facturatie » Factureren "
+"» Factuurtypen\"."
+
+#: src/Settings.php:122
+msgctxt "twinfield.com"
+msgid ""
+"You can find your VAT codes in Twinfield under \"General » Company » VAT\"."
+msgstr ""
+"Je kunt je BTW-codes in Twinfield vinden onder \"Algemeen » Administratie » "
+"Btw\"."
+
+#: src/Settings.php:138 src/Settings.php:154
+msgctxt "twinfield.com"
+msgid ""
+"You can find your articles in Twinfield under \"Credit management » Items\"."
+msgstr ""
+"Je kunt je artikelen in Twinfield vinden onder \"Facturatie » Artikelen\"."
+
+#~ msgid "Customer requires CoC Number as Custom Meta Field"
+#~ msgstr "Klant vereist KvK nummer als een maatwerk meta veld"
+
+#~ msgid "Twinfield Form Builder"
+#~ msgstr "Twinfield formulieren"
+
+#~ msgid "Form Builder"
+#~ msgstr "Formulieren"
+
+#~ msgid "Merger Tool"
+#~ msgstr "Samenvoegen tool"
+
+#~ msgid "Units Price Excl"
+#~ msgstr "Eenheid prijs excl."
+
+#~ msgid "Free text 1"
+#~ msgstr "Vrije tekst 1"
+
+#~ msgid "Free text 2"
+#~ msgstr "Vrije tekst 2"
+
+#~ msgid "Customer Form"
+#~ msgstr "Klant formulier"
+
+#~ msgid "Newest Number"
+#~ msgstr "Nieuwste nummer"
+
+#~ msgid "Electronic Invoice"
+#~ msgstr "Elektronische factuur"
+
+#~ msgid "Electronic Invoice Email"
+#~ msgstr "Elektronische factuur e-mailadres"
+
+#~ msgid "Vat Code"
+#~ msgstr "Belasting code"
+
+#~ msgid "Default?"
+#~ msgstr "Standaaard?"
+
+#~ msgid "Line 1"
+#~ msgstr "Regel 1"
+
+#~ msgid "Line 2"
+#~ msgstr "Regel 2"
+
+#~ msgid "Line 3"
+#~ msgstr "Regel 3"
+
+#~ msgid "CoC Number"
+#~ msgstr "KvK nummer"
+
+#~ msgid "Postcode"
+#~ msgstr "Postcode"
+
+#~ msgid "Country"
+#~ msgstr "Land"
+
+#~ msgid "Email"
+#~ msgstr "E-mailadres"
+
+#~ msgid "Send"
+#~ msgstr "Verstuur"
+
+#~ msgid "Invoice Form"
+#~ msgstr "Factuur formulier"
+
+#~ msgid "Invoice Type"
+#~ msgstr "Factuurtype"
+
+#~ msgid "Units Excl"
+#~ msgstr "Eenheid excl."
+
+#~ msgid "Vatcode"
+#~ msgstr "BTW-code"
+
+#~ msgid "Post Title"
+#~ msgstr "Bericht titel"
+
+#~ msgid "Meta Field"
+#~ msgstr "Meta veld"
+
+#~ msgid "Matched?"
+#~ msgstr "Overeenkomst?"
+
+#~ msgid "Sync"
+#~ msgstr "Sync"
+
+#~ msgid "Customer %s"
+#~ msgstr "Klant %s"
+
+#~ msgid "%s"
+#~ msgstr "%s"
+
+#~ msgid "Successfully synced"
+#~ msgstr "Succesvol gesynchroniseerd"
+
+#~ msgid "API"
+#~ msgstr "API"
+
+#~ msgid "Office Code"
+#~ msgstr "Kantoorcode"
+
+#~ msgid "Default Invoice Type"
+#~ msgstr "Standaard factuurtype"
+
+#~ msgid "Invoice"
+#~ msgstr "Factuur"
+
+#~ msgid "Article ID"
+#~ msgstr "Artikel ID"
+
+#~ msgid "Subarticle ID"
+#~ msgstr "Subartikel ID"
+
+#~ msgid "Twinfield Customer ID"
+#~ msgstr "Twinfield klant ID"
+
+#~ msgid "Search for customers"
+#~ msgstr "Zoek naar klanten"
+
+#~ msgid "Search"
+#~ msgstr "Zoeken"
+
+#~ msgid "Search for invoices"
+#~ msgstr "Zoek naar facturen"
+
+#~ msgid "Response Limit"
+#~ msgstr "Response limiet"
+
+#~ msgid "The number of customers to retrieve from Twinfield."
+#~ msgstr "Het aantal op te vragen klanten uit Twinfield."
+
+#~ msgid "Response Offset"
+#~ msgstr "Response offset"
+
+#, fuzzy
+#~ msgid "The offset of customers to retrieve from Twinfield."
+#~ msgstr "Twinfield klanten"
+
+#~ msgid "Custom Meta Field"
+#~ msgstr "Maatwerk meta veld"
+
+#, fuzzy
+#~ msgid ""
+#~ "The meta field key to retrieve the KvK number from (for example: <code>"
+#~ "%s</code>)."
+#~ msgstr ""
+#~ "De antwoord code (<code>%s<code>) van de iDEAL-provider was onjuist."
+
+#~ msgid "New Custom Field"
+#~ msgstr "Nieuwe maatwerk veld"
+
+#, fuzzy
+#~ msgid ""
+#~ "The meta field key to store the Twinfield ID in (for example: <code>%s</"
+#~ "code>)."
+#~ msgstr "Standaard: <code>%s</code>."
+
+#~ msgid "Show"
+#~ msgstr "Tonen"
+
+#~ msgid "Automate"
+#~ msgstr "Automatiseer"
 
 #~ msgctxt "twinfield.com"
 #~ msgid "Twinfield Companies"
@@ -1312,11 +712,11 @@ msgstr "factuur"
 #~ msgstr "Doneer $10, $20 of $50!"
 
 #~ msgid ""
-#~ "This plugin has cost us countless hours of work, if you use it, please donate a token of "
-#~ "your appreciation!"
+#~ "This plugin has cost us countless hours of work, if you use it, please "
+#~ "donate a token of your appreciation!"
 #~ msgstr ""
-#~ "Het ons veel uren werken gekost om deze plugin te ontwikkelen, als je het gebruikt, "
-#~ "doneer a.u.b. voor je waardering!"
+#~ "Het ons veel uren werken gekost om deze plugin te ontwikkelen, als je het "
+#~ "gebruikt, doneer a.u.b. voor je waardering!"
 
 #~ msgid "Latest news from Pronamic"
 #~ msgstr "Laatste nieuws van Pronamic"
