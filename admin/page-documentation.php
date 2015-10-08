@@ -231,7 +231,7 @@
 						<?php endif; ?>
 
 						<?php if ( isset( $resource['date'] ) ) : ?>
-							<small><?php echo esc_html( $resource['date']->format( 'd-m-Y' ) ) ); ?> </small>
+							<small><?php echo esc_html( $resource['date']->format( 'd-m-Y' ) ); ?> </small>
 						<?php endif; ?>
 					</a>
 				</li>
