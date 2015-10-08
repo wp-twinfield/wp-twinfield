@@ -55,12 +55,6 @@ if ( ! class_exists( 'Twinfield' ) ) :
 	class Twinfield {
 
 		/**
-		 * Holds Merge component
-		 * @var \Pronamic\WP\Twinfield\Merge\Merge
-		 */
-		public $merge;
-
-		/**
 		 * Holds the Invoice component
 		 * @var \Pronamic\WP\Twinfield\Invoice\Invoice
 		 */
@@ -72,30 +66,10 @@ if ( ! class_exists( 'Twinfield' ) ) :
 		 */
 		public $customer;
 
-		/**
-		 * Holds the article component
-		 * @var \Pronamic\WP\Twinfield\Article\Article
-		 */
-		public $article;
-
-		/**
-		 * Holds the FormBuilder component
-		 * @var \Pronamic\WP\Twinfield\FormBuilder\FormBuilder
-		 */
-		public $form_builder;
-
 		public function __construct() {
 			add_action( 'init', array( $this, 'init' ) );
 
-			add_action( 'wp_twinfield_formbuilder_load_forms', array( $this, 'load_forms' ) );
-
 			spl_autoload_register( array( $this, 'autoload' ) );
-
-			add_action( 'plugins_loaded', array( $this, 'plugins_loaded' ), 9 );
-		}
-
-		public function plugins_loaded() {
-			do_action( 'twinfield_bootstrap' );
 		}
 
 		/**
@@ -152,39 +126,8 @@ if ( ! class_exists( 'Twinfield' ) ) :
 			);
 
 			// Load the modules
-			$this->merge		 = new \Pronamic\WP\Twinfield\Merge\Merge();
 			$this->invoice		 = new \Pronamic\WP\Twinfield\Invoice\Invoice();
 			$this->customer		 = new \Pronamic\WP\Twinfield\Customer\Customer();
-
-			// Load the FormBuilder Component
-			$this->form_builder  = new Form\FormBuilder();
-		}
-
-		/**
-		 * Registers forms in the Factory to be used in menu generation and general submission
-		 * processes.
-		 *
-		 * Registers the following forms:
-		 *
-		 * - customer
-		 * - invoice
-		 *
-		 * @hooked wp_twinfield_formbuilder_load_forms
-		 *
-		 * @access public
-		 * @return void
-		 */
-		public function load_forms() {
-			// Get the default forms
-			$customer_form = new Form\Form\Customer();
-			$customer_form->set_view( PRONAMIC_TWINFIELD_FOLDER . '/views/Pronamic/WP/FormBuilder/create_form_customer.php' );
-
-			$invoice_form = new Form\Form\Invoice();
-			$invoice_form->set_view( PRONAMIC_TWINFIELD_FOLDER . '/views/Pronamic/WP/FormBuilder/create_form_invoice.php' );
-
-			// Register them
-			Form\FormBuilderFactory::register_form( 'customer', $customer_form );
-			Form\FormBuilderFactory::register_form( 'invoice', $invoice_form );
 		}
 	}
 
