@@ -10,9 +10,3 @@
 		</td>
 	</tr>
 </table>
-
-<?php
-
-var_dump( $customer );
-
-do_action( 'twinfield_customer_meta_box' );
