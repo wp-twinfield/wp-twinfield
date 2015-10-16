@@ -6,6 +6,6 @@
 	</rule>
 
 	<rule ref="Generic.Files.LowercasedFilename.NotFound">
-		<exclude-pattern>/src</exclude-pattern>
+		<exclude-pattern>/classes</exclude-pattern>
 	</rule>
 </ruleset>
