@@ -19,7 +19,7 @@ class InvoicesAdmin {
 		$this->plugin = $plugin;
 
 		// Meta box.
-		add_action( 'add_meta_boxes', array( $this, 'add_meta_box' ) );
+		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ) );
 	}
 
 	/**
