@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Twinfield\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/twinfield\n"
-"POT-Creation-Date: 2015-10-08 13:10:53+00:00\n"
-"PO-Revision-Date: 2015-10-08 15:12+0100\n"
+"POT-Creation-Date: 2015-10-16 11:47:22+00:00\n"
+"PO-Revision-Date: 2015-10-16 13:47+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -67,11 +67,11 @@ msgstr "Postcode"
 msgid "Telephone"
 msgstr "Telefoon"
 
-#: admin/meta-box-article.php:4 src/Settings.php:128
+#: admin/meta-box-article.php:4 classes/Settings.php:128
 msgid "Article Code"
 msgstr "Artikel code"
 
-#: admin/meta-box-article.php:12 src/Settings.php:144
+#: admin/meta-box-article.php:12 classes/Settings.php:144
 msgid "Subarticle Code"
 msgstr "Subartikel code"
 
@@ -121,7 +121,7 @@ msgstr "Kon geen verbinding maken met Twinfield."
 msgid "Quick Login"
 msgstr "Snel inloggen"
 
-#: admin/page-dashboard.php:21 src/Settings.php:35
+#: admin/page-dashboard.php:21 classes/Settings.php:35
 msgid "Login"
 msgstr "Inloggen"
 
@@ -181,52 +181,55 @@ msgstr "Klant"
 msgid "Status"
 msgstr "Status"
 
-#: admin/sales-invoice.php:91 templates/sales-invoice.php:73
+#: admin/sales-invoice.php:91 templates/sales-invoice.php:92
 msgid "Id"
 msgstr "Id"
 
-#: admin/sales-invoice.php:92 src/ArticlesAdmin.php:128
-#: templates/sales-invoice.php:74
+#: admin/sales-invoice.php:92 classes/ArticlesAdmin.php:128
+#: templates/sales-invoice.php:93
 msgid "Article"
 msgstr "Artikel"
 
-#: admin/sales-invoice.php:93 templates/sales-invoice.php:75
+#: admin/sales-invoice.php:93 templates/sales-invoice.php:94
 msgid "Sub article"
 msgstr "Subartikel"
 
-#: admin/sales-invoice.php:94 templates/sales-invoice.php:76
+#: admin/sales-invoice.php:94 templates/sales-invoice.php:95
 msgid "Quantity"
 msgstr "Aantal"
 
-#: admin/sales-invoice.php:95 templates/sales-invoice.php:77
+#: admin/sales-invoice.php:95 templates/sales-invoice.php:96
 msgid "Units"
 msgstr "Eenheid"
 
-#: admin/sales-invoice.php:96 templates/sales-invoice.php:78
+#: admin/sales-invoice.php:96 templates/sales-invoice.php:97
 msgid "Description"
 msgstr "Beschrijving"
 
-#: admin/sales-invoice.php:97 templates/sales-invoice.php:79
+#: admin/sales-invoice.php:97 templates/sales-invoice.php:70
+#: templates/sales-invoice.php:98
 msgid "Value Excl"
 msgstr "Waarde excl."
 
-#: admin/sales-invoice.php:98 templates/sales-invoice.php:80
+#: admin/sales-invoice.php:98 templates/sales-invoice.php:73
+#: templates/sales-invoice.php:99
 msgid "Vat Value"
 msgstr "Belasting waarde"
 
-#: admin/sales-invoice.php:99 templates/sales-invoice.php:81
+#: admin/sales-invoice.php:99 templates/sales-invoice.php:76
+#: templates/sales-invoice.php:100
 msgid "Value Inc"
 msgstr "Waarde incl."
 
-#: admin/sales-invoice.php:100 templates/sales-invoice.php:82
+#: admin/sales-invoice.php:100 templates/sales-invoice.php:101
 msgid "Free Text 1"
 msgstr "Vrije tekst 1"
 
-#: admin/sales-invoice.php:101 templates/sales-invoice.php:83
+#: admin/sales-invoice.php:101 templates/sales-invoice.php:102
 msgid "Free Text 2"
 msgstr "Vrije tekst 2"
 
-#: admin/sales-invoice.php:102 templates/sales-invoice.php:84
+#: admin/sales-invoice.php:102 templates/sales-invoice.php:103
 msgid "Free Text 3"
 msgstr "Vrije tekst 3"
 
@@ -245,84 +248,84 @@ msgstr ""
 msgid "Twinfield"
 msgstr "Twinfield"
 
-#: src/Admin.php:75
+#: classes/Admin.php:75
 msgid "Twinfield Customers"
 msgstr "Twinfield klanten"
 
-#: src/Admin.php:76
+#: classes/Admin.php:76
 msgid "Customers"
 msgstr "Klanten"
 
-#: src/Admin.php:84
+#: classes/Admin.php:84
 msgid "Twinfield Invoices"
 msgstr "Twinfield facturen"
 
-#: src/Admin.php:85
+#: classes/Admin.php:85
 msgid "Invoices"
 msgstr "Facturen"
 
-#: src/Admin.php:93
+#: classes/Admin.php:93
 msgid "Twinfield Settings"
 msgstr "Twinfield instellingen"
 
-#: src/Admin.php:94
+#: classes/Admin.php:94
 msgid "Settings"
 msgstr "Instellingen"
 
-#: src/Admin.php:102
+#: classes/Admin.php:102
 msgid "Twinfield Documentation"
 msgstr "Twinfield documentatie"
 
-#: src/Admin.php:103
+#: classes/Admin.php:103
 msgid "Documentation"
 msgstr "Documentatie"
 
-#: src/ArticlesAdmin.php:40
+#: classes/ArticlesAdmin.php:40
 msgid "Twinfield Article"
 msgstr "Twinfield artikel"
 
-#: src/ArticlesAdmin.php:136
+#: classes/ArticlesAdmin.php:136
 msgid "Subarticle"
 msgstr "Subartikel"
 
-#: src/CustomersAdmin.php:42
+#: classes/CustomersAdmin.php:42
 msgid "Twinfield Customer"
 msgstr "Twinfield klant"
 
-#: src/InvoicesAdmin.php:32
+#: classes/InvoicesAdmin.php:32
 msgid "Twinfield Invoice"
 msgstr "Twinfield factuur"
 
-#: src/InvoicesPublic.php:118 templates/sales-invoice.php:9
+#: classes/InvoicesPublic.php:118 templates/sales-invoice.php:9
 msgid "Invoice %s"
 msgstr "Factuur %s"
 
-#: src/Settings.php:42
+#: classes/Settings.php:42
 msgid "Username"
 msgstr "Gebruikersnaam"
 
-#: src/Settings.php:51
+#: classes/Settings.php:51
 msgid "Password"
 msgstr "Wachtwoord"
 
-#: src/Settings.php:60
+#: classes/Settings.php:60
 msgid "Organisation"
 msgstr "Organisatie"
 
-#: src/Settings.php:77
+#: classes/Settings.php:77
 msgid "Defaults"
 msgstr "Standaarden"
 
-#: src/Settings.php:98
+#: classes/Settings.php:98
 msgid "Invoice Type Code"
 msgstr "Factuurtype code"
 
-#: src/Settings.php:112
+#: classes/Settings.php:112
 msgid "VAT Code"
 msgstr "BTW-code"
 
 #. translators: use same translations as on Twinfield.com.
-#: src/Settings.php:121
+#: classes/Settings.php:121
 msgid ""
 "This VAT code is used by default to create Twinfield invoice lines unless "
 "you have specified an Twinfield VAT code on a lower level."
@@ -331,7 +334,7 @@ msgstr ""
 "maken tenzij op een lager niveau een BTW-code is gespecificeerd."
 
 #. translators: use same translations as on Twinfield.com.
-#: src/Settings.php:137
+#: classes/Settings.php:137
 msgid ""
 "This article code is used by default to create Twinfield invoice lines "
 "unless you have specified an Twinfield article code on a lower level."
@@ -340,7 +343,7 @@ msgstr ""
 "maken tenzij op een lager niveau een artikel code is gespecificeerd."
 
 #. translators: use same translations as on Twinfield.com.
-#: src/Settings.php:153
+#: classes/Settings.php:153
 msgid ""
 "This subarticle code is used by default to create Twinfield invoice lines "
 "unless you have specified an Twinfield subarticle code on a lower level."
@@ -348,15 +351,15 @@ msgstr ""
 "Deze subartikel code wordt standaard gebruikt om Twinfield factuurregels aan "
 "te maken tenzij op een lager niveau een subartikel code is gespecificeerd."
 
-#: src/Settings.php:169
+#: classes/Settings.php:169
 msgid "Permalinks"
 msgstr "Permalinks"
 
-#: src/Settings.php:176
+#: classes/Settings.php:176
 msgid "Invoice Slug"
 msgstr "Factuurbasis"
 
-#: src/Settings.php:188
+#: classes/Settings.php:188
 msgid "Customer Slug"
 msgstr "Klantbasis"
 
@@ -369,6 +372,10 @@ msgid "Invoice Date"
 msgstr "Factuurdatum"
 
 #: templates/sales-invoice.php:65
+msgid "Totals"
+msgstr "Totalen"
+
+#: templates/sales-invoice.php:84
 msgid "Lines"
 msgstr "Regels"
 
@@ -397,30 +404,25 @@ msgctxt "slug"
 msgid "invoices"
 msgstr "factuur"
 
-#: includes/template.php:12
-msgctxt "Invoice slug for frontend"
-msgid "invoice"
-msgstr "factuur"
-
-#: includes/template.php:32 src/CustomersPublic.php:43
-#: src/CustomersPublic.php:72
+#: classes/CustomersPublic.php:43 classes/CustomersPublic.php:72
+#: includes/template.php:32
 msgctxt "Customer slug for frontend"
 msgid "customer"
 msgstr "klant"
 
-#: src/InvoicesPublic.php:43 src/InvoicesPublic.php:81
+#: classes/InvoicesPublic.php:43 classes/InvoicesPublic.php:81
 msgctxt "Invoice slug for front end"
 msgid "invoice"
 msgstr "factuur"
 
 #. translators: use same translations as on Twinfield.com.
-#: src/Settings.php:85
+#: classes/Settings.php:85
 msgctxt "twinfield.com"
 msgid "Company Code"
 msgstr "Administratie code"
 
 #. translators: use same translations as on Twinfield.com.
-#: src/Settings.php:92
+#: classes/Settings.php:92
 msgctxt "twinfield.com"
 msgid ""
 "You can find your companies in Twinfield under \"Profile » Companies\" or "
@@ -430,7 +432,7 @@ msgstr ""
 "Administraties\" of \"Algemeen » Systeem » Administratie wisselen\"."
 
 #. translators: use same translations as on Twinfield.com.
-#: src/Settings.php:106
+#: classes/Settings.php:106
 msgctxt "twinfield.com"
 msgid ""
 "You can find your invoice types in Twinfield under \"Credit management » "
@@ -439,7 +441,7 @@ msgstr ""
 "Je kunt je factuurtypen in Twinfield vinden onder \"Facturatie » Factureren "
 "» Factuurtypen\"."
 
-#: src/Settings.php:122
+#: classes/Settings.php:122
 msgctxt "twinfield.com"
 msgid ""
 "You can find your VAT codes in Twinfield under \"General » Company » VAT\"."
@@ -447,12 +449,17 @@ msgstr ""
 "Je kunt je BTW-codes in Twinfield vinden onder \"Algemeen » Administratie » "
 "Btw\"."
 
-#: src/Settings.php:138 src/Settings.php:154
+#: classes/Settings.php:138 classes/Settings.php:154
 msgctxt "twinfield.com"
 msgid ""
 "You can find your articles in Twinfield under \"Credit management » Items\"."
 msgstr ""
 "Je kunt je artikelen in Twinfield vinden onder \"Facturatie » Artikelen\"."
+
+#: includes/template.php:12
+msgctxt "Invoice slug for frontend"
+msgid "invoice"
+msgstr "factuur"
 
 #~ msgid "Customer requires CoC Number as Custom Meta Field"
 #~ msgstr "Klant vereist KvK nummer als een maatwerk meta veld"

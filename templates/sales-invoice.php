@@ -109,6 +109,25 @@
 				</tbody>
 			</table>
 		</div>
+
+		<div class="panel">
+			<header>
+				<h3><?php esc_html_e( 'Totals', 'twinfield' ); ?></h3>
+			</header>
+
+			<div class="content">
+				<dl class="dl-horizontal">
+					<dt><?php esc_html_e( 'Value Excl', 'twinfield' ); ?></dt>
+					<dd><?php echo esc_html( twinfield_price( $twinfield_sales_invoice->get_value_excl() ) ); ?></dd>
+
+					<dt><?php esc_html_e( 'Vat Value', 'twinfield' ); ?></dt>
+					<dd><?php echo esc_html( twinfield_price( $twinfield_sales_invoice->get_vat_value() ) ); ?></dd>
+
+					<dt><?php esc_html_e( 'Value Inc', 'twinfield' ); ?></dt>
+					<dd><?php echo esc_html( twinfield_price( $twinfield_sales_invoice->get_value_inc() ) ); ?></dd>
+				</dl>
+			</div>
+		</div>
 	</div>
 </div>
 
