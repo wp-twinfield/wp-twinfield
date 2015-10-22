@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Twinfield\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/twinfield\n"
-"POT-Creation-Date: 2015-10-16 11:47:22+00:00\n"
-"PO-Revision-Date: 2015-10-16 13:47+0100\n"
+"POT-Creation-Date: 2015-10-22 09:36:21+00:00\n"
+"PO-Revision-Date: 2015-10-22 11:37+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -23,7 +23,7 @@ msgid "Code"
 msgstr "Code"
 
 #: admin/customer.php:16 admin/customer.php:79 admin/page-offices.php:11
-#: templates/customer.php:7 templates/customer.php:18
+#: templates/customer.php:17 templates/customer.php:51
 msgid "Name"
 msgstr "Naam"
 
@@ -51,19 +51,19 @@ msgstr "Stuur herinnering"
 msgid "Reminder Email"
 msgstr "Herinnering e-mail"
 
-#: admin/customer.php:74 templates/customer.php:10
+#: admin/customer.php:74 templates/customer.php:28
 msgid "Addresses"
 msgstr "Adressen"
 
-#: admin/customer.php:80 templates/customer.php:21
+#: admin/customer.php:80 templates/customer.php:63
 msgid "City"
 msgstr "Plaats"
 
-#: admin/customer.php:81 templates/customer.php:24
+#: admin/customer.php:81 templates/customer.php:59
 msgid "Postal Code"
 msgstr "Postcode"
 
-#: admin/customer.php:82 templates/customer.php:27
+#: admin/customer.php:82
 msgid "Telephone"
 msgstr "Telefoon"
 
@@ -165,11 +165,13 @@ msgstr "Datum"
 msgid "Due Date"
 msgstr "Vervaldatum"
 
-#: admin/sales-invoice.php:45 templates/sales-invoice.php:36
+#: admin/sales-invoice.php:45 templates/customer.php:20
+#: templates/sales-invoice.php:36
 msgid "Office"
 msgstr "Kantoor"
 
-#: admin/sales-invoice.php:52 templates/sales-invoice.php:39
+#: admin/sales-invoice.php:52 templates/customer.php:43
+#: templates/sales-invoice.php:39
 msgid "Type"
 msgstr "Type"
 
@@ -181,55 +183,55 @@ msgstr "Klant"
 msgid "Status"
 msgstr "Status"
 
-#: admin/sales-invoice.php:91 templates/sales-invoice.php:92
+#: admin/sales-invoice.php:91 templates/sales-invoice.php:73
 msgid "Id"
 msgstr "Id"
 
 #: admin/sales-invoice.php:92 classes/ArticlesAdmin.php:128
-#: templates/sales-invoice.php:93
+#: templates/sales-invoice.php:74
 msgid "Article"
 msgstr "Artikel"
 
-#: admin/sales-invoice.php:93 templates/sales-invoice.php:94
+#: admin/sales-invoice.php:93 templates/sales-invoice.php:75
 msgid "Sub article"
 msgstr "Subartikel"
 
-#: admin/sales-invoice.php:94 templates/sales-invoice.php:95
+#: admin/sales-invoice.php:94 templates/sales-invoice.php:76
 msgid "Quantity"
 msgstr "Aantal"
 
-#: admin/sales-invoice.php:95 templates/sales-invoice.php:96
+#: admin/sales-invoice.php:95 templates/sales-invoice.php:77
 msgid "Units"
 msgstr "Eenheid"
 
-#: admin/sales-invoice.php:96 templates/sales-invoice.php:97
+#: admin/sales-invoice.php:96 templates/sales-invoice.php:78
 msgid "Description"
 msgstr "Beschrijving"
 
-#: admin/sales-invoice.php:97 templates/sales-invoice.php:70
-#: templates/sales-invoice.php:98
+#: admin/sales-invoice.php:97 templates/sales-invoice.php:79
+#: templates/sales-invoice.php:120
 msgid "Value Excl"
 msgstr "Waarde excl."
 
-#: admin/sales-invoice.php:98 templates/sales-invoice.php:73
-#: templates/sales-invoice.php:99
+#: admin/sales-invoice.php:98 templates/sales-invoice.php:80
+#: templates/sales-invoice.php:123
 msgid "Vat Value"
 msgstr "Belasting waarde"
 
-#: admin/sales-invoice.php:99 templates/sales-invoice.php:76
-#: templates/sales-invoice.php:100
+#: admin/sales-invoice.php:99 templates/sales-invoice.php:81
+#: templates/sales-invoice.php:126
 msgid "Value Inc"
 msgstr "Waarde incl."
 
-#: admin/sales-invoice.php:100 templates/sales-invoice.php:101
+#: admin/sales-invoice.php:100 templates/sales-invoice.php:82
 msgid "Free Text 1"
 msgstr "Vrije tekst 1"
 
-#: admin/sales-invoice.php:101 templates/sales-invoice.php:102
+#: admin/sales-invoice.php:101 templates/sales-invoice.php:83
 msgid "Free Text 2"
 msgstr "Vrije tekst 2"
 
-#: admin/sales-invoice.php:102 templates/sales-invoice.php:103
+#: admin/sales-invoice.php:102 templates/sales-invoice.php:84
 msgid "Free Text 3"
 msgstr "Vrije tekst 3"
 
@@ -363,6 +365,50 @@ msgstr "Factuurbasis"
 msgid "Customer Slug"
 msgstr "Klantbasis"
 
+#: templates/customer.php:12 templates/customer.php:47
+msgid "Contact"
+msgstr "Contact"
+
+#: templates/customer.php:39
+msgid "Default"
+msgstr "Standaard"
+
+#: templates/customer.php:40
+msgid "Yes"
+msgstr "Ja"
+
+#: templates/customer.php:40
+msgid "No"
+msgstr "Nee"
+
+#: templates/customer.php:55
+msgid "Address"
+msgstr "Adres"
+
+#: templates/customer.php:67
+msgid "Country"
+msgstr "Land"
+
+#: templates/customer.php:71
+msgid "Email"
+msgstr "E-mailadres"
+
+#: templates/customer.php:75
+msgid "Phone Number"
+msgstr "Telefoonnummer"
+
+#: templates/customer.php:79
+msgid "Fax Number"
+msgstr "Faxnummer"
+
+#: templates/customer.php:83
+msgid "VAT Number"
+msgstr "BTW-nummer"
+
+#: templates/customer.php:87
+msgid "COC Number"
+msgstr "KvK-nummer"
+
 #: templates/sales-invoice.php:14
 msgid "Header"
 msgstr "Header"
@@ -372,12 +418,12 @@ msgid "Invoice Date"
 msgstr "Factuurdatum"
 
 #: templates/sales-invoice.php:65
-msgid "Totals"
-msgstr "Totalen"
-
-#: templates/sales-invoice.php:84
 msgid "Lines"
 msgstr "Regels"
+
+#: templates/sales-invoice.php:115
+msgid "Totals"
+msgstr "Totalen"
 
 #. Plugin URI of the plugin/theme
 msgid "http://www.pronamic.eu/plugins/twinfield/"
@@ -509,17 +555,8 @@ msgstr "factuur"
 #~ msgid "Line 3"
 #~ msgstr "Regel 3"
 
-#~ msgid "CoC Number"
-#~ msgstr "KvK nummer"
-
 #~ msgid "Postcode"
 #~ msgstr "Postcode"
-
-#~ msgid "Country"
-#~ msgstr "Land"
-
-#~ msgid "Email"
-#~ msgstr "E-mailadres"
 
 #~ msgid "Send"
 #~ msgstr "Verstuur"
