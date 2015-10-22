@@ -174,7 +174,7 @@ class Settings {
 		add_settings_field(
 			'twinfield_invoice_slug',
 			__( 'Invoice Slug', 'twinfield' ),
-			array( $this, 'render_text' ),
+			array( $this, 'input_permalink' ),
 			'twinfield',
 			'twinfield_permalinks',
 			array(
@@ -186,7 +186,7 @@ class Settings {
 		add_settings_field(
 			'twinfield_customer_slug',
 			__( 'Customer Slug', 'twinfield' ),
-			array( $this, 'render_text' ),
+			array( $this, 'input_permalink' ),
 			'twinfield',
 			'twinfield_permalinks',
 			array(
@@ -269,6 +269,19 @@ class Settings {
 				$description
 			); //xss ok
 		}
+	}
+
+	/**
+	 * Render input for permalink setting.
+	 *
+	 * @param array $args
+	 */
+	public function input_permalink( $args ) {
+		$url = home_url( $this->plugin->get_url_prefix() . '/' );
+
+		echo '<code>', esc_html( $url ), '</code> ';
+
+		$this->render_text( $args );
 	}
 
 	/**

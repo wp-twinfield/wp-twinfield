@@ -63,6 +63,18 @@ class Plugin {
 	//////////////////////////////////////////////////
 
 	/**
+	 * Get URL prefix.
+	 *
+	 * @see https://github.com/WP-API/api-core/blob/develop/wp-includes/rest-api/rest-functions.php#L204-L220
+	 * @return string
+	 */
+	public function get_url_prefix() {
+		return 'twinfield';
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
 	 * Plugins loaded
 	 */
 	public function plugins_loaded() {

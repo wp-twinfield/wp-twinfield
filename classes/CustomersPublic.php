@@ -34,6 +34,7 @@ class CustomersPublic {
 	/**
 	 * Generate rewrite rules.
 	 *
+	 * @see https://github.com/WP-API/api-core/blob/develop/wp-includes/rest-api/rest-functions.php#L119-L129
 	 * @param \WP_Rewrite $wp_rewrite
 	 */
 	public function generate_rewrite_rules( $wp_rewrite ) {
@@ -42,7 +43,7 @@ class CustomersPublic {
 		// Get the customer slug from options.
 		$slug = get_option( 'twinfield_customer_slug', _x( 'customer', 'Customer slug for frontend', 'twinfield' ) );
 
-		$rules[ $slug . '/([^/]+)$' ] = 'index.php?twinfield_debtor_id=' . $wp_rewrite->preg_index( 1 );
+		$rules[ '^' . $this->plugin->get_url_prefix() . '/' . $slug . '/([^/]+)$' ] = 'index.php?twinfield_debtor_id=' . $wp_rewrite->preg_index( 1 );
 
 		$wp_rewrite->rules = array_merge( $rules, $wp_rewrite->rules );
 	}
