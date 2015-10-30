@@ -4,6 +4,7 @@ namespace Pronamic\WP\Twinfield\Plugin;
 
 use Pronamic\WP\Twinfield\Credentials;
 use Pronamic\WP\Twinfield\Client;
+use Pronamic\WP\Twinfield\Finder;
 use Pronamic\WP\Twinfield\XMLProcessor;
 
 class Plugin {
@@ -96,10 +97,7 @@ class Plugin {
 
 	//////////////////////////////////////////////////
 
-	/**
-	 * Get XML processor
-	 */
-	public function get_xml_processor() {
+	private function get_session() {
 		$user         = get_option( 'twinfield_username' );
 		$password     = get_option( 'twinfield_password' );
 		$organisation = get_option( 'twinfield_organisation' );
@@ -112,8 +110,24 @@ class Plugin {
 
 		$session = $client->get_session( $logon_response );
 
-		$xml_processor = new XMLProcessor( $session );
+		return $session;
+	}
+
+	/**
+	 * Get XML processor
+	 */
+	public function get_xml_processor() {
+		$xml_processor = new XMLProcessor( $this->get_session() );
 
 		return $xml_processor;
+	}
+
+	/**
+	 * Get finder
+	 */
+	public function get_finder() {
+		$finder = new Finder( $this->get_session() );
+
+		return $finder;
 	}
 }
