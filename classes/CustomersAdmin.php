@@ -4,6 +4,7 @@ namespace Pronamic\WP\Twinfield\Plugin;
 
 use Pronamic\WP\Twinfield\Customers\Customer;
 use Pronamic\WP\Twinfield\Customers\CustomerFinder;
+use Pronamic\WP\Twinfield\SearchFields;
 
 class CustomersAdmin {
 	/**
@@ -33,7 +34,7 @@ class CustomersAdmin {
 		add_action( 'manage_posts_custom_column' , array( $this, 'manage_posts_custom_column' ), 10, 2 );
 
 		// AJAX
-		 add_action( 'wp_ajax_twinfield_search_customers', array( $this, 'ajax_twinfield_search_customers' ) );
+		add_action( 'wp_ajax_twinfield_search_customers', array( $this, 'ajax_twinfield_search_customers' ) );
 	}
 
 	/**
@@ -142,28 +143,30 @@ class CustomersAdmin {
 	 * AJAX Twinfield search customers
 	 */
 	public function ajax_twinfield_search_customers() {
-		$finder = new CustomerFinder( $this->plugin->get_finder() );
+		$result = array();
 
-		$search = filter_input( INPUT_GET, 's', FILTER_SANITIZE_STRING );
+		$search = filter_input( INPUT_GET, 'search', FILTER_SANITIZE_STRING );
 
-		$customers = $finder->get_customers(
-			$search,
-			SearchFields::CODE_AND_NAME,
-			1,
-			100
-		);
+		if ( ! empty( $search ) ) {
+			$finder = new CustomerFinder( $this->plugin->get_finder() );
 
-		$json = array();
+			$customers = $finder->get_customers(
+				$search,
+				SearchFields::CODE_AND_NAME,
+				1,
+				10
+			);
 
-		foreach ( $customers as $customer ) {
-			$object = new stdClass();
-			$object->code = $customer->get_code();
-			$object->name = $customer->get_name();
+			foreach ( $customers as $customer ) {
+				$object = new \stdClass();
+				$object->code = $customer->get_code();
+				$object->name = $customer->get_name();
 
-			$json[] = $object;
+				$result[] = $object;
+			}
 		}
 
-		wp_send_json( $json );
+		wp_send_json( $result );
 
 		exit;
 	}

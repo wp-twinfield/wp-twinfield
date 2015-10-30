@@ -87,7 +87,10 @@ wp_enqueue_script( 'backbone' );
 				if ( 13 === e.which && this.$input.val().trim() ) {
 					this.customers.fetch( {
 						reset: true,
-						data: { action: 'twinfield_search_customers' }
+						data: {
+							action: 'twinfield_search_customers',
+							search: this.$input.val()
+						}
 					} );
 
 					return false;
@@ -110,15 +113,6 @@ wp_enqueue_script( 'backbone' );
 	</div>
 </div>
 
-<div class="twinfield-customers-search">
-	Zoeken <input class="twinfield-customers-search-input" type="text" />
-
-	<div class="twinfield-customers-list">
-
-	</div>
-</div>
-
 <script type="text/template" id="twinfield-customer-search-view-template">
-	<%= code %>
-	<%= name %>
+	<%= code %> - <%= name %>
 </script>
