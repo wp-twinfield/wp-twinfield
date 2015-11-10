@@ -38,7 +38,7 @@ wp_enqueue_script( 'backbone' );
 			template: _.template( $( '#twinfield-customer-search-view-template' ).html() ),
 
 			render: function() {
-				this.$el.html(this.template(this.model.toJSON()));
+				this.$el.html( this.template( this.model.toJSON() ) );
 
 				return this;
 			}
@@ -47,28 +47,21 @@ wp_enqueue_script( 'backbone' );
 		twinfield.CustomersSearchView = Backbone.View.extend( {
 			el: '.twinfield-customers-search',
 
-			template: _.template( '<h3>Hello <%= who %></h3>' ),
-
 			events: {
-				'keypress .twinfield-customers-search-input': 'searchOnEnter',
-				'click .clear-completed': 'clearCompleted',
-				'click .toggle-all': 'toggleAllComplete'
+				'keypress .twinfield-customers-search-input': 'searchOnEnter'
 			},
 
 			initialize: function() {
 				this.customers = new twinfield.Customers();
 
-				this.$input = this.$( '.twinfield-customers-search-input' );
-				this.$list  = this.$( '.twinfield-customers-list' );
+				this.$input   = this.$( '.twinfield-customers-search-input' );
+				this.$list    = this.$( '.twinfield-customers-list' );
+				this.$spinner = this.$( '.spinner' );
 
 				this.listenTo( this.customers, 'add', this.addOne );
 				this.listenTo( this.customers, 'reset', this.addAll );
 
 				this.render();
-			},
-
-			render: function() {
-				
 			},
 
 			addOne: function (customer) {
@@ -81,10 +74,15 @@ wp_enqueue_script( 'backbone' );
 				this.$list.html( '' );
 
 				this.customers.each( this.addOne, this );
+
+				this.$spinner.removeClass( 'is-active' );
 			},
 
 			searchOnEnter: function( e ) {
 				if ( 13 === e.which && this.$input.val().trim() ) {
+					// @see https://github.com/WordPress/WordPress/blob/4.3.1/wp-includes/js/wplink.js#L439
+					this.$spinner.addClass( 'is-active' );
+
 					this.customers.fetch( {
 						reset: true,
 						data: {
@@ -106,7 +104,7 @@ wp_enqueue_script( 'backbone' );
 </script>
 
 <div class="twinfield-customers-search">
-	Zoeken <input class="twinfield-customers-search-input" type="text" />
+	Zoeken <input class="twinfield-customers-search-input" type="text" /> <span class="spinner"></span>
 
 	<div class="twinfield-customers-list">
 
