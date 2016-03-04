@@ -1,5 +1,5 @@
 <div class="wrap">
-	<h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
+	<h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
 
 	<?php
 
@@ -195,7 +195,7 @@
 
 	foreach ( $sections as $section ) : ?>
 
-		<h3>
+		<h2>
 			<?php echo esc_html( $section['name'] ); ?>
 
 			<?php if ( isset( $section['url'] ) ) : ?>
@@ -203,7 +203,7 @@
 				<small><a href="<?php echo esc_attr( $section['url'] ); ?>"><?php echo esc_html( $section['url'] ); ?></a></small>
 
 			<?php endif; ?>
-		</h3>
+		</h2>
 
 		<ul>
 

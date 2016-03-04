@@ -1,10 +1,3 @@
-<?php
-
-global $post;
-
-$is_supported   = false;
-
-?>
 <table class="form-table">
 	<tr>
 		<th scope="row">
@@ -20,20 +13,12 @@ $is_supported   = false;
 			<?php endif; ?>
 		</td>
 	</tr>
-	<tr>
-		<th scope="row">
-			<label for="twinfield_customer_id"><?php esc_html_e( 'Customer ID', 'twinfield' ); ?></label>
-		</th>
-		<td>
-			<input id="twinfield_customer_id" type="text" name="twinfield_customer_id" value="<?php echo esc_attr( $customer_id ); ?>" />
-		</td>
-	</tr>
 </table>
 
 <?php
 
 if ( $response ) {
-	$plugin = Pronamic_WP_TwinfieldPlugin_Plugin::get_instance();
+	global $twinfield_plugin;
 
 	// echo '<pre>', htmlspecialchars( $response ), '</pre>';
 
@@ -41,7 +26,7 @@ if ( $response ) {
 	$xml->loadXML( $response );
 
 	$xsl = new DOMDocument;
-	$xsl->load( plugin_dir_path( $plugin->file ) . '/admin/twinfield-salesinvoices.xsl' );
+	$xsl->load( plugin_dir_path( $twinfield_plugin->file ) . '/admin/twinfield-salesinvoices.xsl' );
 
 	$proc = new XSLTProcessor;
 	$proc->importStyleSheet( $xsl );
@@ -54,16 +39,6 @@ if ( $response ) {
 	<?php if ( $invoice_number ) : ?>
 
 	    <a class="button" target="_blank" href="<?php echo esc_attr( twinfield_admin_view_invoice_link( $invoice_number ) ); ?>"><?php esc_html_e( 'View', 'twinfield' ); ?></a>
-
-	<?php elseif ( $is_supported ) : ?>
-
-		<?php submit_button( __( 'Create Invoice', 'twinfield' ), 'secondary', 'twinfield_create_invoice', false ); ?>
-
-	<?php else : ?>
-
-	    <p>
-	    	<?php esc_html_e( 'Looking for automatic synchronization?', 'twinfield' ); ?>
-	    </p>
 
 	<?php endif; ?>
 </p>

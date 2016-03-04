@@ -2,7 +2,7 @@
 
 	<?php $header = $sales_invoice->get_header(); ?>
 
-	<h3><?php printf( esc_html__( 'Invoice %d', 'twinfield' ), esc_html( $header->get_number() ) ); ?></h3>
+	<h2><?php printf( esc_html__( 'Invoice %d', 'twinfield' ), esc_html( $header->get_number() ) ); ?></h2>
 
 	<table class="form-table">
 		<tr>

@@ -48,7 +48,7 @@ class CustomersAdmin {
 				array( $this, 'customer_meta_box' ),
 				$post_type,
 				'normal',
-				'high'
+				'default'
 			);
 		}
 	}

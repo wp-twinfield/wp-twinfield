@@ -1,5 +1,3 @@
-<?php wp_nonce_field( 'twinfield_customer', 'twinfield_customer_nonce' ); ?>
-
 <table class="form-table">
 	<tr>
 		<th scope="row">

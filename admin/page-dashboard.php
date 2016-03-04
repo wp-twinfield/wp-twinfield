@@ -1,11 +1,11 @@
 <div class="wrap">
-	<h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
+	<h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
 
 	<div id="dashboard-widgets-wrap">
 		<div id="dashboard-widgets" class="metabox-holder columns-2">
 			<div id="postbox-container-1" class="postbox-container">
 				<div class="postbox">
-					<h3 class="hndle"><span><?php esc_html_e( 'Quick Login', 'twinfield' ); ?></span></h3>
+					<h2 class="hndle"><span><?php esc_html_e( 'Quick Login', 'twinfield' ); ?></span></h2>
 
 					<div class="inside">
 						<form action="https://login.twinfield.com/default.aspx" method="post" target="_blank">

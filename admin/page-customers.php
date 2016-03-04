@@ -1,5 +1,5 @@
 <div class="wrap">
-	<h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
+	<h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
 
 	<?php if ( ! filter_has_var( INPUT_GET, 'twinfield_customer_id' ) || empty( $twinfield_response ) || ! $twinfield_response->is_successful() ) : ?>
 
