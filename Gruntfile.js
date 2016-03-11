@@ -16,10 +16,17 @@ module.exports = function( grunt ) {
 		// PHP Code Sniffer
 		phpcs: {
 			application: {
-				dir: [ '*.php', 'includes/*.php' ],
+				src: [
+					'**/*.php',
+					'!deploy/**',
+					'!node_modules/**',
+					'!twinfield/**',
+					'!vendor/**'
+				],
 			},
 			options: {
 				standard: 'phpcs.ruleset.xml',
+				showSniffCodes: true
 			},
 		},
 
@@ -59,9 +66,14 @@ module.exports = function( grunt ) {
 		makepot: {
 			target: {
 				options: {
-					cwd: '',
 					domainPath: 'languages',
-					type: 'wp-plugin'
+					type: 'wp-plugin',
+					updatePoFiles: true,
+					exclude: [
+						'deploy/.*',
+						'node_modules/.*',
+						'vendor/.*'
+					]
 				}
 			}
 		},
@@ -116,6 +128,7 @@ module.exports = function( grunt ) {
 					'!deploy/**',
 					'!documentation/**',
 					'!node_modules/**',
+					'!src/**',
 					'!tests/**',
 					'!wp-content/**',
 				],

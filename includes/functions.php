@@ -1,13 +1,5 @@
 <?php
 
-function twinfield_settings_section( $name ) {
-	$filename = PRONAMIC_TWINFIELD_FOLDER . 'views/' . $name . '.php';
-
-	if ( is_readable( $filename ) ) {
-		include $filename;
-	}
-}
-
 function twinfield_get_offices() {
 
 }
