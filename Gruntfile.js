@@ -128,6 +128,7 @@ module.exports = function( grunt ) {
 					'!deploy/**',
 					'!documentation/**',
 					'!node_modules/**',
+					'!src/**',
 					'!tests/**',
 					'!wp-content/**',
 				],

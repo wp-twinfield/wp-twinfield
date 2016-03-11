@@ -3,7 +3,7 @@ Contributors: pronamic, remcotolsma
 Tags: twinfield, administration
 Requires at least: 3.0
 Tested up to: 4.1
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 
 This plugin makes a connection with the Twinfield adminsitration software.
 
@@ -31,6 +31,9 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 
 == Changelog ==
+
+= 1.1.1 =
+*	Improved support for invoiceable post types.
 
 = 1.1.0 =
 *	Feature - Added template functions for customer and invoice link.

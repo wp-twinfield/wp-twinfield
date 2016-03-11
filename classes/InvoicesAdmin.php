@@ -44,6 +44,12 @@ class InvoicesAdmin {
 		}
 	}
 
+	/**
+	 * Get sales invoice by post ID
+	 *
+	 * @param int $post_id
+	 * @return SalesInvoice
+	 */
 	private function get_post_sales_invoice( $post_id ) {
 		$invoice_number = get_post_meta( $post_id, '_twinfield_invoice_number', true );
 		$customer_id    = get_post_meta( $post_id, '_twinfield_customer_id', true );

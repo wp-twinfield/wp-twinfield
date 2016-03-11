@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Twinfield\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/twinfield\n"
-"POT-Creation-Date: 2015-10-22 09:36:21+00:00\n"
-"PO-Revision-Date: 2015-10-22 11:37+0100\n"
+"POT-Creation-Date: 2016-03-11 12:31:16+00:00\n"
+"PO-Revision-Date: 2016-03-11 13:33+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -22,48 +22,44 @@ msgstr "Algemeen"
 msgid "Code"
 msgstr "Code"
 
-#: admin/customer.php:16 admin/customer.php:79 admin/page-offices.php:11
+#: admin/customer.php:16 admin/customer.php:71 admin/page-offices.php:11
 #: templates/customer.php:17 templates/customer.php:51
 msgid "Name"
 msgstr "Naam"
 
-#: admin/customer.php:24
-msgid "Website"
-msgstr "Website"
-
-#: admin/customer.php:34
+#: admin/customer.php:26
 msgid "Financials"
 msgstr "Financiën"
 
-#: admin/customer.php:39
+#: admin/customer.php:31
 msgid "Due Days"
 msgstr "Vervaldagen"
 
-#: admin/customer.php:51
+#: admin/customer.php:43
 msgid "Credit Management"
 msgstr "Creditmanagement"
 
-#: admin/customer.php:56
+#: admin/customer.php:48
 msgid "Send Reminder"
 msgstr "Stuur herinnering"
 
-#: admin/customer.php:64
+#: admin/customer.php:56
 msgid "Reminder Email"
 msgstr "Herinnering e-mail"
 
-#: admin/customer.php:74 templates/customer.php:28
+#: admin/customer.php:66 templates/customer.php:28
 msgid "Addresses"
 msgstr "Adressen"
 
-#: admin/customer.php:80 templates/customer.php:63
+#: admin/customer.php:72 templates/customer.php:63
 msgid "City"
 msgstr "Plaats"
 
-#: admin/customer.php:81 templates/customer.php:59
+#: admin/customer.php:73 templates/customer.php:59
 msgid "Postal Code"
 msgstr "Postcode"
 
-#: admin/customer.php:82
+#: admin/customer.php:74
 msgid "Telephone"
 msgstr "Telefoon"
 
@@ -75,35 +71,22 @@ msgstr "Artikel code"
 msgid "Subarticle Code"
 msgstr "Subartikel code"
 
-#: admin/meta-box-customer.php:6 admin/meta-box-invoice.php:25
-#: admin/page-customers.php:14
+#: admin/meta-box-customer.php:4 admin/page-customers.php:14
 msgid "Customer ID"
 msgstr "Klant ID"
 
-#: admin/meta-box-invoice.php:11 admin/sales-invoice.php:10
+#: admin/meta-box-invoice.php:10 admin/sales-invoice.php:10
 #: templates/sales-invoice.php:19
 msgid "Invoice Number"
 msgstr "Factuurnummer"
 
-#: admin/meta-box-invoice.php:18
-msgid ""
-"You can manullay enter an Twinfield invoice number or use the \"Create "
-"Invoice\" button below."
-msgstr ""
-"Je kunt handmatig een Twinfield factuurnummer invoeren of de \"Factuur "
-"aanmaken\" knop hieronder gebruiken."
-
-#: admin/meta-box-invoice.php:56
-msgid "View"
-msgstr "Toon"
-
-#: admin/meta-box-invoice.php:60
+#: admin/meta-box-invoice.php:20
 msgid "Create Invoice"
 msgstr "Factuur aanmaken"
 
-#: admin/meta-box-invoice.php:65
-msgid "Looking for automatic synchronization?"
-msgstr "Op zoek naar automatische synchronisatie?"
+#: admin/meta-box-invoice.php:30
+msgid "View Invoice"
+msgstr "Factuur bekijken"
 
 #: admin/page-customers.php:9
 msgid "Request Customer"
@@ -235,7 +218,7 @@ msgstr "Vrije tekst 2"
 msgid "Free Text 3"
 msgstr "Vrije tekst 3"
 
-#: admin/section-permalinks.php:10
+#: admin/section-permalinks.php:12
 msgid ""
 "If you like, you may enter custom structures for your invoice and customer "
 "%s here. For example, using %s as your invoice base would make your invoice "
@@ -290,15 +273,19 @@ msgstr "Twinfield artikel"
 msgid "Subarticle"
 msgstr "Subartikel"
 
-#: classes/CustomersAdmin.php:42
+#: classes/CustomersAdmin.php:47
 msgid "Twinfield Customer"
 msgstr "Twinfield klant"
 
-#: classes/InvoicesAdmin.php:32
+#: classes/InvoicesAdmin.php:38
 msgid "Twinfield Invoice"
 msgstr "Twinfield factuur"
 
-#: classes/InvoicesPublic.php:118 templates/sales-invoice.php:9
+#: classes/InvoicesAdmin.php:67
+msgid "Invoice created by WordPress on %s."
+msgstr "Factuur aangemaakt door WordPress op %s."
+
+#: classes/InvoicesPublic.php:119 templates/sales-invoice.php:9
 msgid "Invoice %s"
 msgstr "Factuur %s"
 
@@ -445,18 +432,18 @@ msgstr "Pronamic"
 msgid "http://www.pronamic.eu/"
 msgstr "http://www.pronamic.nl/"
 
-#: admin/section-permalinks.php:12 admin/section-permalinks.php:13
+#: admin/section-permalinks.php:9 admin/section-permalinks.php:14
 msgctxt "slug"
 msgid "invoices"
 msgstr "factuur"
 
-#: classes/CustomersPublic.php:43 classes/CustomersPublic.php:72
+#: classes/CustomersPublic.php:44 classes/CustomersPublic.php:73
 #: includes/template.php:32
 msgctxt "Customer slug for frontend"
 msgid "customer"
 msgstr "klant"
 
-#: classes/InvoicesPublic.php:43 classes/InvoicesPublic.php:81
+#: classes/InvoicesPublic.php:44 classes/InvoicesPublic.php:82
 msgctxt "Invoice slug for front end"
 msgid "invoice"
 msgstr "factuur"
@@ -506,6 +493,22 @@ msgstr ""
 msgctxt "Invoice slug for frontend"
 msgid "invoice"
 msgstr "factuur"
+
+#~ msgid "Website"
+#~ msgstr "Website"
+
+#~ msgid ""
+#~ "You can manullay enter an Twinfield invoice number or use the \"Create "
+#~ "Invoice\" button below."
+#~ msgstr ""
+#~ "Je kunt handmatig een Twinfield factuurnummer invoeren of de \"Factuur "
+#~ "aanmaken\" knop hieronder gebruiken."
+
+#~ msgid "View"
+#~ msgstr "Toon"
+
+#~ msgid "Looking for automatic synchronization?"
+#~ msgstr "Op zoek naar automatische synchronisatie?"
 
 #~ msgid "Customer requires CoC Number as Custom Meta Field"
 #~ msgstr "Klant vereist KvK nummer als een maatwerk meta veld"
@@ -602,9 +605,6 @@ msgstr "factuur"
 
 #~ msgid "Default Invoice Type"
 #~ msgstr "Standaard factuurtype"
-
-#~ msgid "Invoice"
-#~ msgstr "Factuur"
 
 #~ msgid "Article ID"
 #~ msgstr "Artikel ID"

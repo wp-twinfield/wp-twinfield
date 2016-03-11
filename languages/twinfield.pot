@@ -1,17 +1,17 @@
-# Copyright (C) 2015 Pronamic
+# Copyright (C) 2016 Pronamic
 # This file is distributed under the GPL.
 msgid ""
 msgstr ""
 "Project-Id-Version: Twinfield 1.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/twinfield\n"
-"POT-Creation-Date: 2015-10-22 09:36:21+00:00\n"
+"POT-Creation-Date: 2016-03-11 12:31:16+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"X-Generator: grunt-wp-i18n 0.5.3\n"
+"X-Generator: grunt-wp-i18n 0.5.4\n"
 
 #: admin/customer.php:3 admin/page-documentation.php:8
 msgid "General"
@@ -21,48 +21,44 @@ msgstr ""
 msgid "Code"
 msgstr ""
 
-#: admin/customer.php:16 admin/customer.php:79 admin/page-offices.php:11
+#: admin/customer.php:16 admin/customer.php:71 admin/page-offices.php:11
 #: templates/customer.php:17 templates/customer.php:51
 msgid "Name"
 msgstr ""
 
-#: admin/customer.php:24
-msgid "Website"
-msgstr ""
-
-#: admin/customer.php:34
+#: admin/customer.php:26
 msgid "Financials"
 msgstr ""
 
-#: admin/customer.php:39
+#: admin/customer.php:31
 msgid "Due Days"
 msgstr ""
 
-#: admin/customer.php:51
+#: admin/customer.php:43
 msgid "Credit Management"
 msgstr ""
 
-#: admin/customer.php:56
+#: admin/customer.php:48
 msgid "Send Reminder"
 msgstr ""
 
-#: admin/customer.php:64
+#: admin/customer.php:56
 msgid "Reminder Email"
 msgstr ""
 
-#: admin/customer.php:74 templates/customer.php:28
+#: admin/customer.php:66 templates/customer.php:28
 msgid "Addresses"
 msgstr ""
 
-#: admin/customer.php:80 templates/customer.php:63
+#: admin/customer.php:72 templates/customer.php:63
 msgid "City"
 msgstr ""
 
-#: admin/customer.php:81 templates/customer.php:59
+#: admin/customer.php:73 templates/customer.php:59
 msgid "Postal Code"
 msgstr ""
 
-#: admin/customer.php:82
+#: admin/customer.php:74
 msgid "Telephone"
 msgstr ""
 
@@ -74,32 +70,21 @@ msgstr ""
 msgid "Subarticle Code"
 msgstr ""
 
-#: admin/meta-box-customer.php:6 admin/meta-box-invoice.php:25
-#: admin/page-customers.php:14
+#: admin/meta-box-customer.php:4 admin/page-customers.php:14
 msgid "Customer ID"
 msgstr ""
 
-#: admin/meta-box-invoice.php:11 admin/sales-invoice.php:10
+#: admin/meta-box-invoice.php:10 admin/sales-invoice.php:10
 #: templates/sales-invoice.php:19
 msgid "Invoice Number"
 msgstr ""
 
-#: admin/meta-box-invoice.php:18
-msgid ""
-"You can manullay enter an Twinfield invoice number or use the \"Create "
-"Invoice\" button below."
-msgstr ""
-
-#: admin/meta-box-invoice.php:56
-msgid "View"
-msgstr ""
-
-#: admin/meta-box-invoice.php:60
+#: admin/meta-box-invoice.php:20
 msgid "Create Invoice"
 msgstr ""
 
-#: admin/meta-box-invoice.php:65
-msgid "Looking for automatic synchronization?"
+#: admin/meta-box-invoice.php:30
+msgid "View Invoice"
 msgstr ""
 
 #: admin/page-customers.php:9
@@ -232,7 +217,7 @@ msgstr ""
 msgid "Free Text 3"
 msgstr ""
 
-#: admin/section-permalinks.php:10
+#: admin/section-permalinks.php:12
 msgid ""
 "If you like, you may enter custom structures for your invoice and customer "
 "%s here. For example, using %s as your invoice base would make your invoice "
@@ -283,15 +268,19 @@ msgstr ""
 msgid "Subarticle"
 msgstr ""
 
-#: classes/CustomersAdmin.php:42
+#: classes/CustomersAdmin.php:47
 msgid "Twinfield Customer"
 msgstr ""
 
-#: classes/InvoicesAdmin.php:32
+#: classes/InvoicesAdmin.php:38
 msgid "Twinfield Invoice"
 msgstr ""
 
-#: classes/InvoicesPublic.php:118 templates/sales-invoice.php:9
+#: classes/InvoicesAdmin.php:67
+msgid "Invoice created by WordPress on %s."
+msgstr ""
+
+#: classes/InvoicesPublic.php:119 templates/sales-invoice.php:9
 msgid "Invoice %s"
 msgstr ""
 
@@ -430,18 +419,18 @@ msgstr ""
 msgid "http://www.pronamic.eu/"
 msgstr ""
 
-#: admin/section-permalinks.php:12 admin/section-permalinks.php:13
+#: admin/section-permalinks.php:9 admin/section-permalinks.php:14
 msgctxt "slug"
 msgid "invoices"
 msgstr ""
 
-#: classes/CustomersPublic.php:43 classes/CustomersPublic.php:72
+#: classes/CustomersPublic.php:44 classes/CustomersPublic.php:73
 #: includes/template.php:32
 msgctxt "Customer slug for frontend"
 msgid "customer"
 msgstr ""
 
-#: classes/InvoicesPublic.php:43 classes/InvoicesPublic.php:81
+#: classes/InvoicesPublic.php:44 classes/InvoicesPublic.php:82
 msgctxt "Invoice slug for front end"
 msgid "invoice"
 msgstr ""
