@@ -3,6 +3,8 @@
 <ruleset name="Twinfield">
 	<rule ref="WordPress">
 		<exclude name="Squiz.Commenting" />
+
+		<exclude name="Squiz.PHP.CommentedOutCode.Found" />
 	</rule>
 
 	<rule ref="Generic.Files.LowercasedFilename.NotFound">

@@ -19,14 +19,6 @@
 				<?php echo esc_html( $customer->get_name() ); ?>
 			</td>
 		</tr>
-		<tr>
-			<th scope="row">
-				<?php esc_html_e( 'Website', 'twinfield' ); ?>
-			</th>
-			<td>
-				<?php // echo esc_html( $customer->get_website() ); ?>
-			</td>
-		</tr>
 	</table>
 
 	<?php if ( $financials = $customer->get_financials() ) : ?>

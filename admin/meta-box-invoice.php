@@ -3,8 +3,6 @@
 $invoice_number = get_post_meta( $post->ID, '_twinfield_invoice_number', true );
 $response       = get_post_meta( $post->ID, '_twinfield_response_xml', true );
 
-var_dump( $invoice );
-
 ?>
 <table class="form-table">
 	<tr>
@@ -40,8 +38,6 @@ var_dump( $invoice );
 
 if ( $response ) {
 	global $twinfield_plugin;
-
-	// echo '<pre>', htmlspecialchars( $response ), '</pre>';
 
 	$xml = new DOMDocument();
 	$xml->loadXML( $response );
