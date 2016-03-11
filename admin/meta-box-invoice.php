@@ -1,3 +1,11 @@
+<?php
+
+$invoice_number = get_post_meta( $post->ID, '_twinfield_invoice_number', true );
+$response       = get_post_meta( $post->ID, '_twinfield_response_xml', true );
+
+var_dump( $invoice );
+
+?>
 <table class="form-table">
 	<tr>
 		<th scope="row">
@@ -8,7 +16,20 @@
 
 			<?php if ( empty( $invoice_number ) ) : ?>
 
-				<span class="description"><br /><?php esc_html_e( 'You can manullay enter an Twinfield invoice number or use the "Create Invoice" button below.', 'twinfield' ); ?></span>
+				<?php
+
+				submit_button(
+					__( 'Create Invoice', 'twinfield' ),
+					'secondary',
+					'twinfield_create_invoice',
+					false
+				);
+
+				?>
+
+			<?php else : ?>
+
+				<a class="button" target="_blank" href="<?php echo esc_attr( twinfield_admin_view_invoice_link( $invoice_number ) ); ?>"><?php esc_html_e( 'View Invoice', 'twinfield' ); ?></a>
 
 			<?php endif; ?>
 		</td>
@@ -35,10 +56,3 @@ if ( $response ) {
 }
 
 ?>
-<p>
-	<?php if ( $invoice_number ) : ?>
-
-	    <a class="button" target="_blank" href="<?php echo esc_attr( twinfield_admin_view_invoice_link( $invoice_number ) ); ?>"><?php esc_html_e( 'View', 'twinfield' ); ?></a>
-
-	<?php endif; ?>
-</p>

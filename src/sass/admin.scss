@@ -1,0 +1,268 @@
+.twinfield-nav {
+	list-style: none;
+}
+
+.twinfield-nav:after {
+	clear: both;
+	display: table;
+    content: " ";
+}
+
+.twinfield-nav-tabs {
+	border-bottom: 1px solid #ddd;
+}
+
+.twinfield-nav > li > a {
+	color: #0073aa;
+
+	display: block;
+
+	font-size: 14px;
+
+	line-height: 18px;
+    
+    text-decoration: none;
+
+	padding: 10px 15px;
+
+	position: relative;
+}
+
+.twinfield-nav .active {
+    margin: -1px -1px 0;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-bottom: none;
+}
+
+.twinfield-nav-tabs > li {
+	float: left;
+
+    margin-bottom: -1px;
+}
+
+.twinfield-modal-close {
+	position: absolute;
+
+	top: 0;
+	right: 0;
+}
+
+.twinfield-modal-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+    min-height: 300px;
+    -webkit-box-shadow: 0 5px 15px rgba(0,0,0,.7);
+    box-shadow: 0 5px 15px rgba(0,0,0,.7);
+    background: #fcfcfc;
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.twinfield-router .active,
+.twinfield-router > a.active:last-child {
+    margin: -1px -1px 0;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-bottom: none;
+}
+
+	.twinfield-frame-title {
+		top: 0;
+
+		height: 50px;
+	}
+
+	.twinfield-frame-title h1 {
+		padding: 0 16px;
+
+		font-size: 22px;
+
+		line-height: 50px;
+
+		margin: 0;
+	}
+
+	.twinfield-frame-router {
+		top: 50px;
+		height: 36px;
+
+		position: absolute;
+
+		right: 0;
+
+		z-index: 200;
+	}
+
+	.twinfield-customer-select {
+		cursor: pointer;
+
+		vertical-align: text-bottom;
+	}
+
+	.twinfield-modal-main {
+		padding-bottom: 51px;
+	}
+
+	.twinfield-modal-main .twinfield-modal-header {
+		background: #fcfcfc;
+		border-bottom: 1px solid #ddd;
+
+		height: 50px;
+
+		padding: 0 50px 0 16px;
+	}
+
+	.twinfield-modal-main .twinfield-modal-header h1 {
+		margin: 0;
+
+		font-size: 18px;
+		font-weight: 700;
+
+		line-height: 50px;
+	}
+
+	.twinfield-modal-main .twinfield-modal-header .modal-close-link {
+		cursor: pointer;
+		color: #777;
+		height: 50px;
+		width: 50px;
+		padding: 0;
+		position: absolute;
+		top: 0;
+		right: 0;
+		text-align: center;
+		border: 0;
+		border-left: 1px solid #ddd;
+		background-color: transparent;
+		-webkit-transition: color .1s ease-in-out,background .1s ease-in-out;
+		transition: color .1s ease-in-out,background .1s ease-in-out;
+	}
+
+	.twinfield-modal-main .twinfield-modal-header .modal-close-link:focus,
+	.twinfield-modal-main .twinfield-modal-header .modal-close-link:hover {
+		background: #ddd;
+
+		border-color: #ccc;
+
+		color: #000;
+	}
+
+	.twinfield-modal-main article {
+		padding: 10px 16px;
+	}
+
+	.twinfield-modal-main footer {
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 100;
+		padding: 10px 16px;
+		background: #fcfcfc;
+		border-top: 1px solid #dfdfdf;
+		box-shadow: 0 -4px 4px -4px rgba(0,0,0,.1);
+	}
+
+	.twinfield-modal-main footer .inner {
+		float: right;
+	}
+
+	.twinfield-modal-backdrop {
+		position: fixed;
+
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+
+		min-height: 360px;
+
+		background: #000;
+		
+		opacity: .7;
+
+		z-index: 99900;
+	}
+
+	.twinfield-modal .twinfield-modal-content {
+		position: fixed;
+
+		top: 50%;
+		left: 50%;
+
+		width: 800px;
+
+		background: #fff;
+
+		z-index: 100000;
+	}
+
+	.twinfield-customers-search-fields {
+		margin-bottom: 10px;
+	}
+
+	.twinfield-customers-list {
+		background: #fff;
+
+		border: 1px solid #dfdfdf;
+
+		list-style: none;
+
+		margin: 0;
+		padding: 0;
+	}
+
+	.twinfield-customers-list li {
+		border-bottom: 1px solid #f1f1f1;
+
+		color: #32373c;
+		clear: both;
+
+		margin-bottom: 0;
+		padding: 4px 6px 4px 10px;
+
+		position: relative;
+	}
+
+	.twinfield-customers-list li .twinfield-code {
+		text-transform: uppercase;
+
+		color: #666;
+
+		font-size: 11px;
+
+		position: absolute;
+		right: 5px;
+		top: 5px;
+	}
+
+	.twinfield-customers-list li .twinfield-name {
+		display: inline-block;
+
+		width: 80%;
+		width: calc( 100% - 68px );
+
+		word-wrap: break-word;
+	}
+
+
+	.twinfield-customers-list li:nth-child(odd) {
+		background-color: #f9f9f9;
+	}
+
+	.twinfield-customers-list li:hover {
+		background: #eaf2fa;
+
+		color: #151515;
+	}
+
+	.twinfield-customers-list li.selected {
+		background: #ddd;
+
+		color: #32373c;
+	}
+	
