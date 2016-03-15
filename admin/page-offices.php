@@ -3,7 +3,7 @@
 
 	<?php if ( $offices ) : ?>
 
-		<table>
+		<table class="widefat">
 			<thead>
 				<tr>
 					<th scope="col"><?php esc_html_e( 'Code', 'twinfield' ); ?></th>
@@ -17,9 +17,9 @@
 				<?php foreach ( $offices as $office ) : ?>
 
 					<tr>
-						<td><?php echo esc_html( $office->getCode() ); ?></td>
-						<td><?php echo esc_html( $office->getShortName() ); ?></td>
-						<td><?php echo esc_html( $office->getName() ); ?></td>
+						<td><?php echo esc_html( $office->get_code() ); ?></td>
+						<td><?php echo esc_html( $office->get_shortname() ); ?></td>
+						<td><?php echo esc_html( $office->get_name() ); ?></td>
 					</tr>
 
 				<?php endforeach; ?>

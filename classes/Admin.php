@@ -3,6 +3,7 @@
 namespace Pronamic\WP\Twinfield\Plugin;
 
 use Pronamic\WP\Twinfield\Customers\CustomerService;
+use Pronamic\WP\Twinfield\Offices\OfficeService;
 use Pronamic\WP\Twinfield\SalesInvoices\SalesInvoiceService;
 
 class Admin {
@@ -59,7 +60,6 @@ class Admin {
 			$this->plugin->plugins_url( 'assets/admin/images/icon-16x16.png' )
 		);
 
-		/*
 		add_submenu_page(
 			'twinfield',
 			_x( 'Twinfield Companies', 'twinfield.com', 'twinfield' ),
@@ -68,7 +68,6 @@ class Admin {
 			'twinfield_offices',
 			array( $this, 'page_offices' )
 		);
-		*/
 
 		add_submenu_page(
 			'twinfield',
@@ -138,6 +137,12 @@ class Admin {
 	 * Page offices.
 	 */
 	public function page_offices() {
+		$xml_processor = $this->plugin->get_xml_processor();
+
+		$service = new OfficeService( $xml_processor );
+
+		$offices = $service->get_offices();
+
 		include plugin_dir_path( $this->plugin->file ) . 'admin/page-offices.php';
 	}
 

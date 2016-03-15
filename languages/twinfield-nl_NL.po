@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Twinfield\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/twinfield\n"
-"POT-Creation-Date: 2016-03-11 12:31:16+00:00\n"
-"PO-Revision-Date: 2016-03-11 13:33+0100\n"
+"POT-Creation-Date: 2016-03-15 13:42:55+00:00\n"
+"PO-Revision-Date: 2016-03-15 14:43+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -233,35 +233,35 @@ msgstr ""
 msgid "Twinfield"
 msgstr "Twinfield"
 
-#: classes/Admin.php:75
+#: classes/Admin.php:74
 msgid "Twinfield Customers"
 msgstr "Twinfield klanten"
 
-#: classes/Admin.php:76
+#: classes/Admin.php:75
 msgid "Customers"
 msgstr "Klanten"
 
-#: classes/Admin.php:84
+#: classes/Admin.php:83
 msgid "Twinfield Invoices"
 msgstr "Twinfield facturen"
 
-#: classes/Admin.php:85
+#: classes/Admin.php:84
 msgid "Invoices"
 msgstr "Facturen"
 
-#: classes/Admin.php:93
+#: classes/Admin.php:92
 msgid "Twinfield Settings"
 msgstr "Twinfield instellingen"
 
-#: classes/Admin.php:94
+#: classes/Admin.php:93
 msgid "Settings"
 msgstr "Instellingen"
 
-#: classes/Admin.php:102
+#: classes/Admin.php:101
 msgid "Twinfield Documentation"
 msgstr "Twinfield documentatie"
 
-#: classes/Admin.php:103
+#: classes/Admin.php:102
 msgid "Documentation"
 msgstr "Documentatie"
 
@@ -437,16 +437,15 @@ msgctxt "slug"
 msgid "invoices"
 msgstr "factuur"
 
-#: classes/CustomersPublic.php:44 classes/CustomersPublic.php:73
-#: includes/template.php:32
-msgctxt "Customer slug for frontend"
-msgid "customer"
-msgstr "klant"
+#: classes/Admin.php:65
+msgctxt "twinfield.com"
+msgid "Twinfield Companies"
+msgstr "Twinfield administraties"
 
-#: classes/InvoicesPublic.php:44 classes/InvoicesPublic.php:82
-msgctxt "Invoice slug for front end"
-msgid "invoice"
-msgstr "factuur"
+#: classes/Admin.php:66
+msgctxt "twinfield.com"
+msgid "Companies"
+msgstr "Administraties"
 
 #. translators: use same translations as on Twinfield.com.
 #: classes/Settings.php:85
@@ -488,6 +487,17 @@ msgid ""
 "You can find your articles in Twinfield under \"Credit management » Items\"."
 msgstr ""
 "Je kunt je artikelen in Twinfield vinden onder \"Facturatie » Artikelen\"."
+
+#: classes/CustomersPublic.php:44 classes/CustomersPublic.php:73
+#: includes/template.php:32
+msgctxt "Customer slug for frontend"
+msgid "customer"
+msgstr "klant"
+
+#: classes/InvoicesPublic.php:44 classes/InvoicesPublic.php:82
+msgctxt "Invoice slug for front end"
+msgid "invoice"
+msgstr "factuur"
 
 #: includes/template.php:12
 msgctxt "Invoice slug for frontend"
@@ -661,14 +671,6 @@ msgstr "factuur"
 
 #~ msgid "Automate"
 #~ msgstr "Automatiseer"
-
-#~ msgctxt "twinfield.com"
-#~ msgid "Twinfield Companies"
-#~ msgstr "Twinfield administraties"
-
-#~ msgctxt "twinfield.com"
-#~ msgid "Companies"
-#~ msgstr "Administraties"
 
 #~ msgid "Default Article Code"
 #~ msgstr "Standaard artikel code"

@@ -2,9 +2,9 @@
 # This file is distributed under the GPL.
 msgid ""
 msgstr ""
-"Project-Id-Version: Twinfield 1.1.0\n"
+"Project-Id-Version: Twinfield 1.1.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/twinfield\n"
-"POT-Creation-Date: 2016-03-11 12:31:16+00:00\n"
+"POT-Creation-Date: 2016-03-15 13:42:55+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -228,35 +228,35 @@ msgstr ""
 msgid "Twinfield"
 msgstr ""
 
-#: classes/Admin.php:75
+#: classes/Admin.php:74
 msgid "Twinfield Customers"
 msgstr ""
 
-#: classes/Admin.php:76
+#: classes/Admin.php:75
 msgid "Customers"
 msgstr ""
 
-#: classes/Admin.php:84
+#: classes/Admin.php:83
 msgid "Twinfield Invoices"
 msgstr ""
 
-#: classes/Admin.php:85
+#: classes/Admin.php:84
 msgid "Invoices"
 msgstr ""
 
-#: classes/Admin.php:93
+#: classes/Admin.php:92
 msgid "Twinfield Settings"
 msgstr ""
 
-#: classes/Admin.php:94
+#: classes/Admin.php:93
 msgid "Settings"
 msgstr ""
 
-#: classes/Admin.php:102
+#: classes/Admin.php:101
 msgid "Twinfield Documentation"
 msgstr ""
 
-#: classes/Admin.php:103
+#: classes/Admin.php:102
 msgid "Documentation"
 msgstr ""
 
@@ -424,15 +424,14 @@ msgctxt "slug"
 msgid "invoices"
 msgstr ""
 
-#: classes/CustomersPublic.php:44 classes/CustomersPublic.php:73
-#: includes/template.php:32
-msgctxt "Customer slug for frontend"
-msgid "customer"
+#: classes/Admin.php:65
+msgctxt "twinfield.com"
+msgid "Twinfield Companies"
 msgstr ""
 
-#: classes/InvoicesPublic.php:44 classes/InvoicesPublic.php:82
-msgctxt "Invoice slug for front end"
-msgid "invoice"
+#: classes/Admin.php:66
+msgctxt "twinfield.com"
+msgid "Companies"
 msgstr ""
 
 #: classes/Settings.php:85
@@ -465,6 +464,17 @@ msgstr ""
 #: classes/Settings.php:138 classes/Settings.php:154
 msgctxt "twinfield.com"
 msgid "You can find your articles in Twinfield under \"Credit management » Items\"."
+msgstr ""
+
+#: classes/CustomersPublic.php:44 classes/CustomersPublic.php:73
+#: includes/template.php:32
+msgctxt "Customer slug for frontend"
+msgid "customer"
+msgstr ""
+
+#: classes/InvoicesPublic.php:44 classes/InvoicesPublic.php:82
+msgctxt "Invoice slug for front end"
+msgid "invoice"
 msgstr ""
 
 #: includes/template.php:12
