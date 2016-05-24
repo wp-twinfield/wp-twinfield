@@ -54,6 +54,7 @@
 					<th scope="col">Freetext 1</th>
 					<th scope="col">Freetext 2</th>
 					<th scope="col">Freetext 3</th>
+					<th scope="col">Message</th>
 				</tr>
 			</thead>
 
@@ -121,6 +122,11 @@
 
 							<xsl:if test="freetext3/@msg">
 								<em><xsl:value-of select="freetext3/@msg" /></em>
+							</xsl:if>
+						</td>
+						<td>
+							<xsl:if test="@msg">
+								<em><xsl:value-of select="@msg" /></em>
 							</xsl:if>
 						</td>
 					</tr>
