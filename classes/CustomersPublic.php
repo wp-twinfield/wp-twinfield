@@ -25,6 +25,8 @@ class CustomersPublic {
 
 		add_action( 'query_vars', array( $this, 'query_vars' ) );
 
+		add_action( 'parse_query', array( $this, 'parse_query' ) );
+
 		add_action( 'template_redirect', array( $this, 'template_redirect' ) );
 
 		// Filters.
@@ -57,6 +59,19 @@ class CustomersPublic {
 		$query_vars[] = 'twinfield_debtor_id';
 
 		return $query_vars;
+	}
+
+	/**
+	 * Parse query.
+	 *
+	 * @see https://github.com/WordPress/WordPress/blob/4.6.1/wp-includes/query.php#L1872-L1879
+	 */
+	public function parse_query( $query ) {
+		$query->is_twinfield_customer = null !== $query->get( 'twinfield_debtor_id', null );
+
+		if ( $query->is_twinfield_customer ) {
+			$query->is_home = false;
+		}
 	}
 
 	/**

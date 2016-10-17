@@ -25,6 +25,8 @@ class InvoicesPublic {
 
 		add_action( 'query_vars', array( $this, 'query_vars' ) );
 
+		add_action( 'parse_query', array( $this, 'parse_query' ) );
+
 		add_action( 'template_redirect', array( $this, 'template_redirect' ) );
 
 		// Filters.
@@ -59,6 +61,19 @@ class InvoicesPublic {
 		$query_vars[] = 'twinfield_sales_invoice_type';
 
 		return $query_vars;
+	}
+
+	/**
+	 * Parse query.
+	 *
+	 * @see https://github.com/WordPress/WordPress/blob/4.6.1/wp-includes/query.php#L1872-L1879
+	 */
+	public function parse_query( $query ) {
+		$query->is_twinfield_sales_invoice = null !== $query->get( 'twinfield_sales_invoice_id', null );
+
+		if ( $query->is_twinfield_sales_invoice ) {
+			$query->is_home = false;
+		}
 	}
 
 	/**
