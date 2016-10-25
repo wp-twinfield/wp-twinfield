@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Twinfield\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/twinfield\n"
-"POT-Creation-Date: 2016-03-15 13:42:55+00:00\n"
-"PO-Revision-Date: 2016-03-15 14:43+0100\n"
+"POT-Creation-Date: 2016-10-25 11:49:59+00:00\n"
+"PO-Revision-Date: 2016-10-25 14:00+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -285,7 +285,7 @@ msgstr "Twinfield factuur"
 msgid "Invoice created by WordPress on %s."
 msgstr "Factuur aangemaakt door WordPress op %s."
 
-#: classes/InvoicesPublic.php:119 templates/sales-invoice.php:9
+#: classes/InvoicesPublic.php:134 templates/sales-invoice.php:9
 msgid "Invoice %s"
 msgstr "Factuur %s"
 
@@ -488,13 +488,13 @@ msgid ""
 msgstr ""
 "Je kunt je artikelen in Twinfield vinden onder \"Facturatie » Artikelen\"."
 
-#: classes/CustomersPublic.php:44 classes/CustomersPublic.php:73
+#: classes/CustomersPublic.php:46 classes/CustomersPublic.php:88
 #: includes/template.php:32
 msgctxt "Customer slug for frontend"
 msgid "customer"
 msgstr "klant"
 
-#: classes/InvoicesPublic.php:44 classes/InvoicesPublic.php:82
+#: classes/InvoicesPublic.php:46 classes/InvoicesPublic.php:97
 msgctxt "Invoice slug for front end"
 msgid "invoice"
 msgstr "factuur"
