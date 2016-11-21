@@ -87,14 +87,14 @@ class InvoicesPublic {
 			return;
 		}
 
-		if ( empty( $id ) || empty( $type ) ) {
+		if ( ! is_user_logged_in() ) {
+			wp_redirect( wp_login_url( site_url( get_option( 'twinfield_invoice_slug', _x( 'invoice', 'Invoice slug for front end', 'twinfield' ) ) . '/' . $id ) ) );
+		}
+
+		if ( empty( $id ) || empty( $type ) || ! current_user_can( 'twinfield_read_invoice' ) ) {
 			include get_404_template();
 
 			exit;
-		}
-
-		if ( ! is_user_logged_in() || ! current_user_can( 'twinfield_read_invoice' ) ) {
-			wp_redirect( wp_login_url( site_url( get_option( 'twinfield_invoice_slug', _x( 'invoice', 'Invoice slug for front end', 'twinfield' ) ) . '/' . $invoice_id ) ) );
 		}
 
 		$xml_processor = $this->plugin->get_xml_processor();
