@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Twinfield 1.1.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/twinfield\n"
-"POT-Creation-Date: 2016-10-25 11:49:59+00:00\n"
+"POT-Creation-Date: 2016-12-30 12:51:22+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,39 +22,39 @@ msgid "Code"
 msgstr ""
 
 #: admin/customer.php:16 admin/customer.php:71 admin/page-offices.php:11
-#: templates/customer.php:17 templates/customer.php:51
+#: templates/customer.php:17 templates/customer.php:105
 msgid "Name"
 msgstr ""
 
-#: admin/customer.php:26
+#: admin/customer.php:26 templates/customer.php:28
 msgid "Financials"
 msgstr ""
 
-#: admin/customer.php:31
+#: admin/customer.php:31 templates/customer.php:33
 msgid "Due Days"
 msgstr ""
 
-#: admin/customer.php:43
+#: admin/customer.php:43 templates/customer.php:47
 msgid "Credit Management"
 msgstr ""
 
-#: admin/customer.php:48
+#: admin/customer.php:48 templates/customer.php:52
 msgid "Send Reminder"
 msgstr ""
 
-#: admin/customer.php:56
+#: admin/customer.php:56 templates/customer.php:74
 msgid "Reminder Email"
 msgstr ""
 
-#: admin/customer.php:66 templates/customer.php:28
+#: admin/customer.php:66 templates/customer.php:82
 msgid "Addresses"
 msgstr ""
 
-#: admin/customer.php:72 templates/customer.php:63
+#: admin/customer.php:72 templates/customer.php:117
 msgid "City"
 msgstr ""
 
-#: admin/customer.php:73 templates/customer.php:59
+#: admin/customer.php:73 templates/customer.php:113
 msgid "Postal Code"
 msgstr ""
 
@@ -152,7 +152,7 @@ msgstr ""
 msgid "Office"
 msgstr ""
 
-#: admin/sales-invoice.php:52 templates/customer.php:43
+#: admin/sales-invoice.php:52 templates/customer.php:97
 #: templates/sales-invoice.php:39
 msgid "Type"
 msgstr ""
@@ -341,47 +341,57 @@ msgstr ""
 msgid "Customer Slug"
 msgstr ""
 
-#: templates/customer.php:12 templates/customer.php:47
+#: templates/customer.php:12 templates/customer.php:101
 msgid "Contact"
 msgstr ""
 
-#: templates/customer.php:39
-msgid "Default"
+#: templates/customer.php:36
+msgid "Electronic Billing"
 msgstr ""
 
-#: templates/customer.php:40
+#: templates/customer.php:37 templates/customer.php:59
+#: templates/customer.php:94
 msgid "Yes"
 msgstr ""
 
-#: templates/customer.php:40
+#: templates/customer.php:37 templates/customer.php:65
+#: templates/customer.php:94
 msgid "No"
 msgstr ""
 
-#: templates/customer.php:55
-msgid "Address"
-msgstr ""
-
-#: templates/customer.php:67
-msgid "Country"
-msgstr ""
-
-#: templates/customer.php:71
+#: templates/customer.php:39 templates/customer.php:125
 msgid "Email"
 msgstr ""
 
-#: templates/customer.php:75
+#: templates/customer.php:62
+msgid "Yes, by e-mail"
+msgstr ""
+
+#: templates/customer.php:93
+msgid "Default"
+msgstr ""
+
+#: templates/customer.php:109
+msgid "Address"
+msgstr ""
+
+#: templates/customer.php:121
+msgid "Country"
+msgstr ""
+
+#: templates/customer.php:129
 msgid "Phone Number"
 msgstr ""
 
-#: templates/customer.php:79
+#: templates/customer.php:133
 msgid "Fax Number"
 msgstr ""
 
-#: templates/customer.php:83
+#: templates/customer.php:137
 msgid "VAT Number"
 msgstr ""
 
-#: templates/customer.php:87
+#: templates/customer.php:141
 msgid "COC Number"
 msgstr ""
 
@@ -472,7 +482,7 @@ msgctxt "Customer slug for frontend"
 msgid "customer"
 msgstr ""
 
-#: classes/InvoicesPublic.php:46 classes/InvoicesPublic.php:97
+#: classes/InvoicesPublic.php:46 classes/InvoicesPublic.php:91
 msgctxt "Invoice slug for front end"
 msgid "invoice"
 msgstr ""

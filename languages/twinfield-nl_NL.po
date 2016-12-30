@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Twinfield\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/twinfield\n"
-"POT-Creation-Date: 2016-10-25 11:49:59+00:00\n"
-"PO-Revision-Date: 2016-10-25 14:00+0100\n"
+"POT-Creation-Date: 2016-12-30 12:51:22+00:00\n"
+"PO-Revision-Date: 2016-12-30 13:52+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -23,39 +23,39 @@ msgid "Code"
 msgstr "Code"
 
 #: admin/customer.php:16 admin/customer.php:71 admin/page-offices.php:11
-#: templates/customer.php:17 templates/customer.php:51
+#: templates/customer.php:17 templates/customer.php:105
 msgid "Name"
 msgstr "Naam"
 
-#: admin/customer.php:26
+#: admin/customer.php:26 templates/customer.php:28
 msgid "Financials"
 msgstr "Financiën"
 
-#: admin/customer.php:31
+#: admin/customer.php:31 templates/customer.php:33
 msgid "Due Days"
 msgstr "Vervaldagen"
 
-#: admin/customer.php:43
+#: admin/customer.php:43 templates/customer.php:47
 msgid "Credit Management"
 msgstr "Creditmanagement"
 
-#: admin/customer.php:48
+#: admin/customer.php:48 templates/customer.php:52
 msgid "Send Reminder"
 msgstr "Stuur herinnering"
 
-#: admin/customer.php:56
+#: admin/customer.php:56 templates/customer.php:74
 msgid "Reminder Email"
 msgstr "Herinnering e-mail"
 
-#: admin/customer.php:66 templates/customer.php:28
+#: admin/customer.php:66 templates/customer.php:82
 msgid "Addresses"
 msgstr "Adressen"
 
-#: admin/customer.php:72 templates/customer.php:63
+#: admin/customer.php:72 templates/customer.php:117
 msgid "City"
 msgstr "Plaats"
 
-#: admin/customer.php:73 templates/customer.php:59
+#: admin/customer.php:73 templates/customer.php:113
 msgid "Postal Code"
 msgstr "Postcode"
 
@@ -153,7 +153,7 @@ msgstr "Vervaldatum"
 msgid "Office"
 msgstr "Kantoor"
 
-#: admin/sales-invoice.php:52 templates/customer.php:43
+#: admin/sales-invoice.php:52 templates/customer.php:97
 #: templates/sales-invoice.php:39
 msgid "Type"
 msgstr "Type"
@@ -352,47 +352,57 @@ msgstr "Factuurbasis"
 msgid "Customer Slug"
 msgstr "Klantbasis"
 
-#: templates/customer.php:12 templates/customer.php:47
+#: templates/customer.php:12 templates/customer.php:101
 msgid "Contact"
 msgstr "Contact"
 
-#: templates/customer.php:39
-msgid "Default"
-msgstr "Standaard"
+#: templates/customer.php:36
+msgid "Electronic Billing"
+msgstr "Elektronisch factureren"
 
-#: templates/customer.php:40
+#: templates/customer.php:37 templates/customer.php:59
+#: templates/customer.php:94
 msgid "Yes"
 msgstr "Ja"
 
-#: templates/customer.php:40
+#: templates/customer.php:37 templates/customer.php:65
+#: templates/customer.php:94
 msgid "No"
 msgstr "Nee"
 
-#: templates/customer.php:55
-msgid "Address"
-msgstr "Adres"
-
-#: templates/customer.php:67
-msgid "Country"
-msgstr "Land"
-
-#: templates/customer.php:71
+#: templates/customer.php:39 templates/customer.php:125
 msgid "Email"
 msgstr "E-mailadres"
 
-#: templates/customer.php:75
+#: templates/customer.php:62
+msgid "Yes, by e-mail"
+msgstr "Ja, via e-mail"
+
+#: templates/customer.php:93
+msgid "Default"
+msgstr "Standaard"
+
+#: templates/customer.php:109
+msgid "Address"
+msgstr "Adres"
+
+#: templates/customer.php:121
+msgid "Country"
+msgstr "Land"
+
+#: templates/customer.php:129
 msgid "Phone Number"
 msgstr "Telefoonnummer"
 
-#: templates/customer.php:79
+#: templates/customer.php:133
 msgid "Fax Number"
 msgstr "Faxnummer"
 
-#: templates/customer.php:83
+#: templates/customer.php:137
 msgid "VAT Number"
 msgstr "BTW-nummer"
 
-#: templates/customer.php:87
+#: templates/customer.php:141
 msgid "COC Number"
 msgstr "KvK-nummer"
 
@@ -494,7 +504,7 @@ msgctxt "Customer slug for frontend"
 msgid "customer"
 msgstr "klant"
 
-#: classes/InvoicesPublic.php:46 classes/InvoicesPublic.php:97
+#: classes/InvoicesPublic.php:46 classes/InvoicesPublic.php:91
 msgctxt "Invoice slug for front end"
 msgid "invoice"
 msgstr "factuur"
@@ -546,9 +556,6 @@ msgstr "factuur"
 
 #~ msgid "Newest Number"
 #~ msgstr "Nieuwste nummer"
-
-#~ msgid "Electronic Invoice"
-#~ msgstr "Elektronische factuur"
 
 #~ msgid "Electronic Invoice Email"
 #~ msgstr "Elektronische factuur e-mailadres"
@@ -772,9 +779,6 @@ msgstr "factuur"
 
 #~ msgid "Subscribe with RSS"
 #~ msgstr "Aanmelden voor RSS"
-
-#~ msgid "Subscribe by e-mail"
-#~ msgstr "Aanmelden via e-mail"
 
 #~ msgid "Like this plugin?"
 #~ msgstr "Vind je deze plugin leuk?"

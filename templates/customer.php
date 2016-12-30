@@ -13,12 +13,66 @@
 			</header>
 
 			<div class="content">
-				<dl class="dl-horizontal">
-					<dt><?php esc_html_e( 'Name', 'twinfield' ); ?></dt>
-					<dd><?php echo esc_html( $twinfield_customer->get_name() ); ?></dd>
+				<dl class="row">
+					<dt class="col-sm-2"><?php esc_html_e( 'Name', 'twinfield' ); ?></dt>
+					<dd class="col-sm-10"><?php echo esc_html( $twinfield_customer->get_name() ); ?></dd>
 
-					<dt><?php esc_html_e( 'Office', 'twinfield' ); ?></dt>
-					<dd><?php echo esc_html( $twinfield_customer->get_office() ); ?></dd>
+					<dt class="col-sm-2"><?php esc_html_e( 'Office', 'twinfield' ); ?></dt>
+					<dd class="col-sm-10"><?php echo esc_html( $twinfield_customer->get_office() ); ?></dd>
+				</dl>
+			</div>
+		</div>
+
+		<div class="panel">
+			<header>
+				<h3><?php esc_html_e( 'Financials', 'twinfield' ); ?></h3>
+			</header>
+
+			<div class="content">
+				<dl class="row">
+					<dt class="col-sm-2"><?php esc_html_e( 'Due Days', 'twinfield' ); ?></dt>
+					<dd class="col-sm-10"><?php echo esc_html( $twinfield_customer->get_financials()->get_due_days() ); ?></dd>
+
+					<dt class="col-sm-2"><?php esc_html_e( 'Electronic Billing', 'twinfield' ); ?></dt>
+					<dd class="col-sm-10"><?php echo esc_html( $twinfield_customer->get_financials()->get_ebilling() ? __( 'Yes', 'twinfield' ) : __( 'No', 'twinfield' ) ); ?></dd>
+
+					<dt class="col-sm-2"><?php esc_html_e( 'Email', 'twinfield' ); ?></dt>
+					<dd class="col-sm-10"><?php echo esc_html( $twinfield_customer->get_financials()->get_ebillmail() ); ?></dd>
+				</dl>
+			</div>
+		</div>
+
+		<div class="panel">
+			<header>
+				<h3><?php esc_html_e( 'Credit Management', 'twinfield' ); ?></h3>
+			</header>
+
+			<div class="content">
+				<dl class="row">
+					<dt class="col-sm-2"><?php esc_html_e( 'Send Reminder', 'twinfield' ); ?></dt>
+					<dd class="col-sm-10"><?php
+
+					$send_reminder = $twinfield_customer->get_credit_management()->get_send_reminder();
+
+					switch ( $send_reminder ) {
+						case 'true' :
+							esc_html_e( 'Yes', 'twinfield' );
+							break;
+						case 'email' :
+							esc_html_e( 'Yes, by e-mail', 'twinfield' );
+							break;
+						case 'false' :
+							esc_html_e( 'No', 'twinfield' );
+							break;
+						default :
+							echo esc_html( $send_reminder );
+							break;
+					}
+
+					?></dd>
+
+					<dt class="col-sm-2"><?php esc_html_e( 'Reminder Email', 'twinfield' ); ?></dt>
+					<dd class="col-sm-10"><?php echo esc_html( $twinfield_customer->get_credit_management()->get_reminder_email() ); ?></dd>
 				</dl>
 			</div>
 		</div>
@@ -92,6 +146,8 @@
 					<hr />
 
 				<?php endforeach; ?>
+
+				<?php var_dump( $twinfield_customer ); ?>
 
 			</div>
 		</div>
