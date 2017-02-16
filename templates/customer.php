@@ -98,12 +98,12 @@
 							<td><?php echo esc_html( $address->get_type() ); ?></td>
 						</tr>
 						<tr>
-							<th scope="row"><?php esc_html_e( 'Contact', 'twinfield' ); ?></th>
-							<td><?php echo esc_html( $address->get_contact() ); ?></td>
-						</tr>
-						<tr>
 							<th scope="row"><?php esc_html_e( 'Name', 'twinfield' ); ?></th>
 							<td><?php echo esc_html( $address->get_name() ); ?></td>
+						</tr>
+						<tr>
+							<th scope="row"><?php esc_html_e( 'Contact', 'twinfield' ); ?></th>
+							<td><?php echo esc_html( $address->get_field_1() ); ?></td>
 						</tr>
 						<tr>
 							<th scope="row"><?php esc_html_e( 'Address', 'twinfield' ); ?></th>
@@ -146,8 +146,6 @@
 					<hr />
 
 				<?php endforeach; ?>
-
-				<?php var_dump( $twinfield_customer ); ?>
 
 			</div>
 		</div>
