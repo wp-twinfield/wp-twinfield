@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Twinfield\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/twinfield\n"
-"POT-Creation-Date: 2016-10-25 11:49:59+00:00\n"
-"PO-Revision-Date: 2016-10-25 14:00+0100\n"
+"POT-Creation-Date: 2018-03-05 19:25:03+00:00\n"
+"PO-Revision-Date: 2018-03-05 14:29+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7.4\n"
+"X-Generator: Poedit 2.0.6\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
@@ -63,11 +63,11 @@ msgstr "Postcode"
 msgid "Telephone"
 msgstr "Telefoon"
 
-#: admin/meta-box-article.php:4 classes/Settings.php:128
+#: admin/meta-box-article.php:4 classes/Settings.php:193
 msgid "Article Code"
 msgstr "Artikel code"
 
-#: admin/meta-box-article.php:12 classes/Settings.php:144
+#: admin/meta-box-article.php:12 classes/Settings.php:209
 msgid "Subarticle Code"
 msgstr "Subartikel code"
 
@@ -104,7 +104,7 @@ msgstr "Kon geen verbinding maken met Twinfield."
 msgid "Quick Login"
 msgstr "Snel inloggen"
 
-#: admin/page-dashboard.php:21 classes/Settings.php:35
+#: admin/page-dashboard.php:21
 msgid "Login"
 msgstr "Inloggen"
 
@@ -289,41 +289,66 @@ msgstr "Factuur aangemaakt door WordPress op %s."
 msgid "Invoice %s"
 msgstr "Factuur %s"
 
-#: classes/Settings.php:42
+#: classes/Settings.php:33
+msgid "OpenID Connect Authentication"
+msgstr "OpenID Connect Authentication"
+
+#: classes/Settings.php:43
+msgid "Client ID"
+msgstr ""
+
+#: classes/Settings.php:57
+msgid "Client Secret"
+msgstr ""
+
+#: classes/Settings.php:72
+msgid "Redirect URI"
+msgstr ""
+
+#: classes/Settings.php:90
+#, fuzzy
+msgid "Connection"
+msgstr "Configuratie"
+
+#: classes/Settings.php:100
+msgid "Web Services Authentication"
+msgstr "Web services authentication"
+
+#: classes/Settings.php:107
 msgid "Username"
 msgstr "Gebruikersnaam"
 
-#: classes/Settings.php:51
+#: classes/Settings.php:116
 msgid "Password"
 msgstr "Wachtwoord"
 
-#: classes/Settings.php:60
+#: classes/Settings.php:125
 msgid "Organisation"
 msgstr "Organisatie"
 
-#: classes/Settings.php:77
+#: classes/Settings.php:142
 msgid "Defaults"
 msgstr "Standaarden"
 
-#: classes/Settings.php:98
+#: classes/Settings.php:163
 msgid "Invoice Type Code"
 msgstr "Factuurtype code"
 
-#: classes/Settings.php:112
+#: classes/Settings.php:177
 msgid "VAT Code"
-msgstr "BTW-code"
+msgstr "Btw-code"
 
 #. translators: use same translations as on Twinfield.com.
-#: classes/Settings.php:121
+#: classes/Settings.php:186
 msgid ""
 "This VAT code is used by default to create Twinfield invoice lines unless "
 "you have specified an Twinfield VAT code on a lower level."
 msgstr ""
-"Deze BTW-code wordt standaard gebruikt om Twinfield factuurregels aan te "
-"maken tenzij op een lager niveau een BTW-code is gespecificeerd."
+"Deze btw-code wordt standaard gebruikt om Twinfield factuurregels aan te "
+"maken tenzij op een lager niveau een btw-code is gespecificeerd."
 
 #. translators: use same translations as on Twinfield.com.
-#: classes/Settings.php:137
+#: classes/Settings.php:202
 msgid ""
 "This article code is used by default to create Twinfield invoice lines "
 "unless you have specified an Twinfield article code on a lower level."
@@ -332,7 +357,7 @@ msgstr ""
 "maken tenzij op een lager niveau een artikel code is gespecificeerd."
 
 #. translators: use same translations as on Twinfield.com.
-#: classes/Settings.php:153
+#: classes/Settings.php:218
 msgid ""
 "This subarticle code is used by default to create Twinfield invoice lines "
 "unless you have specified an Twinfield subarticle code on a lower level."
@@ -340,17 +365,31 @@ msgstr ""
 "Deze subartikel code wordt standaard gebruikt om Twinfield factuurregels aan "
 "te maken tenzij op een lager niveau een subartikel code is gespecificeerd."
 
-#: classes/Settings.php:169
+#: classes/Settings.php:234
 msgid "Permalinks"
 msgstr "Permalinks"
 
-#: classes/Settings.php:176
+#: classes/Settings.php:241
 msgid "Invoice Slug"
 msgstr "Factuurbasis"
 
-#: classes/Settings.php:188
+#: classes/Settings.php:253
 msgid "Customer Slug"
 msgstr "Klantbasis"
+
+#: classes/Settings.php:300
+msgid "Connect with Twinfield"
+msgstr "Maak verbinding met Twinfield"
+
+#: classes/Settings.php:321
+msgid ""
+"Session login is deprecated and will be removed. End of life date will be "
+"announced later."
+msgstr ""
+
+#: classes/Settings.php:322
+msgid "For web services authentication use Open ID Connect instead."
+msgstr ""
 
 #: templates/customer.php:12 templates/customer.php:47
 msgid "Contact"
@@ -390,7 +429,7 @@ msgstr "Faxnummer"
 
 #: templates/customer.php:83
 msgid "VAT Number"
-msgstr "BTW-nummer"
+msgstr "Btw-nummer"
 
 #: templates/customer.php:87
 msgid "COC Number"
@@ -448,13 +487,13 @@ msgid "Companies"
 msgstr "Administraties"
 
 #. translators: use same translations as on Twinfield.com.
-#: classes/Settings.php:85
+#: classes/Settings.php:150
 msgctxt "twinfield.com"
 msgid "Company Code"
 msgstr "Administratie code"
 
 #. translators: use same translations as on Twinfield.com.
-#: classes/Settings.php:92
+#: classes/Settings.php:157
 msgctxt "twinfield.com"
 msgid ""
 "You can find your companies in Twinfield under \"Profile » Companies\" or "
@@ -464,7 +503,7 @@ msgstr ""
 "Administraties\" of \"Algemeen » Systeem » Administratie wisselen\"."
 
 #. translators: use same translations as on Twinfield.com.
-#: classes/Settings.php:106
+#: classes/Settings.php:171
 msgctxt "twinfield.com"
 msgid ""
 "You can find your invoice types in Twinfield under \"Credit management » "
@@ -473,15 +512,15 @@ msgstr ""
 "Je kunt je factuurtypen in Twinfield vinden onder \"Facturatie » Factureren "
 "» Factuurtypen\"."
 
-#: classes/Settings.php:122
+#: classes/Settings.php:187
 msgctxt "twinfield.com"
 msgid ""
 "You can find your VAT codes in Twinfield under \"General » Company » VAT\"."
 msgstr ""
-"Je kunt je BTW-codes in Twinfield vinden onder \"Algemeen » Administratie » "
+"Je kunt je btw-codes in Twinfield vinden onder \"Algemeen » Administratie » "
 "Btw\"."
 
-#: classes/Settings.php:138 classes/Settings.php:154
+#: classes/Settings.php:203 classes/Settings.php:219
 msgctxt "twinfield.com"
 msgid ""
 "You can find your articles in Twinfield under \"Credit management » Items\"."
@@ -494,7 +533,7 @@ msgctxt "Customer slug for frontend"
 msgid "customer"
 msgstr "klant"
 
-#: classes/InvoicesPublic.php:46 classes/InvoicesPublic.php:97
+#: classes/InvoicesPublic.php:46 classes/InvoicesPublic.php:91
 msgctxt "Invoice slug for front end"
 msgid "invoice"
 msgstr "factuur"
@@ -796,6 +835,3 @@ msgstr "factuur"
 
 #~ msgid "Found a bug?"
 #~ msgstr "Bug gevonden?"
-
-#~ msgid "Configuration"
-#~ msgstr "Configuratie"

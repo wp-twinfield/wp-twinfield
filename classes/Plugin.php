@@ -58,7 +58,159 @@ class Plugin {
 	 * Initialize
 	 */
 	public function init() {
+		$this->maybe_handle_oauth();
+	}
 
+	public function maybe_handle_oauth() {
+		if ( ! filter_has_var( INPUT_GET, 'code' ) ) {
+			return;
+		}
+
+		if ( ! filter_has_var( INPUT_GET, 'state' ) ) {
+			return;
+		}
+
+		if ( ! filter_has_var( INPUT_GET, 'session_state' ) ) {
+			return;
+		}
+
+		$code          = filter_input( INPUT_GET, 'code', FILTER_SANITIZE_STRING );
+		$state         = filter_input( INPUT_GET, 'state', FILTER_SANITIZE_STRING );
+		$session_state = filter_input( INPUT_GET, 'session_state', FILTER_SANITIZE_STRING );
+
+		$data = $this->get_access_token( $code );
+
+		if ( is_object( $data ) ) {
+			if ( isset( $data->id_token ) ) {
+				update_option( 'twinfield_id_token', $data->id_token );
+			}
+
+			if ( isset( $data->access_token ) ) {
+				update_option( 'twinfield_access_token', $data->access_token );
+			}
+
+			if ( isset( $data->expires_in ) ) {
+				update_option( 'twinfield_expires_in', $data->expires_in );	
+			}
+
+			if ( isset( $data->token_type ) ) {
+				update_option( 'twinfield_token_type', $data->token_type );	
+			}
+
+			if ( isset( $data->refresh_token ) ) {
+				update_option( 'twinfield_refresh_token', $data->refresh_token );	
+			}
+		}
+
+		$url = add_query_arg( array(
+			'code'          => false,
+			'state'         => false,
+			'session_state' => false,
+		) );
+
+		wp_redirect( $url );
+
+		exit;
+	}
+
+	public function get_access_token( $code ) {
+		$url = 'https://login.twinfield.com/auth/authentication/connect/token';
+
+		$client_id     = 'WordPress';
+		$client_secret = 'lo5FKg3gucMaHLlhsXkn21u82XSXaO/4Tw==';
+		$redirect_uri  = 'https://wordpress-twinfield.pronamic.eu/';
+
+		$result = wp_remote_post( $url, array(
+			'headers' => array(
+				// @see https://developer.wordpress.org/plugins/http-api/#get-using-basic-authentication
+				// @see https://c3.twinfield.com/webservices/documentation/#/ApiReference/Authentication/OpenIdConnect#General-information
+				'Authorization' => 'Basic ' . base64_encode( $client_id . ':' . $client_secret ),
+			),
+			'body'    => array(
+				'grant_type'   => 'authorization_code',
+				'code'         => $code,
+				'redirect_uri' => $redirect_uri,
+			),
+		) );
+
+		if ( is_wp_error( $result ) ) {
+			return false;
+		}
+
+		$body = wp_remote_retrieve_body( $result );
+
+		$data = json_decode( $body );
+
+		return $data;
+	}
+
+	public function get_token_info( $access_token ) {
+		$access_token = get_option( 'twinfield_access_token' );
+
+		if ( empty( $access_token ) ) {
+			return false;
+		}
+
+		$url = 'https://login.twinfield.com/auth/authentication/connect/accesstokenvalidation';
+		$url = add_query_arg( 'token', $access_token, $url );
+
+		$result = wp_remote_get( $url );
+
+		if ( is_wp_error( $result ) ) {
+			return false;
+		}
+
+		$body = wp_remote_retrieve_body( $result );
+
+		$data = json_decode( $body );
+
+		return $data;
+	}
+
+	public function refresh_token() {
+		$refresh_token = get_option( 'twinfield_refresh_token' );
+
+		if ( empty( $refresh_token ) ) {
+			return false;
+		}
+
+		$result = wp_remote_post( $url, array(
+			'headers' => array(
+				// @see https://developer.wordpress.org/plugins/http-api/#get-using-basic-authentication
+				// @see https://c3.twinfield.com/webservices/documentation/#/ApiReference/Authentication/OpenIdConnect#General-information
+				'Authorization' => 'Basic ' . base64_encode( $client_id . ':' . $client_secret ),
+			),
+			'body'    => array(
+				'grant_type'    => 'refresh_token',
+				'refresh_token' => $refresh_token,
+			),
+		) );
+
+		if ( is_wp_error( $result ) ) {
+			return false;
+		}
+
+		$body = wp_remote_retrieve_body( $result );
+
+		$data = json_decode( $body );
+
+		if ( is_object( $data ) ) {
+			if ( isset( $data->access_token ) ) {
+				update_option( 'twinfield_access_token', $data->access_token );
+			}
+
+			if ( isset( $data->expires_in ) ) {
+				update_option( 'twinfield_expires_in', $data->expires_in );	
+			}
+
+			if ( isset( $data->token_type ) ) {
+				update_option( 'twinfield_token_type', $data->token_type );	
+			}
+
+			if ( isset( $data->refresh_token ) ) {
+				update_option( 'twinfield_refresh_token', $data->refresh_token );	
+			}
+		}
 	}
 
 	//////////////////////////////////////////////////

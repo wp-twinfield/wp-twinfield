@@ -27,13 +27,78 @@ class Settings {
 	 * Admin initialize
 	 */
 	public function admin_init() {
-		/*
-		 * API
-		 */
+		// Section - OpenID Connect Authentication.
 		add_settings_section(
-			'twinfield_login',
-			__( 'Login', 'twinfield' ),
-			'__return_false',
+			'twinfield_openid_connect_authentication',
+			__( 'OpenID Connect Authentication', 'twinfield' ),
+			array( $this, 'section_openid_connect_authentication' ),
+			'twinfield'
+		);
+
+		// Client ID.
+		register_setting( 'twinfield', 'twinfield_openid_connect_client_id' );
+
+		add_settings_field(
+			'twinfield_openid_connect_client_id',
+			__( 'Client ID', 'twinfield' ),
+			array( $this, 'render_text' ),
+			'twinfield',
+			'twinfield_openid_connect_authentication',
+			array(
+				'label_for' => 'twinfield_openid_connect_client_id',
+			)
+		);
+
+		// Client Secret.
+		register_setting( 'twinfield', 'twinfield_openid_connect_client_secret' );
+
+		add_settings_field(
+			'twinfield_openid_connect_client_secret',
+			__( 'Client Secret', 'twinfield' ),
+			array( $this, 'render_text' ),
+			'twinfield',
+			'twinfield_openid_connect_authentication',
+			array(
+				'label_for' => 'twinfield_openid_connect_client_secret',
+				'type'      => 'password',
+			)
+		);
+
+		// Redirect URI.
+		register_setting( 'twinfield', 'twinfield_openid_connect_redirect_uri' );
+
+		add_settings_field(
+			'twinfield_openid_connect_redirect_uri',
+			__( 'Redirect URI', 'twinfield' ),
+			array( $this, 'render_text' ),
+			'twinfield',
+			'twinfield_openid_connect_authentication',
+			array(
+				'label_for' => 'twinfield_openid_connect_redirect_uri',
+				'type'      => 'url',
+			)
+		);
+
+		// Connect Link.
+		$client_id     = get_option( 'twinfield_openid_connect_client_id' );
+		$client_secret = get_option( 'twinfield_openid_connect_client_secret' );
+		$redirect_uri  = get_option( 'twinfield_openid_connect_redirect_uri' );
+
+		if ( $client_id && $client_secret && $redirect_uri ) {
+			add_settings_field(
+				'twinfield_openid_connect_link',
+				__( 'Connection', 'twinfield' ),
+				array( $this, 'field_connect_link' ),
+				'twinfield',
+				'twinfield_openid_connect_authentication'
+			);
+		}
+
+		// Section - Web Services Authentication.
+		add_settings_section(
+			'twinfield_web_services_authentication',
+			__( 'Web Services Authentication', 'twinfield' ),
+			array( $this, 'section_web_services_authentication' ),
 			'twinfield'
 		);
 
@@ -42,7 +107,7 @@ class Settings {
 			__( 'Username', 'twinfield' ),
 			array( $this, 'render_text' ),
 			'twinfield',
-			'twinfield_login',
+			'twinfield_web_services_authentication',
 			array( 'label_for' => 'twinfield_username' )
 		);
 
@@ -51,7 +116,7 @@ class Settings {
 			__( 'Password', 'twinfield' ),
 			array( $this, 'render_password' ),
 			'twinfield',
-			'twinfield_login',
+			'twinfield_web_services_authentication',
 			array( 'label_for' => 'twinfield_password' )
 		);
 
@@ -60,7 +125,7 @@ class Settings {
 			__( 'Organisation', 'twinfield' ),
 			array( $this, 'render_text' ),
 			'twinfield',
-			'twinfield_login',
+			'twinfield_web_services_authentication',
 			array( 'label_for' => 'twinfield_organisation' )
 		);
 
@@ -200,7 +265,62 @@ class Settings {
 		register_setting( 'twinfield', 'twinfield_customer_slug' );
 	}
 
-	//////////////////////////////////////////////////
+	/**
+	 * Section.
+	 */
+	public function field_connect_link() {
+		$client_id     = get_option( 'twinfield_openid_connect_client_id' );
+		$client_secret = get_option( 'twinfield_openid_connect_client_secret' );
+		$redirect_uri  = get_option( 'twinfield_openid_connect_redirect_uri' );
+
+		$state = new \stdClass();
+		$state->redirect_uri = add_query_arg( 'page', 'twinfield_settings', admin_url( 'admin.php' ) );
+
+		$url = 'https://login.twinfield.com/auth/authentication/connect/authorize';
+
+		$url = add_query_arg( array(
+			'client_id'     => $client_id,
+			'response_type' => 'code',
+			'scope'         => implode( '+', array(
+				'openid',
+				'twf.user',
+				'twf.organisation',
+				'twf.organisationUser',
+				'offline_access',
+			) ),
+			'redirect_uri'  => $redirect_uri,
+			// @see https://auth0.com/docs/protocols/oauth2/oauth-state
+			'state'         => base64_encode( wp_json_encode( $state ) ),
+			'nonce'         => wp_create_nonce( 'twinfield-auth' ),
+		), $url );
+
+		printf(
+			'<a href="%s">%s</a>',
+			esc_url( $url ),
+			esc_html__( 'Connect with Twinfield', 'twinfield' )
+		);
+
+		$access_token = get_option( 'twinfield_access_token' );
+
+		$info = $this->plugin->get_token_info( $access_token );
+
+		var_dump( $info );
+	}
+
+	/**
+	 * Section.
+	 */
+	public function section_openid_connect_authentication() {
+
+	}
+
+	/**
+	 * Section.
+	 */
+	public function section_web_services_authentication() {
+		echo __( 'Session login is deprecated and will be removed. End of life date will be announced later.', 'twinfield' ), '<br />';
+		echo __( 'For web services authentication use Open ID Connect instead.', 'twinfield' );
+	}
 
 	/**
 	 * Array to HTML attributes
