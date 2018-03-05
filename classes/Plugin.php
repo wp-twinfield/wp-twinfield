@@ -145,8 +145,6 @@ class Plugin {
 	}
 
 	public function get_token_info( $access_token ) {
-		$access_token = get_option( 'twinfield_access_token' );
-
 		if ( empty( $access_token ) ) {
 			return false;
 		}
