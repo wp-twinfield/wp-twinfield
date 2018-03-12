@@ -90,7 +90,8 @@ class Plugin {
 			}
 
 			if ( isset( $data->expires_in ) ) {
-				update_option( 'twinfield_expires_in', $data->expires_in );	
+				update_option( 'twinfield_expires_in', $data->expires_in );
+				update_option( 'twinfield_expires', time() + $data->expires_in );	
 			}
 
 			if ( isset( $data->token_type ) ) {
@@ -116,9 +117,9 @@ class Plugin {
 	public function get_access_token( $code ) {
 		$url = 'https://login.twinfield.com/auth/authentication/connect/token';
 
-		$client_id     = 'WordPress';
-		$client_secret = 'lo5FKg3gucMaHLlhsXkn21u82XSXaO/4Tw==';
-		$redirect_uri  = 'https://wordpress-twinfield.pronamic.eu/';
+		$client_id     = get_option( 'twinfield_openid_connect_client_id' );
+		$client_secret = get_option( 'twinfield_openid_connect_client_secret' );
+		$redirect_uri  = get_option( 'twinfield_openid_connect_redirect_uri' );
 
 		$result = wp_remote_post( $url, array(
 			'headers' => array(
@@ -172,6 +173,9 @@ class Plugin {
 			return false;
 		}
 
+		$client_id     = get_option( 'twinfield_openid_connect_client_id' );
+		$client_secret = get_option( 'twinfield_openid_connect_client_secret' );
+
 		$result = wp_remote_post( $url, array(
 			'headers' => array(
 				// @see https://developer.wordpress.org/plugins/http-api/#get-using-basic-authentication
@@ -198,15 +202,16 @@ class Plugin {
 			}
 
 			if ( isset( $data->expires_in ) ) {
-				update_option( 'twinfield_expires_in', $data->expires_in );	
+				update_option( 'twinfield_expires_in', $data->expires_in );
+				update_option( 'twinfield_expires', time() + $data->expires_in );
 			}
 
 			if ( isset( $data->token_type ) ) {
-				update_option( 'twinfield_token_type', $data->token_type );	
+				update_option( 'twinfield_token_type', $data->token_type );
 			}
 
 			if ( isset( $data->refresh_token ) ) {
-				update_option( 'twinfield_refresh_token', $data->refresh_token );	
+				update_option( 'twinfield_refresh_token', $data->refresh_token );
 			}
 		}
 	}
@@ -247,37 +252,43 @@ class Plugin {
 
 	//////////////////////////////////////////////////
 
-	private function get_session() {
+	private function get_client() {
 		$user         = get_option( 'twinfield_username' );
 		$password     = get_option( 'twinfield_password' );
 		$organisation = get_option( 'twinfield_organisation' );
 
 		$credentials = new Credentials( $user, $password, $organisation );
 
-		$client = new Client();
+		$authentication_strategy = new \Pronamic\WP\Twinfield\Authentication\WebServicesAuthenticationStrategy( $credentials );
 
-		$logon_response = $client->logon( $credentials );
+		$authentication_info = $authentication_strategy->login();
 
-		$session = $client->get_session( $logon_response );
+		$access_token = get_option( 'twinfield_access_token' );
+		$office       = '66470';
+		$cluster      = 'https://accounting.twinfield.com';
 
-		return $session;
+		$authentication_strategy = new \Pronamic\WP\Twinfield\Authentication\OpenIdConnectAuthenticationStrategy( $access_token, $office, $cluster );
+
+		$authentication_info = $authentication_strategy->login();
+
+		$client = new Client( $authentication_strategy );
+
+		$client->login();
+
+		return $client;
 	}
 
 	/**
 	 * Get XML processor
 	 */
 	public function get_xml_processor() {
-		$xml_processor = new XMLProcessor( $this->get_session() );
-
-		return $xml_processor;
+		return $this->get_client()->get_xml_processor();
 	}
 
 	/**
 	 * Get finder
 	 */
 	public function get_finder() {
-		$finder = new Finder( $this->get_session() );
-
-		return $finder;
+		return $this->get_client()->get_finder();
 	}
 }

@@ -21,7 +21,7 @@ class InvoicesPublic {
 		$this->plugin = $plugin;
 
 		// Actions.
-		add_action( 'generate_rewrite_rules', array( $this, 'generate_rewrite_rules' ) );
+		add_action( 'init', array( $this, 'init' ) );
 
 		add_action( 'query_vars', array( $this, 'query_vars' ) );
 
@@ -33,22 +33,31 @@ class InvoicesPublic {
 		add_filter( 'wp_title_parts', array( $this, 'wp_title_parts' ) );
 	}
 
-	/**
-	 * Generate rewrite rules.
-	 *
-	 * @see https://github.com/WP-API/api-core/blob/develop/wp-includes/rest-api/rest-functions.php#L119-L129
-	 * @param \WP_Rewrite $wp_rewrite
-	 */
-	public function generate_rewrite_rules( $wp_rewrite ) {
-		$rules = array();
+	public function init() {
+		$prefix = $this->plugin->get_url_prefix();
 
-		// Get the invoice slug from options.
+		// Rewrite Rules
+		// @see https://make.wordpress.org/core/2015/10/07/add_rewrite_rule-accepts-an-array-of-query-vars-in-wordpress-4-4/
 		$slug = get_option( 'twinfield_invoice_slug', _x( 'invoice', 'Invoice slug for front end', 'twinfield' ) );
 
-		$rules[ '^' . $this->plugin->get_url_prefix() . '/' . $slug . '/([^/]+)$' ] = 'index.php?twinfield_sales_invoice_id=' . $wp_rewrite->preg_index( 1 );
-		$rules[ '^' . $this->plugin->get_url_prefix() . '/' . $slug . '/([^/]+)/([^/]+)$' ] = 'index.php?twinfield_sales_invoice_type=' . $wp_rewrite->preg_index( 2 ) . '&twinfield_sales_invoice_id=' . $wp_rewrite->preg_index( 1 );
+		add_rewrite_rule(
+			$prefix . '/' . $slug . '/([^/]+)/?',
+			array(
+				'twinfield'                  => true,
+				'twinfield_sales_invoice_id' => '$matches[1]',
+			),
+			'top'
+		);
 
-		$wp_rewrite->rules = array_merge( $rules, $wp_rewrite->rules );
+		add_rewrite_rule(
+			$prefix . '/' . $slug . '/([^/]+)/([^/]+)/?',
+			array(
+				'twinfield'                    => true,
+				'twinfield_sales_invoice_type' => '$matches[1]',
+				'twinfield_sales_invoice_id'   => '$matches[2]',
+			),
+			'top'
+		);
 	}
 
 	/**

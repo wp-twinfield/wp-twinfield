@@ -212,7 +212,7 @@ class Settings {
 			'twinfield_defaults',
 			array(
 				'label_for'   => 'twinfield_default_subarticle_code',
-				'classes'	 => array( 'regular-text', 'code' ),
+				'classes'	  => array( 'regular-text', 'code' ),
 				/* translators: use same translations as on Twinfield.com. */
 				'description' =>
 					__( 'This subarticle code is used by default to create Twinfield invoice lines unless you have specified an Twinfield subarticle code on a lower level.', 'twinfield' ) . '<br />' .
