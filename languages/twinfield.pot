@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Twinfield 1.1.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/twinfield\n"
-"POT-Creation-Date: 2018-03-05 19:25:03+00:00\n"
+"POT-Creation-Date: 2018-03-13 12:31:19+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "X-Generator: grunt-wp-i18n1.0.2\n"
 
-#: admin/customer.php:3 admin/page-documentation.php:8
+#: admin/customer.php:3 admin/page-documentation.php:8 classes/Settings.php:33
 msgid "General"
 msgstr ""
 
@@ -22,39 +22,39 @@ msgid "Code"
 msgstr ""
 
 #: admin/customer.php:16 admin/customer.php:71 admin/page-offices.php:11
-#: templates/customer.php:17 templates/customer.php:51
+#: templates/customer.php:17 templates/customer.php:101
 msgid "Name"
 msgstr ""
 
-#: admin/customer.php:26
+#: admin/customer.php:26 templates/customer.php:28
 msgid "Financials"
 msgstr ""
 
-#: admin/customer.php:31
+#: admin/customer.php:31 templates/customer.php:33
 msgid "Due Days"
 msgstr ""
 
-#: admin/customer.php:43
+#: admin/customer.php:43 templates/customer.php:47
 msgid "Credit Management"
 msgstr ""
 
-#: admin/customer.php:48
+#: admin/customer.php:48 templates/customer.php:52
 msgid "Send Reminder"
 msgstr ""
 
-#: admin/customer.php:56
+#: admin/customer.php:56 templates/customer.php:74
 msgid "Reminder Email"
 msgstr ""
 
-#: admin/customer.php:66 templates/customer.php:28
+#: admin/customer.php:66 templates/customer.php:82
 msgid "Addresses"
 msgstr ""
 
-#: admin/customer.php:72 templates/customer.php:63
+#: admin/customer.php:72 templates/customer.php:117
 msgid "City"
 msgstr ""
 
-#: admin/customer.php:73 templates/customer.php:59
+#: admin/customer.php:73 templates/customer.php:113
 msgid "Postal Code"
 msgstr ""
 
@@ -62,11 +62,11 @@ msgstr ""
 msgid "Telephone"
 msgstr ""
 
-#: admin/meta-box-article.php:4 classes/Settings.php:193
+#: admin/meta-box-article.php:4 classes/Settings.php:232
 msgid "Article Code"
 msgstr ""
 
-#: admin/meta-box-article.php:12 classes/Settings.php:209
+#: admin/meta-box-article.php:12 classes/Settings.php:248
 msgid "Subarticle Code"
 msgstr ""
 
@@ -152,7 +152,7 @@ msgstr ""
 msgid "Office"
 msgstr ""
 
-#: admin/sales-invoice.php:52 templates/customer.php:43
+#: admin/sales-invoice.php:52 templates/customer.php:97
 #: templates/sales-invoice.php:39
 msgid "Type"
 msgstr ""
@@ -280,146 +280,172 @@ msgstr ""
 msgid "Invoice created by WordPress on %s."
 msgstr ""
 
-#: classes/InvoicesPublic.php:134 templates/sales-invoice.php:9
+#: classes/InvoicesPublic.php:143 templates/sales-invoice.php:9
 msgid "Invoice %s"
 msgstr ""
 
-#: classes/Settings.php:33
+#: classes/Settings.php:43
+msgid "Authorization Method"
+msgstr ""
+
+#: classes/Settings.php:50
+msgid "None"
+msgstr ""
+
+#: classes/Settings.php:51 classes/Settings.php:61
 msgid "OpenID Connect Authentication"
 msgstr ""
 
-#: classes/Settings.php:43
-msgid "Client ID"
-msgstr ""
-
-#: classes/Settings.php:57
-msgid "Client Secret"
-msgstr ""
-
-#: classes/Settings.php:72
-msgid "Redirect URI"
-msgstr ""
-
-#: classes/Settings.php:90
-msgid "Connection"
-msgstr ""
-
-#: classes/Settings.php:100
+#: classes/Settings.php:52 classes/Settings.php:126
 msgid "Web Services Authentication"
 msgstr ""
 
-#: classes/Settings.php:107
+#: classes/Settings.php:71
+msgid "Client ID"
+msgstr ""
+
+#: classes/Settings.php:85
+msgid "Client Secret"
+msgstr ""
+
+#: classes/Settings.php:100
+msgid "Redirect URI"
+msgstr ""
+
+#: classes/Settings.php:114
+msgid "Connection"
+msgstr ""
+
+#: classes/Settings.php:133
 msgid "Username"
 msgstr ""
 
-#: classes/Settings.php:116
+#: classes/Settings.php:142
 msgid "Password"
 msgstr ""
 
-#: classes/Settings.php:125
+#: classes/Settings.php:151
 msgid "Organisation"
 msgstr ""
 
-#: classes/Settings.php:142
+#: classes/Settings.php:169
 msgid "Defaults"
 msgstr ""
 
-#: classes/Settings.php:163
+#: classes/Settings.php:202
 msgid "Invoice Type Code"
 msgstr ""
 
-#: classes/Settings.php:177
+#: classes/Settings.php:216
 msgid "VAT Code"
 msgstr ""
 
-#: classes/Settings.php:186
+#: classes/Settings.php:225
 #. translators: use same translations as on Twinfield.com.
 msgid ""
 "This VAT code is used by default to create Twinfield invoice lines unless "
 "you have specified an Twinfield VAT code on a lower level."
 msgstr ""
 
-#: classes/Settings.php:202
+#: classes/Settings.php:241
 #. translators: use same translations as on Twinfield.com.
 msgid ""
 "This article code is used by default to create Twinfield invoice lines "
 "unless you have specified an Twinfield article code on a lower level."
 msgstr ""
 
-#: classes/Settings.php:218
+#: classes/Settings.php:257
 #. translators: use same translations as on Twinfield.com.
 msgid ""
 "This subarticle code is used by default to create Twinfield invoice lines "
 "unless you have specified an Twinfield subarticle code on a lower level."
 msgstr ""
 
-#: classes/Settings.php:234
+#: classes/Settings.php:274
 msgid "Permalinks"
 msgstr ""
 
-#: classes/Settings.php:241
+#: classes/Settings.php:281
 msgid "Invoice Slug"
 msgstr ""
 
-#: classes/Settings.php:253
+#: classes/Settings.php:293
 msgid "Customer Slug"
 msgstr ""
 
-#: classes/Settings.php:300
+#: classes/Settings.php:320
 msgid "Connect with Twinfield"
 msgstr ""
 
-#: classes/Settings.php:321
+#: classes/Settings.php:323
+msgid "Reconnect with Twinfield"
+msgstr ""
+
+#: classes/Settings.php:347
+msgid "Twinfield web site"
+msgstr ""
+
+#: classes/Settings.php:356
 msgid ""
 "Session login is deprecated and will be removed. End of life date will be "
 "announced later."
 msgstr ""
 
-#: classes/Settings.php:322
+#: classes/Settings.php:357
 msgid "For web services authentication use Open ID Connect instead."
 msgstr ""
 
-#: templates/customer.php:12 templates/customer.php:47
+#: templates/customer.php:12 templates/customer.php:105
 msgid "Contact"
 msgstr ""
 
-#: templates/customer.php:39
-msgid "Default"
+#: templates/customer.php:36
+msgid "Electronic Billing"
 msgstr ""
 
-#: templates/customer.php:40
+#: templates/customer.php:37 templates/customer.php:59
+#: templates/customer.php:94
 msgid "Yes"
 msgstr ""
 
-#: templates/customer.php:40
+#: templates/customer.php:37 templates/customer.php:65
+#: templates/customer.php:94
 msgid "No"
 msgstr ""
 
-#: templates/customer.php:55
-msgid "Address"
-msgstr ""
-
-#: templates/customer.php:67
-msgid "Country"
-msgstr ""
-
-#: templates/customer.php:71
+#: templates/customer.php:39 templates/customer.php:125
 msgid "Email"
 msgstr ""
 
-#: templates/customer.php:75
+#: templates/customer.php:62
+msgid "Yes, by e-mail"
+msgstr ""
+
+#: templates/customer.php:93
+msgid "Default"
+msgstr ""
+
+#: templates/customer.php:109
+msgid "Address"
+msgstr ""
+
+#: templates/customer.php:121
+msgid "Country"
+msgstr ""
+
+#: templates/customer.php:129
 msgid "Phone Number"
 msgstr ""
 
-#: templates/customer.php:79
+#: templates/customer.php:133
 msgid "Fax Number"
 msgstr ""
 
-#: templates/customer.php:83
+#: templates/customer.php:137
 msgid "VAT Number"
 msgstr ""
 
-#: templates/customer.php:87
+#: templates/customer.php:141
 msgid "COC Number"
 msgstr ""
 
@@ -472,13 +498,19 @@ msgctxt "twinfield.com"
 msgid "Companies"
 msgstr ""
 
-#: classes/Settings.php:150
+#: classes/Settings.php:177
+#. translators: use same translations as on Twinfield.com.
+msgctxt "twinfield.com"
+msgid "Cluster"
+msgstr ""
+
+#: classes/Settings.php:189
 #. translators: use same translations as on Twinfield.com.
 msgctxt "twinfield.com"
 msgid "Company Code"
 msgstr ""
 
-#: classes/Settings.php:157
+#: classes/Settings.php:196
 #. translators: use same translations as on Twinfield.com.
 msgctxt "twinfield.com"
 msgid ""
@@ -486,7 +518,7 @@ msgid ""
 "\"General » System » Switch company\"."
 msgstr ""
 
-#: classes/Settings.php:171
+#: classes/Settings.php:210
 #. translators: use same translations as on Twinfield.com.
 msgctxt "twinfield.com"
 msgid ""
@@ -494,23 +526,23 @@ msgid ""
 "Invoicing » Invoicing types\"."
 msgstr ""
 
-#: classes/Settings.php:187
+#: classes/Settings.php:226
 msgctxt "twinfield.com"
 msgid "You can find your VAT codes in Twinfield under \"General » Company » VAT\"."
 msgstr ""
 
-#: classes/Settings.php:203 classes/Settings.php:219
+#: classes/Settings.php:242 classes/Settings.php:258
 msgctxt "twinfield.com"
 msgid "You can find your articles in Twinfield under \"Credit management » Items\"."
 msgstr ""
 
-#: classes/CustomersPublic.php:46 classes/CustomersPublic.php:88
+#: classes/CustomersPublic.php:41 classes/CustomersPublic.php:88
 #: includes/template.php:32
 msgctxt "Customer slug for frontend"
 msgid "customer"
 msgstr ""
 
-#: classes/InvoicesPublic.php:46 classes/InvoicesPublic.php:91
+#: classes/InvoicesPublic.php:41 classes/InvoicesPublic.php:100
 msgctxt "Invoice slug for front end"
 msgid "invoice"
 msgstr ""

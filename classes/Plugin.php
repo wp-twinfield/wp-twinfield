@@ -6,6 +6,7 @@ use Pronamic\WP\Twinfield\Credentials;
 use Pronamic\WP\Twinfield\Client;
 use Pronamic\WP\Twinfield\Finder;
 use Pronamic\WP\Twinfield\XMLProcessor;
+use Pronamic\WP\Twinfield\Authentication\OpenIdConnectProvider;
 
 class Plugin {
 	/**
@@ -21,8 +22,6 @@ class Plugin {
 	 * @var string
 	 */
 	public $dir_path;
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Constructs and initialize Pronamic WordPress Extensions plugin
@@ -50,18 +49,36 @@ class Plugin {
 		// Other
 		$this->invoices_public  = new InvoicesPublic( $this );
 		$this->customers_public = new CustomersPublic( $this );
-	}
 
-	//////////////////////////////////////////////////
+		// OpenID Connect Provider
+		if ( 'openid_connect' === get_option( 'twinfield_authorization_method' ) ) {
+			$client_id     = get_option( 'twinfield_openid_connect_client_id' );
+			$client_secret = get_option( 'twinfield_openid_connect_client_secret' );
+			$redirect_uri  = get_option( 'twinfield_openid_connect_redirect_uri' );
+
+			if ( $client_id && $client_secret && $redirect_uri ) {
+				$this->openid_connect_provider = new OpenIdConnectProvider( $client_id, $client_secret, $redirect_uri );
+
+				add_action( 'init', array( $this, 'maybe_handle_twinfield_oauth' ) );
+			}
+		}
+	}
 
 	/**
-	 * Initialize
+	 * Initialize.
 	 */
 	public function init() {
-		$this->maybe_handle_oauth();
+
 	}
 
-	public function maybe_handle_oauth() {
+	/**
+	 * Maybe handle Twinfield OpenID Authorization.
+	 */
+	public function maybe_handle_twinfield_oauth() {
+		if ( empty( $this->openid_connect_provider ) ) {
+			return;
+		}
+
 		if ( ! filter_has_var( INPUT_GET, 'code' ) ) {
 			return;
 		}
@@ -78,30 +95,9 @@ class Plugin {
 		$state         = filter_input( INPUT_GET, 'state', FILTER_SANITIZE_STRING );
 		$session_state = filter_input( INPUT_GET, 'session_state', FILTER_SANITIZE_STRING );
 
-		$data = $this->get_access_token( $code );
+		$data = $this->openid_connect_provider->get_access_token( $code );
 
-		if ( is_object( $data ) ) {
-			if ( isset( $data->id_token ) ) {
-				update_option( 'twinfield_id_token', $data->id_token );
-			}
-
-			if ( isset( $data->access_token ) ) {
-				update_option( 'twinfield_access_token', $data->access_token );
-			}
-
-			if ( isset( $data->expires_in ) ) {
-				update_option( 'twinfield_expires_in', $data->expires_in );
-				update_option( 'twinfield_expires', time() + $data->expires_in );	
-			}
-
-			if ( isset( $data->token_type ) ) {
-				update_option( 'twinfield_token_type', $data->token_type );	
-			}
-
-			if ( isset( $data->refresh_token ) ) {
-				update_option( 'twinfield_refresh_token', $data->refresh_token );	
-			}
-		}
+		$this->set_access_token( $data );
 
 		$url = add_query_arg( array(
 			'code'          => false,
@@ -114,110 +110,6 @@ class Plugin {
 		exit;
 	}
 
-	public function get_access_token( $code ) {
-		$url = 'https://login.twinfield.com/auth/authentication/connect/token';
-
-		$client_id     = get_option( 'twinfield_openid_connect_client_id' );
-		$client_secret = get_option( 'twinfield_openid_connect_client_secret' );
-		$redirect_uri  = get_option( 'twinfield_openid_connect_redirect_uri' );
-
-		$result = wp_remote_post( $url, array(
-			'headers' => array(
-				// @see https://developer.wordpress.org/plugins/http-api/#get-using-basic-authentication
-				// @see https://c3.twinfield.com/webservices/documentation/#/ApiReference/Authentication/OpenIdConnect#General-information
-				'Authorization' => 'Basic ' . base64_encode( $client_id . ':' . $client_secret ),
-			),
-			'body'    => array(
-				'grant_type'   => 'authorization_code',
-				'code'         => $code,
-				'redirect_uri' => $redirect_uri,
-			),
-		) );
-
-		if ( is_wp_error( $result ) ) {
-			return false;
-		}
-
-		$body = wp_remote_retrieve_body( $result );
-
-		$data = json_decode( $body );
-
-		return $data;
-	}
-
-	public function get_token_info( $access_token ) {
-		if ( empty( $access_token ) ) {
-			return false;
-		}
-
-		$url = 'https://login.twinfield.com/auth/authentication/connect/accesstokenvalidation';
-		$url = add_query_arg( 'token', $access_token, $url );
-
-		$result = wp_remote_get( $url );
-
-		if ( is_wp_error( $result ) ) {
-			return false;
-		}
-
-		$body = wp_remote_retrieve_body( $result );
-
-		$data = json_decode( $body );
-
-		return $data;
-	}
-
-	public function refresh_token() {
-		$refresh_token = get_option( 'twinfield_refresh_token' );
-
-		if ( empty( $refresh_token ) ) {
-			return false;
-		}
-
-		$client_id     = get_option( 'twinfield_openid_connect_client_id' );
-		$client_secret = get_option( 'twinfield_openid_connect_client_secret' );
-
-		$result = wp_remote_post( $url, array(
-			'headers' => array(
-				// @see https://developer.wordpress.org/plugins/http-api/#get-using-basic-authentication
-				// @see https://c3.twinfield.com/webservices/documentation/#/ApiReference/Authentication/OpenIdConnect#General-information
-				'Authorization' => 'Basic ' . base64_encode( $client_id . ':' . $client_secret ),
-			),
-			'body'    => array(
-				'grant_type'    => 'refresh_token',
-				'refresh_token' => $refresh_token,
-			),
-		) );
-
-		if ( is_wp_error( $result ) ) {
-			return false;
-		}
-
-		$body = wp_remote_retrieve_body( $result );
-
-		$data = json_decode( $body );
-
-		if ( is_object( $data ) ) {
-			if ( isset( $data->access_token ) ) {
-				update_option( 'twinfield_access_token', $data->access_token );
-			}
-
-			if ( isset( $data->expires_in ) ) {
-				update_option( 'twinfield_expires_in', $data->expires_in );
-				update_option( 'twinfield_expires', time() + $data->expires_in );
-			}
-
-			if ( isset( $data->token_type ) ) {
-				update_option( 'twinfield_token_type', $data->token_type );
-			}
-
-			if ( isset( $data->refresh_token ) ) {
-				update_option( 'twinfield_refresh_token', $data->refresh_token );
-			}
-		}
-	}
-
-	//////////////////////////////////////////////////
-
 	/**
 	 * Get URL prefix.
 	 *
@@ -227,8 +119,6 @@ class Plugin {
 	public function get_url_prefix() {
 		return 'twinfield';
 	}
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Plugins loaded
@@ -250,26 +140,103 @@ class Plugin {
 		return plugins_url( $path, $this->file );
 	}
 
-	//////////////////////////////////////////////////
+	public function get_access_token() {
+		$access_token  = get_option( 'twinfield_openid_connect_access_token' );
+		$refresh_token = get_option( 'twinfield_openid_connect_refresh_token' );
+		$expiration    = get_option( 'twinfield_openid_connect_expiration' );
+
+		if ( $expiration > time() ) {
+			return $access_token;
+		}
+
+		if ( empty( $this->openid_connect_provider ) ) {
+			return false;
+		}
+
+		if ( empty( $refresh_token ) ) {
+			return false;
+		}
+
+		$data = $this->openid_connect_provider->refresh_token( $refresh_token );
+
+		return $this->set_access_token( $data );
+	}
+
+	public function set_access_token( $data ) {
+		if ( is_object( $data ) ) {
+			if ( isset( $data->id_token ) ) {
+				update_option( 'twinfield_openid_connect_id_token', $data->id_token );
+			}
+
+			if ( isset( $data->access_token ) ) {
+				update_option( 'twinfield_openid_connect_access_token', $data->access_token );
+			}
+
+			if ( isset( $data->expires_in ) ) {
+				update_option( 'twinfield_openid_connect_expires_in', $data->expires_in );
+			}
+
+			if ( isset( $data->token_type ) ) {
+				update_option( 'twinfield_openid_connect_token_type', $data->token_type );	
+			}
+
+			if ( isset( $data->refresh_token ) ) {
+				update_option( 'twinfield_openid_connect_refresh_token', $data->refresh_token );
+			}
+		}
+
+		$access_token = get_option( 'twinfield_openid_connect_access_token' );
+
+		$validation = $this->openid_connect_provider->get_access_token_validation( $access_token );
+
+		if ( is_object( $validation ) ) {
+			if ( isset( $validation->exp ) ) {
+				update_option( 'twinfield_openid_connect_expiration', $validation->exp );
+			}
+
+			if ( isset( $validation->nbf ) ) {
+				update_option( 'twinfield_openid_connect_not_before_time', $validation->nbf );
+			}
+
+			if ( isset( $validation->{'twf.clusterUrl'} ) ) {
+				update_option( 'twinfield_openid_connect_cluster', $validation->{'twf.clusterUrl'} );	
+			}
+		}
+
+		return $access_token;
+	}
+
+	private function get_authentication_strategy() {
+		$method = get_option( 'twinfield_authorization_method' );
+
+		switch ( $method ) {
+			case 'openid_connect':
+				$access_token = $this->get_access_token();
+				$office       = get_option( 'twinfield_default_office_code' );
+				$cluster      = get_option( 'twinfield_openid_connect_cluster' );
+
+				$authentication_strategy = new \Pronamic\WP\Twinfield\Authentication\OpenIdConnectAuthenticationStrategy( $access_token, $office, $cluster );
+
+				return $authentication_strategy;
+			case 'web_services':
+				$user         = get_option( 'twinfield_username' );
+				$password     = get_option( 'twinfield_password' );
+				$organisation = get_option( 'twinfield_organisation' );
+
+				$credentials = new Credentials( $user, $password, $organisation );
+
+				$authentication_strategy = new \Pronamic\WP\Twinfield\Authentication\WebServicesAuthenticationStrategy( $credentials );
+
+				return $authentication_strategy;
+		}
+	}
 
 	private function get_client() {
-		$user         = get_option( 'twinfield_username' );
-		$password     = get_option( 'twinfield_password' );
-		$organisation = get_option( 'twinfield_organisation' );
+		$authentication_strategy = $this->get_authentication_strategy();
 
-		$credentials = new Credentials( $user, $password, $organisation );
-
-		$authentication_strategy = new \Pronamic\WP\Twinfield\Authentication\WebServicesAuthenticationStrategy( $credentials );
-
-		$authentication_info = $authentication_strategy->login();
-
-		$access_token = get_option( 'twinfield_access_token' );
-		$office       = '66470';
-		$cluster      = 'https://accounting.twinfield.com';
-
-		$authentication_strategy = new \Pronamic\WP\Twinfield\Authentication\OpenIdConnectAuthenticationStrategy( $access_token, $office, $cluster );
-
-		$authentication_info = $authentication_strategy->login();
+		if ( empty( $authentication_strategy ) ) {
+			return false;
+		}
 
 		$client = new Client( $authentication_strategy );
 

@@ -27,112 +27,139 @@ class Settings {
 	 * Admin initialize
 	 */
 	public function admin_init() {
-		// Section - OpenID Connect Authentication.
+		// Section - General.
 		add_settings_section(
-			'twinfield_openid_connect_authentication',
-			__( 'OpenID Connect Authentication', 'twinfield' ),
-			array( $this, 'section_openid_connect_authentication' ),
+			'twinfield_general',
+			__( 'General', 'twinfield' ),
+			'__return_false',
 			'twinfield'
 		);
 
 		// Client ID.
-		register_setting( 'twinfield', 'twinfield_openid_connect_client_id' );
+		register_setting( 'twinfield', 'twinfield_authorization_method' );
 
 		add_settings_field(
-			'twinfield_openid_connect_client_id',
-			__( 'Client ID', 'twinfield' ),
-			array( $this, 'render_text' ),
+			'twinfield_authorization_method',
+			__( 'Authorization Method', 'twinfield' ),
+			array( $this, 'radio_buttons' ),
 			'twinfield',
-			'twinfield_openid_connect_authentication',
+			'twinfield_general',
 			array(
-				'label_for' => 'twinfield_openid_connect_client_id',
+				'label_for' => 'twinfield_authorization_method',
+				'options'   => array(
+					''               => __( 'None', 'twinfield' ),
+					'openid_connect' => __( 'OpenID Connect Authentication', 'twinfield' ),
+					'web_services'   => __( 'Web Services Authentication', 'twinfield' ),
+				),
 			)
 		);
 
-		// Client Secret.
-		register_setting( 'twinfield', 'twinfield_openid_connect_client_secret' );
-
-		add_settings_field(
-			'twinfield_openid_connect_client_secret',
-			__( 'Client Secret', 'twinfield' ),
-			array( $this, 'render_text' ),
-			'twinfield',
-			'twinfield_openid_connect_authentication',
-			array(
-				'label_for' => 'twinfield_openid_connect_client_secret',
-				'type'      => 'password',
-			)
-		);
-
-		// Redirect URI.
-		register_setting( 'twinfield', 'twinfield_openid_connect_redirect_uri' );
-
-		add_settings_field(
-			'twinfield_openid_connect_redirect_uri',
-			__( 'Redirect URI', 'twinfield' ),
-			array( $this, 'render_text' ),
-			'twinfield',
-			'twinfield_openid_connect_authentication',
-			array(
-				'label_for' => 'twinfield_openid_connect_redirect_uri',
-				'type'      => 'url',
-			)
-		);
-
-		// Connect Link.
-		$client_id     = get_option( 'twinfield_openid_connect_client_id' );
-		$client_secret = get_option( 'twinfield_openid_connect_client_secret' );
-		$redirect_uri  = get_option( 'twinfield_openid_connect_redirect_uri' );
-
-		if ( $client_id && $client_secret && $redirect_uri ) {
-			add_settings_field(
-				'twinfield_openid_connect_link',
-				__( 'Connection', 'twinfield' ),
-				array( $this, 'field_connect_link' ),
-				'twinfield',
-				'twinfield_openid_connect_authentication'
+		if ( 'openid_connect' === get_option( 'twinfield_authorization_method' ) ) {
+			// Section - OpenID Connect Authentication.
+			add_settings_section(
+				'twinfield_openid_connect_authentication',
+				__( 'OpenID Connect Authentication', 'twinfield' ),
+				array( $this, 'section_openid_connect_authentication' ),
+				'twinfield'
 			);
+
+			// Client ID.
+			register_setting( 'twinfield', 'twinfield_openid_connect_client_id' );
+
+			add_settings_field(
+				'twinfield_openid_connect_client_id',
+				__( 'Client ID', 'twinfield' ),
+				array( $this, 'render_text' ),
+				'twinfield',
+				'twinfield_openid_connect_authentication',
+				array(
+					'label_for' => 'twinfield_openid_connect_client_id',
+				)
+			);
+
+			// Client Secret.
+			register_setting( 'twinfield', 'twinfield_openid_connect_client_secret' );
+
+			add_settings_field(
+				'twinfield_openid_connect_client_secret',
+				__( 'Client Secret', 'twinfield' ),
+				array( $this, 'render_text' ),
+				'twinfield',
+				'twinfield_openid_connect_authentication',
+				array(
+					'label_for' => 'twinfield_openid_connect_client_secret',
+					'type'      => 'password',
+				)
+			);
+
+			// Redirect URI.
+			register_setting( 'twinfield', 'twinfield_openid_connect_redirect_uri' );
+
+			add_settings_field(
+				'twinfield_openid_connect_redirect_uri',
+				__( 'Redirect URI', 'twinfield' ),
+				array( $this, 'render_text' ),
+				'twinfield',
+				'twinfield_openid_connect_authentication',
+				array(
+					'label_for' => 'twinfield_openid_connect_redirect_uri',
+					'type'      => 'url',
+				)
+			);
+
+			// Connect Link.
+			if ( $this->plugin->openid_connect_provider ) {
+				add_settings_field(
+					'twinfield_openid_connect_link',
+					__( 'Connection', 'twinfield' ),
+					array( $this, 'field_connect_link' ),
+					'twinfield',
+					'twinfield_openid_connect_authentication'
+				);
+			}
 		}
 
-		// Section - Web Services Authentication.
-		add_settings_section(
-			'twinfield_web_services_authentication',
-			__( 'Web Services Authentication', 'twinfield' ),
-			array( $this, 'section_web_services_authentication' ),
-			'twinfield'
-		);
+		if ( 'web_services' === get_option( 'twinfield_authorization_method' ) ) {
+			// Section - Web Services Authentication.
+			add_settings_section(
+				'twinfield_web_services_authentication',
+				__( 'Web Services Authentication', 'twinfield' ),
+				array( $this, 'section_web_services_authentication' ),
+				'twinfield'
+			);
 
-		add_settings_field(
-			'twinfield_username',
-			__( 'Username', 'twinfield' ),
-			array( $this, 'render_text' ),
-			'twinfield',
-			'twinfield_web_services_authentication',
-			array( 'label_for' => 'twinfield_username' )
-		);
+			add_settings_field(
+				'twinfield_username',
+				__( 'Username', 'twinfield' ),
+				array( $this, 'render_text' ),
+				'twinfield',
+				'twinfield_web_services_authentication',
+				array( 'label_for' => 'twinfield_username' )
+			);
 
-		add_settings_field(
-			'twinfield_password',
-			__( 'Password', 'twinfield' ),
-			array( $this, 'render_password' ),
-			'twinfield',
-			'twinfield_web_services_authentication',
-			array( 'label_for' => 'twinfield_password' )
-		);
+			add_settings_field(
+				'twinfield_password',
+				__( 'Password', 'twinfield' ),
+				array( $this, 'render_password' ),
+				'twinfield',
+				'twinfield_web_services_authentication',
+				array( 'label_for' => 'twinfield_password' )
+			);
 
-		add_settings_field(
-			'twinfield_organisation',
-			__( 'Organisation', 'twinfield' ),
-			array( $this, 'render_text' ),
-			'twinfield',
-			'twinfield_web_services_authentication',
-			array( 'label_for' => 'twinfield_organisation' )
-		);
+			add_settings_field(
+				'twinfield_organisation',
+				__( 'Organisation', 'twinfield' ),
+				array( $this, 'render_text' ),
+				'twinfield',
+				'twinfield_web_services_authentication',
+				array( 'label_for' => 'twinfield_organisation' )
+			);
 
-		// Registered settings for the api section
-		register_setting( 'twinfield', 'twinfield_username' );
-		register_setting( 'twinfield', 'twinfield_password' );
-		register_setting( 'twinfield', 'twinfield_organisation' );
+			// Registered settings for the api section
+			register_setting( 'twinfield', 'twinfield_username' );
+			register_setting( 'twinfield', 'twinfield_password' );
+			register_setting( 'twinfield', 'twinfield_organisation' );
+		}
 
 		/*
 		 * Defaults
@@ -142,6 +169,18 @@ class Settings {
 			__( 'Defaults', 'twinfield' ),
 			'__return_false',
 			'twinfield'
+		);
+
+		add_settings_field(
+			'twinfield_default_cluster',
+			/* translators: use same translations as on Twinfield.com. */
+			_x( 'Cluster', 'twinfield.com', 'twinfield' ),
+			array( $this, 'render_text' ),
+			'twinfield',
+			'twinfield_defaults',
+			array(
+				'label_for'   => 'twinfield_default_cluster',
+			)
 		);
 
 		add_settings_field(
@@ -220,6 +259,7 @@ class Settings {
 			)
 		);
 
+		register_setting( 'twinfield', 'twinfield_default_cluster' );
 		register_setting( 'twinfield', 'twinfield_default_office_code' );
 		register_setting( 'twinfield', 'twinfield_default_invoice_type' );
 		register_setting( 'twinfield', 'twinfield_default_vat_code' );
@@ -269,49 +309,44 @@ class Settings {
 	 * Section.
 	 */
 	public function field_connect_link() {
-		$client_id     = get_option( 'twinfield_openid_connect_client_id' );
-		$client_secret = get_option( 'twinfield_openid_connect_client_secret' );
-		$redirect_uri  = get_option( 'twinfield_openid_connect_redirect_uri' );
+		if ( empty( $this->plugin->openid_connect_provider ) ) {
+			return;
+		}
+
+		$openid_connect_provider = $this->plugin->openid_connect_provider;
+
+		$access_token = $this->plugin->get_access_token();
+
+		$label = __( 'Connect with Twinfield', 'twinfield' );
+
+		if ( $access_token ) {
+			$label = __( 'Reconnect with Twinfield', 'twinfield' );
+		}
 
 		$state = new \stdClass();
 		$state->redirect_uri = add_query_arg( 'page', 'twinfield_settings', admin_url( 'admin.php' ) );
 
-		$url = 'https://login.twinfield.com/auth/authentication/connect/authorize';
-
-		$url = add_query_arg( array(
-			'client_id'     => $client_id,
-			'response_type' => 'code',
-			'scope'         => implode( '+', array(
-				'openid',
-				'twf.user',
-				'twf.organisation',
-				'twf.organisationUser',
-				'offline_access',
-			) ),
-			'redirect_uri'  => $redirect_uri,
-			// @see https://auth0.com/docs/protocols/oauth2/oauth-state
-			'state'         => base64_encode( wp_json_encode( $state ) ),
-			'nonce'         => wp_create_nonce( 'twinfield-auth' ),
-		), $url );
+		$url = $openid_connect_provider->get_authorize_url( $state );
 
 		printf(
 			'<a href="%s">%s</a>',
 			esc_url( $url ),
-			esc_html__( 'Connect with Twinfield', 'twinfield' )
+			esc_html( $label )
 		);
-
-		$access_token = get_option( 'twinfield_access_token' );
-
-		$info = $this->plugin->get_token_info( $access_token );
-
-		var_dump( $info );
 	}
 
 	/**
 	 * Section.
 	 */
 	public function section_openid_connect_authentication() {
-
+		printf(
+			'Go to the %s in order to register your OpenID Connect / OAuht 2.0 client and get your Client Id (and optional client secret).',
+			sprintf(
+				'<a href="%s" target="_blank">%s</a>',
+				esc_url( 'https://www.twinfield.nl/openid-connect-request/' ),
+				esc_html__( 'Twinfield web site', 'twinfield' )
+			)
+		);
 	}
 
 	/**
@@ -413,5 +448,36 @@ class Settings {
 		$attributes['type'] = 'password';
 
 		$this->render_text( $attributes );
+	}
+
+	public function radio_buttons( $args ) {
+		$name    = $args['label_for'];
+		$current = get_option( $name );
+		$options = $args['options'];
+
+		echo '<fieldset>';
+
+		printf(
+			'<legend class="screen-reader-text"><span>%s</span></legend>',
+			'Test'
+		);
+
+		foreach ( $options as $value => $label ) {
+			echo '<label>';
+
+			printf(
+				'<input type="radio" name="%s" value="%s" %s> %s',
+				esc_attr( $name ),
+				esc_attr( $value ),
+				checked( $current, $value, false ),
+				esc_html( $label )
+			);
+
+			echo '</label>';
+
+			echo '<br />';
+		}
+
+		echo '</fieldset>';
 	}
 }
