@@ -231,7 +231,7 @@ class Plugin {
 		}
 	}
 
-	private function get_client() {
+	public function get_client() {
 		$authentication_strategy = $this->get_authentication_strategy();
 
 		if ( empty( $authentication_strategy ) ) {

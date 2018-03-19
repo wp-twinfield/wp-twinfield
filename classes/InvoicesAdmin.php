@@ -110,19 +110,9 @@ class InvoicesAdmin {
 		if ( filter_has_var( INPUT_POST, 'twinfield_create_invoice' ) ) {
 			$sales_invoice = $this->get_post_sales_invoice( $post_id );
 
-			$client = new \Pronamic\WP\Twinfield\Client();
+			$client = $this->plugin->get_client();
 
-			$credentials = new \Pronamic\WP\Twinfield\Credentials(
-				get_option( 'twinfield_username' ),
-				get_option( 'twinfield_password' ),
-				get_option( 'twinfield_organisation' )
-			);
-
-			$logon_response = $client->logon( $credentials );
-
-			$session = $client->get_session( $logon_response );
-
-			$xml_processor = new \Pronamic\WP\Twinfield\XMLProcessor( $session );
+			$xml_processor = $client->get_xml_processor();
 
 			$service = new \Pronamic\WP\Twinfield\SalesInvoices\SalesInvoiceService( $xml_processor );
 
