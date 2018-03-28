@@ -47,6 +47,7 @@ class Plugin {
 		}
 
 		// Other
+		$this->rest_api         = new RestApi( $this );
 		$this->invoices_public  = new InvoicesPublic( $this );
 		$this->customers_public = new CustomersPublic( $this );
 

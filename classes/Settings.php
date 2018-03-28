@@ -397,6 +397,7 @@ class Settings {
 		) );
 
 		if ( isset( $attributes['label_for'] ) ) {
+			$attributes['id']    = $attributes['label_for'];
 			$attributes['name']  = $attributes['label_for'];
 			$attributes['value'] = get_option( $attributes['label_for'] );
 
