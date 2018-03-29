@@ -7,6 +7,9 @@ use Pronamic\WP\Twinfield\Client;
 use Pronamic\WP\Twinfield\Finder;
 use Pronamic\WP\Twinfield\XMLProcessor;
 use Pronamic\WP\Twinfield\Authentication\OpenIdConnectProvider;
+use Pronamic\WP\Twinfield\Customers\Customer;
+use Pronamic\WP\Twinfield\SalesInvoices\SalesInvoice;
+use Pronamic\WP\Twinfield\SalesInvoices\SalesInvoiceStatus;
 
 class Plugin {
 	/**
@@ -50,6 +53,9 @@ class Plugin {
 		$this->rest_api         = new RestApi( $this );
 		$this->invoices_public  = new InvoicesPublic( $this );
 		$this->customers_public = new CustomersPublic( $this );
+
+		// Extensions
+		$this->woocommerce_extensions = new WooCommerceExtension( $file );
 
 		// OpenID Connect Provider
 		if ( 'openid_connect' === get_option( 'twinfield_authorization_method' ) ) {
@@ -258,5 +264,54 @@ class Plugin {
 	 */
 	public function get_finder() {
 		return $this->get_client()->get_finder();
+	}
+
+	public function get_twinfield_customer_from_post( $post_id ) {
+		$twinfield_customer_id = get_post_meta( $post_id, '_twinfield_customer_id', true );
+
+		$customer = new Customer();
+		$customer->set_office( get_option( 'twinfield_default_office_code' ) );
+		$customer->set_code( empty( $twinfield_customer_id ) ? null : $twinfield_customer_id );
+
+		$financials = $customer->get_financials();
+		$financials->set_due_days( 14 );
+		// $financials->set_vat_code( get_option( 'twinfield_default_vat_code' ) );
+
+		$credit_management = $customer->get_credit_management();
+		$credit_management->set_send_reminder( 'email' );
+
+		$customer = apply_filters( 'twinfield_post_customer', $customer, $post_id );
+
+		return $customer;
+	}
+
+	/**
+	 * Get sales invoice by post ID
+	 *
+	 * @param int $post_id
+	 * @return SalesInvoice
+	 */
+	public function get_twinfield_sales_invoice_from_post( $post_id ) {
+		$invoice_number = get_post_meta( $post_id, '_twinfield_invoice_number', true );
+		$response       = get_post_meta( $post_id, '_twinfield_response', true );
+
+		$customer = $this->get_twinfield_customer_from_post( $post_id );
+
+		$invoice = new SalesInvoice();
+
+		$header = $invoice->get_header();
+
+		$header->set_office( get_option( 'twinfield_default_office_code' ) );
+		$header->set_type( get_option( 'twinfield_default_invoice_type' ) );
+		$header->set_customer( $customer->get_code() );
+		$header->set_status( SalesInvoiceStatus::STATUS_CONCEPT );
+		$header->set_footer_text( sprintf(
+			__( 'Invoice created by WordPress on %s.', 'twinfield' ),
+			date_i18n( 'D j M Y @ H:i' )
+		) );
+
+		$invoice = apply_filters( 'twinfield_post_sales_invoice', $invoice, $post_id );
+
+		return $invoice;
 	}
 }

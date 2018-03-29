@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-twinfield/twinfield.git",
-                "reference": "7d87f36d251567fd8a2d288103d7e5c3707fec79"
+                "reference": "662ac689f59e160f2390714898d42b947a81fe4e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-twinfield/twinfield/zipball/7d87f36d251567fd8a2d288103d7e5c3707fec79",
-                "reference": "7d87f36d251567fd8a2d288103d7e5c3707fec79",
+                "url": "https://api.github.com/repos/wp-twinfield/twinfield/zipball/662ac689f59e160f2390714898d42b947a81fe4e",
+                "reference": "662ac689f59e160f2390714898d42b947a81fe4e",
                 "shasum": ""
             },
             "require": {
@@ -48,7 +48,7 @@
                 }
             ],
             "description": "Twinfield library for WordPress.",
-            "time": "2018-03-13T15:00:01+00:00"
+            "time": "2018-03-29T14:36:54+00:00"
         }
     ],
     "packages-dev": [

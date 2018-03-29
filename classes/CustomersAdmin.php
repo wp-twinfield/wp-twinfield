@@ -59,20 +59,7 @@ class CustomersAdmin {
 	public function customer_meta_box( $post ) {
 		wp_nonce_field( 'twinfield_customer', 'twinfield_customer_nonce' );
 
-		$twinfield_customer_id = get_post_meta( $post->ID, '_twinfield_customer_id', true );
-
-		$customer = new Customer();
-		$customer->set_office( get_option( 'twinfield_default_office_code' ) );
-		$customer->set_code( empty( $twinfield_customer_id ) ? null : $twinfield_customer_id );
-
-		$financials = $customer->get_financials();
-		$financials->set_due_days( 14 );
-		// $financials->set_vat_code( get_option( 'twinfield_default_vat_code' ) );
-
-		$credit_management = $customer->get_credit_management();
-		$credit_management->set_send_reminder( 'email' );
-
-		$customer = apply_filters( 'twinfield_post_customer', $customer, $post->ID );
+		$customer = $this->plugin->get_twinfield_customer_from_post( $post->ID );
 
 		include plugin_dir_path( $this->plugin->file ) . 'admin/meta-box-customer.php';
 	}
@@ -98,6 +85,30 @@ class CustomersAdmin {
 			delete_post_meta( $post_id, '_twinfield_customer_id' );
 		} else {
 			update_post_meta( $post_id, '_twinfield_customer_id', $twinfield_customer_id );
+		}
+
+		if ( filter_has_var( INPUT_POST, 'twinfield_create_customer' ) ) {
+			$customer = $this->plugin->get_twinfield_customer_from_post( $post_id );
+
+			$client = $this->plugin->get_client();
+
+			$xml_processor = $client->get_xml_processor();
+
+			$service = new \Pronamic\WP\Twinfield\SalesInvoices\SalesInvoiceService( $xml_processor );
+
+			$response = $service->insert_sales_invoice( $sales_invoice );
+
+			if ( $response ) {
+				if ( $response->is_successful() ) {
+					$sales_invoice = $response->get_sales_invoice();
+
+					update_post_meta( $post_id, '_twinfield_customer_id', $sales_invoice->get_header()->get_number() );
+
+					delete_post_meta( $post_id, '_twinfield_response_xml' );
+				} else {
+					update_post_meta( $post_id, '_twinfield_response_xml', $response->get_message()->asXML() );
+				}
+			}
 		}
 	}
 

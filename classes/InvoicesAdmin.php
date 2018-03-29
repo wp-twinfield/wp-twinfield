@@ -2,9 +2,6 @@
 
 namespace Pronamic\WP\Twinfield\Plugin;
 
-use Pronamic\WP\Twinfield\SalesInvoices\SalesInvoice;
-use Pronamic\WP\Twinfield\SalesInvoices\SalesInvoiceStatus;
-
 class InvoicesAdmin {
 	/**
 	 * Twinfield plugin object.
@@ -45,41 +42,12 @@ class InvoicesAdmin {
 	}
 
 	/**
-	 * Get sales invoice by post ID
-	 *
-	 * @param int $post_id
-	 * @return SalesInvoice
-	 */
-	private function get_post_sales_invoice( $post_id ) {
-		$invoice_number = get_post_meta( $post_id, '_twinfield_invoice_number', true );
-		$customer_id    = get_post_meta( $post_id, '_twinfield_customer_id', true );
-		$response       = get_post_meta( $post_id, '_twinfield_response', true );
-
-		$invoice = new SalesInvoice();
-
-		$header = $invoice->get_header();
-
-		$header->set_office( get_option( 'twinfield_default_office_code' ) );
-		$header->set_type( get_option( 'twinfield_default_invoice_type' ) );
-		$header->set_customer( $customer_id );
-		$header->set_status( SalesInvoiceStatus::STATUS_CONCEPT );
-		$header->set_footer_text( sprintf(
-			__( 'Invoice created by WordPress on %s.', 'twinfield' ),
-			date_i18n( 'D j M Y @ H:i' )
-		) );
-
-		$invoice = apply_filters( 'twinfield_post_sales_invoice', $invoice, $post_id );
-
-		return $invoice;
-	}
-
-	/**
 	 * Article meta box.
 	 */
 	public function invoice_meta_box( $post ) {
 		wp_nonce_field( 'twinfield_invoice', 'twinfield_invoice_nonce' );
 
-		$invoice = $this->get_post_sales_invoice( $post->ID );
+		$invoice = $this->plugin->get_twinfield_sales_invoice_from_post( $post->ID );
 
 		include plugin_dir_path( $this->plugin->file ) . 'admin/meta-box-invoice.php';
 	}
@@ -108,7 +76,7 @@ class InvoicesAdmin {
 		}
 
 		if ( filter_has_var( INPUT_POST, 'twinfield_create_invoice' ) ) {
-			$sales_invoice = $this->get_post_sales_invoice( $post_id );
+			$sales_invoice = $this->plugin->get_twinfield_sales_invoice_from_post( $post_id );
 
 			$client = $this->plugin->get_client();
 

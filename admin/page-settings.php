@@ -26,10 +26,18 @@
 					obj.selected = ( current == obj.code );
 				} );
 
+				select2options.unshift( {
+					id: '',
+					text: ''
+				} );
+
 				$elements.select2( {
 					allowClear: true,
-					placeholder: 'Select an option',
-					data: offices,
+					placeholder: {
+						id: '',
+						text: 'Select an option'
+					},
+					data: select2options,
 				} );
 			} );
 		} );
