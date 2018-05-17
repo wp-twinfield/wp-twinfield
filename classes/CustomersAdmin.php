@@ -59,6 +59,8 @@ class CustomersAdmin {
 	public function customer_meta_box( $post ) {
 		wp_nonce_field( 'twinfield_customer', 'twinfield_customer_nonce' );
 
+		$twinfield_customer_id = get_post_meta( $post->ID, '_twinfield_customer_id', true );
+
 		$customer = $this->plugin->get_twinfield_customer_from_post( $post->ID );
 
 		include plugin_dir_path( $this->plugin->file ) . 'admin/meta-box-customer.php';

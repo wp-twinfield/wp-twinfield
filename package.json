@@ -45,6 +45,6 @@
     "grunt-phplint": "0.1.0",
     "grunt-rt-wp-deploy": "^0.1.2",
     "grunt-wp-i18n": "~1.0.2",
-    "load-grunt-tasks": "^3.5.2"
+    "load-grunt-tasks": "^4.0.0"
   }
 }
