@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Twinfield 1.1.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/twinfield\n"
-"POT-Creation-Date: 2018-03-13 12:31:19+00:00\n"
+"POT-Creation-Date: 2018-08-31 09:27:32+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -62,16 +62,28 @@ msgstr ""
 msgid "Telephone"
 msgstr ""
 
-#: admin/meta-box-article.php:4 classes/Settings.php:232
+#: admin/meta-box-article.php:4
+#: admin/settings-field-woocommerce-shipping-methods.php:5
+#: classes/Settings.php:232
 msgid "Article Code"
 msgstr ""
 
-#: admin/meta-box-article.php:12 classes/Settings.php:248
+#: admin/meta-box-article.php:12
+#: admin/settings-field-woocommerce-shipping-methods.php:6
+#: classes/Settings.php:248
 msgid "Subarticle Code"
 msgstr ""
 
 #: admin/meta-box-customer.php:4 admin/page-customers.php:14
 msgid "Customer ID"
+msgstr ""
+
+#: admin/meta-box-customer.php:14
+msgid "Create Customer"
+msgstr ""
+
+#: admin/meta-box-customer.php:24
+msgid "View Customer"
 msgstr ""
 
 #: admin/meta-box-invoice.php:10 admin/sales-invoice.php:10
@@ -165,55 +177,55 @@ msgstr ""
 msgid "Status"
 msgstr ""
 
-#: admin/sales-invoice.php:91 templates/sales-invoice.php:73
+#: admin/sales-invoice.php:91 templates/sales-invoice.php:87
 msgid "Id"
 msgstr ""
 
 #: admin/sales-invoice.php:92 classes/ArticlesAdmin.php:128
-#: templates/sales-invoice.php:74
+#: templates/sales-invoice.php:88
 msgid "Article"
 msgstr ""
 
-#: admin/sales-invoice.php:93 templates/sales-invoice.php:75
+#: admin/sales-invoice.php:93 templates/sales-invoice.php:89
 msgid "Sub article"
 msgstr ""
 
-#: admin/sales-invoice.php:94 templates/sales-invoice.php:76
+#: admin/sales-invoice.php:94 templates/sales-invoice.php:90
 msgid "Quantity"
 msgstr ""
 
-#: admin/sales-invoice.php:95 templates/sales-invoice.php:77
+#: admin/sales-invoice.php:95 templates/sales-invoice.php:91
 msgid "Units"
 msgstr ""
 
-#: admin/sales-invoice.php:96 templates/sales-invoice.php:78
+#: admin/sales-invoice.php:96 templates/sales-invoice.php:92
 msgid "Description"
 msgstr ""
 
-#: admin/sales-invoice.php:97 templates/sales-invoice.php:79
-#: templates/sales-invoice.php:120
+#: admin/sales-invoice.php:97 templates/sales-invoice.php:93
+#: templates/sales-invoice.php:134
 msgid "Value Excl"
 msgstr ""
 
-#: admin/sales-invoice.php:98 templates/sales-invoice.php:80
-#: templates/sales-invoice.php:123
+#: admin/sales-invoice.php:98 templates/sales-invoice.php:94
+#: templates/sales-invoice.php:137
 msgid "Vat Value"
 msgstr ""
 
-#: admin/sales-invoice.php:99 templates/sales-invoice.php:81
-#: templates/sales-invoice.php:126
+#: admin/sales-invoice.php:99 templates/sales-invoice.php:95
+#: templates/sales-invoice.php:140
 msgid "Value Inc"
 msgstr ""
 
-#: admin/sales-invoice.php:100 templates/sales-invoice.php:82
+#: admin/sales-invoice.php:100 templates/sales-invoice.php:96
 msgid "Free Text 1"
 msgstr ""
 
-#: admin/sales-invoice.php:101 templates/sales-invoice.php:83
+#: admin/sales-invoice.php:101 templates/sales-invoice.php:97
 msgid "Free Text 2"
 msgstr ""
 
-#: admin/sales-invoice.php:102 templates/sales-invoice.php:84
+#: admin/sales-invoice.php:102 templates/sales-invoice.php:98
 msgid "Free Text 3"
 msgstr ""
 
@@ -222,6 +234,18 @@ msgid ""
 "If you like, you may enter custom structures for your invoice and customer "
 "%s here. For example, using %s as your invoice base would make your invoice "
 "links like %s. If you leave these blank the defaults will be used."
+msgstr ""
+
+#: admin/settings-field-woocommerce-shipping-methods.php:4
+msgid "Method"
+msgstr ""
+
+#: admin/settings-field-woocommerce-tax-rates.php:4
+msgid "Rates"
+msgstr ""
+
+#: admin/settings-field-woocommerce-tax-rates.php:5 classes/Settings.php:216
+msgid "VAT Code"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
@@ -272,16 +296,16 @@ msgstr ""
 msgid "Twinfield Customer"
 msgstr ""
 
-#: classes/InvoicesAdmin.php:38
+#: classes/InvoicesAdmin.php:35
 msgid "Twinfield Invoice"
-msgstr ""
-
-#: classes/InvoicesAdmin.php:67
-msgid "Invoice created by WordPress on %s."
 msgstr ""
 
 #: classes/InvoicesPublic.php:143 templates/sales-invoice.php:9
 msgid "Invoice %s"
+msgstr ""
+
+#: classes/Plugin.php:309
+msgid "Invoice created by WordPress on %s."
 msgstr ""
 
 #: classes/Settings.php:43
@@ -334,10 +358,6 @@ msgstr ""
 
 #: classes/Settings.php:202
 msgid "Invoice Type Code"
-msgstr ""
-
-#: classes/Settings.php:216
-msgid "VAT Code"
 msgstr ""
 
 #: classes/Settings.php:225
@@ -393,6 +413,18 @@ msgstr ""
 
 #: classes/Settings.php:357
 msgid "For web services authentication use Open ID Connect instead."
+msgstr ""
+
+#: classes/WooCommerceExtension.php:67
+msgid "WooCommerce"
+msgstr ""
+
+#: classes/WooCommerceExtension.php:107
+msgid "Standard Rates"
+msgstr ""
+
+#: classes/WooCommerceExtension.php:282
+msgid "Fee"
 msgstr ""
 
 #: templates/customer.php:12 templates/customer.php:105
@@ -457,11 +489,19 @@ msgstr ""
 msgid "Invoice Date"
 msgstr ""
 
-#: templates/sales-invoice.php:65
+#: templates/sales-invoice.php:62
+msgid "Header Text"
+msgstr ""
+
+#: templates/sales-invoice.php:69
+msgid "Footer Text"
+msgstr ""
+
+#: templates/sales-invoice.php:79
 msgid "Lines"
 msgstr ""
 
-#: templates/sales-invoice.php:115
+#: templates/sales-invoice.php:129
 msgid "Totals"
 msgstr ""
 

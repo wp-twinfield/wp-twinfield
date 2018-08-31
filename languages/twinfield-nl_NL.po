@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Twinfield\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/twinfield\n"
-"POT-Creation-Date: 2018-03-13 12:23:33+00:00\n"
-"PO-Revision-Date: 2018-03-13 13:34+0100\n"
+"POT-Creation-Date: 2018-08-31 09:27:32+00:00\n"
+"PO-Revision-Date: 2018-08-31 11:29+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 1.7.4\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
@@ -63,17 +63,31 @@ msgstr "Postcode"
 msgid "Telephone"
 msgstr "Telefoon"
 
-#: admin/meta-box-article.php:4 classes/Settings.php:232
+#: admin/meta-box-article.php:4
+#: admin/settings-field-woocommerce-shipping-methods.php:5
+#: classes/Settings.php:232
 msgid "Article Code"
 msgstr "Artikel code"
 
-#: admin/meta-box-article.php:12 classes/Settings.php:248
+#: admin/meta-box-article.php:12
+#: admin/settings-field-woocommerce-shipping-methods.php:6
+#: classes/Settings.php:248
 msgid "Subarticle Code"
 msgstr "Subartikel code"
 
 #: admin/meta-box-customer.php:4 admin/page-customers.php:14
 msgid "Customer ID"
 msgstr "Klant ID"
+
+#: admin/meta-box-customer.php:14
+#, fuzzy
+msgid "Create Customer"
+msgstr "Klant laden"
+
+#: admin/meta-box-customer.php:24
+#, fuzzy
+msgid "View Customer"
+msgstr "Klant"
 
 #: admin/meta-box-invoice.php:10 admin/sales-invoice.php:10
 #: templates/sales-invoice.php:19
@@ -166,55 +180,55 @@ msgstr "Klant"
 msgid "Status"
 msgstr "Status"
 
-#: admin/sales-invoice.php:91 templates/sales-invoice.php:73
+#: admin/sales-invoice.php:91 templates/sales-invoice.php:87
 msgid "Id"
 msgstr "Id"
 
 #: admin/sales-invoice.php:92 classes/ArticlesAdmin.php:128
-#: templates/sales-invoice.php:74
+#: templates/sales-invoice.php:88
 msgid "Article"
 msgstr "Artikel"
 
-#: admin/sales-invoice.php:93 templates/sales-invoice.php:75
+#: admin/sales-invoice.php:93 templates/sales-invoice.php:89
 msgid "Sub article"
 msgstr "Subartikel"
 
-#: admin/sales-invoice.php:94 templates/sales-invoice.php:76
+#: admin/sales-invoice.php:94 templates/sales-invoice.php:90
 msgid "Quantity"
 msgstr "Aantal"
 
-#: admin/sales-invoice.php:95 templates/sales-invoice.php:77
+#: admin/sales-invoice.php:95 templates/sales-invoice.php:91
 msgid "Units"
 msgstr "Eenheid"
 
-#: admin/sales-invoice.php:96 templates/sales-invoice.php:78
+#: admin/sales-invoice.php:96 templates/sales-invoice.php:92
 msgid "Description"
 msgstr "Beschrijving"
 
-#: admin/sales-invoice.php:97 templates/sales-invoice.php:79
-#: templates/sales-invoice.php:120
+#: admin/sales-invoice.php:97 templates/sales-invoice.php:93
+#: templates/sales-invoice.php:134
 msgid "Value Excl"
 msgstr "Waarde excl."
 
-#: admin/sales-invoice.php:98 templates/sales-invoice.php:80
-#: templates/sales-invoice.php:123
+#: admin/sales-invoice.php:98 templates/sales-invoice.php:94
+#: templates/sales-invoice.php:137
 msgid "Vat Value"
 msgstr "Belasting waarde"
 
-#: admin/sales-invoice.php:99 templates/sales-invoice.php:81
-#: templates/sales-invoice.php:126
+#: admin/sales-invoice.php:99 templates/sales-invoice.php:95
+#: templates/sales-invoice.php:140
 msgid "Value Inc"
 msgstr "Waarde incl."
 
-#: admin/sales-invoice.php:100 templates/sales-invoice.php:82
+#: admin/sales-invoice.php:100 templates/sales-invoice.php:96
 msgid "Free Text 1"
 msgstr "Vrije tekst 1"
 
-#: admin/sales-invoice.php:101 templates/sales-invoice.php:83
+#: admin/sales-invoice.php:101 templates/sales-invoice.php:97
 msgid "Free Text 2"
 msgstr "Vrije tekst 2"
 
-#: admin/sales-invoice.php:102 templates/sales-invoice.php:84
+#: admin/sales-invoice.php:102 templates/sales-invoice.php:98
 msgid "Free Text 3"
 msgstr "Vrije tekst 3"
 
@@ -228,6 +242,18 @@ msgstr ""
 "invoeren. Als je bijvoorbeeld %s als je factuurbasis gebruikt, worden je "
 "factuurlinks iets als %s. Als je dit leeg laat, worden de standaardwaarden "
 "gebruikt."
+
+#: admin/settings-field-woocommerce-shipping-methods.php:4
+msgid "Method"
+msgstr ""
+
+#: admin/settings-field-woocommerce-tax-rates.php:4
+msgid "Rates"
+msgstr ""
+
+#: admin/settings-field-woocommerce-tax-rates.php:5 classes/Settings.php:216
+msgid "VAT Code"
+msgstr "Btw-code"
 
 #. Plugin Name of the plugin/theme
 msgid "Twinfield"
@@ -277,17 +303,17 @@ msgstr "Subartikel"
 msgid "Twinfield Customer"
 msgstr "Twinfield klant"
 
-#: classes/InvoicesAdmin.php:38
+#: classes/InvoicesAdmin.php:35
 msgid "Twinfield Invoice"
 msgstr "Twinfield factuur"
-
-#: classes/InvoicesAdmin.php:67
-msgid "Invoice created by WordPress on %s."
-msgstr "Factuur aangemaakt door WordPress op %s."
 
 #: classes/InvoicesPublic.php:143 templates/sales-invoice.php:9
 msgid "Invoice %s"
 msgstr "Factuur %s"
+
+#: classes/Plugin.php:309
+msgid "Invoice created by WordPress on %s."
+msgstr "Factuur aangemaakt door WordPress op %s."
 
 #: classes/Settings.php:43
 msgid "Authorization Method"
@@ -340,10 +366,6 @@ msgstr "Standaarden"
 #: classes/Settings.php:202
 msgid "Invoice Type Code"
 msgstr "Factuurtype code"
-
-#: classes/Settings.php:216
-msgid "VAT Code"
-msgstr "Btw-code"
 
 #. translators: use same translations as on Twinfield.com.
 #: classes/Settings.php:225
@@ -408,6 +430,18 @@ msgstr ""
 msgid "For web services authentication use Open ID Connect instead."
 msgstr "For web services authentication use Open ID Connect instead."
 
+#: classes/WooCommerceExtension.php:67
+msgid "WooCommerce"
+msgstr ""
+
+#: classes/WooCommerceExtension.php:107
+msgid "Standard Rates"
+msgstr ""
+
+#: classes/WooCommerceExtension.php:282
+msgid "Fee"
+msgstr ""
+
 #: templates/customer.php:12 templates/customer.php:105
 msgid "Contact"
 msgstr "Contact"
@@ -470,11 +504,19 @@ msgstr "Header"
 msgid "Invoice Date"
 msgstr "Factuurdatum"
 
-#: templates/sales-invoice.php:65
+#: templates/sales-invoice.php:62
+msgid "Header Text"
+msgstr "Koptekst"
+
+#: templates/sales-invoice.php:69
+msgid "Footer Text"
+msgstr "Voettekst"
+
+#: templates/sales-invoice.php:79
 msgid "Lines"
 msgstr "Regels"
 
-#: templates/sales-invoice.php:115
+#: templates/sales-invoice.php:129
 msgid "Totals"
 msgstr "Totalen"
 
@@ -762,9 +804,6 @@ msgstr "factuur"
 
 #~ msgid "Twinfield Invoice ID"
 #~ msgstr "Twinfield factuur ID"
-
-#~ msgid "Load Customer"
-#~ msgstr "Klant laden"
 
 #~ msgid "Customer Query"
 #~ msgstr "Klant query"

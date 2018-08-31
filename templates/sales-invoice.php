@@ -56,6 +56,20 @@
 
 					<dt><?php esc_html_e( 'Status', 'twinfield' ); ?></dt>
 					<dd><?php echo esc_html( $header->get_status() ); ?></dd>
+
+					<?php if ( $header_text = $header->get_header_text() ) : ?>
+
+						<dt><?php esc_html_e( 'Header Text', 'twinfield' ); ?></dt>
+						<dd><?php echo esc_html( $header_text ); ?></dd>
+
+					<?php endif; ?>
+
+					<?php if ( $footer_text = $header->get_footer_text() ) : ?>
+
+						<dt><?php esc_html_e( 'Footer Text', 'twinfield' ); ?></dt>
+						<dd><?php echo esc_html( $footer_text ); ?></dd>
+
+					<?php endif; ?>
 				</dl>
 			</div>
 		</div>
