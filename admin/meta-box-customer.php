@@ -30,32 +30,35 @@
 
 <?php
 
-var_dump( $customer );
+if ( filter_input( INPUT_GET, 'debug', FILTER_VALIDATE_BOOLEAN ) ) {
+	var_dump( $customer );
 
-$client = $this->plugin->get_client();
+	$client = $this->plugin->get_client();
 
-$customers_finder = new \Pronamic\WP\Twinfield\Customers\CustomerFinder( $client->get_finder() );
-$customers_service = new \Pronamic\WP\Twinfield\Customers\CustomerService( $client->get_xml_processor() );
+	$customers_finder = new \Pronamic\WP\Twinfield\Customers\CustomerFinder( $client->get_finder() );
+	$customers_service = new \Pronamic\WP\Twinfield\Customers\CustomerService( $client->get_xml_processor() );
 
-$customer_finder_results = $customers_finder->get_customers( $customer->get_name(), \Pronamic\WP\Twinfield\SearchFields::ADDRESS_FIELDS, 1, 10 );
+	$customer_finder_results = $customers_finder->get_customers( $customer->get_name(), \Pronamic\WP\Twinfield\SearchFields::ADDRESS_FIELDS, 1, 10 );
 
-$addresses = $customer->get_addresses();
+	$addresses = $customer->get_addresses();
 
-$test = reset( $addresses );
+	$test = reset( $addresses );
 
-foreach ( $customer_finder_results as $customer_finder_result ) {
-	$response = $customers_service->get_customer( $customer->get_office(), $customer_finder_result->get_code() );
+	foreach ( $customer_finder_results as $customer_finder_result ) {
+		$response = $customers_service->get_customer( $customer->get_office(), $customer_finder_result->get_code() );
 
-	if ( $response->is_successful() ) {
-		foreach ( $response->get_customer()->get_addresses() as $address ) {
-			var_dump( $address );
+		if ( $response->is_successful() ) {
+			foreach ( $response->get_customer()->get_addresses() as $address ) {
+				var_dump( $address );
 
-			echo $test->similar( $address, array(
-				'field_2',
-				'postcode',
-				'city',
-				'country',
-			) );
+				echo $test->similar( $address, array(
+					'field_2',
+					'postcode',
+					'city',
+					'country',
+				) );
+			}
 		}
 	}
 }
+
