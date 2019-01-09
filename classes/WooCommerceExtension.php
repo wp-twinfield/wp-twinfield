@@ -30,17 +30,12 @@ class WooCommerceExtension {
 	 */
 	public function plugins_loaded() {
 		// Required plugins
-		if ( ! defined( 'WC_VERSION' ) || ! class_exists( 'Pronamic\WP\Twinfield\Plugin\Plugin' ) ) {
+		if ( ! defined( 'WC_VERSION' ) ) {
 			return;
 		}
 
 		// Actions
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
-
-		add_filter( 'woocommerce_integrations', array( $this, 'woocommerce_integrations' ) );
-
-		// Text domain
-		load_plugin_textdomain( 'twinfield_woocommerce', false, dirname( plugin_basename( $this->file ) ) . '/languages/' );
 
 		// Post types
 		add_post_type_support( 'product', 'twinfield_article' );
@@ -68,25 +63,26 @@ class WooCommerceExtension {
 			'__return_false',
 			'twinfield'
 		);
-/*
+
 		add_settings_field(
-			'twinfield_woocommerce_hipping_methods',
-			__( 'Shipping Methods', 'twinfield' ),
+			'twinfield_woocommerce_shipping_method_article_codes',
+			__( 'Shipping Method Articles', 'twinfield' ),
 			array( $this, 'field_shipping_methods' ),
 			'twinfield',
 			'twinfield_woocommerce'
 		);
 
 		add_settings_field(
-			'twinfield_woocommerce_tax_rates',
-			__( 'Tax Rates', 'twinfield' ),
+			'twinfield_woocommerce_tax_classes_vat_codes',
+			__( 'Tax Rate Codes', 'twinfield' ),
 			array( $this, 'field_tax_rates' ),
 			'twinfield',
 			'twinfield_woocommerce'
 		);
-*/
+
 		register_setting( 'twinfield', 'twinfield_woocommerce_shipping_method_article_codes' );
-		register_setting( 'twinfield', 'twinfield_woocommerce_tax_rates' );
+		register_setting( 'twinfield', 'twinfield_woocommerce_shipping_method_subarticle_codes' );
+		register_setting( 'twinfield', 'twinfield_woocommerce_tax_classes_vat_codes' );
 	}
 
 	public function field_shipping_methods( $args ) {
@@ -104,9 +100,12 @@ class WooCommerceExtension {
 		// Tax classes
 		// @see https://github.com/woothemes/woocommerce/blob/v2.2.3/includes/admin/settings/class-wc-settings-tax.php#L45-L52
 		$sections = array(
-			'standard' => __( 'Standard Rates', 'woocommerce' ),
+			'empty'    => __( 'Empty', 'twinfield' ),
+			'standard' => __( 'Standard Rates', 'twinfield' ),
 		);
+
 		$tax_classes = array_filter( array_map( 'trim', explode( "\n", get_option( 'woocommerce_tax_classes' ) ) ) );
+
 		if ( $tax_classes ) {
 			foreach ( $tax_classes as $class ) {
 				$sections[ sanitize_title( $class ) ] = $class;
@@ -117,19 +116,49 @@ class WooCommerceExtension {
 		include plugin_dir_path( $this->plugin->file ) . 'admin/settings-field-woocommerce-tax-rates.php';
 	}
 
+	public function get_tax_class_vat_code( $tax_class ) {
+		$tax_class = empty( $tax_class ) ? 'empty' : $tax_class;
 
-	//////////////////////////////////////////////////
+		$tax_classes_vat_codes = get_option( 'twinfield_woocommerce_tax_classes_vat_codes' );
+		$tax_classes_vat_codes = is_array( $tax_classes_vat_codes ) ? $tax_classes_vat_codes : array();
 
-	/**
-	 * WooCommerce integrations
-	 *
-	 * @param array $integrations
-	 * @return array
-	 */
-	public function woocommerce_integrations( $integrations ) {
-		//$integrations[] = 'Pronamic_Twinfield_WooCommerce_Integration';
+		if ( isset( $tax_classes_vat_codes[ $tax_class ] ) ) {
+			return $tax_classes_vat_codes[ $tax_class ];
+		}
+	}
 
-		return $integrations;
+	public function get_shipping_method_article_code( $method_id ) {
+		$article_code = null;
+
+		$shipping_method_article_codes = get_option( 'twinfield_woocommerce_shipping_method_article_codes' );
+		$shipping_method_article_codes = is_array( $shipping_method_article_codes ) ? $shipping_method_article_codes : array();
+
+		if ( isset( $shipping_method_article_codes[ $method_id ] ) ) {
+			$article_code = $shipping_method_article_codes[ $method_id ];
+		}
+
+		if ( empty( $article_code ) ) {
+			$article_code = get_option( 'twinfield_default_article_code' );
+		}
+
+		return $article_code;
+	}
+
+	public function get_shipping_method_subarticle_code( $method_id ) {
+		$article_code = null;
+
+		$shipping_method_subarticle_codes = get_option( 'twinfield_woocommerce_shipping_method_subarticle_codes' );
+		$shipping_method_subarticle_codes = is_array( $shipping_method_subarticle_codes ) ? $shipping_method_subarticle_codes : array();
+
+		if ( isset( $shipping_method_article_codes[ $method_id ] ) ) {
+			$article_code = $shipping_method_article_codes[ $method_id ];
+		}
+
+		if ( empty( $article_code ) ) {
+			$article_code = get_option( 'twinfield_default_subarticle_code' );
+		}
+
+		return $article_code;
 	}
 
 	public function twinfield_post_customer( $customer, $post_id ) {
@@ -234,66 +263,67 @@ class WooCommerceExtension {
 	 * @param int          $post_id
 	 */
 	public function twinfield_post_sales_invoice( $invoice, $post_id ) {
-		return $invoice;
+		if ( 'shop_order' !== get_post_type( $post_id ) ) {
+			return $invoice;
+		}
 
-		if ( 'shop_order' === get_post_type( $post_id ) ) {
-			// Integration
-			$twinfield_integration = WC()->integrations->integrations['twinfield'];
+		// Defaults.
+		$twinfield_default_article_code    = get_option( 'twinfield_default_article_code' );
+		$twinfield_default_subarticle_code = get_option( 'twinfield_default_subarticle_code' );
 
-			$twinfield_default_article_code    = get_option( 'twinfield_default_article_code' );
-			$twinfield_default_subarticle_code = get_option( 'twinfield_default_subarticle_code' );
+		// Order.
+		$order = wc_get_order( $post_id );
 
-			// Order
-			$order = wc_get_order( $post_id );
+		// Items.
+		// @see https://github.com/woothemes/woocommerce/blob/2.5.3/includes/abstracts/abstract-wc-order.php#L1118-L1150
+		foreach ( $order->get_items() as $item ) {
+			$line = $invoice->new_line();
 
-			// Items
-			// @see https://github.com/woothemes/woocommerce/blob/2.5.3/includes/abstracts/abstract-wc-order.php#L1118-L1150
-			foreach ( $order->get_items() as $item ) {
-				$line = $invoice->new_line();
+			// Find and article and subarticle id if set
+			$article_code = get_post_meta( $item['product_id'], '_twinfield_article_code', true );
 
-				// Find and article and subarticle id if set
-				$article_code    = get_post_meta( $item['product_id'], '_twinfield_article_code', true );
-				if ( empty( $article_code ) ) {
-					$article_code = $twinfield_default_article_code;
-				}
-
-				$subarticle_code = get_post_meta( $item['product_id'], '_twinfield_subarticle_code', true );
-				if ( empty( $subarticle_code ) ) {
-					$subarticle_code = $twinfield_default_subarticle_code;
-				}
-
-				$line->set_article( $article_code );
-				$line->set_subarticle( $subarticle_code );
-				$line->set_quantity( $item['qty'] );
-				$line->set_value_excl( $order->get_item_total( $item, false, false ) );
-				$line->set_vat_code( $twinfield_integration->get_tax_class_vat_code( $item['tax_class'] ) );
-				$line->set_free_text_1( $item['name'] );
+			if ( empty( $article_code ) ) {
+				$article_code = $twinfield_default_article_code;
 			}
 
-			// Fees
-			// @see https://github.com/woothemes/woocommerce/blob/2.5.3/includes/abstracts/abstract-wc-order.php#L1221-L1228
-			foreach ( $order->get_fees() as $item ) {
-				$line = $invoice->new_line();
+			$subarticle_code = get_post_meta( $item['product_id'], '_twinfield_subarticle_code', true );
 
-				$line->set_article( $twinfield_default_article_code );
-				$line->set_subarticle( $twinfield_default_subarticle_code );
-				$line->set_quantity( 1 );
-				$line->set_value_excl( $order->get_item_total( $item, false, false ) );
-				$line->set_free_text_1( __( 'Fee', 'twinfield_woocommerce' ) );
+			if ( empty( $subarticle_code ) ) {
+				$subarticle_code = $twinfield_default_subarticle_code;
 			}
 
-			// Shipping
-			// @see https://github.com/woothemes/woocommerce/blob/2.5.3/includes/abstracts/abstract-wc-order.php#L1239-L1246
-			foreach ( $order->get_shipping_methods() as $item ) {
-				$line = $invoice->new_line();
+			$line->set_article( $article_code );
+			$line->set_subarticle( $subarticle_code );
+			$line->set_quantity( $item['qty'] );
+			// @link https://github.com/woocommerce/woocommerce/blob/3.5.3/includes/abstracts/abstract-wc-order.php#L1535-L1557
+			$line->set_units_price_excl( $order->get_item_total( $item, false ) );
+			$line->set_vat_code( $this->get_tax_class_vat_code( $item['tax_class'] ) );
+			$line->set_free_text_1( $item['name'] );
+		}
 
-				$line->set_article( $twinfield_integration->get_shipping_method_article_code( $item['method_id'] ) );
-				$line->set_subarticle( $twinfield_integration->get_shipping_method_subarticle_code( $item['method_id'] ) );
-				$line->set_quantity( 1 );
-				$line->set_value_excl( $item['cost'] );
-				$line->set_vat_code( $twinfield_integration->get_tax_class_vat_code( get_option( 'woocommerce_shipping_tax_class' ) ) );
-				$line->set_free_text_1( $item['name'] );
-			}
+		// Fees
+		// @see https://github.com/woothemes/woocommerce/blob/2.5.3/includes/abstracts/abstract-wc-order.php#L1221-L1228
+		foreach ( $order->get_fees() as $item ) {
+			$line = $invoice->new_line();
+
+			$line->set_article( $twinfield_default_article_code );
+			$line->set_subarticle( $twinfield_default_subarticle_code );
+			$line->set_quantity( 1 );
+			$line->set_units_price_excl( $order->get_item_total( $item, false ) );
+			$line->set_free_text_1( __( 'Fee', 'twinfield' ) );
+		}
+
+		// Shipping
+		// @see https://github.com/woothemes/woocommerce/blob/2.5.3/includes/abstracts/abstract-wc-order.php#L1239-L1246
+		foreach ( $order->get_shipping_methods() as $item ) {
+			$line = $invoice->new_line();
+
+			$line->set_article( $this->get_shipping_method_article_code( $item['method_id'] ) );
+			$line->set_subarticle( $this->get_shipping_method_subarticle_code( $item['method_id'] ) );
+			$line->set_quantity( 1 );
+			$line->set_units_price_excl( $item['cost'] );
+			$line->set_vat_code( $this->get_tax_class_vat_code( get_option( 'woocommerce_shipping_tax_class' ) ) );
+			$line->set_free_text_1( $item['name'] );
 		}
 
 		return $invoice;

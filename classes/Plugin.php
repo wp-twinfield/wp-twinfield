@@ -55,7 +55,7 @@ class Plugin {
 		$this->customers_public = new CustomersPublic( $this );
 
 		// Extensions
-		$this->woocommerce_extensions = new WooCommerceExtension( $file );
+		$this->woocommerce_extensions = new WooCommerceExtension( $this );
 
 		// OpenID Connect Provider
 		if ( 'openid_connect' === get_option( 'twinfield_authorization_method' ) ) {

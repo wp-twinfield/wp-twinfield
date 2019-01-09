@@ -96,15 +96,15 @@ class CustomersAdmin {
 
 			$xml_processor = $client->get_xml_processor();
 
-			$service = new \Pronamic\WP\Twinfield\SalesInvoices\SalesInvoiceService( $xml_processor );
+			$service = new \Pronamic\WP\Twinfield\Customers\CustomerService( $xml_processor );
 
-			$response = $service->insert_sales_invoice( $sales_invoice );
+			$response = $service->insert_customer( $customer );
 
 			if ( $response ) {
 				if ( $response->is_successful() ) {
-					$sales_invoice = $response->get_sales_invoice();
+					$customer = $response->get_customer();
 
-					update_post_meta( $post_id, '_twinfield_customer_id', $sales_invoice->get_header()->get_number() );
+					update_post_meta( $post_id, '_twinfield_customer_id', $customer->get_code() );
 
 					delete_post_meta( $post_id, '_twinfield_response_xml' );
 				} else {

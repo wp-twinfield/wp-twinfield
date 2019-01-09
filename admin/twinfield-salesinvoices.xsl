@@ -15,7 +15,7 @@
 		</div>
 	</xsl:template>
 
-	<xsl:template match="salesinvoice/header">			
+	<xsl:template match="salesinvoice/header">
 		<xsl:if test="@msg">
 			<em><xsl:value-of select="@msg" /></em>
 		</xsl:if>
@@ -42,6 +42,10 @@
 	</xsl:template>
 
 	<xsl:template match="salesinvoice/lines">
+		<xsl:if test="@msg">
+			<em><xsl:value-of select="@msg" /></em>
+		</xsl:if>
+
 		<table class="twinfield-invoice-lines">
 			<thead>
 				<tr>

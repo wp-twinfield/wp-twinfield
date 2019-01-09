@@ -1,3 +1,9 @@
+<?php
+
+$tax_classes_vat_codes = get_option( 'twinfield_woocommerce_tax_classes_vat_codes' );
+$tax_classes_vat_codes = is_array( $tax_classes_vat_codes ) ? $tax_classes_vat_codes : array();
+
+?>
 <table class="widefat">
 	<thead>
 		<tr>
@@ -20,7 +26,7 @@
 					<?php echo esc_html( $label ); ?>
 				</td>
 				<td>
-					<input type="text" value="<?php echo esc_attr( $vat_code ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'tax_classes_vat_codes' ) ); ?>[<?php echo esc_attr( $key ); ?>]" />
+					<input type="text" value="<?php echo esc_attr( $vat_code ); ?>" name="twinfield_woocommerce_tax_classes_vat_codes[<?php echo esc_attr( $key ); ?>]" />
 				</td>
 			</tr>
 
