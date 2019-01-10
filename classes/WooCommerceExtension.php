@@ -73,16 +73,34 @@ class WooCommerceExtension {
 		);
 
 		add_settings_field(
-			'twinfield_woocommerce_tax_classes_vat_codes',
-			__( 'Tax Rate Codes', 'twinfield' ),
-			array( $this, 'field_tax_rates' ),
+			'twinfield_woocommerce_no_tax_vat_code',
+			__( 'No Tax Vat Code', 'twinfield' ),
+			__NAMESPACE__ . '\SettingFields::render_text',
 			'twinfield',
-			'twinfield_woocommerce'
+			'twinfield_woocommerce',
+			array(
+				'label_for'   => 'twinfield_woocommerce_no_tax_vat_code',
+				'classes'	 => array( 'regular-text', 'code' ),
+				/* translators: use same translations as on Twinfield.com. */
+				'description' => _x( 'This VAT code is used for order items without tax.', 'twinfield' ),
+			)
 		);
+
+		if ( wc_tax_enabled() ) {
+			add_settings_field(
+				'twinfield_woocommerce_tax_rate_vat_codes',
+				__( 'Tax Rate Codes', 'twinfield' ),
+				array( $this, 'field_tax_rates' ),
+				'twinfield',
+				'twinfield_woocommerce'
+			);
+		}
 
 		register_setting( 'twinfield', 'twinfield_woocommerce_shipping_method_article_codes' );
 		register_setting( 'twinfield', 'twinfield_woocommerce_shipping_method_subarticle_codes' );
-		register_setting( 'twinfield', 'twinfield_woocommerce_tax_classes_vat_codes' );
+		
+		register_setting( 'twinfield', 'twinfield_woocommerce_no_tax_vat_code' );
+		register_setting( 'twinfield', 'twinfield_woocommerce_tax_rate_vat_codes' );
 	}
 
 	public function field_shipping_methods( $args ) {
@@ -100,7 +118,6 @@ class WooCommerceExtension {
 		// Tax classes
 		// @see https://github.com/woothemes/woocommerce/blob/v2.2.3/includes/admin/settings/class-wc-settings-tax.php#L45-L52
 		$sections = array(
-			'empty'    => __( 'Empty', 'twinfield' ),
 			'standard' => __( 'Standard Rates', 'twinfield' ),
 		);
 
@@ -256,6 +273,32 @@ class WooCommerceExtension {
 		return $customer;
 	}
 
+	public function get_order_item_vat_code( $item ) {
+		if ( ! is_callable( array( $item, 'get_taxes' ) ) ) {
+			return;
+		}
+
+		$item_taxes = $item->get_taxes();
+
+		$item_taxes_total = $item_taxes['total'];
+		$item_taxes_total = array_filter( $item_taxes_total, 'strlen' );
+
+		if ( empty( $item_taxes_total ) ) {
+			return get_option( 'twinfield_woocommerce_no_tax_vat_code' );
+		}
+
+		$rate_id = key( $item_taxes_total );
+
+		$tax_rate_vat_codes = get_option( 'twinfield_woocommerce_tax_rate_vat_codes' );
+		$tax_rate_vat_codes = is_array( $tax_rate_vat_codes ) ? $tax_rate_vat_codes : array();
+
+		if ( isset( $tax_rate_vat_codes[ $rate_id ] ) ) {
+			return $tax_rate_vat_codes[ $rate_id ];
+		}
+
+		return null;
+	}
+
 	/**
 	 * Twinfield post customer
 	 *
@@ -274,8 +317,14 @@ class WooCommerceExtension {
 		// Order.
 		$order = wc_get_order( $post_id );
 
-		// Items.
-		// @see https://github.com/woothemes/woocommerce/blob/2.5.3/includes/abstracts/abstract-wc-order.php#L1118-L1150
+		/*
+		 * Items.
+		 *
+		 * @link https://github.com/woothemes/woocommerce/blob/2.5.3/includes/abstracts/abstract-wc-order.php#L1118-L1150
+		 * @link https://github.com/woocommerce/woocommerce/blob/3.5.3/includes/admin/meta-boxes/views/html-order-items.php
+		 * @link https://github.com/woocommerce/woocommerce/blob/3.5.3/includes/admin/meta-boxes/views/html-order-item.php
+		 * @link https://github.com/woocommerce/woocommerce/blob/3.5.3/includes/class-wc-order-item-tax.php
+		 */
 		foreach ( $order->get_items() as $item ) {
 			$line = $invoice->new_line();
 
@@ -297,12 +346,15 @@ class WooCommerceExtension {
 			$line->set_quantity( $item['qty'] );
 			// @link https://github.com/woocommerce/woocommerce/blob/3.5.3/includes/abstracts/abstract-wc-order.php#L1535-L1557
 			$line->set_units_price_excl( $order->get_item_total( $item, false ) );
-			$line->set_vat_code( $this->get_tax_class_vat_code( $item['tax_class'] ) );
+			$line->set_vat_code( $this->get_order_item_vat_code( $item ) );
 			$line->set_free_text_1( $item['name'] );
 		}
 
-		// Fees
-		// @see https://github.com/woothemes/woocommerce/blob/2.5.3/includes/abstracts/abstract-wc-order.php#L1221-L1228
+		/*
+		 * Fees.
+		 *
+		 * @link https://github.com/woothemes/woocommerce/blob/2.5.3/includes/abstracts/abstract-wc-order.php#L1221-L1228
+		 */
 		foreach ( $order->get_fees() as $item ) {
 			$line = $invoice->new_line();
 
@@ -313,8 +365,11 @@ class WooCommerceExtension {
 			$line->set_free_text_1( __( 'Fee', 'twinfield' ) );
 		}
 
-		// Shipping
-		// @see https://github.com/woothemes/woocommerce/blob/2.5.3/includes/abstracts/abstract-wc-order.php#L1239-L1246
+		/*
+		 * Shipping.
+		 *
+		 * @link https://github.com/woothemes/woocommerce/blob/2.5.3/includes/abstracts/abstract-wc-order.php#L1239-L1246
+		 */
 		foreach ( $order->get_shipping_methods() as $item ) {
 			$line = $invoice->new_line();
 
@@ -322,7 +377,7 @@ class WooCommerceExtension {
 			$line->set_subarticle( $this->get_shipping_method_subarticle_code( $item['method_id'] ) );
 			$line->set_quantity( 1 );
 			$line->set_units_price_excl( $item['cost'] );
-			$line->set_vat_code( $this->get_tax_class_vat_code( get_option( 'woocommerce_shipping_tax_class' ) ) );
+			$line->set_vat_code( $this->get_order_item_vat_code( $item ) );
 			$line->set_free_text_1( $item['name'] );
 		}
 

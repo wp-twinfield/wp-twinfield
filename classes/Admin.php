@@ -36,16 +36,12 @@ class Admin {
 		$this->invoices_admin  = new InvoicesAdmin( $plugin );
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Admin initialize
 	 */
 	public function admin_init() {
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
 	}
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Admin menu
@@ -106,8 +102,6 @@ class Admin {
 		);
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Admin enqueue scripts
 	 */
@@ -123,8 +117,6 @@ class Admin {
 		// Auto enqueued assets
 		wp_enqueue_style( 'twinfield-admin' );
 	}
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Page dashboard.

@@ -41,7 +41,7 @@ class Settings {
 		add_settings_field(
 			'twinfield_authorization_method',
 			__( 'Authorization Method', 'twinfield' ),
-			array( $this, 'radio_buttons' ),
+				__NAMESPACE__ . '\SettingFields::radio_buttons',
 			'twinfield',
 			'twinfield_general',
 			array(
@@ -69,7 +69,7 @@ class Settings {
 			add_settings_field(
 				'twinfield_openid_connect_client_id',
 				__( 'Client ID', 'twinfield' ),
-				array( $this, 'render_text' ),
+				__NAMESPACE__ . '\SettingFields::render_text',
 				'twinfield',
 				'twinfield_openid_connect_authentication',
 				array(
@@ -83,7 +83,7 @@ class Settings {
 			add_settings_field(
 				'twinfield_openid_connect_client_secret',
 				__( 'Client Secret', 'twinfield' ),
-				array( $this, 'render_text' ),
+				__NAMESPACE__ . '\SettingFields::render_text',
 				'twinfield',
 				'twinfield_openid_connect_authentication',
 				array(
@@ -98,7 +98,7 @@ class Settings {
 			add_settings_field(
 				'twinfield_openid_connect_redirect_uri',
 				__( 'Redirect URI', 'twinfield' ),
-				array( $this, 'render_text' ),
+				__NAMESPACE__ . '\SettingFields::render_text',
 				'twinfield',
 				'twinfield_openid_connect_authentication',
 				array(
@@ -131,7 +131,7 @@ class Settings {
 			add_settings_field(
 				'twinfield_username',
 				__( 'Username', 'twinfield' ),
-				array( $this, 'render_text' ),
+				__NAMESPACE__ . '\SettingFields::render_text',
 				'twinfield',
 				'twinfield_web_services_authentication',
 				array( 'label_for' => 'twinfield_username' )
@@ -140,7 +140,7 @@ class Settings {
 			add_settings_field(
 				'twinfield_password',
 				__( 'Password', 'twinfield' ),
-				array( $this, 'render_password' ),
+				__NAMESPACE__ . '\SettingFields::render_password',
 				'twinfield',
 				'twinfield_web_services_authentication',
 				array( 'label_for' => 'twinfield_password' )
@@ -149,7 +149,7 @@ class Settings {
 			add_settings_field(
 				'twinfield_organisation',
 				__( 'Organisation', 'twinfield' ),
-				array( $this, 'render_text' ),
+				__NAMESPACE__ . '\SettingFields::render_text',
 				'twinfield',
 				'twinfield_web_services_authentication',
 				array( 'label_for' => 'twinfield_organisation' )
@@ -175,7 +175,7 @@ class Settings {
 			'twinfield_default_cluster',
 			/* translators: use same translations as on Twinfield.com. */
 			_x( 'Cluster', 'twinfield.com', 'twinfield' ),
-			array( $this, 'render_text' ),
+			__NAMESPACE__ . '\SettingFields::render_text',
 			'twinfield',
 			'twinfield_defaults',
 			array(
@@ -187,7 +187,7 @@ class Settings {
 			'twinfield_default_office_code',
 			/* translators: use same translations as on Twinfield.com. */
 			_x( 'Company Code', 'twinfield.com', 'twinfield' ),
-			array( $this, 'render_text' ),
+			__NAMESPACE__ . '\SettingFields::render_text',
 			'twinfield',
 			'twinfield_defaults',
 			array(
@@ -200,7 +200,7 @@ class Settings {
 		add_settings_field(
 			'twinfield_default_invoice_type',
 			__( 'Invoice Type Code', 'twinfield' ),
-			array( $this, 'render_text' ),
+			__NAMESPACE__ . '\SettingFields::render_text',
 			'twinfield',
 			'twinfield_defaults',
 			array(
@@ -214,7 +214,7 @@ class Settings {
 		add_settings_field(
 			'twinfield_default_vat_code',
 			__( 'VAT Code', 'twinfield' ),
-			array( $this, 'render_text' ),
+			__NAMESPACE__ . '\SettingFields::render_text',
 			'twinfield',
 			'twinfield_defaults',
 			array(
@@ -230,7 +230,7 @@ class Settings {
 		add_settings_field(
 			'twinfield_default_article_code',
 			__( 'Article Code', 'twinfield' ),
-			array( $this, 'render_text' ),
+			__NAMESPACE__ . '\SettingFields::render_text',
 			'twinfield',
 			'twinfield_defaults',
 			array(
@@ -246,7 +246,7 @@ class Settings {
 		add_settings_field(
 			'twinfield_default_subarticle_code',
 			__( 'Subarticle Code', 'twinfield' ),
-			array( $this, 'render_text' ),
+			__NAMESPACE__ . '\SettingFields::render_text',
 			'twinfield',
 			'twinfield_defaults',
 			array(
@@ -358,73 +358,10 @@ class Settings {
 	}
 
 	/**
-	 * Array to HTML attributes
-	 *
-	 * @param array $pieces
-	 */
-	private function array_to_html_attributes( array $attributes ) {
-		$html  = '';
-		$space = '';
-
-		foreach ( $attributes as $key => $value ) {
-			$html .= $space . $key . '="' . esc_attr( $value ) . '"';
-
-			$space = ' ';
-		}
-
-		return $html;
-	}
-
-	/**
 	 * Section permalinks
 	 */
 	public function section_permalinks( $args ) {
 		include plugin_dir_path( $this->plugin->file ) . 'admin/section-permalinks.php';
-	}
-
-	/**
-	 * Render text
-	 *
-	 * @param array $attributes
-	 */
-	public function render_text( $attributes ) {
-		$attributes = wp_parse_args( $attributes, array(
-			'id'      => '',
-			'type'    => 'text',
-			'name'    => '',
-			'value'   => '',
-			'classes' => array( 'regular-text' ),
-		) );
-
-		if ( isset( $attributes['label_for'] ) ) {
-			$attributes['id']    = $attributes['label_for'];
-			$attributes['name']  = $attributes['label_for'];
-			$attributes['value'] = get_option( $attributes['label_for'] );
-
-			unset( $attributes['label_for'] );
-		}
-
-		if ( isset( $attributes['classes'] ) ) {
-			$attributes['class'] = implode( ' ', $attributes['classes'] );
-
-			unset( $attributes['classes'] );
-		}
-
-		$description = null;
-		if ( isset( $attributes['description'] ) ) {
-			$description = $attributes['description'];
-
-			unset( $attributes['description'] );
-		}
-
-		printf( '<input %s />', $this->array_to_html_attributes( $attributes ) ); //xss ok
-
-		if ( $description ) {
-			printf( //xss ok
-				'<span class="description"><br />%s</span>',
-				$description
-			); //xss ok
-		}
 	}
 
 	/**
@@ -437,48 +374,6 @@ class Settings {
 
 		echo '<code>', esc_html( $url ), '</code> ';
 
-		$this->render_text( $args );
-	}
-
-	/**
-	 * Render password
-	 *
-	 * @param array $attributes
-	 */
-	public function render_password( $attributes ) {
-		$attributes['type'] = 'password';
-
-		$this->render_text( $attributes );
-	}
-
-	public function radio_buttons( $args ) {
-		$name    = $args['label_for'];
-		$current = get_option( $name );
-		$options = $args['options'];
-
-		echo '<fieldset>';
-
-		printf(
-			'<legend class="screen-reader-text"><span>%s</span></legend>',
-			'Test'
-		);
-
-		foreach ( $options as $value => $label ) {
-			echo '<label>';
-
-			printf(
-				'<input type="radio" name="%s" value="%s" %s> %s',
-				esc_attr( $name ),
-				esc_attr( $value ),
-				checked( $current, $value, false ),
-				esc_html( $label )
-			);
-
-			echo '</label>';
-
-			echo '<br />';
-		}
-
-		echo '</fieldset>';
+		SettingFields::render_text( $args );
 	}
 }

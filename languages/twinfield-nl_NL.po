@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Twinfield\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/twinfield\n"
-"POT-Creation-Date: 2018-08-31 09:27:32+00:00\n"
-"PO-Revision-Date: 2018-08-31 11:29+0100\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-twinfield\n"
+"POT-Creation-Date: 2019-01-10 13:14:13+00:00\n"
+"PO-Revision-Date: 2019-01-10 14:19+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -23,7 +23,8 @@ msgid "Code"
 msgstr "Code"
 
 #: admin/customer.php:16 admin/customer.php:71 admin/page-offices.php:11
-#: templates/customer.php:17 templates/customer.php:101
+#: admin/settings-field-woocommerce-tax-rates.php:24 templates/customer.php:17
+#: templates/customer.php:101
 msgid "Name"
 msgstr "Naam"
 
@@ -64,13 +65,13 @@ msgid "Telephone"
 msgstr "Telefoon"
 
 #: admin/meta-box-article.php:4
-#: admin/settings-field-woocommerce-shipping-methods.php:5
+#: admin/settings-field-woocommerce-shipping-methods.php:14
 #: classes/Settings.php:232
 msgid "Article Code"
 msgstr "Artikel code"
 
 #: admin/meta-box-article.php:12
-#: admin/settings-field-woocommerce-shipping-methods.php:6
+#: admin/settings-field-woocommerce-shipping-methods.php:15
 #: classes/Settings.php:248
 msgid "Subarticle Code"
 msgstr "Subartikel code"
@@ -80,14 +81,12 @@ msgid "Customer ID"
 msgstr "Klant ID"
 
 #: admin/meta-box-customer.php:14
-#, fuzzy
 msgid "Create Customer"
-msgstr "Klant laden"
+msgstr "Klant aanmaken"
 
 #: admin/meta-box-customer.php:24
-#, fuzzy
 msgid "View Customer"
-msgstr "Klant"
+msgstr "Klant bekijken"
 
 #: admin/meta-box-invoice.php:10 admin/sales-invoice.php:10
 #: templates/sales-invoice.php:19
@@ -243,51 +242,84 @@ msgstr ""
 "factuurlinks iets als %s. Als je dit leeg laat, worden de standaardwaarden "
 "gebruikt."
 
-#: admin/settings-field-woocommerce-shipping-methods.php:4
+#: admin/settings-field-woocommerce-shipping-methods.php:13
 msgid "Method"
-msgstr ""
+msgstr "Methode"
 
-#: admin/settings-field-woocommerce-tax-rates.php:4
-msgid "Rates"
-msgstr ""
+#: admin/settings-field-woocommerce-tax-rates.php:20
+msgid "Class"
+msgstr "Klasse"
 
-#: admin/settings-field-woocommerce-tax-rates.php:5 classes/Settings.php:216
+#: admin/settings-field-woocommerce-tax-rates.php:21
+#: templates/customer.php:121
+msgid "Country"
+msgstr "Land"
+
+#: admin/settings-field-woocommerce-tax-rates.php:22
+msgid "State"
+msgstr "Staat"
+
+#: admin/settings-field-woocommerce-tax-rates.php:23
+msgid "Rate"
+msgstr "Tarief"
+
+#: admin/settings-field-woocommerce-tax-rates.php:25
+msgid "Priority"
+msgstr "Prioriteit"
+
+#: admin/settings-field-woocommerce-tax-rates.php:26
+msgid "Compound"
+msgstr "Samengesteld"
+
+#: admin/settings-field-woocommerce-tax-rates.php:27
+msgid "Shipping"
+msgstr "Verzending"
+
+#: admin/settings-field-woocommerce-tax-rates.php:28
+msgid "Order"
+msgstr "Volgorde"
+
+#: admin/settings-field-woocommerce-tax-rates.php:29 classes/Settings.php:216
 msgid "VAT Code"
 msgstr "Btw-code"
+
+#: admin/settings-field-woocommerce-tax-rates.php:46
+msgid "Standard rate"
+msgstr "Standaardtarief"
 
 #. Plugin Name of the plugin/theme
 msgid "Twinfield"
 msgstr "Twinfield"
 
-#: classes/Admin.php:74
+#: classes/Admin.php:70
 msgid "Twinfield Customers"
 msgstr "Twinfield klanten"
 
-#: classes/Admin.php:75
+#: classes/Admin.php:71
 msgid "Customers"
 msgstr "Klanten"
 
-#: classes/Admin.php:83
+#: classes/Admin.php:79
 msgid "Twinfield Invoices"
 msgstr "Twinfield facturen"
 
-#: classes/Admin.php:84
+#: classes/Admin.php:80
 msgid "Invoices"
 msgstr "Facturen"
 
-#: classes/Admin.php:92
+#: classes/Admin.php:88
 msgid "Twinfield Settings"
 msgstr "Twinfield instellingen"
 
-#: classes/Admin.php:93
+#: classes/Admin.php:89
 msgid "Settings"
 msgstr "Instellingen"
 
-#: classes/Admin.php:101
+#: classes/Admin.php:97
 msgid "Twinfield Documentation"
 msgstr "Twinfield documentatie"
 
-#: classes/Admin.php:102
+#: classes/Admin.php:98
 msgid "Documentation"
 msgstr "Documentatie"
 
@@ -430,17 +462,29 @@ msgstr ""
 msgid "For web services authentication use Open ID Connect instead."
 msgstr "For web services authentication use Open ID Connect instead."
 
-#: classes/WooCommerceExtension.php:67
+#: classes/WooCommerceExtension.php:62
 msgid "WooCommerce"
-msgstr ""
+msgstr "WooCommerce"
 
-#: classes/WooCommerceExtension.php:107
+#: classes/WooCommerceExtension.php:69
+msgid "Shipping Method Articles"
+msgstr "Verzendmethoden artikelen"
+
+#: classes/WooCommerceExtension.php:77
+msgid "No Tax Vat Code"
+msgstr "Geen belasting btw-code"
+
+#: classes/WooCommerceExtension.php:92
+msgid "Tax Rate Codes"
+msgstr "Belastingtariefcodes"
+
+#: classes/WooCommerceExtension.php:121
 msgid "Standard Rates"
-msgstr ""
+msgstr "Standaardtarieven"
 
-#: classes/WooCommerceExtension.php:282
+#: classes/WooCommerceExtension.php:365
 msgid "Fee"
-msgstr ""
+msgstr "Kosten"
 
 #: templates/customer.php:12 templates/customer.php:105
 msgid "Contact"
@@ -475,10 +519,6 @@ msgstr "Standaard"
 #: templates/customer.php:109
 msgid "Address"
 msgstr "Adres"
-
-#: templates/customer.php:121
-msgid "Country"
-msgstr "Land"
 
 #: templates/customer.php:129
 msgid "Phone Number"
@@ -545,12 +585,12 @@ msgctxt "slug"
 msgid "invoices"
 msgstr "factuur"
 
-#: classes/Admin.php:65
+#: classes/Admin.php:61
 msgctxt "twinfield.com"
 msgid "Twinfield Companies"
 msgstr "Twinfield administraties"
 
-#: classes/Admin.php:66
+#: classes/Admin.php:62
 msgctxt "twinfield.com"
 msgid "Companies"
 msgstr "Administraties"
@@ -613,6 +653,12 @@ msgctxt "Invoice slug for front end"
 msgid "invoice"
 msgstr "factuur"
 
+#. translators: use same translations as on Twinfield.com.
+#: classes/WooCommerceExtension.php:85
+msgctxt "twinfield"
+msgid "This VAT code is used for order items without tax."
+msgstr "Deze btw-code wordt gebruikt voor bestelling items zonder belasting."
+
 #: includes/template.php:12
 msgctxt "Invoice slug for frontend"
 msgid "invoice"
@@ -663,9 +709,6 @@ msgstr "factuur"
 
 #~ msgid "Electronic Invoice Email"
 #~ msgstr "Elektronische factuur e-mailadres"
-
-#~ msgid "Vat Code"
-#~ msgstr "Belasting code"
 
 #~ msgid "Default?"
 #~ msgstr "Standaaard?"

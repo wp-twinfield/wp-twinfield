@@ -10,9 +10,9 @@ $shipping_method_subarticle_codes = is_array( $shipping_method_subarticle_codes 
 <table class="widefat">
 	<thead>
 		<tr>
-			<th width="25%"><?php esc_html_e( 'Method', 'twinfield_woocommerce' ); ?></th>
-			<th><?php esc_html_e( 'Article Code', 'twinfield_woocommerce' ); ?></th>
-			<th><?php esc_html_e( 'Subarticle Code', 'twinfield_woocommerce' ); ?></th>
+			<th width="25%"><?php esc_html_e( 'Method', 'twinfield' ); ?></th>
+			<th><?php esc_html_e( 'Article Code', 'twinfield' ); ?></th>
+			<th><?php esc_html_e( 'Subarticle Code', 'twinfield' ); ?></th>
 		</tr>
 	</thead>
 
