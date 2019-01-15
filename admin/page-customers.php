@@ -20,7 +20,7 @@
 			</table>
 
 			<?php submit_button( __( 'Request', 'twinfield' ), 'primary', null ); ?>
-	    </form>
+		</form>
 
 	<?php endif; ?>
 

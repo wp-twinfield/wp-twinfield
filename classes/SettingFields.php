@@ -27,13 +27,16 @@ class SettingFields {
 	 * @param array $attributes
 	 */
 	public static function render_text( $attributes ) {
-		$attributes = wp_parse_args( $attributes, array(
-			'id'      => '',
-			'type'    => 'text',
-			'name'    => '',
-			'value'   => '',
-			'classes' => array( 'regular-text' ),
-		) );
+		$attributes = wp_parse_args(
+			$attributes,
+			array(
+				'id'      => '',
+				'type'    => 'text',
+				'name'    => '',
+				'value'   => '',
+				'classes' => array( 'regular-text' ),
+			)
+		);
 
 		if ( isset( $attributes['label_for'] ) ) {
 			$attributes['id']    = $attributes['label_for'];
@@ -56,13 +59,13 @@ class SettingFields {
 			unset( $attributes['description'] );
 		}
 
-		printf( '<input %s />', self::array_to_html_attributes( $attributes ) ); //xss ok
+		printf( '<input %s />', self::array_to_html_attributes( $attributes ) ); // xss ok
 
 		if ( $description ) {
-			printf( //xss ok
+			printf( // xss ok
 				'<span class="description"><br />%s</span>',
 				$description
-			); //xss ok
+			); // xss ok
 		}
 	}
 

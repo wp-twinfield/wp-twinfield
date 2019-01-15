@@ -14,11 +14,9 @@ class Admin {
 	 */
 	private $plugin;
 
-	//////////////////////////////////////////////////
-
-	/**
-	 * Constructs and initialize Twinfield plugin admin
-	 */
+		/**
+		 * Constructs and initialize Twinfield plugin admin
+		 */
 	public function __construct( Plugin $plugin ) {
 		$this->plugin = $plugin;
 

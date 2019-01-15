@@ -12,11 +12,9 @@ class InvoicesPublic {
 	 */
 	private $plugin;
 
-	//////////////////////////////////////////////////
-
-	/**
-	 * Constructs and initializes an invoices public object.
-	 */
+		/**
+		 * Constructs and initializes an invoices public object.
+		 */
 	public function __construct( Plugin $plugin ) {
 		$this->plugin = $plugin;
 

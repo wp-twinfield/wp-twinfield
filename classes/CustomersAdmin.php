@@ -14,11 +14,9 @@ class CustomersAdmin {
 	 */
 	private $plugin;
 
-	//////////////////////////////////////////////////
-
-	/**
-	 * Constructs and initialize Twinfield plugin admin
-	 */
+		/**
+		 * Constructs and initialize Twinfield plugin admin
+		 */
 	public function __construct( Plugin $plugin ) {
 		$this->plugin = $plugin;
 
@@ -29,9 +27,9 @@ class CustomersAdmin {
 		add_action( 'save_post', array( $this, 'save_post' ) );
 
 		// Columns
-		add_filter( 'manage_posts_columns' , array( $this, 'manage_posts_columns' ), 10, 2 );
+		add_filter( 'manage_posts_columns', array( $this, 'manage_posts_columns' ), 10, 2 );
 
-		add_action( 'manage_posts_custom_column' , array( $this, 'manage_posts_custom_column' ), 10, 2 );
+		add_action( 'manage_posts_custom_column', array( $this, 'manage_posts_custom_column' ), 10, 2 );
 
 		// AJAX
 		add_action( 'wp_ajax_twinfield_search_customers', array( $this, 'ajax_twinfield_search_customers' ) );
@@ -171,7 +169,7 @@ class CustomersAdmin {
 			);
 
 			foreach ( $customers as $customer ) {
-				$object = new \stdClass();
+				$object       = new \stdClass();
 				$object->code = $customer->get_code();
 				$object->name = $customer->get_name();
 

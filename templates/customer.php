@@ -50,26 +50,28 @@
 			<div class="content">
 				<dl class="row">
 					<dt class="col-sm-2"><?php esc_html_e( 'Send Reminder', 'twinfield' ); ?></dt>
-					<dd class="col-sm-10"><?php
+					<dd class="col-sm-10">
+					<?php
 
 					$send_reminder = $twinfield_customer->get_credit_management()->get_send_reminder();
 
 					switch ( $send_reminder ) {
-						case 'true' :
+						case 'true':
 							esc_html_e( 'Yes', 'twinfield' );
 							break;
-						case 'email' :
+						case 'email':
 							esc_html_e( 'Yes, by e-mail', 'twinfield' );
 							break;
-						case 'false' :
+						case 'false':
 							esc_html_e( 'No', 'twinfield' );
 							break;
-						default :
+						default:
 							echo esc_html( $send_reminder );
 							break;
 					}
 
-					?></dd>
+					?>
+					</dd>
 
 					<dt class="col-sm-2"><?php esc_html_e( 'Reminder Email', 'twinfield' ); ?></dt>
 					<dd class="col-sm-10"><?php echo esc_html( $twinfield_customer->get_credit_management()->get_reminder_email() ); ?></dd>

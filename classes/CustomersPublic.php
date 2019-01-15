@@ -12,11 +12,9 @@ class CustomersPublic {
 	 */
 	private $plugin;
 
-	//////////////////////////////////////////////////
-
-	/**
-	 * Constructs and initializes an customers public object.
-	 */
+		/**
+		 * Constructs and initializes an customers public object.
+		 */
 	public function __construct( Plugin $plugin ) {
 		$this->plugin = $plugin;
 

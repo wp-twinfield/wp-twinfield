@@ -35,7 +35,7 @@ if ( filter_input( INPUT_GET, 'debug', FILTER_VALIDATE_BOOLEAN ) ) {
 
 	$client = $this->plugin->get_client();
 
-	$customers_finder = new \Pronamic\WP\Twinfield\Customers\CustomerFinder( $client->get_finder() );
+	$customers_finder  = new \Pronamic\WP\Twinfield\Customers\CustomerFinder( $client->get_finder() );
 	$customers_service = new \Pronamic\WP\Twinfield\Customers\CustomerService( $client->get_xml_processor() );
 
 	$customer_finder_results = $customers_finder->get_customers( $customer->get_name(), \Pronamic\WP\Twinfield\SearchFields::ADDRESS_FIELDS, 1, 10 );
@@ -51,12 +51,15 @@ if ( filter_input( INPUT_GET, 'debug', FILTER_VALIDATE_BOOLEAN ) ) {
 			foreach ( $response->get_customer()->get_addresses() as $address ) {
 				var_dump( $address );
 
-				echo $test->similar( $address, array(
-					'field_2',
-					'postcode',
-					'city',
-					'country',
-				) );
+				echo $test->similar(
+					$address,
+					array(
+						'field_2',
+						'postcode',
+						'city',
+						'country',
+					)
+				);
 			}
 		}
 	}

@@ -4,7 +4,7 @@
 	<?php
 
 	$sections = array(
-		'general' => array(
+		'general'      => array(
 			'name'      => __( 'General', 'twinfield' ),
 			'resources' => array(
 				array(
@@ -13,17 +13,17 @@
 					'version' => '6.0',
 				),
 				array(
-					'url'     => 'https://c1.twinfield.com/webservices/documentation/',
-					'name'    => 'Twinfield API Documentation site',
+					'url'  => 'https://c1.twinfield.com/webservices/documentation/',
+					'name' => 'Twinfield API Documentation site',
 				),
 			),
 		),
-		'webservices' => array(
-			'name'      => __( 'Webservices','twinfield' ),
+		'webservices'  => array(
+			'name'      => __( 'Webservices', 'twinfield' ),
 			'resources' => array(
 				array(
-					'url'     => 'http://en.twinfield.com/webservices/training/',
-					'name'    => 'Twinfield Webservices Demo Platform',
+					'url'  => 'http://en.twinfield.com/webservices/training/',
+					'name' => 'Twinfield Webservices Demo Platform',
 				),
 				array(
 					'url'     => 'http://remcotolsma.nl/wp-content/uploads/Twinfield-Webservices-Manual.pdf',
@@ -92,39 +92,39 @@
 			'url'       => 'http://twinfield.nl/',
 			'resources' => array(
 				array(
-					'url'     => 'http://remcotolsma.nl/wp-content/uploads/uitleg_Word_sjabloon.doc',
-					'name'    => 'uitleg_Word_sjabloon.doc',
-					'date'    => new DateTime( '06-08-2012 13:18' ),
+					'url'  => 'http://remcotolsma.nl/wp-content/uploads/uitleg_Word_sjabloon.doc',
+					'name' => 'uitleg_Word_sjabloon.doc',
+					'date' => new DateTime( '06-08-2012 13:18' ),
 				),
 				array(
-					'url'     => 'http://remcotolsma.nl/wp-content/uploads/sjabloon-NL-FactuurExclBTW-4.1.docx',
-					'name'    => 'sjabloon-NL-FactuurExclBTW-4.1.docx',
-					'date'    => new DateTime( '16-07-2012 13:48' ),
+					'url'  => 'http://remcotolsma.nl/wp-content/uploads/sjabloon-NL-FactuurExclBTW-4.1.docx',
+					'name' => 'sjabloon-NL-FactuurExclBTW-4.1.docx',
+					'date' => new DateTime( '16-07-2012 13:48' ),
 				),
 				array(
-					'url'     => 'http://remcotolsma.nl/wp-content/uploads/sjabloon-NL-TimePlus-1.2.dot',
-					'name'    => 'sjabloon-NL-TimePlus-1.2.dot',
-					'date'    => new DateTime( '30-06-2011 13:12' ),
+					'url'  => 'http://remcotolsma.nl/wp-content/uploads/sjabloon-NL-TimePlus-1.2.dot',
+					'name' => 'sjabloon-NL-TimePlus-1.2.dot',
+					'date' => new DateTime( '30-06-2011 13:12' ),
 				),
 				array(
-					'url'     => 'http://remcotolsma.nl/wp-content/uploads/sjabloon-NL-Time-1.3.dot',
-					'name'    => 'sjabloon-NL-Time-1.3.dot',
-					'date'    => new DateTime( '30-06-2011 13:12' ),
+					'url'  => 'http://remcotolsma.nl/wp-content/uploads/sjabloon-NL-Time-1.3.dot',
+					'name' => 'sjabloon-NL-Time-1.3.dot',
+					'date' => new DateTime( '30-06-2011 13:12' ),
 				),
 				array(
-					'url'     => 'http://remcotolsma.nl/wp-content/uploads/sjabloon-NL-FactuurInclBTW-4.1.dot',
-					'name'    => 'sjabloon-NL-FactuurInclBTW-4.1.dot',
-					'date'    => new DateTime( '30-06-2011 13:12' ),
+					'url'  => 'http://remcotolsma.nl/wp-content/uploads/sjabloon-NL-FactuurInclBTW-4.1.dot',
+					'name' => 'sjabloon-NL-FactuurInclBTW-4.1.dot',
+					'date' => new DateTime( '30-06-2011 13:12' ),
 				),
 				array(
-					'url'     => 'http://remcotolsma.nl/wp-content/uploads/sjabloon-NL-BetalenIncasseren-1.2.dot',
-					'name'    => 'sjabloon-NL-BetalenIncasseren-1.2.dot',
-					'date'    => new DateTime( '30-06-2011 13:11' ),
+					'url'  => 'http://remcotolsma.nl/wp-content/uploads/sjabloon-NL-BetalenIncasseren-1.2.dot',
+					'name' => 'sjabloon-NL-BetalenIncasseren-1.2.dot',
+					'date' => new DateTime( '30-06-2011 13:11' ),
 				),
 				array(
-					'url'     => 'http://remcotolsma.nl/wp-content/uploads/sjabloon-NL-Aanmaning-1.6.dot',
-					'name'    => 'sjabloon-NL-Aanmaning-1.6.dot',
-					'date'    => new DateTime( '30-06-2011 13:10' ),
+					'url'  => 'http://remcotolsma.nl/wp-content/uploads/sjabloon-NL-Aanmaning-1.6.dot',
+					'name' => 'sjabloon-NL-Aanmaning-1.6.dot',
+					'date' => new DateTime( '30-06-2011 13:10' ),
 				),
 			),
 		),
@@ -133,67 +133,68 @@
 			'url'       => 'http://twinfield.nl/',
 			'resources' => array(
 				array(
-					'url'     => 'http://remcotolsma.nl/wp-content/uploads/ChequeTemplate.doc',
-					'name'    => 'ChequeTemplate.doc',
-					'date'    => new DateTime( '27-09-2012 12:21' ),
+					'url'  => 'http://remcotolsma.nl/wp-content/uploads/ChequeTemplate.doc',
+					'name' => 'ChequeTemplate.doc',
+					'date' => new DateTime( '27-09-2012 12:21' ),
 				),
 				array(
-					'url'     => 'http://remcotolsma.nl/wp-content/uploads/explanation_Word_template.doc',
-					'name'    => 'explanation_Word_template.doc',
-					'date'    => new DateTime( '06-08-2012 13:20' ),
+					'url'  => 'http://remcotolsma.nl/wp-content/uploads/explanation_Word_template.doc',
+					'name' => 'explanation_Word_template.doc',
+					'date' => new DateTime( '06-08-2012 13:20' ),
 				),
 				array(
-					'url'     => 'http://remcotolsma.nl/wp-content/uploads/template-EN-TimePlus-1.3.dot',
-					'name'    => 'template-EN-TimePlus-1.3.dot',
-					'date'    => new DateTime( '30-06-2011 16:42' ),
+					'url'  => 'http://remcotolsma.nl/wp-content/uploads/template-EN-TimePlus-1.3.dot',
+					'name' => 'template-EN-TimePlus-1.3.dot',
+					'date' => new DateTime( '30-06-2011 16:42' ),
 				),
 				array(
-					'url'     => 'http://remcotolsma.nl/wp-content/uploads/template-EN-Time-1.4.dot',
-					'name'    => 'template-EN-Time-1.4.dot',
-					'date'    => new DateTime( '30-06-2011 16:41' ),
+					'url'  => 'http://remcotolsma.nl/wp-content/uploads/template-EN-Time-1.4.dot',
+					'name' => 'template-EN-Time-1.4.dot',
+					'date' => new DateTime( '30-06-2011 16:41' ),
 				),
 				array(
-					'url'     => 'http://remcotolsma.nl/wp-content/uploads/template-EN-PayCollect-1.2.dot',
-					'name'    => 'template-EN-PayCollect-1.2.dot',
-					'date'    => new DateTime( '30-06-2011 16:41' ),
+					'url'  => 'http://remcotolsma.nl/wp-content/uploads/template-EN-PayCollect-1.2.dot',
+					'name' => 'template-EN-PayCollect-1.2.dot',
+					'date' => new DateTime( '30-06-2011 16:41' ),
 				),
 				array(
-					'url'     => 'http://remcotolsma.nl/wp-content/uploads/template-EN-Invoice-VatIncl-4.1.dot',
-					'name'    => 'template-EN-Invoice-VatIncl-4.1.dot',
-					'date'    => new DateTime( '30-06-2011 16:40' ),
+					'url'  => 'http://remcotolsma.nl/wp-content/uploads/template-EN-Invoice-VatIncl-4.1.dot',
+					'name' => 'template-EN-Invoice-VatIncl-4.1.dot',
+					'date' => new DateTime( '30-06-2011 16:40' ),
 				),
 				array(
-					'url'     => 'http://remcotolsma.nl/wp-content/uploads/template-EN-Invoice-VatExcl-4.1.dot',
-					'name'    => 'template-EN-Invoice-VatExcl-4.1.dot',
-					'date'    => new DateTime( '30-06-2011 16:39' ),
+					'url'  => 'http://remcotolsma.nl/wp-content/uploads/template-EN-Invoice-VatExcl-4.1.dot',
+					'name' => 'template-EN-Invoice-VatExcl-4.1.dot',
+					'date' => new DateTime( '30-06-2011 16:39' ),
 				),
 				array(
-					'url'     => 'http://remcotolsma.nl/wp-content/uploads/template-EN-Dunning-1.6.dot',
-					'name'    => 'template-EN-Dunning-1.6.dot',
-					'date'    => new DateTime( '30-06-2011 16:39' ),
+					'url'  => 'http://remcotolsma.nl/wp-content/uploads/template-EN-Dunning-1.6.dot',
+					'name' => 'template-EN-Dunning-1.6.dot',
+					'date' => new DateTime( '30-06-2011 16:39' ),
 				),
 			),
 		),
-		'libraries' => array(
+		'libraries'    => array(
 			'name'      => 'Libraries',
 			'resources' => array(
 				array(
-					'url'     => 'https://bitbucket.org/vanschelven/twinfield',
-					'name'    => 'Twinfield API written in Python',
+					'url'  => 'https://bitbucket.org/vanschelven/twinfield',
+					'name' => 'Twinfield API written in Python',
 				),
 				array(
-					'url'     => 'http://code.google.com/p/twinfield/',
-					'name'    => 'Twinfield API written in PHP',
+					'url'  => 'http://code.google.com/p/twinfield/',
+					'name' => 'Twinfield API written in PHP',
 				),
 				array(
-					'url'     => 'https://github.com/macernst/twinfield',
-					'name'    => 'Twinfield API written in Ruby',
+					'url'  => 'https://github.com/macernst/twinfield',
+					'name' => 'Twinfield API written in Ruby',
 				),
 			),
 		),
 	);
 
-	foreach ( $sections as $section ) : ?>
+	foreach ( $sections as $section ) :
+	?>
 
 		<h2>
 			<?php echo esc_html( $section['name'] ); ?>

@@ -23,75 +23,91 @@ class RestApi {
 	public function rest_api_init() {
 		$namespace = 'twinfield/v1';
 
-		register_rest_route( $namespace, '/offices', array(
-			'methods'             => 'GET',
-			'callback'            => array( $this, 'rest_api_offices' ),
-			'permission_callback' => function () {
-				return true;
-			},
-		) );
+		register_rest_route(
+			$namespace,
+			'/offices',
+			array(
+				'methods'             => 'GET',
+				'callback'            => array( $this, 'rest_api_offices' ),
+				'permission_callback' => function () {
+					return true;
+				},
+			)
+		);
 
-		register_rest_route( $namespace, '/customers/list', array(
-			'methods'             => 'GET',
-			'callback'            => array( $this, 'rest_api_customers_list' ),
-			'permission_callback' => function () {
-				return true;
-			},
-		) );
+		register_rest_route(
+			$namespace,
+			'/customers/list',
+			array(
+				'methods'             => 'GET',
+				'callback'            => array( $this, 'rest_api_customers_list' ),
+				'permission_callback' => function () {
+					return true;
+				},
+			)
+		);
 
-		register_rest_route( $namespace, '/customers', array(
-			'methods'             => 'GET',
-			'callback'            => array( $this, 'rest_api_customers' ),
-			'permission_callback' => function () {
-				return true;
-			},
-			'args'                => array(
-				'page'     => array(
-					'description'        => 'Current page of the collection.',
-					'type'               => 'integer',
-					'default'            => 1,
-					'sanitize_callback'  => 'absint',
+		register_rest_route(
+			$namespace,
+			'/customers',
+			array(
+				'methods'             => 'GET',
+				'callback'            => array( $this, 'rest_api_customers' ),
+				'permission_callback' => function () {
+					return true;
+				},
+				'args'                => array(
+					'page'     => array(
+						'description'       => 'Current page of the collection.',
+						'type'              => 'integer',
+						'default'           => 1,
+						'sanitize_callback' => 'absint',
+					),
+					'per_page' => array(
+						'description'       => 'Maximum number of items to be returned in result set.',
+						'type'              => 'integer',
+						'default'           => 10,
+						'sanitize_callback' => 'absint',
+					),
+					'search'   => array(
+						'description'       => 'Limit results to those matching a string.',
+						'type'              => 'string',
+						'sanitize_callback' => 'sanitize_text_field',
+					),
 				),
-				'per_page' => array(
-					'description'        => 'Maximum number of items to be returned in result set.',
-					'type'               => 'integer',
-					'default'            => 10,
-					'sanitize_callback'  => 'absint',
-				),
-				'search' => array(
-					'description'       => 'Limit results to those matching a string.',
-					'type'              => 'string',
-					'sanitize_callback' => 'sanitize_text_field',
-				),
-			),
-		) );
+			)
+		);
 
-		register_rest_route( $namespace, '/articles', array(
-			'methods'             => 'GET',
-			'callback'            => array( $this, 'rest_api_articles' ),
-			'permission_callback' => function () {
-				return true;
-			},
-			'args'                => array(
-				'page'     => array(
-					'description'        => 'Current page of the collection.',
-					'type'               => 'integer',
-					'default'            => 1,
-					'sanitize_callback'  => 'absint',
+		register_rest_route(
+			$namespace,
+			'/articles',
+			array(
+				'methods'             => 'GET',
+				'callback'            => array( $this, 'rest_api_articles' ),
+				'permission_callback' => function () {
+					return true;
+				},
+				'args'                => array(
+					'page'     => array(
+						'description'       => 'Current page of the collection.',
+						'type'              => 'integer',
+						'default'           => 1,
+						'sanitize_callback' => 'absint',
+					),
+					'per_page' => array(
+						'description'       => 'Maximum number of items to be returned in result set.',
+						'type'              => 'integer',
+						'default'           => 10,
+						'sanitize_callback' => 'absint',
+					),
+					'search'   => array(
+						'description'       => 'Limit results to those matching a string.',
+						'type'              => 'string',
+						'sanitize_callback' => 'sanitize_text_field',
+					),
 				),
-				'per_page' => array(
-					'description'        => 'Maximum number of items to be returned in result set.',
-					'type'               => 'integer',
-					'default'            => 10,
-					'sanitize_callback'  => 'absint',
-				),
-				'search' => array(
-					'description'       => 'Limit results to those matching a string.',
-					'type'              => 'string',
-					'sanitize_callback' => 'sanitize_text_field',
-				),
-			),
-		) );
+			)
+		);
 	}
 
 	public function rest_api_offices( WP_REST_Request $request ) {
@@ -114,7 +130,7 @@ class RestApi {
 		$options = array();
 
 		foreach ( $offices as $office ) {
-			$option = new \stdClass();
+			$option       = new \stdClass();
 			$option->code = $office->get_code();
 			$option->name = $office->get_name();
 
@@ -152,7 +168,7 @@ class RestApi {
 		$per_page = $request->get_param( 'per_page' );
 
 		$first_row = ( ( $page - 1 ) * $per_page ) + 1;
-		$max_rows  = $per_page;			
+		$max_rows  = $per_page;
 
 		$client = $this->plugin->get_client();
 
@@ -171,7 +187,7 @@ class RestApi {
 		$options = array();
 
 		foreach ( $customers as $customer ) {
-			$option = new \stdClass();
+			$option       = new \stdClass();
 			$option->code = $customer->get_code();
 			$option->name = $customer->get_name();
 
@@ -189,7 +205,7 @@ class RestApi {
 		$per_page = $request->get_param( 'per_page' );
 
 		$first_row = ( ( $page - 1 ) * $per_page ) + 1;
-		$max_rows  = $per_page;			
+		$max_rows  = $per_page;
 
 		$client = $this->plugin->get_client();
 
@@ -208,7 +224,7 @@ class RestApi {
 		$options = array();
 
 		foreach ( $articles as $article ) {
-			$option = new \stdClass();
+			$option       = new \stdClass();
 			$option->code = $article->get_code();
 			$option->name = $article->get_name();
 

@@ -42,13 +42,13 @@ if ( $response ) {
 	$xml = new DOMDocument();
 	$xml->loadXML( $response );
 
-	$xsl = new DOMDocument;
+	$xsl = new DOMDocument();
 	$xsl->load( plugin_dir_path( $twinfield_plugin->file ) . '/admin/twinfield-salesinvoices.xsl' );
 
-	$proc = new XSLTProcessor;
+	$proc = new XSLTProcessor();
 	$proc->importStyleSheet( $xsl );
 
-	echo $proc->transformToXML( $xml ); //xss ok
+	echo $proc->transformToXML( $xml ); // xss ok
 }
 
 ?>

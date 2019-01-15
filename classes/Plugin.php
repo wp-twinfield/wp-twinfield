@@ -106,11 +106,13 @@ class Plugin {
 
 		$this->set_access_token( $data );
 
-		$url = add_query_arg( array(
-			'code'          => false,
-			'state'         => false,
-			'session_state' => false,
-		) );
+		$url = add_query_arg(
+			array(
+				'code'          => false,
+				'state'         => false,
+				'session_state' => false,
+			)
+		);
 
 		wp_redirect( $url );
 
@@ -184,7 +186,7 @@ class Plugin {
 			}
 
 			if ( isset( $data->token_type ) ) {
-				update_option( 'twinfield_openid_connect_token_type', $data->token_type );	
+				update_option( 'twinfield_openid_connect_token_type', $data->token_type );
 			}
 
 			if ( isset( $data->refresh_token ) ) {
@@ -206,7 +208,7 @@ class Plugin {
 			}
 
 			if ( isset( $validation->{'twf.clusterUrl'} ) ) {
-				update_option( 'twinfield_openid_connect_cluster', $validation->{'twf.clusterUrl'} );	
+				update_option( 'twinfield_openid_connect_cluster', $validation->{'twf.clusterUrl'} );
 			}
 		}
 
@@ -276,7 +278,6 @@ class Plugin {
 		$financials = $customer->get_financials();
 		$financials->set_due_days( 14 );
 		// $financials->set_vat_code( get_option( 'twinfield_default_vat_code' ) );
-
 		$credit_management = $customer->get_credit_management();
 		$credit_management->set_send_reminder( 'email' );
 
@@ -305,10 +306,12 @@ class Plugin {
 		$header->set_type( get_option( 'twinfield_default_invoice_type' ) );
 		$header->set_customer( $customer->get_code() );
 		$header->set_status( SalesInvoiceStatus::STATUS_CONCEPT );
-		$header->set_footer_text( sprintf(
-			__( 'Invoice created by WordPress on %s.', 'twinfield' ),
-			date_i18n( 'D j M Y @ H:i' )
-		) );
+		$header->set_footer_text(
+			sprintf(
+				__( 'Invoice created by WordPress on %s.', 'twinfield' ),
+				date_i18n( 'D j M Y @ H:i' )
+			)
+		);
 
 		$invoice = apply_filters( 'twinfield_post_sales_invoice', $invoice, $post_id );
 

@@ -23,11 +23,9 @@ class WooCommerceExtension {
 		add_action( 'plugins_loaded', array( $this, 'plugins_loaded' ) );
 	}
 
-	//////////////////////////////////////////////////
-
-	/**
-	 * Plugins loaded
-	 */
+		/**
+		 * Plugins loaded
+		 */
 	public function plugins_loaded() {
 		// Required plugins
 		if ( ! defined( 'WC_VERSION' ) ) {
@@ -48,11 +46,9 @@ class WooCommerceExtension {
 		add_action( 'twinfield_post_customer', array( $this, 'twinfield_post_customer' ), 20, 2 );
 	}
 
-	//////////////////////////////////////////////////
-
-	/**
-	 * Admin initialize
-	 */
+		/**
+		 * Admin initialize
+		 */
 	public function admin_init() {
 		/**
 		 * WooCommerce
@@ -80,7 +76,7 @@ class WooCommerceExtension {
 			'twinfield_woocommerce',
 			array(
 				'label_for'   => 'twinfield_woocommerce_no_tax_vat_code',
-				'classes'	 => array( 'regular-text', 'code' ),
+				'classes'     => array( 'regular-text', 'code' ),
 				/* translators: use same translations as on Twinfield.com. */
 				'description' => _x( 'This VAT code is used for order items without tax.', 'twinfield' ),
 			)
@@ -98,7 +94,7 @@ class WooCommerceExtension {
 
 		register_setting( 'twinfield', 'twinfield_woocommerce_shipping_method_article_codes' );
 		register_setting( 'twinfield', 'twinfield_woocommerce_shipping_method_subarticle_codes' );
-		
+
 		register_setting( 'twinfield', 'twinfield_woocommerce_no_tax_vat_code' );
 		register_setting( 'twinfield', 'twinfield_woocommerce_tax_rate_vat_codes' );
 	}
@@ -188,9 +184,8 @@ class WooCommerceExtension {
 		$order = wc_get_order( $post_id );
 
 		// Billing.
-
 		// @see https://github.com/woocommerce/woocommerce/blob/3.3.4/includes/class-wc-order.php#L488-L496
-		$billing_company   = $order->get_billing_company();
+		$billing_company = $order->get_billing_company();
 		// @see https://github.com/woocommerce/woocommerce/blob/3.3.4/includes/class-wc-order.php#L802-L810
 		$billing_full_name = $order->get_formatted_billing_full_name();
 		// @see https://github.com/woocommerce/woocommerce/blob/3.3.4/includes/class-wc-order.php#L498-L506
@@ -198,20 +193,19 @@ class WooCommerceExtension {
 		// @see https://github.com/woocommerce/woocommerce/blob/3.3.4/includes/class-wc-order.php#L508-L516
 		$billing_address_2 = $order->get_billing_address_2();
 		// @see https://github.com/woocommerce/woocommerce/blob/3.3.4/includes/class-wc-order.php#L538-L546
-		$billing_postcode  = $order->get_billing_postcode();
+		$billing_postcode = $order->get_billing_postcode();
 		// @see https://github.com/woocommerce/woocommerce/blob/3.3.4/includes/class-wc-order.php#L518-L526
-		$biliing_city      = $order->get_billing_city();
+		$biliing_city = $order->get_billing_city();
 		// @see https://github.com/woocommerce/woocommerce/blob/3.3.4/includes/class-wc-order.php#L548-L556
-		$billing_country   = $order->get_billing_country();
+		$billing_country = $order->get_billing_country();
 		// @see https://github.com/woocommerce/woocommerce/blob/3.3.4/includes/class-wc-order.php#L558-L566
-		$billing_email     = $order->get_billing_email();
+		$billing_email = $order->get_billing_email();
 		// @see https://github.com/woocommerce/woocommerce/blob/3.3.4/includes/class-wc-order.php#L568-L576
-		$billing_phone     = $order->get_billing_phone();
+		$billing_phone = $order->get_billing_phone();
 
 		// Shipping.
-
 		// @see https://github.com/woocommerce/woocommerce/blob/3.3.4/includes/class-wc-order.php#L598-L606
-		$shipping_company   = $order->get_shipping_company();
+		$shipping_company = $order->get_shipping_company();
 		// @see https://github.com/woocommerce/woocommerce/blob/3.3.4/includes/class-wc-order.php#L802-L810
 		$shipping_full_name = $order->get_formatted_shipping_full_name();
 		// @see https://github.com/woocommerce/woocommerce/blob/3.3.4/includes/class-wc-order.php#L608-L616
@@ -219,11 +213,11 @@ class WooCommerceExtension {
 		// @see https://github.com/woocommerce/woocommerce/blob/3.3.4/includes/class-wc-order.php#L618-L626
 		$shipping_address_2 = $order->get_shipping_address_2();
 		// @see https://github.com/woocommerce/woocommerce/blob/3.3.4/includes/class-wc-order.php#L648-L656
-		$shipping_postcode  = $order->get_shipping_postcode();
+		$shipping_postcode = $order->get_shipping_postcode();
 		// @see https://github.com/woocommerce/woocommerce/blob/3.3.4/includes/class-wc-order.php#L628-L636
-		$shipping_city      = $order->get_shipping_city();
+		$shipping_city = $order->get_shipping_city();
 		// @see https://github.com/woocommerce/woocommerce/blob/3.3.4/includes/class-wc-order.php#L548-L556
-		$shipping_country   = $order->get_shipping_country();
+		$shipping_country = $order->get_shipping_country();
 
 		// Customer.
 		$customer->set_name( empty( $billing_company ) ? $billing_full_name : $billing_company );

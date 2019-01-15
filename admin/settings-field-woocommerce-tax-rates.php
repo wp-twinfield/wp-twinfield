@@ -6,7 +6,7 @@ $tax_rate_vat_codes = is_array( $tax_rate_vat_codes ) ? $tax_rate_vat_codes : ar
 /*
  * WooCommerce settings tax.
  * @link https://github.com/woocommerce/woocommerce/blob/3.5.3/includes/admin/settings/class-wc-settings-tax.php#L54-L73
- * 
+ *
  * `get_tax_classes` » https://github.com/woocommerce/woocommerce/blob/3.5.3/includes/class-wc-tax.php#L698-L705
  */
 $tax_classes = WC_Tax::get_tax_classes();

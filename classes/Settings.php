@@ -10,22 +10,18 @@ class Settings {
 	 */
 	private $plugin;
 
-	//////////////////////////////////////////////////
-
-	/**
-	 * Constructs and initialize Twinfield plugin settings.
-	 */
+		/**
+		 * Constructs and initialize Twinfield plugin settings.
+		 */
 	public function __construct( Plugin $plugin ) {
 		$this->plugin = $plugin;
 
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
 	}
 
-	//////////////////////////////////////////////////
-
-	/**
-	 * Admin initialize
-	 */
+		/**
+		 * Admin initialize
+		 */
 	public function admin_init() {
 		// Section - General.
 		add_settings_section(
@@ -41,7 +37,7 @@ class Settings {
 		add_settings_field(
 			'twinfield_authorization_method',
 			__( 'Authorization Method', 'twinfield' ),
-				__NAMESPACE__ . '\SettingFields::radio_buttons',
+			__NAMESPACE__ . '\SettingFields::radio_buttons',
 			'twinfield',
 			'twinfield_general',
 			array(
@@ -179,7 +175,7 @@ class Settings {
 			'twinfield',
 			'twinfield_defaults',
 			array(
-				'label_for'   => 'twinfield_default_cluster',
+				'label_for' => 'twinfield_default_cluster',
 			)
 		);
 
@@ -205,7 +201,7 @@ class Settings {
 			'twinfield_defaults',
 			array(
 				'label_for'   => 'twinfield_default_invoice_type',
-				'classes'	 => array( 'regular-text', 'code' ),
+				'classes'     => array( 'regular-text', 'code' ),
 				/* translators: use same translations as on Twinfield.com. */
 				'description' => _x( 'You can find your invoice types in Twinfield under "Credit management » Invoicing » Invoicing types".', 'twinfield.com', 'twinfield' ),
 			)
@@ -219,7 +215,7 @@ class Settings {
 			'twinfield_defaults',
 			array(
 				'label_for'   => 'twinfield_default_vat_code',
-				'classes'	 => array( 'regular-text', 'code' ),
+				'classes'     => array( 'regular-text', 'code' ),
 				/* translators: use same translations as on Twinfield.com. */
 				'description' =>
 					__( 'This VAT code is used by default to create Twinfield invoice lines unless you have specified an Twinfield VAT code on a lower level.', 'twinfield' ) . '<br />' .
@@ -235,7 +231,7 @@ class Settings {
 			'twinfield_defaults',
 			array(
 				'label_for'   => 'twinfield_default_article_code',
-				'classes'	 => array( 'regular-text', 'code' ),
+				'classes'     => array( 'regular-text', 'code' ),
 				/* translators: use same translations as on Twinfield.com. */
 				'description' =>
 					__( 'This article code is used by default to create Twinfield invoice lines unless you have specified an Twinfield article code on a lower level.', 'twinfield' ) . '<br />' .
@@ -251,7 +247,7 @@ class Settings {
 			'twinfield_defaults',
 			array(
 				'label_for'   => 'twinfield_default_subarticle_code',
-				'classes'	  => array( 'regular-text', 'code' ),
+				'classes'     => array( 'regular-text', 'code' ),
 				/* translators: use same translations as on Twinfield.com. */
 				'description' =>
 					__( 'This subarticle code is used by default to create Twinfield invoice lines unless you have specified an Twinfield subarticle code on a lower level.', 'twinfield' ) . '<br />' .
@@ -323,7 +319,7 @@ class Settings {
 			$label = __( 'Reconnect with Twinfield', 'twinfield' );
 		}
 
-		$state = new \stdClass();
+		$state               = new \stdClass();
 		$state->redirect_uri = add_query_arg( 'page', 'twinfield_settings', admin_url( 'admin.php' ) );
 
 		$url = $openid_connect_provider->get_authorize_url( $state );

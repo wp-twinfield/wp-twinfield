@@ -10,11 +10,9 @@ class InvoicesAdmin {
 	 */
 	private $plugin;
 
-	//////////////////////////////////////////////////
-
-	/**
-	 * Constructs and initialize Twinfield articles admin.
-	 */
+		/**
+		 * Constructs and initialize Twinfield articles admin.
+		 */
 	public function __construct( Plugin $plugin ) {
 		$this->plugin = $plugin;
 

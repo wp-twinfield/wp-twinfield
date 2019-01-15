@@ -10,11 +10,9 @@ class ArticlesAdmin {
 	 */
 	private $plugin;
 
-	//////////////////////////////////////////////////
-
-	/**
-	 * Constructs and initialize Twinfield articles admin.
-	 */
+		/**
+		 * Constructs and initialize Twinfield articles admin.
+		 */
 	public function __construct( Plugin $plugin ) {
 		$this->plugin = $plugin;
 
@@ -25,9 +23,9 @@ class ArticlesAdmin {
 		add_action( 'save_post', array( $this, 'save_post' ) );
 
 		// Columns.
-		add_filter( 'manage_posts_columns' , array( $this, 'manage_posts_columns' ), 10, 2 );
+		add_filter( 'manage_posts_columns', array( $this, 'manage_posts_columns' ), 10, 2 );
 
-		add_action( 'manage_posts_custom_column' , array( $this, 'manage_posts_custom_column' ), 10, 2 );
+		add_action( 'manage_posts_custom_column', array( $this, 'manage_posts_custom_column' ), 10, 2 );
 	}
 
 	/**
@@ -138,7 +136,7 @@ class ArticlesAdmin {
 				);
 			}
 
-			echo implode( '<br />', $items ); //xss ok
+			echo implode( '<br />', $items ); // xss ok
 		}
 	}
 }
