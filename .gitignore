@@ -11,3 +11,6 @@
 
 # Composer
 /vendor/
+
+# WordPress
+/wordpress/
