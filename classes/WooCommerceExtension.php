@@ -27,23 +27,26 @@ class WooCommerceExtension {
 		 * Plugins loaded
 		 */
 	public function plugins_loaded() {
-		// Required plugins
+		// Required plugins.
 		if ( ! defined( 'WC_VERSION' ) ) {
 			return;
 		}
 
-		// Actions
+		// Actions.
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
 
-		// Post types
+		// Post types.
 		add_post_type_support( 'product', 'twinfield_article' );
 		add_post_type_support( 'shop_coupon', 'twinfield_article' );
 		add_post_type_support( 'shop_order', 'twinfield_customer' );
 		add_post_type_support( 'shop_order', 'twinfield_invoiceable' );
 
-		// Twinfield
+		// Twinfield.
 		add_action( 'twinfield_post_sales_invoice', array( $this, 'twinfield_post_sales_invoice' ), 20, 2 );
 		add_action( 'twinfield_post_customer', array( $this, 'twinfield_post_customer' ), 20, 2 );
+
+		//  Manage `shop_order` posts columns.
+		add_filter( 'manage_shop_order_posts_columns', array( $this, 'manage_shop_order_posts_columns' ), 100 );
 	}
 
 		/**
@@ -97,6 +100,20 @@ class WooCommerceExtension {
 
 		register_setting( 'twinfield', 'twinfield_woocommerce_no_tax_vat_code' );
 		register_setting( 'twinfield', 'twinfield_woocommerce_tax_rate_vat_codes' );
+	}
+
+	/**
+	 * Manage shop order posts columns.
+	 *
+	 * @link https://github.com/WordPress/WordPress/blob/5.0.3/wp-admin/includes/class-wp-posts-list-table.php#L588-L608
+	 *
+	 * @param array $post_columns Post columns array.
+	 * @return array
+	 */
+	public function manage_shop_order_posts_columns( $post_columns ) {
+		$post_columns['twinfield_invoice'] = __( 'Twinfield Invoice', 'twinfield' );
+
+		return $post_columns;
 	}
 
 	public function field_shipping_methods( $args ) {

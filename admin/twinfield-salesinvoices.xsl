@@ -46,7 +46,7 @@
 			<em><xsl:value-of select="@msg" /></em>
 		</xsl:if>
 
-		<table class="twinfield-invoice-lines">
+		<table class="twinfield-table">
 			<thead>
 				<tr>
 					<th scope="col">Quantity</th>

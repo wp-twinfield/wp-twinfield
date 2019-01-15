@@ -30,6 +30,31 @@
 
 <?php
 
+$response = get_post_meta( $post->ID, '_twinfield_customer_response_xml', true );
+
+if ( $response ) {
+	global $twinfield_plugin;
+
+	echo '<pre>';
+	echo esc_html( $response );
+	echo '</pre>';
+
+	$xml = new DOMDocument();
+	$xml->loadXML( $response );
+
+	$xsl = new DOMDocument();
+	$xsl->load( plugin_dir_path( $twinfield_plugin->file ) . '/admin/twinfield-customer.xsl' );
+
+	$proc = new XSLTProcessor();
+	$proc->importStyleSheet( $xsl );
+
+	echo $proc->transformToXML( $xml ); // xss ok
+}
+
+?>
+
+<?php
+
 // @codingStandardsIgnoreStart
 if ( filter_input( INPUT_GET, 'debug', FILTER_VALIDATE_BOOLEAN ) ) {
 	var_dump( $customer );

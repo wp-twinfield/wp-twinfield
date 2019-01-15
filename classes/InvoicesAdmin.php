@@ -19,8 +19,13 @@ class InvoicesAdmin {
 		// Meta box.
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ) );
 
-		// Save post
+		// Save post.
 		add_action( 'save_post', array( $this, 'save_post' ) );
+
+		// Columns.
+		add_filter( 'manage_posts_columns', array( $this, 'manage_posts_columns' ), 100, 2 );
+
+		add_action( 'manage_posts_custom_column', array( $this, 'manage_posts_custom_column' ), 100, 2 );
 	}
 
 	/**
@@ -48,6 +53,44 @@ class InvoicesAdmin {
 		$invoice = $this->plugin->get_twinfield_sales_invoice_from_post( $post->ID );
 
 		include plugin_dir_path( $this->plugin->file ) . 'admin/meta-box-invoice.php';
+	}
+
+	/**
+	 * Manage posts columns
+	 *
+	 * @param array  $posts_columns
+	 * @param string $post_type
+	 */
+	public function manage_posts_columns( $columns, $post_type ) {
+		if ( post_type_supports( $post_type, 'twinfield_invoiceable' ) ) {
+			$columns['twinfield_invoice'] = __( 'Twinfield Invoice', 'twinfield' );
+
+			$new_columns = array();
+
+			foreach ( $columns as $name => $label ) {
+				if ( 'author' === $name ) {
+					$new_columns['twinfield_invoice'] = $columns['twinfield_invoice'];
+				}
+
+				$new_columns[ $name ] = $label;
+			}
+
+			$columns = $new_columns;
+		}
+
+		return $columns;
+	}
+
+	public function manage_posts_custom_column( $column_name, $post_id ) {
+		if ( 'twinfield_invoice' === $column_name ) {
+			$invoice_number = get_post_meta( $post_id, '_twinfield_invoice_number', true );
+
+			if ( empty( $invoice_number ) ) {
+				echo esc_html( '—' );
+			} else {
+				echo esc_html( $invoice_number );
+			}
+		}
 	}
 
 	/**
@@ -90,9 +133,9 @@ class InvoicesAdmin {
 
 					update_post_meta( $post_id, '_twinfield_invoice_number', $sales_invoice->get_header()->get_number() );
 
-					delete_post_meta( $post_id, '_twinfield_response_xml' );
+					delete_post_meta( $post_id, '_twinfield_invoice_response_xml' );
 				} else {
-					update_post_meta( $post_id, '_twinfield_response_xml', $response->get_message()->asXML() );
+					update_post_meta( $post_id, '_twinfield_invoice_response_xml', $response->get_message()->asXML() );
 				}
 			}
 		}

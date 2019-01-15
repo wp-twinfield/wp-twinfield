@@ -1,7 +1,6 @@
 <?php
 
 $invoice_number = get_post_meta( $post->ID, '_twinfield_invoice_number', true );
-$response       = get_post_meta( $post->ID, '_twinfield_response_xml', true );
 
 ?>
 <table class="form-table">
@@ -35,6 +34,8 @@ $response       = get_post_meta( $post->ID, '_twinfield_response_xml', true );
 </table>
 
 <?php
+
+$response = get_post_meta( $post->ID, '_twinfield_invoice_response_xml', true );
 
 if ( $response ) {
 	global $twinfield_plugin;

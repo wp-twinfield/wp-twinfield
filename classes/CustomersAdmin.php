@@ -104,9 +104,9 @@ class CustomersAdmin {
 
 					update_post_meta( $post_id, '_twinfield_customer_id', $customer->get_code() );
 
-					delete_post_meta( $post_id, '_twinfield_response_xml' );
+					delete_post_meta( $post_id, '_twinfield_customer_response_xml' );
 				} else {
-					update_post_meta( $post_id, '_twinfield_response_xml', $response->get_message()->asXML() );
+					update_post_meta( $post_id, '_twinfield_customer_response_xml', $response->get_message()->asXML() );
 				}
 			}
 		}
@@ -120,7 +120,7 @@ class CustomersAdmin {
 	 */
 	public function manage_posts_columns( $columns, $post_type ) {
 		if ( post_type_supports( $post_type, 'twinfield_customer' ) ) {
-			$columns['twinfield_customer'] = __( 'Twinfield', 'twinfield' );
+			$columns['twinfield_customer'] = __( 'Twinfield Customer', 'twinfield' );
 
 			$new_columns = array();
 

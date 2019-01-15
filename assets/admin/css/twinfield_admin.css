@@ -10,10 +10,10 @@
 	padding: 10px;
 }
 
-.twinfield-invoice-lines {
+.twinfield-table {
 	width: 100%;
 }
 
-.twinfield-invoice-lines th {
+.twinfield-table th {
 	text-align: left;	
 }

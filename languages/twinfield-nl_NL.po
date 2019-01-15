@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Twinfield\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-twinfield\n"
-"POT-Creation-Date: 2019-01-15 09:19:34+00:00\n"
+"POT-Creation-Date: 2019-01-15 11:29:12+00:00\n"
 "PO-Revision-Date: 2019-01-10 14:19+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
@@ -97,16 +97,16 @@ msgstr "Klant aanmaken"
 msgid "View Customer"
 msgstr "Klant bekijken"
 
-#: admin/meta-box-invoice.php:10 admin/sales-invoice.php:30
+#: admin/meta-box-invoice.php:9 admin/sales-invoice.php:30
 #: templates/sales-invoice.php:39
 msgid "Invoice Number"
 msgstr "Factuurnummer"
 
-#: admin/meta-box-invoice.php:20
+#: admin/meta-box-invoice.php:19
 msgid "Create Invoice"
 msgstr "Factuur aanmaken"
 
-#: admin/meta-box-invoice.php:30
+#: admin/meta-box-invoice.php:29
 msgid "View Invoice"
 msgstr "Factuur bekijken"
 
@@ -375,11 +375,12 @@ msgstr "Twinfield artikel"
 msgid "Subarticle"
 msgstr "Subartikel"
 
-#: classes/CustomersAdmin.php:45
+#: classes/CustomersAdmin.php:45 classes/CustomersAdmin.php:123
 msgid "Twinfield Customer"
 msgstr "Twinfield klant"
 
-#: classes/InvoicesAdmin.php:33
+#: classes/InvoicesAdmin.php:38 classes/InvoicesAdmin.php:66
+#: classes/WooCommerceExtension.php:114
 msgid "Twinfield Invoice"
 msgstr "Twinfield factuur"
 
@@ -534,27 +535,27 @@ msgstr ""
 msgid "For web services authentication use Open ID Connect instead."
 msgstr "For web services authentication use Open ID Connect instead."
 
-#: classes/WooCommerceExtension.php:58
+#: classes/WooCommerceExtension.php:61
 msgid "WooCommerce"
 msgstr "WooCommerce"
 
-#: classes/WooCommerceExtension.php:65
+#: classes/WooCommerceExtension.php:68
 msgid "Shipping Method Articles"
 msgstr "Verzendmethoden artikelen"
 
-#: classes/WooCommerceExtension.php:73
+#: classes/WooCommerceExtension.php:76
 msgid "No Tax Vat Code"
 msgstr "Geen belasting btw-code"
 
-#: classes/WooCommerceExtension.php:88
+#: classes/WooCommerceExtension.php:91
 msgid "Tax Rate Codes"
 msgstr "Belastingtariefcodes"
 
-#: classes/WooCommerceExtension.php:117
+#: classes/WooCommerceExtension.php:134
 msgid "Standard Rates"
 msgstr "Standaardtarieven"
 
-#: classes/WooCommerceExtension.php:359
+#: classes/WooCommerceExtension.php:376
 msgid "Fee"
 msgstr "Kosten"
 
@@ -32755,7 +32756,7 @@ msgid "invoice"
 msgstr "factuur"
 
 #. translators: use same translations as on Twinfield.com.
-#: classes/WooCommerceExtension.php:81
+#: classes/WooCommerceExtension.php:84
 msgctxt "twinfield"
 msgid "This VAT code is used for order items without tax."
 msgstr "Deze btw-code wordt gebruikt voor bestelling items zonder belasting."
