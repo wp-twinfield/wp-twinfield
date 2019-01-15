@@ -277,7 +277,7 @@ class Plugin {
 
 		$financials = $customer->get_financials();
 		$financials->set_due_days( 14 );
-		// $financials->set_vat_code( get_option( 'twinfield_default_vat_code' ) );
+
 		$credit_management = $customer->get_credit_management();
 		$credit_management->set_send_reminder( 'email' );
 
