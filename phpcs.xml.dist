@@ -21,9 +21,15 @@
 	<rule ref="PHPCompatibilityWP" />
 
 	<rule ref="WordPress">
+		<exclude name="Generic.PHP.DisallowAlternativePHPTags.MaybeASPShortOpenTagFound" />
+
+		<exclude name="PHPCompatibility.Miscellaneous.RemovedAlternativePHPTags.MaybeASPOpenTagFound" />
+
 		<exclude name="Squiz.Commenting" />
 
 		<exclude name="WordPress.Files.FileName.NotHyphenatedLowercase" />
 		<exclude name="WordPress.Files.FileName.InvalidClassFileName" />
+
+		<exclude name="WordPress.Security.SafeRedirect.wp_redirect_wp_redirect" />
 	</rule>
 </ruleset>

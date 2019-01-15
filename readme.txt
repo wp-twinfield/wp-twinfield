@@ -4,7 +4,7 @@ Tags: twinfield, administration
 Requires at least: 3.0
 Tested up to: 4.1
 Requires PHP: 5.6
-Stable tag: 1.1.1
+Stable tag: 1.2.0
 
 This plugin makes a connection with the Twinfield adminsitration software.
 
@@ -25,6 +25,9 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 
 == Changelog ==
+
+= 1.2.0 =
+*	Added support for Twinfield OpenID authentication.
 
 = 1.1.1 =
 *	Improved support for invoiceable post types.
