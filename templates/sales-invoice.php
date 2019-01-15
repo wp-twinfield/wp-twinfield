@@ -1,12 +1,32 @@
 <?php get_header(); ?>
 
+<?php
+
+$header = $twinfield_sales_invoice->get_header();
+
+$date        = $header->get_date();
+$due_date    = $header->get_due_date();
+$customer    = $header->get_customer();
+$header_text = $header->get_header_text();
+$footer_text = $header->get_footer_text();
+
+$lines = $twinfield_sales_invoice->get_lines();
+
+?>
 <div id="container">
 	<div id="content" role="main">
-
-		<?php $header = $twinfield_sales_invoice->get_header(); ?>
-
 		<div class="page-header">
-			<h1><?php printf( esc_html__( 'Invoice %s', 'twinfield' ), esc_html( $header->get_number() ) ); ?></h1>
+			<h1>
+			<?php
+
+			printf(
+				/* translators: %s: Invoice number */
+				esc_html__( 'Invoice %s', 'twinfield' ),
+				esc_html( $header->get_number() )
+			);
+
+			?>
+			</h1>
 		</div>
 
 		<div class="panel">
@@ -19,14 +39,14 @@
 					<dt><?php esc_html_e( 'Invoice Number', 'twinfield' ); ?></dt>
 					<dd><?php echo esc_html( $header->get_number() ); ?></dd>
 
-					<?php if ( $date = $header->get_date() ) : ?>
+					<?php if ( $date ) : ?>
 
 						<dt><?php esc_html_e( 'Invoice Date', 'twinfield' ); ?></dt>
 						<dd><?php echo esc_html( date_i18n( 'D j M Y', $date->getTimestamp() ) ); ?></dd>
 
 					<?php endif; ?>
 
-					<?php if ( $due_date = $header->get_due_date() ) : ?>
+					<?php if ( $due_date ) : ?>
 
 						<dt><?php esc_html_e( 'Due Date', 'twinfield' ); ?></dt>
 						<dd><?php echo esc_html( date_i18n( 'D j M Y', $due_date->getTimestamp() ) ); ?></dd>
@@ -43,8 +63,6 @@
 					<dd>
 						<?php
 
-						$customer = $header->get_customer();
-
 						printf(
 							'<a href="%s">%s</a>',
 							esc_attr( get_twinfield_customer_link( $customer ) ),
@@ -57,14 +75,14 @@
 					<dt><?php esc_html_e( 'Status', 'twinfield' ); ?></dt>
 					<dd><?php echo esc_html( $header->get_status() ); ?></dd>
 
-					<?php if ( $header_text = $header->get_header_text() ) : ?>
+					<?php if ( $header_text ) : ?>
 
 						<dt><?php esc_html_e( 'Header Text', 'twinfield' ); ?></dt>
 						<dd><?php echo esc_html( $header_text ); ?></dd>
 
 					<?php endif; ?>
 
-					<?php if ( $footer_text = $header->get_footer_text() ) : ?>
+					<?php if ( $footer_text ) : ?>
 
 						<dt><?php esc_html_e( 'Footer Text', 'twinfield' ); ?></dt>
 						<dd><?php echo esc_html( $footer_text ); ?></dd>
@@ -78,8 +96,6 @@
 			<header>
 				<h3><?php esc_html_e( 'Lines', 'twinfield' ); ?></h3>
 			</header>
-
-			<?php $lines = $twinfield_sales_invoice->get_lines(); ?>
 
 			<table class="table table-striped table-bordered table-condensed">
 				<thead>

@@ -30,6 +30,7 @@
 
 <?php
 
+// @codingStandardsIgnoreStart
 if ( filter_input( INPUT_GET, 'debug', FILTER_VALIDATE_BOOLEAN ) ) {
 	var_dump( $customer );
 
@@ -64,4 +65,4 @@ if ( filter_input( INPUT_GET, 'debug', FILTER_VALIDATE_BOOLEAN ) ) {
 		}
 	}
 }
-
+// @codingStandardsIgnoreEnd

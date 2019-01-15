@@ -83,7 +83,7 @@ class CustomersPublic {
 		}
 
 		if ( ! is_user_logged_in() ) {
-			wp_redirect( wp_login_url( site_url( get_option( 'twinfield_customer_slug', _x( 'customer', 'Customer slug for frontend', 'twinfield' ) ) . '/' . $customer_id ) ) );
+			wp_safe_redirect( wp_login_url( site_url( get_option( 'twinfield_customer_slug', _x( 'customer', 'Customer slug for frontend', 'twinfield' ) ) . '/' . $customer_id ) ) );
 		}
 
 		if ( empty( $customer_id ) || ! current_user_can( 'twinfield_read_customer' ) ) {

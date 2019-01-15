@@ -349,8 +349,8 @@ class Settings {
 	 * Section.
 	 */
 	public function section_web_services_authentication() {
-		echo __( 'Session login is deprecated and will be removed. End of life date will be announced later.', 'twinfield' ), '<br />';
-		echo __( 'For web services authentication use Open ID Connect instead.', 'twinfield' );
+		echo esc_html__( 'Session login is deprecated and will be removed. End of life date will be announced later.', 'twinfield' ), '<br />';
+		echo esc_html__( 'For web services authentication use Open ID Connect instead.', 'twinfield' );
 	}
 
 	/**

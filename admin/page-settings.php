@@ -1,3 +1,8 @@
+<?php
+
+// @codingStandardsIgnoreStart
+
+?>
 <script src="https://unpkg.com/select2@4.0.6-rc.1/dist/js/select2.full.min.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="https://unpkg.com/select2@4.0.6-rc.1/dist/css/select2.min.css" type="text/css" media="all" />
@@ -43,6 +48,12 @@
 		} );
 	} );
 </script>
+
+<?php
+
+// @codingStandardsIgnoreEnd
+
+?>
 
 <div class="wrap">
 	<h1><?php echo esc_html( get_admin_page_title() ); ?></h1>

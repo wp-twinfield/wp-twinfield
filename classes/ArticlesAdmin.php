@@ -113,7 +113,7 @@ class ArticlesAdmin {
 		return $columns;
 	}
 
-	function manage_posts_custom_column( $column_name, $post_id ) {
+	public function manage_posts_custom_column( $column_name, $post_id ) {
 		if ( 'twinfield_article' === $column_name ) {
 			$twinfield_article_code    = get_post_meta( $post_id, '_twinfield_article_code', true );
 			$twinfield_subarticle_code = get_post_meta( $post_id, '_twinfield_subarticle_code', true );

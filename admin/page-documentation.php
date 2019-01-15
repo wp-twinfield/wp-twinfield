@@ -225,15 +225,31 @@
 
 					?>
 					<a href="<?php echo esc_attr( $href ); ?>" target="_blank">
-						<?php echo esc_html( $resource['name'] ); ?>
+						<?php
 
-						<?php if ( isset( $resource['version'] ) ) : ?>
-							<small><?php printf( esc_html__( 'version %s', 'pronamic_ideal' ), esc_html( $resource['version'] ) ); ?> </small>
-						<?php endif; ?>
+						echo esc_html( $resource['name'] );
 
-						<?php if ( isset( $resource['date'] ) ) : ?>
-							<small><?php echo esc_html( $resource['date']->format( 'd-m-Y' ) ); ?> </small>
-						<?php endif; ?>
+						if ( isset( $resource['version'] ) ) {
+							echo '<small>';
+
+							printf(
+								/* translators: %s: Version number */
+								esc_html__( 'version %s', 'pronamic_ideal' ),
+								esc_html( $resource['version'] )
+							);
+
+							echo '</small>';
+						}
+
+						if ( isset( $resource['date'] ) ) {
+							echo '<small>';
+
+							echo esc_html( $resource['date']->format( 'd-m-Y' ) );
+
+							echo '</small>';
+						}
+
+						?>
 					</a>
 				</li>
 

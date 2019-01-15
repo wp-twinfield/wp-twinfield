@@ -95,7 +95,7 @@ class InvoicesPublic {
 		}
 
 		if ( ! is_user_logged_in() ) {
-			wp_redirect( wp_login_url( site_url( get_option( 'twinfield_invoice_slug', _x( 'invoice', 'Invoice slug for front end', 'twinfield' ) ) . '/' . $id ) ) );
+			wp_safe_redirect( wp_login_url( site_url( get_option( 'twinfield_invoice_slug', _x( 'invoice', 'Invoice slug for front end', 'twinfield' ) ) . '/' . $id ) ) );
 		}
 
 		if ( empty( $id ) || empty( $type ) || ! current_user_can( 'twinfield_read_invoice' ) ) {
@@ -138,7 +138,11 @@ class InvoicesPublic {
 		global $twinfield_sales_invoice;
 
 		if ( isset( $twinfield_sales_invoice ) ) {
-			$title_array[] = sprintf( __( 'Invoice %s', 'twinfield' ), esc_html( $twinfield_sales_invoice->get_header()->get_number() ) );
+			$title_array[] = sprintf(
+				/* translators: %s: Invoice number */
+				__( 'Invoice %s', 'twinfield' ),
+				esc_html( $twinfield_sales_invoice->get_header()->get_number() )
+			);
 		}
 
 		return $title_array;

@@ -308,6 +308,7 @@ class Plugin {
 		$header->set_status( SalesInvoiceStatus::STATUS_CONCEPT );
 		$header->set_footer_text(
 			sprintf(
+				/* translators: %s: Date */
 				__( 'Invoice created by WordPress on %s.', 'twinfield' ),
 				date_i18n( 'D j M Y @ H:i' )
 			)

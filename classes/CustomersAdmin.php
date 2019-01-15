@@ -138,7 +138,7 @@ class CustomersAdmin {
 		return $columns;
 	}
 
-	function manage_posts_custom_column( $column_name, $post_id ) {
+	public function manage_posts_custom_column( $column_name, $post_id ) {
 		if ( 'twinfield_customer' === $column_name ) {
 			$customer_id = get_post_meta( $post_id, '_twinfield_customer_id', true );
 
