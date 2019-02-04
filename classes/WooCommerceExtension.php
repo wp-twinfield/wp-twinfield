@@ -23,9 +23,9 @@ class WooCommerceExtension {
 		add_action( 'plugins_loaded', array( $this, 'plugins_loaded' ) );
 	}
 
-		/**
-		 * Plugins loaded
-		 */
+	/**
+	 * Plugins loaded
+	 */
 	public function plugins_loaded() {
 		// Required plugins.
 		if ( ! defined( 'WC_VERSION' ) ) {
@@ -43,15 +43,19 @@ class WooCommerceExtension {
 
 		// Twinfield.
 		add_action( 'twinfield_post_sales_invoice', array( $this, 'twinfield_post_sales_invoice' ), 20, 2 );
+		add_action( 'twinfield_post_customer_id', array( $this, 'twinfield_post_customer_id' ), 20, 2 );
 		add_action( 'twinfield_post_customer', array( $this, 'twinfield_post_customer' ), 20, 2 );
 
 		//  Manage `shop_order` posts columns.
 		add_filter( 'manage_shop_order_posts_columns', array( $this, 'manage_shop_order_posts_columns' ), 100 );
+
+		// Payment complete.
+		add_action( 'woocommerce_payment_complete', array( $this, 'woocommerce_payment_complete' ) );
 	}
 
-		/**
-		 * Admin initialize
-		 */
+	/**
+	 * Admin initialize
+	 */
 	public function admin_init() {
 		/**
 		 * WooCommerce
@@ -189,6 +193,32 @@ class WooCommerceExtension {
 		}
 
 		return $article_code;
+	}
+
+	public function twinfield_post_customer_id( $customer_id, $post_id ) {
+		// Empty.
+		if ( ! empty( $customer_id ) ) {
+			return $customer_id;
+		}
+
+		// Check Post Type.
+		if ( 'shop_order' !== get_post_type( $post_id ) ) {
+			return $customer_id;
+		}
+
+		// Order.
+		$order = wc_get_order( $post_id );
+
+		// Customer.
+		$wc_customer_id = $order->customer_id;
+
+		$value = get_user_meta( $wc_customer_id, 'twinfield_customer_id', true );
+
+		if ( ! empty( $value ) ) {
+			$customer_id = $value;
+		}
+
+		return $customer_id;
 	}
 
 	public function twinfield_post_customer( $customer, $post_id ) {
@@ -393,5 +423,31 @@ class WooCommerceExtension {
 		}
 
 		return $invoice;
+	}
+
+	/**
+	 * WooCommerce payment complete.
+	 *
+	 * @link https://docs.woocommerce.com/wc-apidocs/source-class-WC_Order.html#125
+	 * @link https://github.com/woocommerce/woocommerce/blob/3.5.4/includes/class-wc-order.php#L87-L140
+	 *
+	 * @param int $order_id
+	 */
+	public function woocommerce_payment_complete( $order_id ) {
+		$order = wc_get_order( $order_id );
+
+		if ( false === $order ) {
+			return;
+		}
+
+		$sales_invoice = $this->plugin->insert_twinfield_sales_invoice_from_post( $order_id );
+
+		$order->add_order_note( 
+			sprintf(
+				/* translators: %s: invoice number */
+				__( 'Created Twinfield invoice %s.', 'twinfield' ),
+				$sales_invoice->get_header()->get_number()
+			)
+		);
 	}
 }

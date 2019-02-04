@@ -18,7 +18,8 @@ module.exports = function( grunt ) {
 					'!deploy/**',
 					'!node_modules/**',
 					'!twinfield/**',
-					'!vendor/**'
+					'!vendor/**',
+					'!wordpress/**'
 				],
 			},
 			options: {
@@ -69,7 +70,8 @@ module.exports = function( grunt ) {
 					exclude: [
 						'deploy/.*',
 						'node_modules/.*',
-						'vendor/.*'
+						'vendor/.*',
+						'wordpress/.*'
 					]
 				}
 			}

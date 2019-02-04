@@ -117,27 +117,7 @@ class InvoicesAdmin {
 		}
 
 		if ( filter_has_var( INPUT_POST, 'twinfield_create_invoice' ) ) {
-			$sales_invoice = $this->plugin->get_twinfield_sales_invoice_from_post( $post_id );
-
-			$client = $this->plugin->get_client();
-
-			$xml_processor = $client->get_xml_processor();
-
-			$service = new \Pronamic\WP\Twinfield\SalesInvoices\SalesInvoiceService( $xml_processor );
-
-			$response = $service->insert_sales_invoice( $sales_invoice );
-
-			if ( $response ) {
-				if ( $response->is_successful() ) {
-					$sales_invoice = $response->get_sales_invoice();
-
-					update_post_meta( $post_id, '_twinfield_invoice_number', $sales_invoice->get_header()->get_number() );
-
-					delete_post_meta( $post_id, '_twinfield_invoice_response_xml' );
-				} else {
-					update_post_meta( $post_id, '_twinfield_invoice_response_xml', $response->get_message()->asXML() );
-				}
-			}
+			$this->plugin->insert_twinfield_sales_invoice_from_post( $post_id );
 		}
 	}
 }

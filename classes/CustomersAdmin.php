@@ -33,6 +33,15 @@ class CustomersAdmin {
 
 		// AJAX
 		add_action( 'wp_ajax_twinfield_search_customers', array( $this, 'ajax_twinfield_search_customers' ) );
+
+		// User profile.
+		add_action( 'show_user_profile', array( $this, 'user_profile' ) );
+		add_action( 'edit_user_profile', array( $this, 'user_profile' ) );
+		add_action( 'user_new_form', array( $this, 'user_profile' ) );
+
+		add_action( 'personal_options_update', array( $this, 'user_update' ) );
+		add_action( 'edit_user_profile_update', array( $this, 'user_update' ) );
+		add_action( 'user_register', array( $this, 'user_update' ) );
 	}
 
 	/**
@@ -57,7 +66,7 @@ class CustomersAdmin {
 	public function customer_meta_box( $post ) {
 		wp_nonce_field( 'twinfield_customer', 'twinfield_customer_nonce' );
 
-		$twinfield_customer_id = get_post_meta( $post->ID, '_twinfield_customer_id', true );
+		$twinfield_customer_id = $this->plugin->get_twinfield_customer_id_from_post( $post->ID );
 
 		$customer = $this->plugin->get_twinfield_customer_from_post( $post->ID );
 
@@ -180,5 +189,32 @@ class CustomersAdmin {
 		wp_send_json( $result );
 
 		exit;
+	}
+
+	/**
+	 * User profile.
+	 *
+	 * @since 1.1.6
+	 * @link https://github.com/WordPress/WordPress/blob/4.5.2/wp-admin/user-edit.php#L578-L600
+	 */
+	public function user_profile( $user ) {
+		include dirname( __FILE__ ) . '/../admin/user-profile.php';
+	}
+
+	/**
+	 * User update.
+	 */
+	public function user_update( $user_id ) {
+		if ( ! current_user_can( 'edit_user', $user_id ) ) {
+			return;
+		}
+
+		if ( ! filter_has_var( INPUT_POST, 'twinfield_customer_id' ) ) {
+			return;
+		}
+
+		$customer_id = filter_input( INPUT_POST, 'twinfield_customer_id', FILTER_SANITIZE_STRING );
+
+		update_user_meta( $user_id, 'twinfield_customer_id', $customer_id );
 	}
 }

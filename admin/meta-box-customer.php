@@ -1,10 +1,13 @@
 <table class="form-table">
 	<tr>
 		<th scope="row">
-			<label for="twinfield_customer_id"><?php esc_html_e( 'Customer ID', 'twinfield' ); ?></label>
+			<label for="twinfield_customer_id"><?php esc_html_e( 'Customer', 'twinfield' ); ?></label>
 		</th>
 		<td>
-			<input type="text" id="twinfield_customer_id" name="twinfield_customer_id" value="<?php echo esc_attr( $twinfield_customer_id ); ?>" />
+			<select id="twinfield_customer_id" name="twinfield_customer_id" class="regular-text twinfield-customer-select">
+				<option value=""></option>
+				<option value="<?php echo esc_attr( $twinfield_customer_id ); ?>" selected="selected"><?php echo esc_html( $twinfield_customer_id ); ?></option>
+			</select>
 
 			<?php if ( empty( $twinfield_customer_id ) ) : ?>
 

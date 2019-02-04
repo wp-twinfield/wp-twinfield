@@ -9,7 +9,7 @@
 
 <script type="text/javascript">
 	jQuery( document ).ready( function( $ ) {
-		var url = 'http://twinfield.test/wp-json/twinfield/v1/offices';
+		var url = '<?php echo esc_js( rest_url( '/twinfield/v1/offices' ) ); ?>';
 
 		$elements = $( '#twinfield_default_office_code' );
 

@@ -268,8 +268,16 @@ class Plugin {
 		return $this->get_client()->get_finder();
 	}
 
+	public function get_twinfield_customer_id_from_post( $post_id ) {
+		$customer_id = get_post_meta( $post_id, '_twinfield_customer_id', true );
+
+		$customer_id = apply_filters( 'twinfield_post_customer_id', $customer_id, $post_id );
+
+		return $customer_id;
+	}
+
 	public function get_twinfield_customer_from_post( $post_id ) {
-		$twinfield_customer_id = get_post_meta( $post_id, '_twinfield_customer_id', true );
+		$twinfield_customer_id = $this->get_twinfield_customer_id_from_post( $post_id );
 
 		$customer = new Customer();
 		$customer->set_office( get_option( 'twinfield_default_office_code' ) );
@@ -317,5 +325,42 @@ class Plugin {
 		$invoice = apply_filters( 'twinfield_post_sales_invoice', $invoice, $post_id );
 
 		return $invoice;
+	}
+
+	/**
+	 * Insert Twinfield sales invoice from post.
+	 *
+	 * @param int $post_id Post ID.
+	 */
+	public function insert_twinfield_sales_invoice_from_post( $post_id ) {
+		$invoice_number = get_post_meta( $post_id, '_twinfield_invoice_number', true );
+
+		if ( ! empty( $invoice_number ) ) {
+			return;
+		}
+
+		$sales_invoice = $this->get_twinfield_sales_invoice_from_post( $post_id );
+
+		$client = $this->get_client();
+
+		$xml_processor = $client->get_xml_processor();
+
+		$service = new \Pronamic\WP\Twinfield\SalesInvoices\SalesInvoiceService( $xml_processor );
+
+		$response = $service->insert_sales_invoice( $sales_invoice );
+
+		if ( $response ) {
+			if ( $response->is_successful() ) {
+				$sales_invoice = $response->get_sales_invoice();
+
+				update_post_meta( $post_id, '_twinfield_invoice_number', $sales_invoice->get_header()->get_number() );
+
+				delete_post_meta( $post_id, '_twinfield_invoice_response_xml' );
+			} else {
+				update_post_meta( $post_id, '_twinfield_invoice_response_xml', $response->get_message()->asXML() );
+			}
+		}
+
+		return $sales_invoice;
 	}
 }
