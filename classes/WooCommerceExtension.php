@@ -48,9 +48,9 @@ class WooCommerceExtension {
 
 		//  Manage `shop_order` posts columns.
 		add_filter( 'manage_shop_order_posts_columns', array( $this, 'manage_shop_order_posts_columns' ), 100 );
-
-		// Payment complete.
-		add_action( 'woocommerce_payment_complete', array( $this, 'woocommerce_payment_complete' ) );
+		
+		// Order completed.
+		add_action( 'woocommerce_order_status_completed', array( $this, 'woocommerce_order_status_completed' ) );
 	}
 
 	/**
@@ -388,7 +388,7 @@ class WooCommerceExtension {
 			// @link https://github.com/woocommerce/woocommerce/blob/3.5.3/includes/abstracts/abstract-wc-order.php#L1535-L1557
 			$line->set_units_price_excl( $order->get_item_total( $item, false ) );
 			$line->set_vat_code( $this->get_order_item_vat_code( $item ) );
-			$line->set_free_text_1( $item['name'] );
+			$line->set_free_text_1( mb_substr( $item['name'], 0, 36 ) );
 		}
 
 		/*
@@ -403,7 +403,7 @@ class WooCommerceExtension {
 			$line->set_subarticle( $twinfield_default_subarticle_code );
 			$line->set_quantity( 1 );
 			$line->set_units_price_excl( $order->get_item_total( $item, false ) );
-			$line->set_free_text_1( __( 'Fee', 'twinfield' ) );
+			$line->set_free_text_1( mb_substr( __( 'Fee', 'twinfield' ), 0, 36 ) );
 		}
 
 		/*
@@ -419,21 +419,20 @@ class WooCommerceExtension {
 			$line->set_quantity( 1 );
 			$line->set_units_price_excl( $item['cost'] );
 			$line->set_vat_code( $this->get_order_item_vat_code( $item ) );
-			$line->set_free_text_1( $item['name'] );
+			$line->set_free_text_1( mb_substr( $item['name'], 0, 36 ) );
 		}
 
 		return $invoice;
 	}
 
 	/**
-	 * WooCommerce payment complete.
+	 * WooCommerce order status completed.
 	 *
-	 * @link https://docs.woocommerce.com/wc-apidocs/source-class-WC_Order.html#125
-	 * @link https://github.com/woocommerce/woocommerce/blob/3.5.4/includes/class-wc-order.php#L87-L140
+	 * @link https://github.com/woocommerce/woocommerce/blob/3.5.4/includes/class-wc-order.php#L339-L376
 	 *
 	 * @param int $order_id
 	 */
-	public function woocommerce_payment_complete( $order_id ) {
+	public function woocommerce_order_status_completed( $order_id ) {
 		$order = wc_get_order( $order_id );
 
 		if ( false === $order ) {
