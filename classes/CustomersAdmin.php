@@ -31,6 +31,11 @@ class CustomersAdmin {
 
 		add_action( 'manage_posts_custom_column', array( $this, 'manage_posts_custom_column' ), 10, 2 );
 
+		// Users - Columns
+		add_filter( 'manage_users_columns', array( $this, 'manage_users_columns' ) );
+
+		add_filter( 'manage_users_custom_column', array( $this, 'manage_users_custom_column' ), 10, 3 );
+
 		// AJAX
 		add_action( 'wp_ajax_twinfield_search_customers', array( $this, 'ajax_twinfield_search_customers' ) );
 
@@ -157,6 +162,45 @@ class CustomersAdmin {
 				echo esc_html( $customer_id );
 			}
 		}
+	}
+
+	/**
+	 * Manage users columns.
+	 *
+	 * @link https://github.com/WordPress/WordPress/blob/5.1/wp-admin/includes/class-wp-users-list-table.php
+	 * @link https://github.com/WordPress/WordPress/blob/5.1/wp-admin/includes/class-wp-list-table.php#L151
+	 * @link https://codex.wordpress.org/Plugin_API/Filter_Reference/manage_users_columns
+	 * @link https://wordpress.stackexchange.com/questions/160422/add-custom-column-to-users-admin-panel
+	 *
+	 * @param array $columns Columns.
+	 * @return array
+	 */
+	public function manage_users_columns( $columns ) {
+		$columns['twinfield_customer'] = __( 'Twinfield Customer', 'twinfield' );
+
+		return $columns;
+	}
+
+	/**
+	 * Manage users custom column.
+	 *
+	 * @link https://github.com/WordPress/WordPress/blob/5.1/wp-admin/includes/class-wp-users-list-table.php#L534-L543
+	 * @link https://wordpress.stackexchange.com/questions/160422/add-custom-column-to-users-admin-panel
+	 *
+	 * @param string $output      Custom column output. Default empty.
+	 * @param string $column_name Column name.
+	 * @param int    $user_id     ID of the currently-listed user.
+	 */
+	public function manage_users_custom_column( $output, $column_name, $user_id ) {
+		if ( 'twinfield_customer' !== $column_name ) {
+			return $output;
+		}
+
+		$customer_id = get_user_meta( $user_id, 'twinfield_customer_id', true );
+
+		$output = $customer_id;
+
+		return $output;
 	}
 
 	/**
