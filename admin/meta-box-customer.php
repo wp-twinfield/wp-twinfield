@@ -4,10 +4,7 @@
 			<label for="twinfield_customer_id"><?php esc_html_e( 'Customer', 'twinfield' ); ?></label>
 		</th>
 		<td>
-			<select id="twinfield_customer_id" name="twinfield_customer_id" class="regular-text twinfield-customer-select">
-				<option value=""></option>
-				<option value="<?php echo esc_attr( $twinfield_customer_id ); ?>" selected="selected"><?php echo esc_html( $twinfield_customer_id ); ?></option>
-			</select>
+			<input id="twinfield_customer_id" type="text" name="twinfield_customer_id" value="<?php echo esc_attr( $twinfield_customer_id ); ?>" />
 
 			<?php if ( empty( $twinfield_customer_id ) ) : ?>
 

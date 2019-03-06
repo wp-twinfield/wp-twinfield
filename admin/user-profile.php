@@ -18,10 +18,7 @@ $customer_id = get_user_meta( $user->ID, 'twinfield_customer_id', true );
 			<?php esc_html_e( 'Customer', 'twinfield' ); ?>
 		</th>
 		<td>
-			<select name="twinfield_customer_id" id="twinfield_customer_id" class="regular-text twinfield-customer-select">
-				<option value=""></option>
-				<option value="<?php echo esc_attr( $customer_id ); ?>"><?php echo esc_html( $customer_id ); ?></option>
-			</select>
+			<input name="twinfield_customer_id" id="twinfield_customer_id" class="regular-text" value="<?php echo esc_attr( $customer_id ); ?>" />
 		</td>
 	</tr>
 </table>
