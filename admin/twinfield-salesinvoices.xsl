@@ -9,6 +9,10 @@
 	
 	<xsl:template match="salesinvoice">
 		<div class="twinfield-invoice">
+			<xsl:if test="@msg">
+				<em><xsl:value-of select="@msg" /></em>
+			</xsl:if>
+
 			<xsl:apply-templates select="header" />
 
 			<xsl:apply-templates select="lines" />
