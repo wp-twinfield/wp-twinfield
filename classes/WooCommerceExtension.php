@@ -441,11 +441,17 @@ class WooCommerceExtension {
 
 		$sales_invoice = $this->plugin->insert_twinfield_sales_invoice_from_post( $order_id );
 
+		$number = $sales_invoice->get_header()->get_number();
+
+		if ( empty( $number ) ) {
+			return;
+		}
+
 		$order->add_order_note( 
 			sprintf(
 				/* translators: %s: invoice number */
 				__( 'Created Twinfield invoice %s.', 'twinfield' ),
-				$sales_invoice->get_header()->get_number()
+				$number
 			)
 		);
 	}
