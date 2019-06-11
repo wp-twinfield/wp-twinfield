@@ -27,6 +27,13 @@ class Plugin {
 	public $dir_path;
 
 	/**
+	 * Version.
+	 *
+	 * @var string
+	 */
+	private $version = '1.0.0';
+
+	/**
 	 * Constructs and initialize Pronamic WordPress Extensions plugin
 	 *
 	 * @param string $file
@@ -75,7 +82,187 @@ class Plugin {
 	 * Initialize.
 	 */
 	public function init() {
+		// Tables
+		$this->register_table( 'twinfield_offices' );
+		$this->register_table( 'twinfield_users' );
+		$this->register_table( 'twinfield_dimensions' );
+		$this->register_table( 'twinfield_general_journals' );
+		$this->register_table( 'twinfield_transactions' );
+		$this->register_table( 'twinfield_transaction_lines' );
+		$this->register_table( 'twinfield_customers' );
+		$this->register_table( 'twinfield_suppliers' );
 
+		// Install
+		$this->maybe_install();
+	}
+
+	public function maybe_install() {
+		if ( get_option( 'twinfield_vesion' ) !== $this->version ) {
+			$this->install();
+
+			update_option( 'twinfield_vesion', $this->version );
+		}
+	}
+
+	private function register_table( $name ) {
+		global $wpdb;
+
+		$wpdb->$name = $wpdb->prefix . $name;
+	}
+
+	private function install_table( $name, $columns ) {
+		global $wpdb;
+
+		require_once ABSPATH . 'wp-admin/includes/upgrade.php';
+
+		$full_table_name = $wpdb->$name;
+
+		$charset_collate = '';
+
+		if ( $wpdb->has_cap( 'collation' ) ) {
+			if ( ! empty( $wpdb->charset ) ) {
+				$charset_collate .= "DEFAULT CHARACTER SET $wpdb->charset";
+			}
+
+			if ( ! empty( $wpdb->collate ) ) {
+				$charset_collate .= " COLLATE $wpdb->collate";
+			}
+		}
+
+		$table_options = $charset_collate;
+
+		dbDelta( "CREATE TABLE $full_table_name ( $columns ) $table_options" );
+	}
+
+	/**
+	 * Install.
+	 */
+	public function install() {
+		$this->install_table(
+			'twinfield_offices', '
+			id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+			created_at DATETIME DEFAULT NULL,
+			updated_at DATETIME DEFAULT NULL,
+			code VARCHAR(8) NOT NULL,
+			name VARCHAR(64) DEFAULT NULL,
+			post_id BIGINT(20) UNSIGNED DEFAULT NULL,
+			PRIMARY KEY  (id),
+			UNIQUE KEY code (code),
+			UNIQUE KEY post_id (post_id)
+		'
+		);
+
+		$this->install_table(
+			'twinfield_users', '
+			id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+			created_at DATETIME DEFAULT NULL,
+			updated_at DATETIME DEFAULT NULL,
+			office_id BIGINT(20) UNSIGNED DEFAULT NULL,
+			code VARCHAR(16) NOT NULL,
+			name VARCHAR(64) DEFAULT NULL,
+			shortname VARCHAR(64) DEFAULT NULL,
+			PRIMARY KEY  (id),
+			UNIQUE KEY code (office_id, code)
+		'
+		);
+
+		$this->install_table(
+			'twinfield_dimensions', '
+			id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+			created_at DATETIME DEFAULT NULL,
+			updated_at DATETIME DEFAULT NULL,
+			office_id BIGINT(20) UNSIGNED DEFAULT NULL,
+			type_id BIGINT(20) UNSIGNED DEFAULT NULL,
+			code VARCHAR(16) NOT NULL,
+			name VARCHAR(64) DEFAULT NULL,
+			type VARCHAR(16) NOT NULL,
+			PRIMARY KEY  (id),
+			UNIQUE KEY code (office_id, type_id, code)
+		'
+		);
+
+		$this->install_table(
+			'twinfield_general_journals', '
+			id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+			created_at DATETIME DEFAULT NULL,
+			updated_at DATETIME DEFAULT NULL,
+			office_id BIGINT(20) UNSIGNED NOT NULL,
+			code VARCHAR(16) NOT NULL,
+			name VARCHAR(64) DEFAULT NULL,
+			PRIMARY KEY  (id),
+			UNIQUE KEY code (office_id, code)
+		'
+		);
+
+		$this->install_table(
+			'twinfield_transactions', '
+			id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+			created_at DATETIME DEFAULT NULL,
+			updated_at DATETIME DEFAULT NULL,
+			general_journal_id BIGINT(20) UNSIGNED NOT NULL,
+			number VARCHAR(16) NOT NULL COMMENT "Twinfield browse column `fin.trs.head.number` or XML element `browse > tr > key > number`.",
+			user_id BIGINT(20) UNSIGNED DEFAULT NULL,
+			PRIMARY KEY  (id),
+			UNIQUE KEY number (general_journal_id, number)
+		'
+		);
+
+		$this->install_table(
+			'twinfield_transaction_lines', '
+			id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+			created_at DATETIME DEFAULT NULL,
+			updated_at DATETIME DEFAULT NULL,
+			transaction_id BIGINT(20) UNSIGNED NOT NULL,
+			line VARCHAR(16) NOTT NULL,
+			dimension_1_id BIGINT(20) UNSIGNED DEFAULT NULL,
+			dimension_2_id BIGINT(20) UNSIGNED DEFAULT NULL,
+			dimension_3_id BIGINT(20) UNSIGNED DEFAULT NULL,
+			PRIMARY KEY  (id),
+			UNIQUE KEY line (transaction_id, line)
+		'
+		);
+
+		$this->install_table(
+			'twinfield_customers', '
+			id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+			created_at DATETIME DEFAULT NULL,
+			updated_at DATETIME DEFAULT NULL,
+			office_id BIGINT(20) UNSIGNED NOT NULL,
+			code VARCHAR(16) NOT NULL,
+			name VARCHAR(64) DEFAULT NULL,
+			shortname VARCHAR(64) DEFAULT NULL,
+			PRIMARY KEY  (id),
+			UNIQUE KEY code (office_id, code)
+		'
+		);
+
+		$this->install_table(
+			'twinfield_suppliers', '
+			id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+			created_at DATETIME DEFAULT NULL,
+			updated_at DATETIME DEFAULT NULL,
+			office_id BIGINT(20) UNSIGNED NOT NULL,
+			code VARCHAR(16) NOT NULL,
+			name VARCHAR(64) DEFAULT NULL,
+			shortname VARCHAR(64) DEFAULT NULL,
+			PRIMARY KEY  (id),
+			UNIQUE KEY code (office_id, code)
+		'
+		);
+
+		/**
+		 * Convert.
+		 *
+		 * @link https://developer.wordpress.org/reference/functions/maybe_convert_table_to_utf8mb4/
+		 */
+		maybe_convert_table_to_utf8mb4( $wpdb->twinfield_offices );
+		maybe_convert_table_to_utf8mb4( $wpdb->twinfield_users );
+		maybe_convert_table_to_utf8mb4( $wpdb->twinfield_dimensions );
+		maybe_convert_table_to_utf8mb4( $wpdb->twinfield_general_journals );
+		maybe_convert_table_to_utf8mb4( $wpdb->twinfield_transactions );
+		maybe_convert_table_to_utf8mb4( $wpdb->twinfield_transaction_lines );
+		maybe_convert_table_to_utf8mb4( $wpdb->twinfield_customers );
+		maybe_convert_table_to_utf8mb4( $wpdb->twinfield_suppliers );
 	}
 
 	/**
