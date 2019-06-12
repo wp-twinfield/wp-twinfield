@@ -347,7 +347,13 @@ class Plugin {
 
 		$data = $this->openid_connect_provider->get_access_token( $code );
 
-		$this->set_access_token( $data );
+		$state_data = json_decode( base64_decode( $state ) );
+
+		if ( is_object( $state_data ) && isset( $state_data->post_id ) ) {
+			$this->set_access_token( $state_data->post_id, $data );
+		} else {
+			$this->set_access_token( $data );
+		}
 
 		$url = add_query_arg(
 			array(
