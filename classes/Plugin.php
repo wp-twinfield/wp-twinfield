@@ -210,7 +210,7 @@ class Plugin {
 			regime VARCHAR(16) DEFAULT NULL COMMENT "Twinfield transaction XML `transaction > header > regime`.",
 			relation_code VARCHAR(16) DEFAULT NULL COMMENT "Twinfield browse column `fin.trs.head.relation`.",
 			input_date DATETIME DEFAULT NULL COMMENT "Twinfield browse column `fin.trs.head.inpdate`.",
-			user_id BIGINT(20) UNSIGNED DEFAULT NULL,
+			username VARCHAR(16) DEFAULT NULL COMMENT "Twinfield browse column `fin.trs.head.username`.",
 			origin_reference VARCHAR(16) DEFAULT NULL COMMENT "Twinfield transaction XML `transaction > header > originreference`.",
 			modification_date DATETIME DEFAULT NULL COMMENT "Twinfield transaction XML `transaction > header > modificationdate`.",
 			due_date DATE DEFAULT NULL COMMENT "Twinfield transaction XML `transaction > header > duedate`.",
