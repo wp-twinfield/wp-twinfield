@@ -25,6 +25,18 @@ class RestApi {
 
 		register_rest_route(
 			$namespace,
+			'/browse/fields',
+			array(
+				'methods'             => 'GET',
+				'callback'            => array( $this, 'rest_api_browse_fields' ),
+				'permission_callback' => function () {
+					return true;
+				},
+			)
+		);
+
+		register_rest_route(
+			$namespace,
 			'/offices',
 			array(
 				'methods'             => 'GET',
@@ -108,6 +120,13 @@ class RestApi {
 				),
 			)
 		);
+	}
+
+	public function rest_api_browse_fields( WP_REST_Request $request ) {
+		$client = $this->plugin->get_client();
+
+		$xml_processor = $client->get_xml_processor();
+		
 	}
 
 	public function rest_api_offices( WP_REST_Request $request ) {

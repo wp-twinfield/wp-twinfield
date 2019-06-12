@@ -201,9 +201,32 @@ class Plugin {
 			updated_at DATETIME DEFAULT NULL,
 			general_journal_id BIGINT(20) UNSIGNED NOT NULL,
 			number VARCHAR(16) NOT NULL COMMENT "Twinfield browse column `fin.trs.head.number` or XML element `browse > tr > key > number`.",
+			status VARCHAR(20) DEFAULT NULL COMMENT "Twinfield browse column `fin.trs.head.status`.",
+			year SMALLINT(4) UNSIGNED DEFAULT NULL COMMENT "Twinfield browse column `fin.trs.head.year`.",
+			period SMALLINT(2) UNSIGNED DEFAULT NULL COMMENT "Twinfield browse column `fin.trs.head.period`.",
+			year_period MEDIUMINT(6) UNSIGNED DEFAULT NULL COMMENT "Twinfield browse column `fin.trs.head.yearperiod`.",
+			date DATE DEFAULT NULL COMMENT "Twinfield browse column `fin.trs.head.date`.",
+			currency_code VARCHAR(3) DEFAULT NULL COMMENT "Twinfield browse column `fin.trs.head.curcode`.",
+			regime VARCHAR(16) DEFAULT NULL COMMENT "Twinfield transaction XML `transaction > header > regime`.",
+			relation_code VARCHAR(16) DEFAULT NULL COMMENT "Twinfield browse column `fin.trs.head.relation`.",
+			input_date DATETIME DEFAULT NULL COMMENT "Twinfield browse column `fin.trs.head.inpdate`.",
 			user_id BIGINT(20) UNSIGNED DEFAULT NULL,
+			origin_reference VARCHAR(16) DEFAULT NULL COMMENT "Twinfield transaction XML `transaction > header > originreference`.",
+			modification_date DATETIME DEFAULT NULL COMMENT "Twinfield transaction XML `transaction > header > modificationdate`.",
+			due_date DATE DEFAULT NULL COMMENT "Twinfield transaction XML `transaction > header > duedate`.",
+			invoice_number VARCHAR(16) DEFAULT NULL COMMENT "Twinfield transaction XML `transaction > header > invoicenumber`.",
+			free_text_1 VARCHAR(64) DEFAULT NULL COMMENT "Twinfield transaction XML `transaction > header > freetext1`.",
+			free_text_2 VARCHAR(64) DEFAULT NULL COMMENT "Twinfield transaction XML `transaction > header > freetext2`.",
+			free_text_3 VARCHAR(64) DEFAULT NULL COMMENT "Twinfield transaction XML `transaction > header > freetext3`.",
+			deletion_date DATETIME DEFAULT NULL COMMENT "Twinfield deletion date from deleted transactions webservice.",
+			deletion_reason TEXT DEFAULT NULL COMMENT "Twinfield deletion reason from deleted transactions webservice.",
+			deletion_user VARCHAR(200) DEFAULT NULL COMMENT "Twinfield deletion user from deleted transactions webservice.",
+			browse_code_030_2 BOOL DEFAULT NULL COMMENT "Flag to indicate a transaction is retrieved from Twinfield browse code `030_2`.",
+			browse_code_100 BOOL DEFAULT NULL COMMENT "Flag to indicate a transaction is retrieved from Twinfield browse code `100`.",
+			browse_code_200 BOOL DEFAULT NULL COMMENT "Flag to indicate a transaction is retrieved from Twinfield browse code `200`.",
 			PRIMARY KEY  (id),
-			UNIQUE KEY number (general_journal_id, number)
+			UNIQUE KEY number (general_journal_id, number),
+			KEY `date` (`date`)
 		'
 		);
 
@@ -247,6 +270,34 @@ class Plugin {
 			shortname VARCHAR(64) DEFAULT NULL,
 			PRIMARY KEY  (id),
 			UNIQUE KEY code (office_id, code)
+		'
+		);
+
+		$this->install_table(
+			'twinfield_declarations', '
+			id BIGINT(16) UNSIGNED NOT NULL AUTO_INCREMENT,
+			created_at DATETIME DEFAULT NULL,
+			office_id BIGINT(20) UNSIGNED NOT NULL,
+			document_id VARCHAR(8) DEFAULT NULL,
+			document_code VARCHAR(16) DEFAULT NULL,
+			document_name VARCHAR(200) DEFAULT NULL,
+			time_frame_year VARCHAR(4) DEFAULT NULL,
+			time_frame_period VARCHAR(200) DEFAULT NULL,
+			status_description VARCHAR(200) DEFAULT NULL,
+			status_step_index VARCHAR(16) DEFAULT NULL,
+			status_extra_information VARCHAR(200) DEFAULT NULL,
+			assignee_code VARCHAR(200) DEFAULT NULL,
+			assignee_name VARCHAR(200) DEFAULT NULL,
+			company_code VARCHAR(16) DEFAULT NULL,
+			company_name VARCHAR(200) DEFAULT NULL,
+			payment_reference VARCHAR(200) DEFAULT NULL,
+			vat_return_xbrl TEXT DEFAULT NULL,
+			period_start_date DATE DEFAULT NULL,
+			period_end_date DATE DEFAULT NULL,
+			PRIMARY KEY  (id),
+			UNIQUE KEY document_id (office_id, document_id),
+			KEY period_start_date (period_start_date),
+			KEY period_end_date (period_end_date)
 		'
 		);
 
