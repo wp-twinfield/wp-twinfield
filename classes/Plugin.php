@@ -42,29 +42,30 @@ class Plugin {
 		$this->file     = $file;
 		$this->dir_path = plugin_dir_path( $file );
 
-		// Includes
+		// Includes.
 		include_once $this->dir_path . '/includes/functions.php';
 		include_once $this->dir_path . '/includes/template.php';
 
-		// Actions
+		// Actions.
 		add_action( 'init', array( $this, 'init' ) );
 
 		add_action( 'plugins_loaded', array( $this, 'plugins_loaded' ), 10, 9 );
 
-		// Admin
+		// Admin.
 		if ( is_admin() ) {
 			$this->admin = new Admin( $this );
 		}
 
-		// Other
-		$this->rest_api         = new RestApi( $this );
-		$this->invoices_public  = new InvoicesPublic( $this );
-		$this->customers_public = new CustomersPublic( $this );
+		// Other.
+		$this->account_post_type = new AccountPostType( $this );
+		$this->rest_api          = new RestApi( $this );
+		$this->invoices_public   = new InvoicesPublic( $this );
+		$this->customers_public  = new CustomersPublic( $this );
 
-		// Extensions
-		$this->woocommerce_extensions = new WooCommerceExtension( $this );
+		// Extensions.
+		$this->woocommerce_extension = new WooCommerceExtension( $this );
 
-		// OpenID Connect Provider
+		// OpenID Connect Provider.
 		if ( 'openid_connect' === get_option( 'twinfield_authorization_method' ) ) {
 			$client_id     = get_option( 'twinfield_openid_connect_client_id' );
 			$client_secret = get_option( 'twinfield_openid_connect_client_secret' );
@@ -76,6 +77,9 @@ class Plugin {
 				add_action( 'init', array( $this, 'maybe_handle_twinfield_oauth' ) );
 			}
 		}
+
+		// Setup.
+		$this->account_post_type->setup();
 	}
 
 	/**
@@ -314,6 +318,7 @@ class Plugin {
 		maybe_convert_table_to_utf8mb4( $wpdb->twinfield_transaction_lines );
 		maybe_convert_table_to_utf8mb4( $wpdb->twinfield_customers );
 		maybe_convert_table_to_utf8mb4( $wpdb->twinfield_suppliers );
+		maybe_convert_table_to_utf8mb4( $wpdb->twinfield_declarations );
 	}
 
 	/**
