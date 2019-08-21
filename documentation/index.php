@@ -15,7 +15,10 @@
 	<body>
 		<h1>Twinfield Documentation</h1>
 
-		<h2>Organisations</h2>
+		<h2>
+			<a name="organisations"></a>
+			Organisations
+		</h2>
 
 		<?php
 
@@ -24,82 +27,98 @@
 				'label_nl' => 'Code',
 				'label_en' => 'Code',
 				'synchronized' => false,
+				'mysql_column' => 'organisations.code',
 			),
 			'name'           => array(
 				'label_nl' => 'Naam',
 				'label_en' => 'Name',
 				'synchronized' => false,
+				'mysql_column' => 'organisations.name',
 			),
 			'address_line_1' => array(
 				'label_nl' => 'Adresregel 1',
 				'label_en' => 'Address line 1',
 				'synchronized' => false,
+				'mysql_column' => null,
 			),
 			'address_line_2' => array(
 				'label_nl' => 'Adresregel 2',
 				'label_en' => 'Address line 2',
 				'synchronized' => false,
+				'mysql_column' => null,
 			),
 			'address_line_3' => array(
 				'label_nl' => 'Adresregel 3',
 				'label_en' => 'Address line 3',
 				'synchronized' => false,
+				'mysql_column' => null,
 			),
 			'address_line_4' => array(
 				'label_nl' => 'Adresregel 4',
 				'label_en' => 'Address line 4',
 				'synchronized' => false,
+				'mysql_column' => null,
 			),
 			'address_line_5' => array(
 				'label_nl' => 'Adresregel 5',
 				'label_en' => 'Address line 5',
 				'synchronized' => false,
+				'mysql_column' => null,
 			),
 			'address_line_6' => array(
 				'label_nl' => 'Adresregel 6',
 				'label_en' => 'Address line 6',
 				'synchronized' => false,
+				'mysql_column' => null,
 			),
 			'city'           => array(
 				'label_nl' => 'Plaats',
 				'label_en' => 'City',
 				'synchronized' => false,
+				'mysql_column' => null,
 			),
 			'country_code'   => array(
 				'label_nl' => 'Land',
 				'label_en' => 'Country',
 				'synchronized' => false,
+				'mysql_column' => null,
 			),
 			'country_name'   => array(
 				'label_nl' => 'Land',
 				'label_en' => 'Country',
 				'synchronized' => false,
+				'mysql_column' => null,
 			),
 			'postal_code'    => array(
 				'label_nl' => 'Postcode',
 				'label_en' => 'Postcode',
 				'synchronized' => false,
+				'mysql_column' => null,
 			),
 			'phone_number'   => array(
 				'label_nl' => 'Telefoon',
 				'label_en' => 'Telephone',
 				'synchronized' => false,
+				'mysql_column' => null,
 			),
 			'fax_number'     => array(
 				'label_nl' => 'Fax',
 				'label_en' => 'Fax',
 				'synchronized' => false,
+				'mysql_column' => null,
 			),
 			'password_expiration_period' => array(
 				'label_nl' => 'Wachtwoord geldigheidsperiode',
 				'label_en' => 'Password expiration period',
 				'synchronized' => false,
+				'mysql_column' => null,
 			),
 			'logo' => array(
 				'label_nl' => 'Logo',
 				'label_en' => 'Logo',
 				'synchronized' => false,
 				'type'     => 'file',
+				'mysql_column' => null,
 			),	
 		);
 
@@ -111,6 +130,7 @@
 					<th scope="column">English</th>
 					<th scope="column">Dutch</th>
 					<th scope="column">Synchronized</th>
+					<th scope="column">MySQL Column</th>
 				</tr>
 			</thead>
 
@@ -131,6 +151,9 @@
 						<td>
 							<?php echo $field['synchronized'] ? '✓' : '✗'; ?>
 						</td>
+						<td>
+							<?php echo $field['mysql_column']; ?>
+						</td>
 					</tr>
 
 				<?php endforeach; ?>
@@ -139,7 +162,10 @@
 
 		</table>
 
-		<h2>Users</h2>
+		<h2>
+			<a name="users"></a>
+			Users
+		</h2>
 
 		<?php
 
@@ -148,27 +174,32 @@
 				'label_nl'     => 'Code',
 				'label_en'     => 'Code',
 				'synchronized' => true,
+				'mysql_column' => 'users.code',
 			),
 			'name'           => array(
 				'label_nl'     => 'Naam',
 				'label_en'     => 'Name',
 				'synchronized' => true,
+				'mysql_column' => 'users.name',
 			),
 			'short_name' => array(
 				'label_nl'     => 'Verkorte naam',
 				'label_en'     => 'Short name',
 				'synchronized' => true,
+				'mysql_column' => 'users.shortname',
 			),
 			'password' => array(
 				'label_nl'     => 'Wachtwoord',
 				'label_en'     => 'Password',
 				'synchronized' => false,
+				'mysql_column' => null,
 			),
 			'email' => array(
 				'label_nl'     => 'E-mailadres',
 				'label_en'     => 'E-mail address',
 				'type'         => 'email',
 				'synchronized' => false,
+				'mysql_column' => null,
 			),
 			'culture' => array(
 				'label_nl'     => 'Taal',
@@ -186,6 +217,7 @@
 					'cs-CZ',
 					'hu-HU',
 				),
+				'mysql_column' => null,
 			),
 			'role' => array(
 				'label_nl'     => 'Rol',
@@ -211,6 +243,7 @@
 					'SD'        => 'Service Desk',
 					'STAGIAIRE' => 'Stagiaire',
 				),
+				'mysql_column' => null,
 			),
 			'type' => array(
 				'label_nl'     => 'Gebruikerstype',
@@ -221,17 +254,20 @@
 					'accountant'         => 'Accountant',
 					'accountantcustomer' => 'Client of an accountant',
 				),
+				'mysql_column' => null,
 			),
 			'companies' => array(
 				'label_nl'     => 'Administraties',
 				'label_en'     => 'Companies',
 				'synchronized' => false,
 				'type'         => 'select',
+				'mysql_column' => null,
 			),
 			'default_office' => array(
 				'label_nl'     => 'Standaardadministratie',
 				'label_en'     => 'Default company',
 				'synchronized' => false,
+				'mysql_column' => null,
 			),
 		);
 
@@ -243,6 +279,7 @@
 					<th scope="column">English</th>
 					<th scope="column">Dutch</th>
 					<th scope="column">Synchronized</th>
+					<th scope="column">MySQL Column</th>
 				</tr>
 			</thead>
 
@@ -263,6 +300,9 @@
 						<td>
 							<?php echo $field['synchronized'] ? '✓' : '✗'; ?>
 						</td>
+						<td>
+							<?php echo $field['mysql_column']; ?>
+						</td>
 					</tr>
 
 				<?php endforeach; ?>
@@ -271,7 +311,10 @@
 
 		</table>
 
-		<h2>Offices</h2>
+		<h2>
+			<a name="offices"></a><a name="companies"></a>
+			Offices
+		</h2>
 
 		<p>
 			Also known as <code>Companies</code>.
@@ -286,21 +329,25 @@
 				'label_nl'     => 'Code',
 				'label_en'     => 'Code',
 				'synchronized' => true,
+				'mysql_column' => 'offices.code',
 			),
 			'name'           => array(
 				'label_nl'     => 'Naam',
 				'label_en'     => 'Name',
 				'synchronized' => true,
+				'mysql_column' => 'offices.name',
 			),
 			'short_name' => array(
 				'label_nl'     => 'Verkorte naam',
 				'label_en'     => 'Short name',
 				'synchronized' => true,
+				'mysql_column' => 'offices.shortname',
 			),
 			'chamber_of_commerce_mumber' => array(
 				'label_nl'     => '',
 				'label_en'     => 'Chamber of commerce',
 				'synchronized' => false,
+				'mysql_column' => null,
 			),
 		);
 
@@ -312,6 +359,7 @@
 					<th scope="column">English</th>
 					<th scope="column">Dutch</th>
 					<th scope="column">Synchronized</th>
+					<th scope="column">MySQL Column</th>
 				</tr>
 			</thead>
 
@@ -332,6 +380,9 @@
 						<td>
 							<?php echo $field['synchronized'] ? '✓' : '✗'; ?>
 						</td>
+						<td>
+							<?php echo $field['mysql_column']; ?>
+						</td>
 					</tr>
 
 				<?php endforeach; ?>
@@ -340,7 +391,10 @@
 
 		</table>
 
-		<h2>Journals</h2>
+		<h2>
+			<a name="journals"></a><a name="transaction-types"></a>
+			Journals
+		</h2>
 
 		<p>
 			Also known as <code>Transaction Types</code>.
@@ -355,16 +409,19 @@
 				'label_nl'     => 'Code',
 				'label_en'     => 'Code',
 				'synchronized' => true,
+				'mysql_column' => 'journals.code',
 			),
 			'name'           => array(
 				'label_nl'     => 'Naam',
 				'label_en'     => 'Name',
 				'synchronized' => true,
+				'mysql_column' => 'journals.name',
 			),
 			'short_name' => array(
 				'label_nl'     => 'Verkorte naam',
 				'label_en'     => 'Short name',
 				'synchronized' => true,
+				'mysql_column' => 'journals.shortname',
 			),
 		);
 
@@ -376,6 +433,7 @@
 					<th scope="column">English</th>
 					<th scope="column">Dutch</th>
 					<th scope="column">Synchronized</th>
+					<th scope="column">MySQL Column</th>
 				</tr>
 			</thead>
 
@@ -396,6 +454,9 @@
 						<td>
 							<?php echo $field['synchronized'] ? '✓' : '✗'; ?>
 						</td>
+						<td>
+							<?php echo $field['mysql_column']; ?>
+						</td>
 					</tr>
 
 				<?php endforeach; ?>
@@ -404,10 +465,19 @@
 
 		</table>
 
-		<h2>Dimensions</h2>
+		<h2>
+			<a name="dimensions"></a>
+			Dimensions
+		</h2>
 
-		<blockquote>
-			<p>As in most accounting packages, in Twinfield it's possible to register financial transactions on ledgers and subanalyse them to for example, accounts receivable, accounts payable, cost centers, projects or assets. In Twinfield we call these Dimensions. The level of the dimension determines what data you can capture. At level 1, the balance sheet and profit and loss accounts are captured, at level 2 relations (accounts payable and accounts receivable) and cost centres and at level 3 you can register projects and assets.</p>
+		<blockquote class="blockquote">
+			<p class="mb-0">
+				As in most accounting packages, in Twinfield it's possible to register financial transactions on ledgers and subanalyse them to for example, accounts receivable, accounts payable, cost centers, projects or assets. In Twinfield we call these Dimensions. The level of the dimension determines what data you can capture. At level 1, the balance sheet and profit and loss accounts are captured, at level 2 relations (accounts payable and accounts receivable) and cost centres and at level 3 you can register projects and assets.
+			</p>
+
+			<footer class="blockquote-footer">
+				<cite title="Source Title">Twinfield</cite>
+			</footer>
 		</blockquote>
 
 		<p>
@@ -745,7 +815,10 @@ Dimension type of balances accounts is BAS.',
 
 		</table>
 
-		<h2>Transactions</h2>
+		<h2>
+			<a name="transactions"></a>
+			Transactions
+		</h2>
 
 		<h3>Transaction Types</h3>
 
@@ -818,7 +891,7 @@ Dimension type of balances accounts is BAS.',
 			</tbody>
 		</table>
 
-		<h2>Transaction Header Properties</h2>
+		<h3>Transaction Header Properties</h3>
 
 		<?php
 
@@ -1033,7 +1106,12 @@ Dimension type of balances accounts is BAS.',
 
 		</table>
 
-		<h2>Transaction Line Properties</h2>
+		<h2>
+			<a name="transaction-lines"></a>
+			Transaction Lines
+		</h2>
+
+		<h3>Transaction Line Properties</h3>
 
 		<?php
 
