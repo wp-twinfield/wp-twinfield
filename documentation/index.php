@@ -20,6 +20,10 @@
 			Organisations
 		</h2>
 
+		<p>
+			<a href="https://writingexplained.org/organisation-vs-organization-difference">https://writingexplained.org/organisation-vs-organization-difference</a>
+		</p>
+
 		<?php
 
 		$fields = array(
