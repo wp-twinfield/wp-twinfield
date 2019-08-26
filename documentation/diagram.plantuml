@@ -10,7 +10,7 @@ entity "Organisations" as organisation {
   *id : number <<generated>>
   --
   *code : text
-  description : text
+  name : text
 }
 
 entity "Users" as user {
@@ -18,6 +18,8 @@ entity "Users" as user {
   --
   *organisation_id : number <<FK>>
   *code : text
+  name: text
+  shortname: text
 }
 
 entity "Offices" as office {
@@ -25,13 +27,17 @@ entity "Offices" as office {
   --
   *organisation_id : number <<FK>>
   *code : text
+  name : text
+  shortname : text
 }
 
 entity "Journals" as journal {
   *id : number <<generated>>
   --
   *office_id : number <<FK>>
-  *code : text 
+  *code : text
+  name : text
+  shortname : text
 }
 
 entity "Dimensions" as dimension {
