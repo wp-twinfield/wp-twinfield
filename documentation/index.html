@@ -48,6 +48,12 @@ FROM
 	wp_lookup_offices AS office
 			ON journal.office_id = office.id
 		LEFT JOIN
+	wp_lookup_periods AS period
+			ON transaction.period_id = period.id
+		LEFT JOIN
+	wp_lookup_users AS user
+			ON transaction.user_id = user.id
+		LEFT JOIN
 	wp_lookup_vat_codes AS vat_code
 			ON transaction_line.vat_code_id = vat_code.id
 		LEFT JOIN
@@ -59,9 +65,6 @@ FROM
 		LEFT JOIN
 	wp_lookup_dimensions AS dimension_3
 			ON transaction_line.dimension_3_id = dimension_3.id
-		LEFT JOIN
-	wp_lookup_users AS user
-			ON transaction.user_id = user.id
 LIMIT
 	0, 10
 ;
@@ -3416,6 +3419,15 @@ LIMIT
 			</tbody>
 
 		</table>
+
+		<h2>
+			<a name="periods"></a>
+			Periods
+		</h2>
+
+		<p>
+			<a href="https://accounting.twinfield.com/webservices/documentation/#/ApiReference/Miscellaneous/Period">https://accounting.twinfield.com/webservices/documentation/#/ApiReference/Miscellaneous/Period</a>
+		</p>
 
 		<!-- Optional JavaScript -->
 		<!-- jQuery first, then Popper.js, then Bootstrap JS -->

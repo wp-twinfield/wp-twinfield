@@ -55,6 +55,7 @@ entity "Transactions" as transaction {
   --
   *journal_id : number <<FK>>
   *user_id : number <<FK>>
+  *period_id : number <<FK>>
   *number : number
 }
 
@@ -79,6 +80,14 @@ entity "VAT Codes" as vat_code {
   type: text
 }
 
+entity "Periods" as period {
+  *id : number <<generated>>
+  --
+  *year : number
+  *period : number
+  *year_period : number
+}
+
 organisation ||--o{ user
 organisation ||--o{ office
 office ||--o{ journal
@@ -87,6 +96,7 @@ office ||--o{ vat_code
 journal ||--o{ transaction
 transaction ||--o{ transaction_line
 transaction --o| user
+transaction --o| period
 transaction_line --o| dimension : "1"
 transaction_line --o| dimension : "2"
 transaction_line --o| dimension : "3"
