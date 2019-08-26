@@ -86,7 +86,7 @@ office ||--o{ dimension
 office ||--o{ vat_code
 journal ||--o{ transaction
 transaction ||--o{ transaction_line
-transaction_line --o| user
+transaction --o| user
 transaction_line --o| dimension : "1"
 transaction_line --o| dimension : "2"
 transaction_line --o| dimension : "3"
