@@ -29,6 +29,10 @@
 			Query Examples
 		</h2>
 
+		<h3>
+			<a name="query-transaction-lines"></a>
+			Query Transaction Lines
+		</h3>
 <pre>
 SELECT
 	*
