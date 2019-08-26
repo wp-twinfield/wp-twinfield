@@ -21,7 +21,7 @@
 		</h2>
 
 		<p>
-			<img src="diagram.png" alt="" />
+			<img src="diagram.png" class="img-fluid" alt="" />
 		</p>
 
 		<h2>
