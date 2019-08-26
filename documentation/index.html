@@ -21,7 +21,7 @@
 		</h2>
 
 		<p>
-			<img src="diagram.svg" alt="" />
+			<img src="diagram.png" alt="" />
 		</p>
 
 		<h2>

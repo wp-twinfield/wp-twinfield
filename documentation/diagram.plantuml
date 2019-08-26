@@ -6,6 +6,8 @@ hide circle
 ' avoid problems with angled crows feet
 skinparam linetype ortho
 
+skinparam dpi 300
+
 entity "Organisations" as organisation {
   *id : number <<generated>>
   --
