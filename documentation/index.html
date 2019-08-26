@@ -25,6 +25,45 @@
 		</p>
 
 		<h2>
+			<a name="query-examples"></a>
+			Query Examples
+		</h2>
+
+<pre>
+SELECT
+	*
+FROM
+	wp_lookup_transaction_lines AS transaction_line
+		LEFT JOIN
+	wp_lookup_transactions AS transaction
+			ON transaction_line.transaction_id = transaction.id
+		LEFT JOIN
+	wp_lookup_journals AS journal
+			ON transaction.journal_id = journal.id
+		LEFT JOIN
+	wp_lookup_offices AS office
+			ON journal.office_id = office.id
+		LEFT JOIN
+	wp_lookup_vat_codes AS vat_code
+			ON transaction_line.vat_code_id = vat_code.id
+		LEFT JOIN
+	wp_lookup_dimensions AS dimension_1
+			ON transaction_line.dimension_1_id = dimension_1.id
+		LEFT JOIN
+	wp_lookup_dimensions AS dimension_2
+			ON transaction_line.dimension_2_id = dimension_2.id
+		LEFT JOIN
+	wp_lookup_dimensions AS dimension_3
+			ON transaction_line.dimension_3_id = dimension_3.id
+		LEFT JOIN
+	wp_lookup_users AS user
+			ON transaction.user_id = user.id
+LIMIT
+	0, 10
+;
+</pre>
+
+		<h2>
 			<a name="organisations"></a>
 			Organisations
 		</h2>
