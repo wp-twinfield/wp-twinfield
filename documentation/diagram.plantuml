@@ -52,6 +52,7 @@ entity "Transactions" as transaction {
   *id : number <<generated>>
   --
   *journal_id : number <<FK>>
+  *user_id : number <<FK>>
   *number : number
 }
 
@@ -63,6 +64,7 @@ entity "Transaction Lines" as transaction_line {
   dimension_1_id : number <<FK>>
   dimension_2_id : number <<FK>>
   dimension_3_id : number <<FK>>
+  vat_code_id : number <<FK>>
 }
 
 entity "VAT Codes" as vat_code {
@@ -82,8 +84,10 @@ office ||--o{ dimension
 office ||--o{ vat_code
 journal ||--o{ transaction
 transaction ||--o{ transaction_line
+transaction_line --o| user
 transaction_line --o| dimension : "1"
 transaction_line --o| dimension : "2"
 transaction_line --o| dimension : "3"
+transaction_line --o| vat_code
 
 @enduml
