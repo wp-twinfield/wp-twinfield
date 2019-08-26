@@ -39,10 +39,31 @@ class InvoicesPublic {
 		$slug = get_option( 'twinfield_invoice_slug', _x( 'invoice', 'Invoice slug for front end', 'twinfield' ) );
 
 		add_rewrite_rule(
+			$prefix . '/' . $slug . '/([^/]+)/html-pdf/?',
+			array(
+				'twinfield'                  => true,
+				'twinfield_sales_invoice_id' => '$matches[1]',
+				'twinfield_view'             => 'html-pdf',
+			),
+			'top'
+		);
+
+		add_rewrite_rule(
+			$prefix . '/' . $slug . '/([^/]+)/pdf/?',
+			array(
+				'twinfield'                  => true,
+				'twinfield_sales_invoice_id' => '$matches[1]',
+				'twinfield_view'             => 'pdf',
+			),
+			'top'
+		);
+
+		add_rewrite_rule(
 			$prefix . '/' . $slug . '/([^/]+)/?',
 			array(
 				'twinfield'                  => true,
 				'twinfield_sales_invoice_id' => '$matches[1]',
+				'twinfield_view'             => 'html',
 			),
 			'top'
 		);
@@ -53,6 +74,7 @@ class InvoicesPublic {
 				'twinfield'                    => true,
 				'twinfield_sales_invoice_type' => '$matches[1]',
 				'twinfield_sales_invoice_id'   => '$matches[2]',
+				'twinfield_view'             => 'html',
 			),
 			'top'
 		);
@@ -66,6 +88,7 @@ class InvoicesPublic {
 	public function query_vars( $query_vars ) {
 		$query_vars[] = 'twinfield_sales_invoice_id';
 		$query_vars[] = 'twinfield_sales_invoice_type';
+		$query_vars[] = 'twinfield_view';
 
 		return $query_vars;
 	}
@@ -89,6 +112,7 @@ class InvoicesPublic {
 	public function template_redirect() {
 		$id   = get_query_var( 'twinfield_sales_invoice_id', null );
 		$type = get_query_var( 'twinfield_sales_invoice_type', get_option( 'wp_twinfield_default_invoice_type', 'FACTUUR' ) );
+		$view = get_query_var( 'twinfield_view', null );
 
 		if ( is_null( $id ) ) {
 			return;
@@ -118,7 +142,29 @@ class InvoicesPublic {
 
 				$twinfield_sales_invoice = $twinfield_response->get_sales_invoice();
 
-				include plugin_dir_path( $this->plugin->file ) . 'templates/sales-invoice.php';
+				switch ( $view ) {
+					case 'pdf':
+						ob_start();
+
+						include plugin_dir_path( $this->plugin->file ) . 'templates/sales-invoice-pdf-html.php';
+						
+						$html = ob_get_clean();
+
+						$mpdf = new \Mpdf\Mpdf();
+						$mpdf->WriteHTML( $html );
+						$mpdf->Output();
+
+						exit;
+					case 'html-pdf':
+						include plugin_dir_path( $this->plugin->file ) . 'templates/sales-invoice-pdf-html.php';
+
+						break;
+					case 'html':
+					default:
+						include plugin_dir_path( $this->plugin->file ) . 'templates/sales-invoice.php';
+
+						break;
+				}
 			} else {
 				include get_404_template();
 			}

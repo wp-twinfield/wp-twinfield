@@ -1,0 +1,80 @@
+@startuml
+
+' hide the spot
+hide circle
+
+' avoid problems with angled crows feet
+skinparam linetype ortho
+
+entity "Organisations" as organisation {
+  *id : number <<generated>>
+  --
+  *code : text
+  description : text
+}
+
+entity "Users" as user {
+  *id : number <<generated>>
+  --
+  *organisation_id : number <<FK>>
+  *code : text
+}
+
+entity "Offices" as office {
+  *id : number <<generated>>
+  --
+  *organisation_id : number <<FK>>
+  *code : text
+}
+
+entity "Journals" as journal {
+  *id : number <<generated>>
+  --
+  *office_id : number <<FK>>
+  *code : text 
+}
+
+entity "Dimensions" as dimension {
+  *id : number <<generated>>
+  --
+  *office_id : number <<FK>>
+  *type : text
+  *code : text
+}
+
+entity "Transactions" as transaction {
+  *id : number <<generated>>
+  --
+  *journal_id : number <<FK>>
+  *number : number
+}
+
+entity "Transaction Lines" as transaction_line {
+  *id : number <<generated>>
+  --
+  *transaction_id : number <<FK>>
+  *line : number
+  dimension_1_id : number <<FK>>
+  dimension_2_id : number <<FK>>
+  dimension_3_id : number <<FK>>
+}
+
+entity "VAT Codes" as vat_code {
+  *id : number <<generated>>
+  --
+  *office_id : number <<FK>>
+  *code : text
+}
+
+organisation ||--o{ user
+organisation ||--o{ office
+office ||--o{ journal
+office ||--o{ dimension
+office ||--o{ vat_code
+journal ||--o{ transaction
+transaction ||--o{ transaction_line
+transaction_line --o| dimension : "1"
+transaction_line --o| dimension : "2"
+transaction_line --o| dimension : "3"
+
+@enduml

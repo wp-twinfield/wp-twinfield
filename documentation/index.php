@@ -16,6 +16,15 @@
 		<h1>Twinfield Documentation</h1>
 
 		<h2>
+			<a name="ie-diagram"></a>
+			Entity Relationship Diagram
+		</h2>
+
+		<p>
+			<img src="diagram.png" alt="" />
+		</p>
+
+		<h2>
 			<a name="organisations"></a>
 			Organisations
 		</h2>
