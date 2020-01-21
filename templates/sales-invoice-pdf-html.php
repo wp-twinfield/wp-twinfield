@@ -1,8 +1,43 @@
 <?php
 
+/**
+ * mPDF template.
+ *
+ * @link https://mpdf.github.io/css-stylesheets/supported-css.html
+ */
+
+global $twinfield_sales_invoice;
+global $twinfield_customer;
+
 $header = $twinfield_sales_invoice->get_header();
 
 $lines = $twinfield_sales_invoice->get_lines();
+
+$address = $twinfield_customer->get_address_by_number( $header->get_invoice_address_number() );
+
+$rows = array();
+
+if ( null !== $address ) {
+	$rows[] = $address->get_name();
+	$rows[] = $address->get_field_1();
+	$rows[] = $address->get_field_2();
+	$rows[] = $address->get_field_3();
+	$rows[] = sprintf(
+		'%s %s',
+		$address->get_postcode(),
+		$address->get_city()
+	);
+
+	$country = $address->get_country();
+
+	if ( null !== $country ) {
+		$rows[] = $country->get_name();
+	}
+}
+
+$rows = array_map( 'trim', $rows );
+
+$rows = array_filter( $rows );
 
 ?>
 <htmlpagefooter name="PronamicFooter">
@@ -47,18 +82,13 @@ $lines = $twinfield_sales_invoice->get_lines();
 	}
 </style>
 
-<div style="float: left; width: 50%;">
+<div style="float: left; width: 50%; padding-top: 3em;">
 	<h1 class="pronamic-title">Factuur</h1>
 
 	<br />
 
 	<div>
-		{addressinv_name}<br />
-		{addressinv_addr1}<br />
-		{addressinv_addr2}<br />
-		{addressinv_addr3}<br />
-		{addressinv_postcode} {addressinv_city}<br />
-		{addressinv_country}
+		<?php echo implode( '<br />', $rows ); ?>
 	</div>
 </div>
 
@@ -73,7 +103,7 @@ $lines = $twinfield_sales_invoice->get_lines();
 
 	<br />
 
-	<div style="margin-right: 20pt; float: right;">
+	<div style="margin-top: 10px; margin-right: 20pt; float: right;">
 		Burgemeester Wuiteweg 39b - 9203 KA Drachten<br />
 		T. 085 40 11 580 - F. 085 40 11 589<br />
 		<a href="mailto:info@pronamic.nl" style="color: #F9461C; text-decoration: none;">info@pronamic.nl</a> - <a href="https://www.pronamic.nl/" style="color: #F9461C; text-decoration: none;">www.pronamic.nl</a><br />
@@ -134,7 +164,16 @@ $lines = $twinfield_sales_invoice->get_lines();
 <br />
 
 <div>
-	<?php echo esc_html( $header->get_header_text() ); ?>
+	<?php
+
+	echo wp_kses(
+		nl2br( $header->get_header_text() ),
+		array(
+			'br' => array(),
+		)
+	);
+
+	?>
 </div>
 
 <br />
@@ -160,23 +199,43 @@ $lines = $twinfield_sales_invoice->get_lines();
 				<strong>Totaal (excl. btw)</strong>
 			</th>
 			<td align="right" valign="top">
-				<?php echo esc_html( twinfield_price( $twinfield_sales_invoice->get_value_excl() ) ); ?>
+				<?php echo esc_html( twinfield_price( $twinfield_sales_invoice->get_totals()->get_value_excl() ) ); ?>
 			</td>
 		</tr>
-		<tr>
-			<th align="right" valign="top" colspan="2" scope="row">
-				Btw
-			</th>
-			<td align="right" valign="top">
-				<?php echo esc_html( twinfield_price( $twinfield_sales_invoice->get_vat_value() ) ); ?>
-			</td>
-		</tr>
+
+		<?php foreach ( $twinfield_sales_invoice->get_vat_lines() as $vat_line ) : ?>
+
+			<tr>
+				<th align="right" valign="top" colspan="2" scope="row">
+					<?php
+
+					$label = 'Btw';
+
+					$vat_code = $vat_line->get_vat_code();
+
+					if ( null !== $vat_code ) {
+						$label = $vat_code->get_name();
+						$label = str_replace( 'BTW', 'btw', $label );
+						$label = ucfirst( $label );
+					}
+
+					echo esc_html( $label );
+
+					?>
+				</th>
+				<td align="right" valign="top">
+					<?php echo esc_html( twinfield_price( $vat_line->get_vat_value() ) ); ?>
+				</td>
+			</tr>
+
+		<?php endforeach; ?>
+
 		<tr>
 			<th align="right" valign="top" colspan="2" scope="row">
 				<strong>Totaal (incl. btw)</strong>
 			</th>
 			<td align="right" valign="top">
-				<?php echo esc_html( twinfield_price( $twinfield_sales_invoice->get_value_inc() ) ); ?>
+				<?php echo esc_html( twinfield_price( $twinfield_sales_invoice->get_totals()->get_value_inc() ) ); ?>
 			</td>
 		</tr>
 	</tfoot>
@@ -215,7 +274,16 @@ $lines = $twinfield_sales_invoice->get_lines();
 <br />
 
 <div>
-	<?php echo esc_html( $header->get_footer_text() ); ?>
+	<?php
+
+	echo wp_kses(
+		nl2br( $header->get_footer_text() ),
+		array(
+			'br' => array(),
+		)
+	);
+
+	?>
 </div>
 
 <br />
@@ -226,7 +294,7 @@ $lines = $twinfield_sales_invoice->get_lines();
 			<strong>Bedrag:</strong>
 		</th>
 		<td>
-			<span style="font-family: Courier New;"><?php echo esc_html( twinfield_price( $twinfield_sales_invoice->get_value_inc() ) ); ?></span>
+			<span style="font-family: Courier New;"><?php echo esc_html( twinfield_price( $twinfield_sales_invoice->get_totals()->get_value_inc() ) ); ?></span>
 		</td>
 	</tr>
 	<tr>

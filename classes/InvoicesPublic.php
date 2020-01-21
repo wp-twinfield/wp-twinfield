@@ -2,6 +2,7 @@
 
 namespace Pronamic\WP\Twinfield\Plugin;
 
+use Pronamic\WP\Twinfield\Customers\CustomerService;
 use Pronamic\WP\Twinfield\SalesInvoices\SalesInvoiceService;
 
 class InvoicesPublic {
@@ -54,6 +55,16 @@ class InvoicesPublic {
 				'twinfield'                  => true,
 				'twinfield_sales_invoice_id' => '$matches[1]',
 				'twinfield_view'             => 'pdf',
+			),
+			'top'
+		);
+
+		add_rewrite_rule(
+			$prefix . '/' . $slug . '/([^/]+)/xml/?',
+			array(
+				'twinfield'                  => true,
+				'twinfield_sales_invoice_id' => '$matches[1]',
+				'twinfield_view'             => 'xml',
 			),
 			'top'
 		);
@@ -132,44 +143,90 @@ class InvoicesPublic {
 
 		$service = new SalesInvoiceService( $xml_processor );
 
+		$customer_service = new CustomerService( $xml_processor );
+
 		$office = get_option( 'twinfield_default_office_code' );
 
-		$twinfield_response = $service->get_sales_invoice( $office, $type, $id );
+		// Invoice.
+		$twinfield_sales_invoice_response = $service->get_sales_invoice( $office, $type, $id );
 
-		if ( $twinfield_response ) {
-			if ( $twinfield_response->is_successful() ) {
-				global $twinfield_sales_invoice;
-
-				$twinfield_sales_invoice = $twinfield_response->get_sales_invoice();
-
-				switch ( $view ) {
-					case 'pdf':
-						ob_start();
-
-						include plugin_dir_path( $this->plugin->file ) . 'templates/sales-invoice-pdf-html.php';
-						
-						$html = ob_get_clean();
-
-						$mpdf = new \Mpdf\Mpdf();
-						$mpdf->WriteHTML( $html );
-						$mpdf->Output();
-
-						exit;
-					case 'html-pdf':
-						include plugin_dir_path( $this->plugin->file ) . 'templates/sales-invoice-pdf-html.php';
-
-						break;
-					case 'html':
-					default:
-						include plugin_dir_path( $this->plugin->file ) . 'templates/sales-invoice.php';
-
-						break;
-				}
-			} else {
-				include get_404_template();
-			}
-		} else {
+		if ( ! $twinfield_sales_invoice_response ) {
 			include get_404_template();
+
+			exit;
+		}
+
+		if ( ! $twinfield_sales_invoice_response->is_successful() ) {
+			include get_404_template();
+
+			exit;
+		}
+
+		global $twinfield_sales_invoice;
+
+		$twinfield_sales_invoice = $twinfield_sales_invoice_response->get_sales_invoice();
+
+		// Customer
+		$twinfield_response = $customer_service->get_customer( $office, $twinfield_sales_invoice->get_header()->get_customer() );
+
+		if ( ! $twinfield_response ) {
+			include get_404_template();
+
+			exit;
+		}
+
+		if ( ! $twinfield_response->is_successful() ) {
+			include get_404_template();
+
+			exit;
+		}
+		
+		global $twinfield_customer;
+
+		$twinfield_customer = $twinfield_response->get_customer();
+
+		switch ( $view ) {
+			case 'pdf':
+				ob_start();
+
+				include plugin_dir_path( $this->plugin->file ) . 'templates/sales-invoice-pdf-html.php';
+				
+				$html = ob_get_clean();
+
+				$mpdf = new \Mpdf\Mpdf();
+				$mpdf->WriteHTML( $html );
+				$mpdf->Output(
+					sprintf(
+						'Pronamic factuur %s.pdf',
+						$twinfield_sales_invoice->get_header()->get_number()
+					),
+					\Mpdf\Output\Destination::INLINE
+				);
+
+				exit;
+			case 'html-pdf':
+				include plugin_dir_path( $this->plugin->file ) . 'templates/sales-invoice-pdf-html.php';
+
+				break;
+			case 'xml':
+				/**
+				 * Difference between text/xml and application/xml.
+				 *
+				 * @link https://stackoverflow.com/questions/3272534/what-content-type-value-should-i-send-for-my-xml-sitemap
+				 * @link http://www.grauw.nl/blog/entry/489/
+				 */
+				header( 'Content-Type: application/xml' );
+
+				$xml = $twinfield_sales_invoice_response->get_message();
+
+				echo (string) $xml->asXML();
+
+				exit;
+			case 'html':
+			default:
+				include plugin_dir_path( $this->plugin->file ) . 'templates/sales-invoice.php';
+
+				break;
 		}
 
 		exit;
