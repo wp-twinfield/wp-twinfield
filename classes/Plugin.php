@@ -51,6 +51,10 @@ class Plugin {
 
 		add_action( 'plugins_loaded', array( $this, 'plugins_loaded' ), 10, 9 );
 
+		\add_filter( 'query_vars', array( $this, 'query_vars' ) );
+
+		\add_filter( 'template_include', array( $this, 'template_include' ) );
+
 		// Admin.
 		if ( is_admin() ) {
 			$this->admin = new Admin( $this );
@@ -86,7 +90,48 @@ class Plugin {
 	 * Initialize.
 	 */
 	public function init() {
+		// twinfield/organisations/zecuur/users/lookup/offices/1247/journals/ASNB/
+		$match_dir = '([^/]+)';
+
+		\add_rewrite_rule(
+			'twinfield/organisations/' . $match_dir . '/users/' . $match_dir . '/offices/' . $match_dir . '/journals/' . $match_dir . '/?$',
+			array(
+				'twinfield'                   => true,
+				'twinfield_template'          => 'journal',
+				'twinfield_organisation_code' => '$matches[1]',
+				'twinfield_user_code'         => '$matches[2]',
+				'twinfield_office_code'       => '$matches[3]',
+				'twinfield_journal_code'      => '$matches[4]',
+			),
+			'top'
+		);
+
+		\add_rewrite_rule(
+			'twinfield/organisations/' . $match_dir . '/users/' . $match_dir . '/offices/' . $match_dir . '/journals/?$',
+			array(
+				'twinfield'                   => true,
+				'twinfield_template'          => 'journals',
+				'twinfield_organisation_code' => '$matches[1]',
+				'twinfield_user_code'         => '$matches[2]',
+				'twinfield_office_code'       => '$matches[3]',
+			),
+			'top'
+		);
+
+		\add_rewrite_rule(
+			'twinfield/organisations/' . $match_dir . '/users/' . $match_dir . '/offices/' . $match_dir . '/?$',
+			array(
+				'twinfield'                   => true,
+				'twinfield_template'          => 'office',
+				'twinfield_organisation_code' => '$matches[1]',
+				'twinfield_user_code'         => '$matches[2]',
+				'twinfield_office_code'       => '$matches[3]',
+			),
+			'top'
+		);
+
 		// Tables
+		/*
 		$this->register_table( 'twinfield_offices' );
 		$this->register_table( 'twinfield_users' );
 		$this->register_table( 'twinfield_dimensions' );
@@ -98,6 +143,188 @@ class Plugin {
 
 		// Install
 		$this->maybe_install();
+		*/
+	}
+
+	/**
+	 * Query vars.
+	 *
+	 * @param array $query_vars Query vars.
+	 * @return array
+	 */
+	public function query_vars( $query_vars ) {
+		$query_vars[] = 'twinfield';
+		$query_vars[] = 'twinfield_template';
+		$query_vars[] = 'twinfield_organisation_code';
+		$query_vars[] = 'twinfield_user_code';
+		$query_vars[] = 'twinfield_office_code';
+		$query_vars[] = 'twinfield_journal_code';
+
+		return $query_vars;
+	}
+
+	/**
+	 * Template include.
+	 */
+	public function template_include( $template ) {
+		global $wpdb;
+
+		if ( ! \function_exists( 'lookup_plugin' ) ) {
+			return $template;
+		}
+
+		$value = \get_query_var( 'twinfield', null );
+
+		if ( null === $value ) {
+			return $template;
+		}
+
+		$twinfield_template = \get_query_var( 'twinfield_template', null );
+
+		if ( null === $twinfield_template ) {
+			return $template;
+		}
+
+		$organisation_code = \get_query_var( 'twinfield_organisation_code', null );
+		$user_code         = \get_query_var( 'twinfield_user_code', null );
+		$office_code       = \get_query_var( 'twinfield_office_code', null );
+
+		if ( null === $organisation_code || null === $user_code || null === $office_code ) {
+			return $template;
+		}
+
+		$organisation = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM wp_twinfield_organisations WHERE code = %s LIMIT 1;", $organisation_code ) );
+
+		if ( null === $organisation ) {
+			return \get_404_template();
+		}
+
+		$user = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM wp_lookup_users WHERE organisation_id = %d AND code = %s LIMIT 1;", $organisation->id, $user_code ) );
+
+		if ( null === $user ) {
+			return \get_404_template();
+		}
+
+		$authentication = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM wp_twinfield_authentications WHERE organisation_id = %d AND user_id = %d LIMIT 1;", $organisation->id, $user->id ) );
+
+		if ( null === $authentication ) {
+			return \get_404_template();
+		}
+
+		if ( 'office' === $twinfield_template ) {
+			$template = $this->template_include_office( $template, $organisation, $office_code );
+		}
+
+		if ( 'journals' === $twinfield_template ) {
+			$template = $this->template_include_journals( $template, $organisation, $office_code );
+		}
+
+		if ( 'journal' === $twinfield_template ) {
+			$template = $this->template_include_journal( $template, $organisation, $office_code );
+		}
+
+		return $template;
+	}
+
+	public function template_include_office( $template, $organisation, $office_code ) {
+		global $wpdb;
+		global $twinfield_office_template;
+
+		$client = \lookup_plugin()->twinfield_authentication_helper->get_twinfield_client_by_twinfield_organisation( $organisation, $office_code );
+
+		$xml_processor = $client->get_xml_processor();
+
+		$xml = '';
+
+		$xml .= '<read>';
+		$xml .= '<type>office</type>';
+		$xml .= '<code>' . $office_code . '</code>';
+		$xml .= '</read>';
+
+		$xml_string = new \Pronamic\WP\Twinfield\ProcessXmlString( $xml );
+
+		$response = $xml_processor->process_xml_string( $xml_string );
+
+		$twinfield_office_template = (object) array(
+			'organisation' => $organisation,
+			'office_code'  => $office_code,
+			'response'     => $response,
+			'xml'          => \strval( $response ),
+		);
+
+		$template = __DIR__ . '/../templates/office.php';
+
+		return $template;
+	}
+
+	public function template_include_journals( $template, $organisation, $office_code ) {
+		global $wpdb;
+		global $twinfield_journals_template;
+
+		$client = \lookup_plugin()->twinfield_authentication_helper->get_twinfield_client_by_twinfield_organisation( $organisation, $office_code );
+
+		$finder = $client->get_finder();
+
+		// Request.
+		$search = new \Pronamic\WP\Twinfield\Search(
+			'TRS',
+			'*',
+			0,
+			1,
+			100,
+			array(
+				'hidden' => '1',
+			)
+		);
+
+		$response = $finder->search( $search );
+
+		$twinfield_journals_template = (object) array(
+			'organisation' => $organisation,
+			'office_code'  => $office_code,
+			'response'     => $response,
+		);
+
+		$template = __DIR__ . '/../templates/journals.php';
+
+		return $template;
+	}
+
+	public function template_include_journal( $template, $organisation, $office_code ) {
+		global $wpdb;
+		global $twinfield_journal_template;
+
+		$journal_code = \get_query_var( 'twinfield_journal_code', null );
+
+		$twinfield_journal_template = (object) array(
+			'organisation'   => $organisation,
+			'user'           => $user,
+			'authentication' => $authentication,
+		);
+
+		$client = \lookup_plugin()->twinfield_authentication_helper->get_twinfield_client_by_twinfield_organisation( $organisation, $office_code );
+
+		$finder = $client->get_finder();
+
+		// Request.
+		$search = new \Pronamic\WP\Twinfield\Search(
+			'TRS',
+			'*',
+			0,
+			1,
+			100,
+			array(
+				'hidden' => '1',
+			)
+		);
+
+		$response = $finder->search( $search );
+
+		var_dump( $response );
+
+		$template = __DIR__ . '/../templates/journal.php';
+
+		return $template;
 	}
 
 	public function maybe_install() {
